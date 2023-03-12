@@ -1,9 +1,9 @@
 {
+  "version": 2,
   "routes": [
     {
-      "src": "/(.+)",
-      "dest": "/dist/client/$1",
-      "status": 200
+      "src": "/(.*)",
+      "dest": "/client/$1"
     }
   ]
 }
