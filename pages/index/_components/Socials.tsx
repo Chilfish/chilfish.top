@@ -57,7 +57,7 @@ export default () => {
     },
     {
       text: '',
-      link: 'https://weibo.com/u/6870619215',
+      link: 'https://weibo.com/chilfish',
       icon: 'i-fa-brands-weibo',
       class: 'hover:bg-[#FF8200]',
     },
