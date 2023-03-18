@@ -17,9 +17,7 @@ const SocialItem = (props: SocialProps) => {
       href={data.link}
       target="_blank"
     >
-      <div text-xl>
-        <div class={data.icon} />
-      </div>
+      <div text-xl class={data.icon} />
       <Show when={data.text}>
         <div text-sm ml-1>
           {data.text}
@@ -57,6 +55,18 @@ export default () => {
     },
     {
       text: '',
+      link: 'https://t.me/Chilfish',
+      icon: 'i-ri-telegram-fill',
+      class: 'hover:bg-[#0088CC]',
+    },
+    {
+      text: '',
+      link: 'https://discord.com/users/1039168181215961199',
+      icon: 'i-ic-baseline-discord',
+      class: 'hover:bg-[#5865F2]',
+    },
+    {
+      text: '',
       link: 'https://weibo.com/chilfish',
       icon: 'i-fa-brands-weibo',
       class: 'hover:bg-[#FF8200]',
@@ -70,13 +80,19 @@ export default () => {
     {
       text: '',
       link: 'https://www.zhihu.com/people/Walmart_Zelo',
-      icon: 'i-ri-zhihu-fill',
+      icon: 'i-ri-zhihu-line',
       class: 'hover:bg-[#558EFF]',
+    },
+    {
+      text: '',
+      link: 'https://music.163.com/user/home?id=1533509979',
+      icon: 'i-ri-netease-cloud-music-line',
+      class: 'hover:bg-[#DD001B]',
     },
   ];
 
   return (
-    <div mt-4>
+    <div my-4>
       <Index each={socialLists}>{(item) => <SocialItem data={item()} />}</Index>
     </div>
   );
