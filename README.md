@@ -1,13 +1,63 @@
-[Chilfish.top](https://Chilfish.top)
+# Nuxt 3 Minimal Starter
 
-> Fork from [ddiu.io](https://github.com/ddiu8081/ddiu.io)
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Credits
+## Setup
 
-Fonts are [Hubot Sans](https://github.com/github/hubot-sans) and [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) which under [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+Make sure to install the dependencies:
 
-Icons are from [Remix Icon](https://github.com/Remix-Design/RemixIcon) and [Fluent Emoji](https://github.com/microsoft/fluentui-emoji).
+```bash
+# npm
+npm install
 
-Source Codes are under [MIT license](https://github.com/Chilfish/chilfish.top/blob/main/LICENSE).
+# pnpm
+pnpm install
 
-Articles and descriptions are under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)
+# yarn
+yarn install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm run dev
+
+# yarn
+yarn dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm run build
+
+# yarn
+yarn build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm run preview
+
+# yarn
+yarn preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
