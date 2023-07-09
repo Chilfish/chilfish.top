@@ -30,7 +30,7 @@ useHead({
     </div>
     <img
       ml-xl h-35 w-35 rounded-2 transition-all sm:h-48 sm:w-48
-      src="/avatar.jpg"
+      src="/avatar.png"
     >
   </header>
 
