@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "chilfish-top",
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -11,21 +11,21 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.6",
-    "@iconify-json/fa-brands": "^1.1.4",
-    "@iconify-json/fluent-emoji-flat": "^1.1.11",
-    "@iconify-json/ic": "^1.1.13",
-    "@iconify-json/ri": "^1.1.7",
-    "@nuxt/devtools": "latest",
-    "@types/node": "^20.3.2",
-    "@unocss/eslint-config": "^0.53.4",
-    "@unocss/nuxt": "^0.53.4",
-    "@unocss/preset-icons": "^0.53.4",
-    "@unocss/reset": "^0.53.4",
-    "nuxt": "^3.6.1",
-    "unocss": "^0.53.4"
+    "@antfu/eslint-config": "1.0.0-beta.27",
+    "@iconify-json/fa-brands": "^1.1.5",
+    "@iconify-json/fluent-emoji-flat": "^1.1.13",
+    "@iconify-json/ic": "^1.1.14",
+    "@iconify-json/ri": "^1.1.12",
+    "@nuxt/devtools": "^1.0.0",
+    "@types/node": "^20.8.7",
+    "@unocss/eslint-config": "^0.56.5",
+    "@unocss/nuxt": "^0.56.5",
+    "@unocss/preset-icons": "^0.56.5",
+    "@unocss/reset": "^0.56.5",
+    "nuxt": "^3.8.0",
+    "unocss": "^0.56.5"
   }
 }

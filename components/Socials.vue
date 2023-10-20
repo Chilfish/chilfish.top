@@ -70,8 +70,7 @@ const socials = useState('socialsMap', () => [
     icon: 'i-ri-netease-cloud-music-line',
     class: 'hover:bg-[#DD001B]',
   },
-],
-)
+])
 </script>
 
 <template>
