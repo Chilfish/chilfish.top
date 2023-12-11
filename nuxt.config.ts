@@ -17,6 +17,9 @@ export default defineNuxtConfig({
         target: 'esnext',
       },
     },
+    routeRules: {
+      '/@/**': { proxy: '/~/**' },
+    },
   },
 
   app: {
