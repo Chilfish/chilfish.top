@@ -1,30 +1,48 @@
 {
   "name": "chilfish-top",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.12.1",
+  "author": {
+    "name": "Chilfish",
+    "email": "chill4fish@gmail.com"
+  },
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "preDev": "nuxt prepare",
-    "prod": "node .output/server/index.mjs",
+    "build": "nuxi build",
+    "dev:pwa": "VITE_PLUGIN_PWA=true nuxi dev",
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "postinstall": "nuxi prepare",
+    "start": "node .output/server/index.mjs",
+    "start:generate": "npx serve .output/public",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "typecheck": "nuxi typecheck",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.2.2",
-    "@iconify-json/fa-brands": "^1.1.7",
-    "@iconify-json/fluent-emoji-flat": "^1.1.15",
-    "@iconify-json/ic": "^1.1.16",
-    "@iconify-json/ri": "^1.1.15",
-    "@nuxt/devtools": "^1.0.4",
-    "@types/node": "^20.10.3",
-    "@unocss/eslint-config": "^0.58.0",
-    "@unocss/nuxt": "^0.58.0",
-    "@unocss/preset-icons": "^0.58.0",
-    "@unocss/reset": "^0.58.0",
-    "nuxt": "^3.8.2",
-    "typescript": "^5.3.2",
-    "unocss": "^0.58.0"
+    "@antfu/eslint-config": "2.6.1",
+    "@iconify-json/fa-brands": "^1.1.8",
+    "@iconify-json/fluent-emoji-flat": "^1.1.16",
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/ri": "^1.1.18",
+    "@nuxtjs/color-mode": "^3.3.2",
+    "@types/node": "^20.10.5",
+    "@unocss/eslint-config": "^0.58.2",
+    "@unocss/nuxt": "^0.58.2",
+    "@vite-pwa/nuxt": "^0.4.0",
+    "eslint": "npm:eslint-ts-patch@8.56.0-0",
+    "eslint-plugin-format": "^0.1.0",
+    "eslint-ts-patch": "8.56.0-0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "nuxt": "^3.9.0",
+    "pnpm": "^8.13.1",
+    "typescript": "^5.3.3",
+    "unocss": "^0.58.2",
+    "vue-tsc": "^1.8.27"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

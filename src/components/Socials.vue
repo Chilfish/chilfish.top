@@ -77,19 +77,19 @@ const socials = useState('socialsMap', () => [
   <div>
     <a
       v-for="social in socials" :key="social.name"
-      class="mr-2 mt-2 inline-flex rounded-md px-3 py-2 decoration-none transition-colors hover:text-white"
-      bg-gray-8 text-center
+      class="mr-2 mt-2 inline-flex rounded-md bg-gray-8 px-3 py-2 text-center decoration-none transition-colors hover:text-white"
+
       :class="social.class"
       :href="social.link"
       target="_blank"
     >
       <div
         :class="social.icon"
-        text-xl
+        class="text-xl"
       />
       <div
         v-if="social.text"
-        ml-1 text-sm
+        class="ml-1 text-sm"
       >{{ social.text }}</div>
     </a>
   </div>

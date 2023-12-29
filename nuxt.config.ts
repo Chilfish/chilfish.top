@@ -1,15 +1,42 @@
+import { pwa } from './src/config/pwa'
+import { appDescription } from './src/constants/index'
+
 export default defineNuxtConfig({
+  srcDir: 'src/',
+  serverDir: './server',
+  dir: {
+    public: '../public',
+  },
+
   modules: [
     '@unocss/nuxt',
+    '@nuxtjs/color-mode',
+    '@vite-pwa/nuxt',
   ],
 
-  devtools: {
-    enabled: true,
+  imports: {
+    dirs: [
+      'stores',
+      'server/utils',
+    ],
+  },
+
+  experimental: {
+    // when using generate, payload js assets included in sw precache manifest
+    // but missing on offline, disabling extraction it until fixed
+    payloadExtraction: false,
+    // inlineSSRStyles: false,
+    renderJsonPayloads: true,
+    typedPages: true,
   },
 
   css: [
     '@unocss/reset/tailwind.css',
   ],
+
+  colorMode: {
+    classSuffix: '',
+  },
 
   nitro: {
     esbuild: {
@@ -17,8 +44,10 @@ export default defineNuxtConfig({
         target: 'esnext',
       },
     },
-    routeRules: {
-      '/@/**': { proxy: '/~/**' },
+    prerender: {
+      crawlLinks: false,
+      routes: ['/'],
+      ignore: ['/hi'],
     },
   },
 
@@ -30,8 +59,15 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: appDescription },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
       ],
     },
+  },
+
+  pwa,
+
+  devtools: {
+    enabled: true,
   },
 })
