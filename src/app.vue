@@ -1,8 +1,32 @@
 <script setup lang="ts">
-import { appName } from '~/constants'
+import { appDescription, appName } from '~/constants'
+
+const img = '/avatar-512x512.png'
+
+useSeoMeta({
+  ogUrl: useRoute().fullPath,
+  twitterTitle: appName,
+  twitterDescription: appName,
+  twitterImage: img,
+  twitterCard: 'summary_large_image',
+  ogImage: img,
+  ogDescription: appName,
+  ogTitle: appName,
+  title: appName,
+  description: appDescription,
+})
 
 useHead({
-  title: appName,
+  htmlAttrs: {
+    lang: 'en',
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: '/favicon.ico',
+    },
+  ],
 })
 </script>
 
