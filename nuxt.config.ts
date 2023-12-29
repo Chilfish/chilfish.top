@@ -70,4 +70,10 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+
+  // fix: unocss + nuxt3.9 error
+  // @see at https://github.com/unocss/unocss/issues/3468#issuecomment-1871049463
+  features: {
+    inlineStyles: false,
+  },
 })
