@@ -9,4 +9,6 @@
   <Suspense>
     <Projects />
   </Suspense>
+
+  <MainFooter />
 </template>

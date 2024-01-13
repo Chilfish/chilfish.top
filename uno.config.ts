@@ -28,6 +28,9 @@ export default defineConfig({
     {
       input: 'rounded bg-light py-2 px-4 dark:bg-dark',
     },
+    {
+      'trans-all': 'transition-all duration-300 ease-in-out',
+    },
   ],
   presets: [
     presetUno(),

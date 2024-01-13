@@ -34,15 +34,15 @@ await callOnce(async () => {
         :to="project.url"
         :no-rel="true"
         target="_blank"
-        class="flex flex-col gap-2 rounded-md px-4 py-6 transition-colors"
+        class="flex flex-col gap-2 rounded-md p-4 transition-colors"
         bg="dark-7 hover:dark-8"
       >
         <NuxtImg
           :src="project.banner"
           :alt="project.name"
-          :height="120"
           loading="lazy"
-          class="rounded-md"
+          class="h-54 w-auto rounded-md trans-all sm:h-42"
+          object="cover top-center"
         />
 
         <div class="text-xl">
