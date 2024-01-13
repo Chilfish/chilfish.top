@@ -11,18 +11,10 @@ await callOnce(async () => {
 
 <template>
   <div class="py-8">
-    <h1
-      class="flex items-center text-2xl font-bold"
-    >
-      <span>Projects</span>
-      <NuxtLink
-        :no-rel="true"
-        to="https://github.com/Chilfish?tab=repositories&type=source"
-        class="i-tabler-arrow-up-right w-8" ml-auto icon inline-block h-8
-        target="_blank"
-        text="gray hover:light"
-      />
-    </h1>
+    <TitleBar
+      title="Projects"
+      url="https://github.com/Chilfish?tab=repositories&type=source"
+    />
 
     <div
       grid="~ cols-1 sm:cols-2"

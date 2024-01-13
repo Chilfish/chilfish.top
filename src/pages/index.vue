@@ -6,9 +6,8 @@
   <MainHeader />
   <Socials />
 
-  <Suspense>
-    <Projects />
-  </Suspense>
+  <Projects />
+  <Posts />
 
   <MainFooter />
 </template>
