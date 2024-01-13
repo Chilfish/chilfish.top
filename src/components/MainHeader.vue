@@ -20,10 +20,13 @@
         a new starter of frontend developing
       </p>
     </div>
-    <img
-      class="ml-xl h-35 w-35 rounded-2"
-      sm="h-48 w-48"
+
+    <NuxtImg
+      class="ml-xl hidden h-24 rounded-2"
+      sm="inline-block h-48"
       src="/avatar-512x512.png"
-    >
+      alt="avatar"
+      loading="lazy"
+    />
   </header>
 </template>

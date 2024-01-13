@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { Socials } from '~/constants'
+import { Socials as _socials } from '~/constants'
+
+const Socials = useState('Socials', () => _socials)
 </script>
 
 <template>
@@ -7,7 +9,7 @@ import { Socials } from '~/constants'
     <NuxtLink
       v-for="social in Socials"
       :key="social.name"
-      class="mr-2 mt-2 inline-flex rounded-md bg-gray-8 px-3 py-2 text-center decoration-none transition-colors hover:text-white"
+      class="mr-2 mt-2 inline-flex rounded-md bg-#373738 px-3 py-2 text-center decoration-none transition-colors hover:text-white"
       :class="social.class"
       :href="social.link"
       :no-rel="true"
@@ -15,7 +17,6 @@ import { Socials } from '~/constants'
     >
       <div
         :class="social.icon"
-        class="text-xl"
       />
       <div
         v-if="social.text"

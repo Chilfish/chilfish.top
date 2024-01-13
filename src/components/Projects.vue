@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import { LangColors, Projects } from '~/constants'
+import type { Project } from '~/constants'
+
+const projects = useState('projects', () => ([] as Project[]))
+
+await callOnce(async () => {
+  const { data } = await useFetch<Project[]>('/api/project')
+  data.value && (projects.value = data.value)
+})
 </script>
 
 <template>
-  <div class="mt-8">
+  <div class="py-8">
     <h1
       class="flex items-center text-2xl font-bold"
     >
@@ -22,9 +29,9 @@ import { LangColors, Projects } from '~/constants'
       class="mt-6 gap-4"
     >
       <nuxt-link
-        v-for="project in Projects"
+        v-for="project in projects"
         :key="project.id"
-        :to="`https://github.com/chilfish/${project.name}`"
+        :to="project.url"
         :no-rel="true"
         target="_blank"
         class="flex flex-col gap-2 rounded-md px-4 py-6 transition-colors"
@@ -48,18 +55,21 @@ import { LangColors, Projects } from '~/constants'
         <div class="flex items-center text-3">
           <div
             :style="{
-              'background-color': LangColors[project.language] || '#000000',
+              'background-color': project.color,
             }"
-            class="mt-1 inline-block h-3 w-3 rounded-full shadow-inner"
+            class="mr-1 mt-1 inline-block h-3 w-3 rounded-full shadow-inner"
           />
-          <span class="ml-1 mr-3">
+          <span class="mr-3">
             {{ project.language }}
           </span>
 
-          <span class="i-tabler-star mt-0.5 icon h-3 w-3" />
-          <span class="ml-1">
+          <span class="i-tabler-star mr-1 mt-0.5 icon h-3 w-3" />
+          <span>
             {{ project.stars }}
           </span>
+
+          <span class="i-tabler-license ml-3 mr-1 mt-0.5 icon h-3 w-3" />
+          <span>{{ project.license }}</span>
         </div>
       </nuxt-link>
     </div>

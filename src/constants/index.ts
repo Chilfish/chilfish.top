@@ -94,19 +94,24 @@ export const Projects = [
     license: 'MIT',
     language: 'typescript',
     stars: 0,
-    updated_at: '',
+    color: '#f1e05a',
+    url: '',
   },
-] as const
+]
 
 export const LangColors = {
-  typescript: '#3178c6',
-  javascript: '#f1e05a',
-  vue: '#41b883',
-  react: '#61dafb',
-  html: '#e34c26',
-  css: '#563d7c',
-  scss: '#c6538c',
-  markdown: '#083fa1',
-  kotlin: '#a97bff',
-  python: '#3572a5',
+  TypeScript: '#3178c6',
+  JavaScript: '#f1e05a',
+  Vue: '#41b883',
+  React: '#61dafb',
+  HTML: '#e34c26',
+  CSS: '#563d7c',
+  Scss: '#c6538c',
+  Markdown: '#083fa1',
+  Kotlin: '#a97bff',
+  Python: '#3572a5',
 } as const
+
+export type Languages = keyof typeof LangColors
+
+export type Project = typeof Projects[number]
