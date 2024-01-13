@@ -52,7 +52,7 @@ await callOnce(async () => {
           {{ project.description }}
         </div>
 
-        <div class="flex items-center text-3">
+        <div class="mt-auto flex items-center text-3">
           <div
             :style="{
               'background-color': project.color,

@@ -5,5 +5,8 @@
 <template>
   <MainHeader />
   <Socials />
-  <Projects />
+
+  <Suspense>
+    <Projects />
+  </Suspense>
 </template>

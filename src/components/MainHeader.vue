@@ -4,7 +4,7 @@
 
 <template>
   <header
-    class="flex gap-4 p-2xl transition-all"
+    class="flex gap-4 pt-12 transition-all"
   >
     <div>
       <h1
@@ -17,13 +17,13 @@
         </div>
       </h1>
       <p class="my-2xl w-full">
-        a new starter of frontend developing
+        I am a frontend developer, ❤ Nuxt.js. I enjoy bringing my ideas to life through coding.
       </p>
     </div>
 
     <NuxtImg
-      class="ml-xl hidden h-24 rounded-2"
-      sm="inline-block h-48"
+      class="ml-xl hidden rounded-2"
+      sm="inline-block h-36"
       src="/avatar-512x512.png"
       alt="avatar"
       loading="lazy"

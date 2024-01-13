@@ -1,6 +1,7 @@
 <template>
   <main
-    class="mx-auto h-screen max-w-86ch w-screen bg-dark px-12 py-8 text-light"
+    class="mx-auto max-w-86ch bg-dark px-6 text-light"
+    sm="px-12"
   >
     <slot />
   </main>
