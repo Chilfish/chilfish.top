@@ -1,6 +1,6 @@
 <template>
   <main
-    class="m-auto h-screen w-screen center-col gap-3 bg-dark p-xl text-light"
+    class="mx-auto h-screen max-w-86ch w-screen bg-dark px-12 py-8 text-light"
   >
     <slot />
   </main>

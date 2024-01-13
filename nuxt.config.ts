@@ -8,11 +8,7 @@ export default defineNuxtConfig({
     public: '../public',
   },
 
-  modules: [
-    '@unocss/nuxt',
-    '@nuxtjs/color-mode',
-    '@vite-pwa/nuxt',
-  ],
+  modules: ['@unocss/nuxt', '@nuxtjs/color-mode', '@vite-pwa/nuxt', '@nuxt/image'],
 
   imports: {
     dirs: [

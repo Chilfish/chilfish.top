@@ -4,7 +4,7 @@
 
 <template>
   <header
-    class="mt-3xl w-full center gap-4 p-2xl transition-all"
+    class="flex gap-4 p-2xl transition-all"
   >
     <div>
       <h1
