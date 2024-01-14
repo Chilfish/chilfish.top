@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { appDescription, appName } from '~/constants'
 
-const img = '/avatar-512x512.png'
+const host = useRequestURL().origin
+const img = `${host}/avatar-512x512.png`
 
 useSeoMeta({
-  ogUrl: useRoute().fullPath,
+  ogUrl: host,
   twitterTitle: appName,
   twitterDescription: appName,
   twitterImage: img,
@@ -23,7 +24,7 @@ useHead({
   link: [
     {
       rel: 'icon',
-      type: 'image/png',
+      type: 'image/x-icon',
       href: '/favicon.ico',
     },
   ],
@@ -33,6 +34,7 @@ useHead({
 <template>
   <VitePwaManifest />
   <NuxtLayout>
+    <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
 </template>

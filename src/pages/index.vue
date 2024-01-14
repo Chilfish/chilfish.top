@@ -1,19 +1,25 @@
 <script setup lang="ts">
-
+useHead({
+  title: 'Chilfish',
+})
 </script>
 
 <template>
   <MainHeader />
   <Socials />
 
-  <Projects />
+  <Suspense>
+    <Projects />
+  </Suspense>
 
   <TitleBar
     title="Sponsors"
     url="/sponsors"
   />
 
-  <Posts />
+  <Suspense>
+    <Posts />
+  </Suspense>
 
   <MainFooter />
 </template>

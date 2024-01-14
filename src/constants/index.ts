@@ -1,5 +1,5 @@
-export const appName = 'Chilfish.top'
-export const appDescription = 'Chilfish.top'
+export const appName = 'Chilfish'
+export const appDescription = 'Chilfish\'s personal website, built with Nuxt3 and ❤️.'
 
 export const imgHost = 'https://p.chilfish.top'
 

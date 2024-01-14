@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { SponsorList, imgHost } from '~/constants'
+
+useHead({
+  title: 'Chilfish\'s Sponsors',
+})
 </script>
 
 <template>
