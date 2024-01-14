@@ -41,13 +41,6 @@ useHead({
 html,
 body,
 #__nuxt {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-html.dark {
-  background: #222;
-  color: white;
+  --uno: bg-dark text-light m-0 p-0 h-100vh;
 }
 </style>
