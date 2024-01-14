@@ -10,7 +10,7 @@ await callOnce(async () => {
 </script>
 
 <template>
-  <div class="py-8">
+  <div>
     <TitleBar
       title="Projects"
       url="https://github.com/Chilfish?tab=repositories&type=source"

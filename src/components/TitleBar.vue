@@ -7,14 +7,14 @@ defineProps<{
 
 <template>
   <h1
-    class="flex items-center text-2xl font-bold"
+    class="my-8 flex items-center text-2xl font-bold"
   >
     <span>{{ title }}</span>
     <NuxtLink
       :no-rel="true"
       :to="url"
-      class="i-tabler-arrow-up-right w-8" ml-auto icon inline-block h-8
-      target="_blank"
+      :target="url.startsWith('http') ? '_blank' : '_self'"
+      class="i-tabler-arrow-up-right ml-auto icon inline-block h-8 w-8"
       text="gray hover:light"
     />
   </h1>

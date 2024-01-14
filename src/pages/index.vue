@@ -7,6 +7,12 @@
   <Socials />
 
   <Projects />
+
+  <TitleBar
+    title="Sponsors"
+    url="/sponsors"
+  />
+
   <Posts />
 
   <MainFooter />

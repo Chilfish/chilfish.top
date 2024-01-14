@@ -1,7 +1,7 @@
 export const appName = 'Chilfish.top'
 export const appDescription = 'Chilfish.top'
 
-const imgHost = 'https://p.chilfish.top'
+export const imgHost = 'https://p.chilfish.top'
 
 export const redirectMap = [
   { from: '/github', to: 'https://github.com/Chilfish' },
@@ -57,3 +57,16 @@ export const LangColors = {
 export type Languages = keyof typeof LangColors
 
 export type Project = typeof Projects[number]
+
+export const SponsorList = [
+  {
+    id: 0,
+    name: 'SaraKale',
+    time: '2024-01-14 10:07',
+    amount: 50.00,
+    message: '非常感谢您开发了方便的好工具~!',
+    reply: '感谢你的支持😇',
+  },
+]
+
+export type Sponsor = typeof SponsorList[number]
