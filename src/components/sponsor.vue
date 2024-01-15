@@ -18,9 +18,9 @@ defineProps<{
     >
       <div class="flex items-center justify-between p-3">
         <span class="text-lg font-bold">
-          {{ sponsor.name }}
+          @{{ sponsor.name }}
         </span>
-        <span class="text-gray">
+        <span class="text-3 text-gray">
           {{ sponsor.time }}
         </span>
       </div>

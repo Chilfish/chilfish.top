@@ -9,14 +9,14 @@ useHead({
 <template>
   <div class="flex flex-col justify-center gap-6 py-8">
     <h2 class="text-2xl font-bold">
-      <NuxtLink to="/">
+      <NuxtLink href="/">
         <span class="i-tabler-arrow-left mr-2 icon h-5 w-5" />
       </NuxtLink>
       <span>赞助我</span>
     </h2>
 
     <p>
-      如果你觉得我的项目或者文章对你有所帮助，欢迎赞助我，这对我有很大的帮助，让我有更多的时间和精力去开发 *Heart ❤️。
+      如果你觉得我的项目或者文章对你有所帮助，欢迎赞助我，这对我有很大的帮助，让我有更多的动力去开发 *Heart ❤️。
     </p>
 
     <details

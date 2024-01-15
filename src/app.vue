@@ -5,16 +5,16 @@ const host = useRequestURL().origin
 const img = `${host}/avatar-512x512.png`
 
 useSeoMeta({
-  ogUrl: host,
-  twitterTitle: appName,
-  twitterDescription: appName,
-  twitterImage: img,
-  twitterCard: 'summary_large_image',
-  ogImage: img,
-  ogDescription: appName,
-  ogTitle: appName,
   title: appName,
   description: appDescription,
+  twitterTitle: appName,
+  twitterDescription: appDescription,
+  twitterImage: img,
+  twitterCard: 'summary_large_image',
+  ogUrl: host,
+  ogImage: img,
+  ogDescription: appDescription,
+  ogTitle: appName,
 })
 
 useHead({

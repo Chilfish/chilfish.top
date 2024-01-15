@@ -8,18 +8,14 @@ useHead({
   <MainHeader />
   <Socials />
 
-  <Suspense>
-    <Projects />
-  </Suspense>
+  <Projects />
 
   <TitleBar
     title="Sponsors"
     url="/sponsors"
   />
 
-  <Suspense>
-    <Posts />
-  </Suspense>
+  <Posts />
 
   <MainFooter />
 </template>
