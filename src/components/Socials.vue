@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // due to UnoCSS, we had to do this, otherwise it will not be compiled
-const Socials = useState('SocialMap', () => [
+const Socials = [
   {
     name: 'blog',
     text: 'Blog',
@@ -71,7 +71,7 @@ const Socials = useState('SocialMap', () => [
     icon: 'i-ri-netease-cloud-music-line',
     class: 'hover:bg-[#DD001B]',
   },
-] as const)
+] as const
 </script>
 
 <template>

@@ -2,6 +2,7 @@ export const appName = 'Chilfish'
 export const appDescription = 'Chilfish\'s personal website, built with Nuxt3 and ❤️.'
 
 export const imgHost = 'https://p.chilfish.top'
+export const githubHost = 'https://github.com/Chilfish'
 
 export const redirectMap = [
   { from: '/github', to: 'https://github.com/Chilfish' },
@@ -21,10 +22,10 @@ export const Projects = [
     description: '将你的新浪微博存档备份的油猴脚本，为号被完全夹没前绸缪 😭',
     banner: `${imgHost}/v0.1.10.png`,
     license: 'MIT',
-    language: 'typescript',
-    stars: 0,
-    color: '#f1e05a',
-    url: '',
+    language: 'Typescript',
+    stars: 35,
+    color: '#3178c6',
+    url: `${githubHost}/Weibo-archiver`,
     isGithub: true,
   },
   {
@@ -33,10 +34,10 @@ export const Projects = [
     description: '实现我一些小想法的地方',
     banner: `${imgHost}/chillab.webp`,
     license: 'MIT',
-    language: 'typescript',
+    language: 'Vue',
     stars: 0,
-    color: '#f1e05a',
-    url: '',
+    color: '#41b883',
+    url: `${githubHost}/Chillab`,
     isGithub: true,
   },
 ]
@@ -66,6 +67,10 @@ export const SponsorList = [
     amount: 50.00,
     message: '非常感谢您开发了方便的好工具~!',
     reply: '感谢你的支持😇',
+    project: {
+      name: Projects[0].name,
+      url: Projects[0].url,
+    },
   },
 ]
 

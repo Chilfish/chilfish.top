@@ -9,6 +9,7 @@
     <p>MIT Licensed | Copyright © 2023-{{ new Date().getFullYear() }} </p>
     <NuxtLink
       :no-rel="true"
+      target="_blank"
       to="https://github.com/Chilfish"
       class="hover:underline"
     >

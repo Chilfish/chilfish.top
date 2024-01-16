@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Project } from '~/constants'
 
-const projects = useState('projects', () => ([] as Project[]))
+const projects = useState<Project[]>('projects', () => [])
 
 await callOnce(async () => {
-  const { data } = await useFetch<Project[]>('/api/project')
-  data.value && (projects.value = data.value)
+  const data = await $fetch<Project[]>('/api/project')
+  projects.value = data
 })
 </script>
 

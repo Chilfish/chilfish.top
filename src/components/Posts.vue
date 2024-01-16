@@ -9,11 +9,8 @@ interface Post {
 const posts = useState('posts', () => [] as Post[])
 
 await callOnce(async () => {
-  const { data } = await useFetch<Post[]>('/api/posts')
-
-  console.log('posts: ', data.value?.length)
-
-  data.value && (posts.value = data.value)
+  const data = await $fetch<Post[]>('/api/posts')
+  posts.value = data
 })
 </script>
 

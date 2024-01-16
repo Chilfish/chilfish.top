@@ -25,17 +25,32 @@ defineProps<{
         </span>
       </div>
 
-      <div class="px-3 py-4 text-3.5">
-        <p class="text-gray">
+      <div class="px-3 pb-4 text-3.5">
+        <NuxtLink
+          :to="sponsor.project.url"
+          class="block"
+          target="_blank"
+          :no-rel="true"
+        >
+          项目：{{ sponsor.project.name }}
+        </NuxtLink>
+
+        <p class="my-1 text-gray">
           留言：{{ sponsor.message }}
         </p>
-        <p class="mt-2 text-orange">
+
+        <p class="text-orange">
           开发者回复：{{ sponsor.reply }}
         </p>
       </div>
 
-      <div class="rounded-b-2 bg-red p-2 text-end text-lg font-bold">
-        ￥{{ sponsor.amount.toFixed(2) }}
+      <div
+        class="flex items-center justify-between rounded-b-2 bg-red px-4 py-2 text-lg font-bold"
+      >
+        <span class="i-tabler-pig-money icon h-5 w-5" />
+        <span>
+          ￥{{ sponsor.amount.toFixed(2) }}
+        </span>
       </div>
     </div>
   </div>
