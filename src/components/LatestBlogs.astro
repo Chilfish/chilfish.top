@@ -1,0 +1,40 @@
+---
+import LinkBar from './common/LinkBar.astro'
+import { formatDate, getBlogs } from '~/utils'
+
+const blogs = (await getBlogs()).slice(0, 5)
+---
+
+<div>
+  <LinkBar
+    title="Blogs"
+    href="/blog"
+    aclass="mb-4"
+  />
+
+  {blogs.map(({ data: blog, slug }) => (
+    <a
+      href={`/blog/${slug}`}
+    >
+      <h3 class="underline">
+        {blog.title}
+      </h3>
+      <time>
+        { formatDate(blog.date) }
+      </time>
+    </a>
+  ))}
+
+  <a
+    href="/blog"
+    class="underline"
+  >
+    All posts
+  </a>
+</div>
+
+<style>
+a {
+  --uno: mt-3 flex items-center justify-between text-gray-3
+}
+</style>

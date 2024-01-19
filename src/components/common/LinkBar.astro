@@ -1,0 +1,22 @@
+---
+import { linkTarget } from '~/utils'
+
+type Props = {
+  title: string
+  href: string
+  aclass?: string
+}
+
+const { title, href, aclass } = Astro.props
+---
+
+<h2 class={`mt-8 flex items-center text-2xl font-bold ${aclass}`}>
+  <span>{title}</span>
+  <a
+    href={href}
+    target={linkTarget(href)}
+    class="i-tabler-arrow-up-right ml-auto icon inline-block h-8 w-8"
+    uno-text="gray hover:light"
+  >
+  </a>
+</h2>

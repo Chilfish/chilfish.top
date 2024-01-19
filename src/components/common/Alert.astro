@@ -1,0 +1,58 @@
+---
+const TypeArr = [
+  {
+    type: 'note',
+    icon: 'i-tabler-info-circle',
+    color: '#2f81f7',
+  },
+  {
+    type: 'warning',
+    icon: 'i-tabler-alert-triangle',
+    color: '#d29922',
+  },
+  {
+    type: 'caution',
+    icon: 'i-tabler-alert-octagon',
+    color: '#f85149',
+  },
+  {
+    type: 'tip',
+    icon: 'i-octicon:light-bulb',
+    color: '#3fb950',
+  },
+  {
+    type: 'important',
+    icon: 'i-octicon:report',
+    color: '#a371f7',
+  },
+] as const
+
+type Props = {
+  type: typeof TypeArr[number]['type']
+  text?: string
+}
+
+const { type, text } = Astro.props
+
+const color = TypeArr.find(item => item.type === type)!.color
+const icon = TypeArr.find(item => item.type === type)!.icon
+const title = type.charAt(0).toUpperCase() + type.slice(1)
+---
+
+<div
+  style={`
+    border-left-color: ${color};
+  `}
+  class="m-3 border-l-3 p-2 pl-4"
+>
+  <p
+    style={`color: ${color}`}
+    class="mb-2 flex items-center gap-2 font-bold"
+  >
+    <i class={`icon ${icon}`}> </i>
+    <span>{title}</span>
+  </p>
+  { text
+    ? <p>{text}</p>
+    : <slot /> }
+</div>

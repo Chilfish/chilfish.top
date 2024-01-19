@@ -1,0 +1,30 @@
+---
+import Layout from '@layouts/Layout.astro'
+import Alert from '@cp/common/Alert.astro'
+import PostList from '@cp/BlogList.astro'
+import { getBlogs } from '~/utils'
+
+const posts = await getBlogs()
+---
+
+<Layout title="Blogs | Chilfish">
+  <main
+    class="mx-auto my-4 max-w-86ch"
+  >
+    <Alert type="important">
+      <p>
+        This website is still under construction. Some pages may not be available yet.
+        See also
+        <a
+          target="_blank"
+          href="https://note.chilfish.top/blogs"
+          class="text-blue-500 hover:underline"
+        >
+         note.chilfish.top
+        </a>.
+      </p>
+    </Alert>
+
+    <PostList blogs={posts} />
+  </main>
+</Layout>

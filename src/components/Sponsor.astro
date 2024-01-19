@@ -1,0 +1,49 @@
+---
+import { SponsorList } from '~/constant'
+---
+
+<ul
+  class="w-full center-col gap-4"
+>
+  { SponsorList.map(sponsor => (
+    <div
+      class="w-full flex flex-col justify-center rounded-2 bg-dark-7 shadow-red"
+    >
+      <div class="flex items-center justify-between p-3">
+        <span class="text-lg font-bold">
+        @{ sponsor.name }
+        </span>
+        <span class="text-3 text-gray">
+          { sponsor.time }
+        </span>
+      </div>
+
+      <div class="px-3 pb-4 text-3.5">
+        <a
+          href={sponsor.project.url}
+          class="block"
+          target="_blank"
+        >
+        项目：{ sponsor.project.name }
+        </a>
+
+        <p class="my-1 text-gray">
+        留言：{ sponsor.message }
+        </p>
+
+        <p class="text-orange">
+        开发者回复：{ sponsor.reply }
+        </p>
+      </div>
+
+      <div
+        class="flex items-center justify-between rounded-b-2 bg-red px-4 py-2 text-lg font-bold"
+      >
+        <span class="i-tabler-pig-money icon h-5 w-5" />
+        <span>
+        ￥{ sponsor.amount.toFixed(2) }
+        </span>
+      </div>
+    </div>
+  )) }
+</ul>

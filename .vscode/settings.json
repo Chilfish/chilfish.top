@@ -40,6 +40,7 @@
     "markdown",
     "json",
     "jsonc",
-    "yaml"
+    "yaml",
+    "astro"
   ]
 }

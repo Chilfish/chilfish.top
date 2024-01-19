@@ -4,7 +4,6 @@ import {
   presetIcons,
   presetTypography,
   presetUno,
-  presetWebFonts,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
@@ -32,20 +31,20 @@ export default defineConfig({
       'trans-all': 'transition-all duration-300 ease-in-out',
     },
   ],
+  theme: {
+    colors: {
+      primary: '#3730a3',
+    },
+  },
   presets: [
     presetUno(),
-    presetAttributify(),
+    presetAttributify({
+      prefix: 'uno-',
+    }),
     presetIcons({
       scale: 1.2,
     }),
     presetTypography(),
-    presetWebFonts({
-      fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
-      },
-    }),
   ],
   transformers: [
     transformerDirectives(),

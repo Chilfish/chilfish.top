@@ -1,0 +1,47 @@
+---
+title: Hello World
+description: Hello World from the description
+date: 2024-01-01
+cover: ../../assets/fish.jpg
+tags: 
+  - hello
+  - fish
+---
+
+import Alert from '@cp/common/Alert.astro'
+
+# Hello World
+
+## Hello World from the title
+
+Hello World from the body
+
+- Hello World from the list
+- Hello World from the list
+
+```ts
+import { defineCollection, z } from 'astro:content'
+
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    isDraft: z.boolean().optional().default(false),
+    date: z.date().optional().default(new Date()),
+  }),
+})
+
+export const collections = {
+  blog,
+}
+```
+
+Image:
+
+![fish](@assets/fish.jpg)
+
+
+Alert:
+
+<Alert type="tip" text="hello" />

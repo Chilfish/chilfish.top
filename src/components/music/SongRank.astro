@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets'
+import Songs from './Songs.astro'
+import type { NCMType, SongRecord } from '~/types'
+
+type Props = {
+  records: SongRecord[]
+  type: NCMType
+}
+
+const { records, type } = Astro.props
+
+let pic = '/avatar.png'
+
+if (records.length > 0)
+  pic = records[0]?.al.picUrl
+---
+
+<section class="center-col">
+  <header class="my-6 center gap-4">
+    <div class="relative h-24 w-24 flex-shrink-0">
+      <Image
+        src={pic}
+        alt="cover"
+        height={96}
+        width={96}
+        class="h-24 w-24 rounded-md"
+      />
+      <div
+        class="absolute top-0 h-full w-full rounded-md bg-[#24242480]"
+      >
+        <div class="i-tabler-heart h-full w-full text-light" />
+      </div>
+    </div>
+    <p class="text-7 font-bold">
+      { type === 'weekData' ? '周榜' : '总榜' }
+    </p>
+  </header>
+
+  <div
+    class="flex flex-col gap-2"
+  >
+    { records.length > 0
+      ? records.map((record, idx) => (
+        <Songs
+          record={record}
+          idx={idx}
+        />
+      ))
+      : (<p>暂无数据</p>)}
+  </div>
+</section>

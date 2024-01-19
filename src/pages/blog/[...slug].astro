@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content'
+import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro'
+
+import Layout from '@layouts/Layout.astro'
+
+export const prerender = true
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog')
+
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}) satisfies GetStaticPaths
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { post } = Astro.props
+const { Content } = await post.render()
+---
+
+<Layout
+  aclass="mx-auto my-4 max-w-102ch"
+  title={post.data.title}
+>
+  <header class="flex flex-col justify-center">
+    <a href="/blog">
+      <span class="i-tabler-arrow-left mr-2 icon h-5 w-5" />
+      <span>Back</span>
+    </a>
+
+    <div class="mb-8 mt-4">
+      <h1>{post.data.title}</h1>
+      <p>{post.data.date}</p>
+    </div>
+  </header>
+
+  <main>
+    <Content />
+  </main>
+</Layout>
