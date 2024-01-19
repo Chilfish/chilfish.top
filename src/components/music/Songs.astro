@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets'
+import type { SongRecord } from '~/types'
+
+type Props = {
+  record: SongRecord
+  idx: number
+}
+
+const { record, idx } = Astro.props
+
+function duration() {
+  const raw = record.dt
+  const minutes = Math.floor(raw / 1000 / 60)
+  const seconds = Math.floor(raw / 1000) % 60
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`
+}
+
+let index = `${idx}`
+if (idx < 9)
+  index = `0${idx + 1}`
+---
+
+<a
+  class={`song ${idx % 2 === 0 ? 'bg-dark-6' : 'bg-dark-7'}`}
+  href={`https://music.163.com/song?id=${record.id}`}
+  target="_blank"
+  referrerpolicy="no-referrer"
+>
+  <div> { index } </div>
+
+  <div class="h-12 w-12 flex-shrink-0">
+    <Image
+      class="h-12 w-12 rounded-md"
+      alt={record.name}
+      src={record.al.picUrl}
+      width={48}
+      height={48}
+    />
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <div class="record-name">
+      { record.name }
+    </div>
+
+    <div class="mt-2 truncate">
+      { record.ar.map(a => a.name).join(', ') }
+      -
+      {record.al.name }
+    </div>
+  </div>
+
+  <div class="duration">
+    <div> { duration() } </div>
+
+    {record.playCount > 0
+      ? <div> •{ record.playCount } 次 </div>
+      : null}
+  </div>
+</a>
+
+<style>
+.song {
+  --uno: text-light-4 h-18 w-90vw flex items-center justify-between gap-3 rounded-md px-3 py-2 text-3 sm:w-40rem sm:text-3.5;
+}
+
+.record-name {
+  --uno: text-4 text-light-7 truncate;
+}
+
+.duration {
+  --uno: ml-auto min-w-fit flex items-center justify-end;
+}
+</style>

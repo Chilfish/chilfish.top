@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets'
+import { type Blog, formatDate } from '~/utils'
+
+type Props = {
+  blogs: Blog[]
+}
+
+const { blogs } = Astro.props
+---
+<ul
+  class="center-col gap-3"
+>
+  { blogs.map(({ data: blog, slug }) => (
+    <a
+      class="blog relative w-full flex flex-col rounded-md bg-dark-3 p-2 sm:w-xl"
+      uno-h={blog.cover ? '60' : 'auto'}
+      href={`/blog/${slug}`}
+    >
+      { blog.cover
+        ? (
+          <Image
+            src={blog.cover}
+            alt={blog.title}
+            class="absolute right-0 top-0 z-0 max-h-52 rounded-md"
+            uno-object="cover top-center"
+          />
+        )
+        : null}
+
+      <div class="z-10 mt-auto">
+        <h2
+          class="text-2xl text-light-7 font-bold"
+        >
+          { blog.title }
+        </h2>
+
+        <p class="mt-3">
+          { blog.description }
+        </p>
+
+        <div class="meta flex items-center gap-2 py-2 text-3">
+          <span>
+            <span class="i-tabler-calendar icon" />
+            <time>
+              { formatDate(blog.date) }
+            </time>
+          </span>
+
+          {blog.tags.length > 0
+            ? (
+              <span class="tags">
+                <span class="i-tabler-tag icon"></span>
+                { blog.tags.map(tag => (
+                  <span class="tag">
+                    { tag }
+                  </span>
+                ))}
+              </span>
+            )
+            : null }
+
+        </div>
+      </div>
+    </a>
+  ))}
+</ul>
+
+<style>
+.blog:hover h2 {
+  text-decoration: underline;
+}
+
+.blog img {
+  mask-image: linear-gradient(180deg,#fff -16%,#0000 90%);
+}
+
+.meta > span {
+  --uno: center gap-1;
+}
+
+.tag {
+  --uno: rounded-md px-1 border-gray border;
+}
+</style>

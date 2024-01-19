@@ -1,0 +1,30 @@
+---
+import SongRank from '~/components/music/SongRank.astro'
+import Layout from '~/layouts/Layout.astro'
+import { fetchMusic } from '~/utils'
+
+const [weekRecords, allRecords] = await Promise.all([
+  fetchMusic('weekData'),
+  fetchMusic('allData'),
+])
+---
+
+<Layout title="Music Records">
+  <h2 class="flex items-center text-xl font-bold">
+    <a href="/">
+      <span class="i-tabler-arrow-left mr-2 icon" />
+    </a>
+    <span>Back</span>
+  </h2>
+
+  <main class="w-full center-col gap-4">
+    <SongRank
+      records={weekRecords}
+      type="weekData"
+    />
+    <SongRank
+      records={allRecords}
+      type="allData"
+    />
+  </main>
+</Layout>

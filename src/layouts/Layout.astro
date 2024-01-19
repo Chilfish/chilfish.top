@@ -1,0 +1,109 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import type { MarkdownLayoutProps } from 'astro'
+import { SEO } from 'astro-seo'
+import Footer from '@cp/common/Footer.astro'
+
+type props = {
+  title: string
+  description?: string
+  cover?: string
+  aclass?: string
+}
+
+type Props = {
+  frontmatter?: MarkdownLayoutProps<props>['frontmatter']
+} & props
+
+const { title, aclass, description, cover } = Astro.props.frontmatter || Astro.props
+
+const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
+const image = cover || '/avatar.png'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/favicon.ico"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <SEO
+      title={title}
+      description={desc}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image,
+        },
+        image: {
+          url: image,
+          alt: title,
+        },
+      }}
+      twitter={{
+        creator: '@chilllish',
+        title,
+        description: desc,
+        image,
+      }}
+    />
+    <ViewTransitions />
+    <title>{title}</title>
+  </head>
+  <body
+    class={aclass}
+    transition:animate="fade"
+  >
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+html {
+  --uno: bg-dark-800 text-light;
+}
+body {
+  margin: 0;
+  padding: 1rem;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,h2,h3,h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+code {
+  --uno: font-mono;
+}
+
+pre {
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+</style>

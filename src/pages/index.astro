@@ -1,0 +1,29 @@
+---
+import Layout from '@layouts/Layout.astro'
+import LatestBlogs from '@cp/LatestBlogs.astro'
+import Projects from '@cp/Projects.astro'
+import Socials from '@cp/Socials.astro'
+import LinkBar from '~/components/common/LinkBar.astro'
+---
+
+<Layout title="Chilfish">
+  <main
+    class="mx-auto my-4 max-w-86ch"
+  >
+    <header>
+      <h1 class="text-3xl font-bold">
+        Hi, there 😇 <br /> I'm Chilfish.
+      </h1>
+      <p class="mt-3 text-xl">
+         I am a frontend developer, ❤ Nuxt.js. I enjoy bringing my ideas to life through coding.
+      </p>
+    </header>
+
+    <Socials />
+    <Projects />
+    <LinkBar title="Sponsors" href="/sponsors" />
+    <LinkBar title="Music Records" href="/music" />
+    <LatestBlogs />
+
+  </main>
+</Layout>
