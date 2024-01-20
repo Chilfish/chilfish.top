@@ -1,7 +1,8 @@
-import NCM from 'NeteaseCloudMusicApi'
+import { consola } from 'consola'
 import type { NCMType, Song } from '~/types'
 
 const {
+  NCM_API = '',
   NCM_COOKIE = '',
   NCM_UID = 1,
 } = import.meta.env
@@ -35,20 +36,18 @@ function parser(data: NCMResponse, type: NCMType) {
 }
 
 export async function fetchMusic(type: NCMType) {
-  try {
-    const { body: data } = await NCM.user_record({
-      uid: NCM_UID,
-      cookie: NCM_COOKIE, // 似乎有特殊的使用方式
-      type: (type === 'weekData' ? 1 : 0),
-    })
+  const url = `${NCM_API}/user/record?uid=${NCM_UID}&type=${type === 'weekData' ? 1 : 0}`
 
-    if (!data)
-      return []
+  const data = await fetch(url, {
+    headers: {
+      Cookie: NCM_COOKIE,
+    },
+  })
+    .then(res => res.json())
+    .catch(err => consola.error(err))
 
-    return parser(data as unknown as NCMResponse, type)
-  }
-  catch (error: any) {
-    console.error('/api/ncm: ', error)
+  if (!data)
     return []
-  }
+
+  return parser(data, type)
 }

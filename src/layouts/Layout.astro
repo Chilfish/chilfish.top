@@ -71,39 +71,6 @@ const image = cover || '/avatar.png'
   </body>
 </html>
 
-<style is:global>
-* {
-  box-sizing: border-box;
-  min-width: 0;
-}
-html {
-  --uno: bg-dark-800 text-light;
-}
-body {
-  margin: 0;
-  padding: 1rem;
-  font-size: 16px;
-  line-height: 1.5;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-}
-
-h1,h2,h3,h4 {
-  text-wrap: balance;
-}
-
-p {
-  text-wrap: pretty;
-}
-
-code {
-  --uno: font-mono;
-}
-
-pre {
-  border-radius: 12px;
-  padding: 1rem;
-  margin: 1rem 0;
-}
+<style is:global lang="scss">
+@import '@assets/main.scss';
 </style>

@@ -1,9 +1,13 @@
 import { defineConfig, squooshImageService } from 'astro/config'
-
-// import vue from '@astrojs/vue'
+import AutoImport from 'unplugin-auto-import/astro'
+import AutoImportAstro from 'astro-auto-import'
 import mdx from '@astrojs/mdx'
 import UnoCSS from 'unocss/astro'
 import vercel from '@astrojs/vercel/serverless'
+
+// import vue from '@astrojs/vue'
+
+const cp = (name: string) => `./src/components/common/${name}.astro`
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,13 +16,24 @@ export default defineConfig({
     //   appEntrypoint: '/src/pages/_vue',
     //   jsx: true,
     // }),
+    AutoImport({
+      dts: 'src/types/auto-imports.d.ts',
+    }),
+    AutoImportAstro({
+      imports: [
+        cp('Alert'),
+      ],
+    }),
     mdx(),
     UnoCSS({
       injectReset: true,
     }),
   ],
+
+  // SSR mode
   output: 'server',
   adapter: vercel(),
+
   markdown: {
     shikiConfig: {
       theme: 'vitesse-dark',
@@ -28,8 +43,5 @@ export default defineConfig({
   prefetch: true,
   image: {
     service: squooshImageService(),
-    domains: [
-      'p.chilfish.top',
-    ],
   },
 })

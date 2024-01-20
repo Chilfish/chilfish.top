@@ -4,6 +4,8 @@
 interface ImportMetaEnv {
   readonly GITHUB_TOKEN: string
   readonly NCM_UID: number
+  readonly NCM_API: string
+  readonly NCM_COOKIE: string
 }
 
 interface ImportMeta {
