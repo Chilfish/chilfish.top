@@ -47,6 +47,10 @@
     {
       "destination": "https://music.163.com/#/user/home?id=1533509979",
       "source": "/163"
+    },
+    {
+      "destination": "/rss.xml",
+      "source": "/feed"
     }
   ]
 }

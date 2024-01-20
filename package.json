@@ -14,13 +14,17 @@
   "dependencies": {
     "@astrojs/check": "^0.4.1",
     "@astrojs/mdx": "^2.0.5",
+    "@astrojs/rss": "^4.0.2",
+    "@astrojs/sitemap": "^3.0.5",
     "@astrojs/vercel": "^6.1.4",
     "@astrojs/vue": "^4.0.8",
     "astro": "^4.2.1",
+    "astro-expressive-code": "^0.31.0",
     "astro-seo": "^0.8.0",
+    "markdown-it": "^14.0.0",
+    "sanitize-html": "^2.11.0",
     "sass": "^1.70.0",
-    "typescript": "^5.3.3",
-    "vue": "^3.4.15"
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.3",

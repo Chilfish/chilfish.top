@@ -21,6 +21,7 @@ h2,
 h3,
 h4 {
   text-wrap: balance;
+  font-weight: bold;
 }
 
 p {
@@ -31,8 +32,12 @@ code {
   --uno: font-mono;
 }
 
-pre {
+.expressive-code {
   border-radius: 12px;
-  padding: 1rem;
   margin: 1rem 0;
+  overflow: auto;
+  .frame pre {
+    max-height: 30rem;
+    --uno: text-3 sm: text-3.5;
+  }
 }

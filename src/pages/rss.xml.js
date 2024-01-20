@@ -1,25 +1,3 @@
----
-title: Hello World
-description: Hello World from the description
-date: 2024-01-01
-cover: ../../assets/fish.jpg
-tags:
-  - hello
-  - fish
----
-
-## Hello World
-
-### Hello World from the title
-
-Hello World from the body
-
-- Hello World from the list
-- Hello World from the list
-
-### Code Block
-
-```js title="pages/rss.xml.js"
 import rss from '@astrojs/rss'
 import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it'
@@ -43,36 +21,6 @@ export async function GET(context) {
       link: `/blog/${slug}`,
     })),
     customData: `<language>zh-cn</language>`,
-    stylesheet: '/pretty-feed-v3.xsl',
+    stylesheet: 'https://fastly.jsdelivr.net/gh/genmon/aboutfeeds@main/tools/pretty-feed-v3.xsl',
   })
 }
-```
-
-### Image
-
-![fish](@assets/fish.jpg)
-
-### Components
-
-Alert:
-
-<Alert
-  type='tip'
-  text='hello'
-/>
-
-### Links
-
-链接：[nest](./nest/nest)，[astro](https://astro.build/)
-
-### blockquote
-
-> #30363d
-
-### Table
-
-|  1  |  2  |  3  |
-| :-: | :-: | :-: |
-|  1  |  2  |  3  |
-|  1  |  2  |  3  |
-
