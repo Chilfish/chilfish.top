@@ -1,10 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
-import '@assets/post-details.scss'
 
-import Layout from '@layouts/Layout.astro'
-import { formatDate } from '~/utils'
+import PostDetails from '~/layouts/PostDetails.astro'
 
 export const prerender = true
 
@@ -21,32 +19,6 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { post } = Astro.props
-const { Content } = await post.render()
 ---
 
-<Layout
-  aclass="p-0 mx-auto w-45ch sm:w-120ch"
-  title={post.data.title}
->
-  <header class="flex flex-col justify-center">
-    <a href="/blog">
-      <span class="i-tabler-arrow-left mr-2 icon h-5 w-5" />
-      <span>Back</span>
-    </a>
-
-    <div class="mb-8 mt-4">
-      <h1
-        class="mb-2 text-4xl font-bold leading-tight"
-      >
-        {post.data.title}
-      </h1>
-      <p>
-        {formatDate(post.data.date)}
-      </p>
-    </div>
-  </header>
-
-  <article>
-    <Content />
-  </article>
-</Layout>
+<PostDetails post={post} />

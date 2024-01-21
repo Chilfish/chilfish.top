@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import BlogTags from './BlogTags.astro'
 import { type Blog, formatDate } from '~/utils'
 
 type Props = {
@@ -47,18 +48,7 @@ const { blogs } = Astro.props
             </time>
           </span>
 
-          {blog.tags.length > 0
-            ? (
-              <span class="tags">
-                <span class="i-tabler-tag icon"></span>
-                { blog.tags.map(tag => (
-                  <span class="tag">
-                    { tag }
-                  </span>
-                ))}
-              </span>
-            )
-            : null }
+          <BlogTags tags={blog.tags} />
 
         </div>
       </div>
@@ -77,9 +67,5 @@ const { blogs } = Astro.props
 
 .meta > span {
   --uno: center gap-1;
-}
-
-.tag {
-  --uno: rounded-md px-1 border-gray border;
 }
 </style>

@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Layout from './Layout.astro'
+import TableOfContent from '~/components/TableOfContent.astro'
+import '@assets/post-details.scss'
+import BlogMeta from '~/components/BlogMeta.astro'
+import BackToTop from '~/components/common/BackToTop.astro'
+
+type Props = {
+  post: CollectionEntry<'blog'>
+}
+const { post } = Astro.props
+
+const { title, author, description, date, maxDepthTOC, tags } = post.data
+
+const { Content, headings } = await post.render()
+---
+
+<Layout
+  title={title}
+  description={description}
+  author={author}
+  date={date}
+  aclass="sm:px-12 mx-auto relative"
+>
+  <section
+    id="page-top"
+    class="flex"
+  >
+    <main class="w-full sm:w-3/4">
+      <article>
+        <BlogMeta
+          title={title}
+          author={[author]}
+          pubDate={date}
+          tags={tags}
+        />
+
+        <Content />
+      </article>
+    </main>
+
+    <aside
+      class="mb-4 ml-12 hidden w-1/4 flex-1 transition-opacity"
+      uno-sm="block"
+    >
+      { headings.length > 0 && (
+        <TableOfContent
+          headers={headings}
+          maxDeep={maxDepthTOC || 4}
+        />
+      ) }
+    </aside>
+  </section>
+
+  <BackToTop />
+</Layout>

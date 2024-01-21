@@ -6,6 +6,8 @@ import Footer from '@cp/common/Footer.astro'
 
 type props = {
   title: string
+  author?: string
+  date?: Date
   description?: string
   cover?: string
   aclass?: string
@@ -15,10 +17,12 @@ type Props = {
   frontmatter?: MarkdownLayoutProps<props>['frontmatter']
 } & props
 
-const { title, aclass, description, cover } = Astro.props.frontmatter || Astro.props
+const { title, aclass, author, description, cover, date }
+ = Astro.props.frontmatter || Astro.props
 
 const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
 const image = cover || '/avatar.png'
+const pubDate = (date ?? new Date()).toLocaleDateString()
 ---
 
 <!doctype html>
@@ -42,6 +46,10 @@ const image = cover || '/avatar.png'
       name="generator"
       content={Astro.generator}
     />
+    <meta
+      name="author"
+      content={author}
+    />
     <SEO
       title={title}
       description={desc}
@@ -54,6 +62,14 @@ const image = cover || '/avatar.png'
         image: {
           url: image,
           alt: title,
+        },
+        optional: {
+          description: desc,
+        },
+        article: {
+          publishedTime: pubDate,
+          modifiedTime: pubDate,
+          authors: [author ?? 'Chilfish'],
         },
       }}
       twitter={{

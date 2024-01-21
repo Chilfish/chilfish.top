@@ -11,7 +11,7 @@ const cp = (name: string) => `./src/components/common/${name}.astro`
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://chilfish.top',
+  site: 'https://astro.chilfish.top',
   // SSR mode
   output: 'server',
   adapter: vercel(),
