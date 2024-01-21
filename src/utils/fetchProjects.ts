@@ -1,4 +1,3 @@
-import { Buffer } from 'node:buffer'
 import { LangColors, Projects } from '~/constant'
 import type { Languages, Project } from '~/constant'
 
@@ -15,7 +14,7 @@ const {
 let token = ''
 
 if (GITHUB_TOKEN)
-  token = Buffer.from(`token:${GITHUB_TOKEN}`).toString('base64')
+  token = btoa(`token:${GITHUB_TOKEN}`)
 
 export async function fetchProjects() {
   const data = await Promise.all(

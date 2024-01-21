@@ -39,11 +39,11 @@ const icon = TypeArr.find(item => item.type === type)!.icon
 const title = type.charAt(0).toUpperCase() + type.slice(1)
 ---
 
-<div
+<blockquote
   style={`
     border-left-color: ${color};
   `}
-  class="m-3 border-l-3 p-2 pl-4"
+  class="alert m-3 border-l-3 p-2 pl-4"
 >
   <p
     style={`color: ${color}`}
@@ -55,4 +55,4 @@ const title = type.charAt(0).toUpperCase() + type.slice(1)
   { text
     ? <p>{text}</p>
     : <slot /> }
-</div>
+</blockquote>

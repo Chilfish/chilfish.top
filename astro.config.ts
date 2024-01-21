@@ -3,6 +3,7 @@ import AutoImport from 'unplugin-auto-import/astro'
 import AutoImportAstro from 'astro-auto-import'
 import sitemap from '@astrojs/sitemap'
 import mdx from '@astrojs/mdx'
+import vue from '@astrojs/vue'
 import UnoCSS from 'unocss/astro'
 import vercel from '@astrojs/vercel/serverless'
 import expressiveCode from 'astro-expressive-code'
@@ -15,16 +16,20 @@ export default defineConfig({
   // SSR mode
   output: 'server',
   adapter: vercel(),
-
   integrations: [
+    vue({
+      jsx: true,
+    }),
     sitemap(),
     AutoImport({
       dts: 'src/types/auto-imports.d.ts',
+      imports: ['vue', '@vueuse/core'],
+      dirs: [
+        'src/utils',
+      ],
     }),
     AutoImportAstro({
-      imports: [
-        cp('Alert'),
-      ],
+      imports: [cp('Alert')],
     }),
     expressiveCode({
       themes: ['vitesse-dark', 'vitesse-light'],
@@ -36,7 +41,6 @@ export default defineConfig({
       injectReset: true,
     }),
   ],
-
   markdown: {
     shikiConfig: {
       experimentalThemes: {

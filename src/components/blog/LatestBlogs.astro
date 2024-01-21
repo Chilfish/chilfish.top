@@ -1,5 +1,5 @@
 ---
-import LinkBar from './common/LinkBar.astro'
+import LinkBar from '@cp/common/LinkBar.astro'
 import { formatDate, getBlogs } from '~/utils'
 
 const blogs = (await getBlogs()).slice(0, 5)

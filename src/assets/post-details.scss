@@ -5,19 +5,26 @@ article {
   }
   h2 {
     font-size: 1.5rem;
-    padding: 0.5rem 0;
+    margin: 1.5rem 0;
   }
   h3 {
     font-size: 1.25rem;
+    margin: 1.3rem 0;
+  }
+  h4 {
+    font-size: 1.1rem;
     margin: 1rem 0;
   }
 
   a {
-    --uno: underline text-blue hover: text-blue-8 transition-colors;
+    --uno: underline;
   }
 
   p {
-    line-height: 1.3rem;
+    line-height: 1.8rem;
+    margin: 0.8rem 0;
+    letter-spacing: 0.03rem;
+    text-indent: 2rem;
   }
 
   img {
@@ -43,13 +50,16 @@ article {
     margin: 0.2rem 0;
   }
 
-  blockquote {
+  blockquote,
+  .alert {
     border-left: 3px solid #30363d;
     padding-left: 1rem;
     margin: 1rem 0;
 
     p {
       --uno: text-gray;
+      text-indent: 0;
+      margin: 0;
     }
   }
 

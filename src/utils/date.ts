@@ -3,8 +3,8 @@ import type { CollectionEntry } from 'astro:content'
 export function formatDate(date: Date): string {
   return date.toLocaleDateString('zh-cn', {
     year: 'numeric',
-    month: 'short',
-    day: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
   })
 }
 
