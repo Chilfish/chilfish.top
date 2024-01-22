@@ -25,7 +25,7 @@ import DarkToggle from './DarkToggle.vue'
       uno-to="purple-500 dark:purple-600"
       class="text-xl text-transparent!"
     >
-      Chilfish'Blogs
+      Chilfish
     </h1>
   </a>
 
@@ -37,23 +37,41 @@ import DarkToggle from './DarkToggle.vue'
       <span class="i-tabler:menu-deep icon h-6 w-6"></span>
       <span class="i-tabler:brand-x icon hidden h-6 w-6"></span>
     </button>
+
     <ul
       class="nav-item hidden w-full center-col gap-4 pb-4 blur-bg"
       uno-bg="light-1 dark:dark"
-      uno-sm="flex-row flex w-auto ml-auto gap-4 p-0 bg-transparent!"
+      uno-sm="flex-row flex w-fit ml-auto gap-4 p-0 bg-transparent!"
     >
       <a href="/blog"> Blogs </a>
       <a href="/music"> Music </a>
       <a href="/sponsors"> Sponsors </a>
       <a href="/about"> About </a>
-      <DarkToggle client:idle />
+      <div class="min-h-4 min-w-fit center gap-4">
+        <a
+          title="RSS Feed"
+          href="/feed"
+          class="w-fit!"
+        >
+          <span class="i-tabler:rss icon"></span>
+        </a>
+        <a
+          title="Github repo"
+          target="_blank"
+          href="https://github.com/chilfish/chilfish.top"
+          class="w-fit!"
+        >
+          <span class="i-tabler:brand-github icon"></span>
+        </a>
+        <DarkToggle client:idle />
+      </div>
     </ul>
   </nav>
 </header>
 
-<style is:inline>
-nav a {
-    --uno: sm:w-fit w-80% text-center rounded bg-hover hover:text-primary;
+<style>
+ul.nav-item a {
+  --uno: sm:min-w-fit w-80% text-center rounded hover:text-primary;
 }
 </style>
 
