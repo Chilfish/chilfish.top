@@ -1,16 +1,17 @@
 ---
 import { Image } from 'astro:assets'
 import Songs from './Songs.astro'
-import type { NCMType, SongRecord } from '~/types'
+import { fetchMusic } from '~/utils/fetchMusic'
+import type { NCMType } from '~/types'
 
 type Props = {
-  records: SongRecord[]
   type: NCMType
 }
 
-const { records, type } = Astro.props
+const { type } = Astro.props
 
 let pic = '/avatar.png'
+const records = await fetchMusic(type)
 
 if (records.length > 0)
   pic = records[0]?.al.picUrl
@@ -44,7 +45,7 @@ if (records.length > 0)
       ? records.map((record, idx) => (
         <Songs
           record={record}
-          idx={idx}
+          idx={idx + 1}
         />
       ))
       : (<p>暂无数据</p>)}

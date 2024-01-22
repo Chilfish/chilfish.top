@@ -17,12 +17,14 @@ function duration() {
 }
 
 let index = `${idx}`
-if (idx < 9)
-  index = `0${idx + 1}`
+if (idx < 10)
+  index = `0${idx}`
 ---
 
 <a
-  class={`song ${idx % 2 === 0 ? 'bg-dark-6' : 'bg-dark-7'}`}
+  uno-bg={`${idx % 2 === 0 ? '#f7f9fc dark:dark-6' : '#f7f5f7 dark:dark-7'}`}
+  uno-hover-bg={`${idx % 2 !== 0 ? '#f7f5f7 dark:dark-7' : '#f7f9fc dark:dark-6'}`}
+  class="song"
   href={`https://music.163.com/song?id=${record.id}`}
   target="_blank"
   referrerpolicy="no-referrer"
@@ -62,11 +64,11 @@ if (idx < 9)
 
 <style>
 .song {
-  --uno: text-light-4 h-18 w-90vw flex items-center justify-between gap-3 rounded-md px-3 py-2 text-3 sm:w-40rem sm:text-3.5;
+  --uno: h-18 w-90vw flex items-center justify-between gap-3 rounded-md px-3 py-2 text-3 sm:w-40rem sm:text-3.5;
 }
 
 .record-name {
-  --uno: text-4 text-light-7 truncate;
+  --uno: text-4 truncate;
 }
 
 .duration {

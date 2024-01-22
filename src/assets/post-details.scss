@@ -31,7 +31,7 @@ article {
     border-radius: 12px;
     max-width: 90%;
     margin: 1rem auto;
-    --uno: sm: max-w-70%;
+    --uno: sm:max-w-70%;
   }
 
   ul {
@@ -57,7 +57,7 @@ article {
     margin: 1rem 0;
 
     p {
-      --uno: text-gray;
+      --uno: text-gray-6 dark:text-gray;
       text-indent: 0;
       margin: 0;
     }
@@ -72,6 +72,7 @@ article {
   table {
     width: 80%;
     margin: 1rem auto;
+    border-radius: 8px;
     border-collapse: collapse;
 
     caption {
@@ -89,12 +90,11 @@ article {
     tr,
     tr:nth-child(even),
     tr:nth-child(odd) {
-      border: 1px solid #30363d;
-      background-color: #0d1117;
+      --uno: bg-light-7 dark:bg-dark-7;
     }
     th,
     tr:hover {
-      background-color: #161b22;
+      --uno: bg-light-8 dark:bg-dark-8;
     }
     td,
     th {

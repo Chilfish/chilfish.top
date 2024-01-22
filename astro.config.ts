@@ -24,15 +24,14 @@ export default defineConfig({
     AutoImport({
       dts: 'src/types/auto-imports.d.ts',
       imports: ['vue', '@vueuse/core'],
-      dirs: [
-        'src/utils',
-      ],
+      dirs: ['src/utils'],
     }),
     AutoImportAstro({
       imports: [cp('Alert')],
     }),
     expressiveCode({
-      themes: ['vitesse-dark', 'vitesse-light'],
+      themes: ['vitesse-dark'],
+      themeCssSelector: theme => `html.${theme.type}`,
       useThemedScrollbars: false,
       useThemedSelectionColors: false,
     }),
@@ -45,7 +44,7 @@ export default defineConfig({
     shikiConfig: {
       experimentalThemes: {
         dark: 'vitesse-dark',
-        light: 'vitesse-light',
+        // light: 'vitesse-light',
       },
     },
   },

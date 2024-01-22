@@ -1,10 +1,12 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
-import type { MarkdownLayoutProps } from 'astro'
 import { SEO } from 'astro-seo'
-import Footer from '@cp/common/Footer.astro'
+import type { MarkdownLayoutProps } from 'astro'
 
-type props = {
+import Footer from '@cp/common/Footer.astro'
+import Header from '@cp/common/Header.astro'
+
+interface props {
   title: string
   author?: string
   date?: Date
@@ -79,6 +81,8 @@ const pubDate = (date ?? new Date()).toLocaleDateString()
         image,
       }}
     />
+
+    <script is:inline src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
     <ViewTransitions />
     <title>{title}</title>
   </head>
@@ -86,6 +90,7 @@ const pubDate = (date ?? new Date()).toLocaleDateString()
     class={aclass}
     transition:animate="fade"
   >
+    <Header />
     <slot />
     <Footer />
   </body>
@@ -93,4 +98,33 @@ const pubDate = (date ?? new Date()).toLocaleDateString()
 
 <style is:global lang="scss">
 @import '@assets/main.scss';
+@import '@assets/NProgress.scss';
 </style>
+
+<script is:inline>
+function setDarkMode(document) {
+  const theme = localStorage.theme ? 'dark' : 'light'
+  const html = document.querySelector('html')
+  html.classList.add(theme)
+}
+
+setDarkMode(document)
+
+document.addEventListener('astro:before-swap', (ev) => {
+  // Pass the incoming document to set the theme on it
+  setDarkMode(ev.newDocument)
+})
+</script>
+
+<script is:inline>
+NProgress.configure({
+  showSpinner: false,
+})
+
+document.addEventListener('astro:before-preparation', () => {
+  NProgress.start()
+})
+document.addEventListener('astro:after-preparation', () => {
+  NProgress.done()
+})
+</script>

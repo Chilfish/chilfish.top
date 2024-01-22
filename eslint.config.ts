@@ -14,14 +14,15 @@ const compat = new FlatCompat({
 export default antfu(
   {
     unocss: true,
-    formatters: true,
+    formatters: {
+      css: false,
+    },
     rules: {
       'no-console': 'off',
       'vue/no-multiple-template-root': 'off',
       'node/prefer-global/process': 'off',
     },
   },
-
   // Legacy config
   // thanks https://github.com/antfu/eslint-config/issues/146#issuecomment-1834425495
   ...compat.config({

@@ -10,14 +10,15 @@ const adjacentBlogs = await getAdjacentBlogs(slug)
 ---
 
 <aside
-  class="sticky top-0 hidden h-90vh w-1/7 text-end text-3 text-gray trans-all"
+  class="sticky top-0 hidden h-90vh w-1/7 trans-all"
   uno-sm="block opacity-0 hover:opacity-100 duration-500"
+  uno-text="start 3"
 >
-  <ul class="h-full center-col gap-2">
+  <ul class="h-full center-col gap-3">
     {adjacentBlogs.map(blog => (
       <a
         href={`/blog/${blog.slug}`}
-        class={`w-full hover:underline ${blog.slug === slug ? 'text-light font-bold text-3.7' : ''}`}
+        class={`w-full hover:underline ${blog.slug === slug ? 'text-dark-9 dark:text-light-9 font-bold text-3.7' : ''}`}
       >
         {blog.title}
       </a>

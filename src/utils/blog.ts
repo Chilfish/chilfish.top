@@ -1,11 +1,16 @@
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { getCollection } from 'astro:content'
 import { sortPostsByDate } from './date'
-
-export type Blog = CollectionEntry<'blog'>
+import type { Blog } from '~/types'
 
 export async function getBlogs(): Promise<Blog[]> {
   const posts = await getCollection('blog', ({ data }) => !data.isDraft)
-  return sortPostsByDate(posts)
+  return sortPostsByDate(posts.map(post => ({
+    ...post,
+    data: {
+      ...post.data,
+      description: post.data.description || post.body.slice(0, 140),
+    },
+  })))
 }
 
 export async function getPagingBlogs(page: number, limit: number): Promise<Blog[]> {

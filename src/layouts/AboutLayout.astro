@@ -1,0 +1,22 @@
+---
+import Layout from './Layout.astro'
+import '@assets/post-details.scss'
+
+export interface Props {
+  frontmatter: {
+    title: string
+    description?: string
+  }
+}
+
+const { frontmatter } = Astro.props
+---
+
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+>
+  <main class="px-12">
+    <article><slot /></article>
+  </main>
+</Layout>

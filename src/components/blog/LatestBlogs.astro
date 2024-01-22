@@ -11,30 +11,31 @@ const blogs = (await getBlogs()).slice(0, 5)
     href="/blog"
     aclass="mb-4"
   />
+  <ul>
+    {blogs.map(({ data: blog, slug }) => (
+      <a
+        href={`/blog/${slug}`}
+      >
+        <h3 class="font-400 underline">
+          {blog.title}
+        </h3>
+        <time class="ml-2 min-w-fit">
+          { formatDate(blog.date) }
+        </time>
+      </a>
+    ))}
 
-  {blogs.map(({ data: blog, slug }) => (
     <a
-      href={`/blog/${slug}`}
+      href="/blog"
+      class="underline"
     >
-      <h3 class="underline">
-        {blog.title}
-      </h3>
-      <time>
-        { formatDate(blog.date) }
-      </time>
-    </a>
-  ))}
-
-  <a
-    href="/blog"
-    class="underline"
-  >
     All posts
-  </a>
+    </a>
+  </ul>
 </div>
 
 <style>
 a {
-  --uno: mt-3 flex items-center justify-between text-gray-3
+  --uno: px-3 py-2 flex rounded items-center justify-between font-400 bg-hover;
 }
 </style>

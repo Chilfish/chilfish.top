@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import BackToTop from '@cp/common/BackToTop.astro'
 import TableOfContent from '@cp/blog/TableOfContent.vue'
 import BlogMeta from '@cp/blog/BlogMeta.astro'
 import AdjacentBlogs from '@cp/blog/AdjacentBlogs.astro'
-import BackToTop from '@cp/common/BackToTop.astro'
 import Layout from './Layout.astro'
 import '@assets/post-details.scss'
 
@@ -22,15 +22,18 @@ const { Content, headings } = await post.render()
   description={description}
   author={author}
   date={date}
-  aclass="sm:px-6 mx-auto relative"
+  aclass="mx-auto relative"
 >
   <section
     id="page-top"
-    class="flex"
+    class="flex px-4 sm:px-12"
   >
     <AdjacentBlogs slug={post.slug} />
 
-    <main class="w-full sm:mx-10 sm:w-19/30">
+    <main
+      class="w-full"
+      uno-sm="mx-10 w-19/30"
+    >
       <article>
         <BlogMeta
           title={title}

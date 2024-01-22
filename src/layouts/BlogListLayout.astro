@@ -1,0 +1,53 @@
+---
+import Alert from '@cp/common/Alert.astro'
+import LinkBtn from '@cp/common/LinkBtn.astro'
+import PostList from '@cp/blog/BlogList.astro'
+import Layout from './Layout.astro'
+import type { BlogPage } from '~/types'
+
+interface Props {
+  page: BlogPage
+}
+
+const { page } = Astro.props
+---
+
+<Layout title="Blogs | Chilfish">
+  <main
+    class="mx-auto my-4 max-w-86ch flex flex-col items-center px-6"
+  >
+    <Alert type="important">
+      <p>
+        This website is still under construction. Some pages may not be available yet.
+        See also
+        <a
+          target="_blank"
+          href="https://note.chilfish.top/blogs"
+          class="text-blue-500 hover:underline"
+        >
+         note.chilfish.top
+        </a>.
+      </p>
+    </Alert>
+
+    <PostList blogs={page.data} />
+
+    <div class="mt-6 w-full flex items-center justify-between">
+      { page.url.prev && (
+        <LinkBtn
+          href={page.url.prev}
+        >
+          上一页
+        </LinkBtn>
+      ) }
+      { page.url.next && (
+        <LinkBtn
+          href={page.url.next}
+          aclass="ml-auto"
+        >
+        下一页
+        </LinkBtn>
+      ) }
+    </div>
+  </main>
+</Layout>

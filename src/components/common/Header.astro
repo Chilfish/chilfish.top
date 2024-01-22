@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets'
+import DarkToggle from './DarkToggle.vue'
+
+---
+
+<header
+  class="sticky left-0 top-0 z-100 mb-6 h-14 trans-all"
+  uno-bg="light-1 dark:dark"
+>
+  <a
+    href="/"
+    class="absolute left-4 top-3 center gap-3"
+  >
+    <Image
+      class="rounded-full"
+      src="/avatar.png"
+      alt="Chilfish's avatar"
+      height={32}
+      width={32}
+    />
+    <h1
+      uno-bg="gradient-to-r clip-text"
+      uno-from="blue-400 dark:blue-500"
+      uno-to="purple-500 dark:purple-600"
+      class="text-xl text-transparent!"
+    >
+      Chilfish'Blogs
+    </h1>
+  </a>
+
+  <nav
+    class="w-full gap-4 trans-all"
+    uno-sm="flex w-auto p-4"
+  >
+    <button class="nav-menu ml-auto icon-box p-4 sm:hidden sm:p-0">
+      <span class="i-tabler:menu-deep icon h-6 w-6"></span>
+      <span class="i-tabler:brand-x icon hidden h-6 w-6"></span>
+    </button>
+    <ul
+      class="nav-item hidden w-full center-col gap-4 pb-4 blur-bg"
+      uno-bg="light-1 dark:dark"
+      uno-sm="flex-row flex w-auto ml-auto gap-4 p-0 bg-transparent!"
+    >
+      <a href="/blog"> Blogs </a>
+      <a href="/music"> Music </a>
+      <a href="/sponsors"> Sponsors </a>
+      <a href="/about"> About </a>
+      <DarkToggle client:idle />
+    </ul>
+  </nav>
+</header>
+
+<style is:inline>
+nav a {
+    --uno: sm:w-fit w-80% text-center rounded bg-hover hover:text-primary;
+}
+</style>
+
+<script>
+function toggleMenu() {
+  const menuBtn = document.querySelector('.nav-menu')
+  const nav = document.querySelector('.nav-item')
+  const icons = menuBtn?.querySelectorAll('.icon')
+  menuBtn?.addEventListener('click', () => {
+    nav?.classList.toggle('hidden')
+    icons?.forEach(icon => icon.classList.toggle('hidden'))
+  })
+}
+
+function toggleHeader() {
+  const header = document.querySelector('header')
+  let prevScrollPos = window.scrollY
+
+  window.addEventListener('scroll', () => {
+    if (!header)
+      return
+    const currentScrollPos = window.scrollY
+
+    if (prevScrollPos > currentScrollPos)
+      header.style.top = '0'
+    else
+      header.style.top = `-${header.offsetHeight}px`
+
+    prevScrollPos = currentScrollPos
+  })
+}
+
+document.addEventListener('astro:page-load', () => {
+  toggleMenu()
+  toggleHeader()
+})
+</script>

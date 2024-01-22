@@ -1,14 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import LatestBlogs from '@cp/blog/LatestBlogs.astro'
-import LinkBar from '@cp/common/LinkBar.astro'
 import Projects from '@cp/Projects.astro'
 import Socials from '@cp/Socials.astro'
 ---
 
 <Layout title="Chilfish">
   <main
-    class="mx-auto my-4 max-w-86ch"
+    class="mx-auto max-w-86ch p-4"
   >
     <header>
       <h1 class="text-3xl font-bold">
@@ -21,8 +20,6 @@ import Socials from '@cp/Socials.astro'
 
     <Socials />
     <Projects />
-    <LinkBar title="Sponsors" href="/sponsors" />
-    <LinkBar title="Music Records" href="/music" />
     <LatestBlogs />
 
   </main>

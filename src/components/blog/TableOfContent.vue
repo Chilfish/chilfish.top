@@ -38,7 +38,7 @@ onMounted(() => {
 
 <template>
   <aside
-    class="sticky top-12 mb-4 hidden w-1/5 flex-1 transition-opacity"
+    class="mb-4 hidden w-1/5 flex-1 transition-opacity"
     uno-sm="block"
   >
     <nav class="toc">
@@ -51,7 +51,7 @@ onMounted(() => {
           ref="tocItems"
           :key="header.slug"
           :class="`toc-depth-${header.depth} line-height-6 mt-2 underline`"
-          uno-text="3.5 gray hover:blue-500"
+          uno-text="3.5 hover:blue-500"
         >
           <a :href="`#${header.slug}`">
             {{ header.text }}
@@ -65,7 +65,7 @@ onMounted(() => {
 <style lang="scss">
 .toc {
   position: sticky;
-  top: 2rem;
+  top: 4rem;
   li.active {
     --uno: text-blue;
   }

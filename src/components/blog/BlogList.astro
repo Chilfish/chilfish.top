@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 import BlogTags from './BlogTags.astro'
-import { type Blog, formatDate } from '~/utils'
+import { formatDate } from '~/utils'
+import type { Blog } from '~/types'
 
 type Props = {
   blogs: Blog[]
@@ -9,30 +10,28 @@ type Props = {
 
 const { blogs } = Astro.props
 ---
+
 <ul
-  class="center-col gap-3"
+  class="w-full center-col gap-3"
 >
   { blogs.map(({ data: blog, slug }) => (
     <a
-      class="blog relative w-full flex flex-col rounded-md bg-dark-3 p-2 sm:w-xl"
+      class="blog relative w-full flex flex-col rounded-md p-3 shadow"
       uno-h={blog.cover ? '60' : 'auto'}
+      uno-bg="light-3 dark:dark-3"
       href={`/blog/${slug}`}
     >
-      { blog.cover
-        ? (
-          <Image
-            src={blog.cover}
-            alt={blog.title}
-            class="absolute right-0 top-0 z-0 max-h-52 rounded-md"
-            uno-object="cover top-center"
-          />
-        )
-        : null}
+      { blog.cover && (
+        <Image
+          src={blog.cover}
+          alt={blog.title}
+          class="absolute right-0 top-0 z-0 max-h-52 rounded-md"
+          uno-object="cover top-center"
+        />
+      )}
 
       <div class="z-10 mt-auto">
-        <h2
-          class="text-xl text-light-7 font-bold"
-        >
+        <h2 class="text-xl font-bold">
           { blog.title }
         </h2>
 
@@ -66,6 +65,6 @@ const { blogs } = Astro.props
 }
 
 .meta > span {
-  --uno: center gap-1;
+  --uno: icon-box;
 }
 </style>

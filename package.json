@@ -23,6 +23,7 @@
     "astro-seo": "^0.8.0",
     "consola": "^3.2.3",
     "markdown-it": "^14.0.0",
+    "nprogress": "^0.2.0",
     "sanitize-html": "^2.11.0",
     "vue": "^3.4.15"
   },
@@ -53,6 +54,6 @@
     "unplugin-auto-import": "^0.17.3"
   },
   "lint-staged": {
-    "*": "eslint . --fix"
+    "*": "eslint --fix"
   }
 }

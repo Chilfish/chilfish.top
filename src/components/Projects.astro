@@ -21,8 +21,7 @@ const projects = await fetchProjects()
         rel="noopener noreferrer"
         href={project.url}
         title={project.name}
-        class="mx-auto w-90% flex flex-col gap-2 rounded-md p-4 transition-colors sm:w-full"
-        uno-bg="dark-7 hover:dark-8"
+        class="mx-auto w-90% flex flex-col gap-2 rounded-md p-4 transition-colors sm:w-full bg-hover"
       >
         <Image
           src={project.banner}

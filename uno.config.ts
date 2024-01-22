@@ -23,7 +23,7 @@ export default defineConfig({
       'icon-box': 'flex items-center gap-2',
     },
     {
-      'blur-bg': 'backdrop-blur-10 bg-[#00000010] dark:bg-[#ffffff10]',
+      'blur-bg': 'backdrop-blur-10',
     },
     {
       input: 'rounded bg-light py-2 px-4 dark:bg-dark',
@@ -31,10 +31,13 @@ export default defineConfig({
     {
       'trans-all': 'transition-all duration-300 ease-in-out',
     },
+    {
+      'bg-hover': 'hover:bg-gray-2 dark:hover:bg-dark-6',
+    },
   ],
   theme: {
     colors: {
-      primary: '#3730a3',
+      primary: '#3388bb',
     },
   },
   presets: [
