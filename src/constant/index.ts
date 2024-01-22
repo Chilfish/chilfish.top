@@ -1,8 +1,7 @@
 import { z } from 'astro:content'
+import { githubHost, imgHost } from './config'
 
-export const host = 'https://chilfish.top'
-export const imgHost = 'https://p.chilfish.top'
-export const githubHost = 'https://github.com/Chilfish'
+export * from './config'
 
 export const LangColors = {
   TypeScript: '#3178c6',

@@ -8,11 +8,14 @@ import UnoCSS from 'unocss/astro'
 import vercel from '@astrojs/vercel/serverless'
 import expressiveCode from 'astro-expressive-code'
 
+import { host } from './src/constant/config'
+
 const cp = (name: string) => `./src/components/common/${name}.astro`
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro.chilfish.top',
+  site: host,
+
   // SSR mode
   output: 'server',
   adapter: vercel(),
