@@ -19,7 +19,7 @@ const adjacentBlogs = await getAdjacentBlogs(slug, type)
   <ul class="h-full center-col gap-3">
     {adjacentBlogs.map(blog => (
       <a
-        href={`/${type}/${blog.slug}`}
+        href={`/${type}/${blog.slug}/`}
         class={`w-full hover:underline ${blog.slug === slug ? 'text-dark-9 dark:text-light-9 font-bold text-3.7' : ''}`}
       >
         {blog.title}
