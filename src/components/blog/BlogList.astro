@@ -1,29 +1,29 @@
 ---
 import { Image } from 'astro:assets'
 import { formatDate } from '~/utils'
-import type { Blog } from '~/types'
+import type { Post } from '~/types'
 
 type Props = {
-  blogs: Blog[]
+  posts: Post[]
 }
 
-const { blogs } = Astro.props
+const { posts } = Astro.props
 ---
 
 <ul
   class="w-full center-col gap-3"
 >
-  { blogs.map(({ data: blog, slug }) => (
+  { posts.map(({ data: post, slug, collection: type }) => (
     <a
-      class="blog relative w-full flex flex-col rounded-md p-3 shadow"
-      uno-h={blog.cover ? '60' : 'auto'}
+      class="post relative w-full flex flex-col rounded-md p-3 shadow"
+      uno-h={post.cover ? '60' : 'auto'}
       uno-bg="light-3 dark:dark-3"
-      href={`/blog/${slug}`}
+      href={`/${type}/${slug}`}
     >
-      { blog.cover && (
+      { post.cover && (
         <Image
-          src={blog.cover}
-          alt={blog.title}
+          src={post.cover}
+          alt={post.title}
           class="absolute right-0 top-0 z-0 max-h-52 rounded-md"
           uno-object="cover top-center"
         />
@@ -31,18 +31,18 @@ const { blogs } = Astro.props
 
       <div class="z-10 mt-auto">
         <h2 class="text-xl font-bold">
-          { blog.title }
+          { post.title }
         </h2>
 
         <p class="mt-3">
-          { blog.description }
+          { post.description }
         </p>
 
         <div class="meta flex items-center gap-2 pt-2 text-3">
           <div>
             <span class="i-tabler-calendar icon" />
             <time>
-              { formatDate(blog.date) }
+              { formatDate(post.date) }
             </time>
           </div>
         </div>
@@ -52,11 +52,11 @@ const { blogs } = Astro.props
 </ul>
 
 <style>
-.blog:hover h2 {
+.post:hover h2 {
   text-decoration: underline;
 }
 
-.blog img {
+.post img {
   mask-image: linear-gradient(180deg,#fff -16%,#0000 90%);
 }
 

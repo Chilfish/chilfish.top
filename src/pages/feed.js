@@ -1,12 +1,12 @@
 import rss from '@astrojs/rss'
 import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it'
-import { getBlogs } from '~/utils'
+import { getPosts } from '~/utils'
 
 const parser = new MarkdownIt()
 
 export async function GET(context) {
-  const blogs = await getBlogs()
+  const blogs = await getPosts()
 
   return rss({
     title: 'Chilfish’s Blog',

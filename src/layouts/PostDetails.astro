@@ -1,14 +1,14 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import BackToTop from '@cp/common/BackToTop.astro'
 import TableOfContent from '@cp/blog/TableOfContent.vue'
 import BlogMeta from '@cp/blog/BlogMeta.astro'
 import AdjacentBlogs from '@cp/blog/AdjacentBlogs.astro'
 import Layout from './Layout.astro'
 import '@assets/post-details.scss'
+import type { Post } from '~/types'
 
 type Props = {
-  post: CollectionEntry<'blog'>
+  post: Post
 }
 const { post } = Astro.props
 
@@ -28,7 +28,10 @@ const { Content, headings } = await post.render()
     id="page-top"
     class="flex px-4 sm:px-12"
   >
-    <AdjacentBlogs slug={post.slug} />
+    <AdjacentBlogs
+      type={post.collection}
+      slug={post.slug}
+    />
 
     <main
       class="w-full"

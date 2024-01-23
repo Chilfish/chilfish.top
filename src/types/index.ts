@@ -3,5 +3,7 @@ import type { CollectionEntry } from 'astro:content'
 
 export * from './music'
 
-export type Blog = CollectionEntry<'blog'>
-export type BlogPage = Page<Blog>
+export type ContentType = 'blog' | 'note'
+
+export type Post<T extends ContentType = ContentType> = CollectionEntry<T>
+export type PostPage<T extends ContentType = ContentType> = Page<Post<T>>

@@ -4,37 +4,55 @@ import type { GetStaticPaths } from 'astro'
 import Alert from '@cp/common/Alert.astro'
 import PostDetails from '~/layouts/PostDetails.astro'
 import BlogListLayout from '~/layouts/BlogListLayout.astro'
-import { getBlogs } from '~/utils'
-import type { Blog, BlogPage } from '~/types'
+import { getAllPosts } from '~/utils'
+import { pageSize } from '~/constant/config'
+import type { Post, PostPage } from '~/types'
 
 export const prerender = true
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const blogs = await getBlogs()
-
+  const posts = await getAllPosts()
+  const [blogs, notes] = posts
   return [
-    ...paginate(blogs, { pageSize: 8 }),
-    ...blogs.map(blog => ({
-      params: { page: blog.slug },
-      props: { blog },
+    ...paginate(blogs, {
+      pageSize,
+      params: {
+        type: 'blog',
+      },
+    }),
+    ...paginate(notes, {
+      pageSize,
+      params: {
+        type: 'note',
+      },
+    }),
+    ...posts.flat().map(post => ({
+      props: {
+        post,
+      },
+      params: {
+        page: post.slug,
+        type: post.collection,
+      },
     })),
   ]
 }) satisfies GetStaticPaths
 
 type Props = {
-  page: BlogPage
-  blog: undefined
+  page: PostPage
+  post: undefined
 } | {
   page: undefined
-  blog: Blog
+  post: Post
 }
 
-const { blog, page } = Astro.props
+const { post, page } = Astro.props
+
 ---
 
 {
-  blog
-    ? <PostDetails post={blog} />
+  post
+    ? <PostDetails post={post} />
     : (
       <BlogListLayout
         page={page}

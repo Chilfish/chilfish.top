@@ -1,12 +1,14 @@
 ---
+import type { ContentType } from '~/types'
 import { getAdjacentBlogs } from '~/utils'
 
 type Props = {
   slug: string
+  type: ContentType
 }
-const { slug } = Astro.props
+const { slug, type } = Astro.props
 
-const adjacentBlogs = await getAdjacentBlogs(slug)
+const adjacentBlogs = await getAdjacentBlogs(slug, type)
 ---
 
 <aside
@@ -17,7 +19,7 @@ const adjacentBlogs = await getAdjacentBlogs(slug)
   <ul class="h-full center-col gap-3">
     {adjacentBlogs.map(blog => (
       <a
-        href={`/blog/${blog.slug}`}
+        href={`/${type}/${blog.slug}`}
         class={`w-full hover:underline ${blog.slug === slug ? 'text-dark-9 dark:text-light-9 font-bold text-3.7' : ''}`}
       >
         {blog.title}

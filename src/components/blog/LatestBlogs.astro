@@ -1,8 +1,8 @@
 ---
 import LinkBar from '@cp/common/LinkBar.astro'
-import { formatDate, getBlogs } from '~/utils'
+import { formatDate, getPosts } from '~/utils'
 
-const blogs = (await getBlogs()).slice(0, 5)
+const posts = (await getPosts()).slice(0, 5)
 ---
 
 <div>
@@ -12,15 +12,15 @@ const blogs = (await getBlogs()).slice(0, 5)
     aclass="mb-4"
   />
   <ul>
-    {blogs.map(({ data: blog, slug }) => (
+    {posts.map(({ data: post, slug }) => (
       <a
         href={`/blog/${slug}`}
       >
         <h3 class="font-400 underline">
-          {blog.title}
+          {post.title}
         </h3>
         <time class="ml-2 min-w-fit">
-          { formatDate(blog.date) }
+          { formatDate(post.date) }
         </time>
       </a>
     ))}
