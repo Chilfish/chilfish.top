@@ -13,13 +13,7 @@ export async function getAllPosts() {
 export async function getPosts(type: ContentType = 'blog'): Promise<Post[]> {
   const posts = await getCollection(type, ({ data }) => !data.isDraft)
 
-  return sortPostsByDate(posts.map(post => ({
-    ...post,
-    data: {
-      ...post.data,
-      description: post.data.description || post.body.slice(0, 140),
-    },
-  })))
+  return sortPostsByDate(posts)
 }
 
 export async function getPostsByTag(tag: string) {

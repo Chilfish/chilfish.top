@@ -1,6 +1,5 @@
 ---
 title: 很早以前的 Kano Q&A
-toc: false
 date: 2022-03-30
 author: 贴吧老哥们
 tags: [Forks]

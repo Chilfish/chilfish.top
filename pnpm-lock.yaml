@@ -61,6 +61,9 @@ devDependencies:
   '@eslint/eslintrc':
     specifier: ^3.0.0
     version: 3.0.0
+  '@iconify-json/octicon':
+    specifier: ^1.1.52
+    version: 1.1.52
   '@iconify-json/simple-icons':
     specifier: ^1.1.89
     version: 1.1.89
@@ -1048,6 +1051,12 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.2:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
+    dev: true
+
+  /@iconify-json/octicon@1.1.52:
+    resolution: {integrity: sha512-0bLc9t54p55nVlQ8SKF7BYOBTy/Q5SfvqYcOD09APDksRTikO45MwKTfG3fzkbaIwpobuVQM1sXiSCsyWJX9Tg==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify-json/simple-icons@1.1.89:

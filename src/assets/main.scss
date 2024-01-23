@@ -52,6 +52,15 @@ p {
 
 code {
   --uno: font-mono;
+  padding: 3px 4px;
+  border-radius: 4px;
+  color: #353841;
+  background-color: #d0d1d3;
+}
+
+.dark code {
+  color: #c1c3c8;
+  background-color: #353841;
 }
 
 .expressive-code {

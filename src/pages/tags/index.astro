@@ -8,7 +8,7 @@ const tags = await getAllTags()
 <Layout title="Tags">
   <main class="px-12">
     <h1 class="mb-6 text-2xl">所有标签</h1>
-    <ul class="tsgs flex items-center gap-3">
+    <ul class="tsgs flex flex-wrap items-center gap-3">
       { tags.map(tag => (
         <a
           href={`/tags/${tag}/`}
