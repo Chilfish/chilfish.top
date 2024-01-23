@@ -7,6 +7,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import { TechIcons } from './src/constant/techs'
 
 export default defineConfig({
   shortcuts: [
@@ -53,5 +54,8 @@ export default defineConfig({
   transformers: [
     transformerDirectives(),
     transformerVariantGroup(),
+  ],
+  safelist: [
+    ...TechIcons,
   ],
 })

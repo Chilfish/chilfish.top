@@ -1,0 +1,28 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import { getAllTags } from '~/utils'
+
+const tags = await getAllTags()
+---
+
+<Layout title="Tags">
+  <main class="px-12">
+    <h1 class="mb-6 text-2xl">所有标签</h1>
+    <ul class="tsgs flex items-center gap-3">
+      { tags.map(tag => (
+        <a
+          href={`/tags/${tag}/`}
+          class="tag"
+        >
+          { tag }
+        </a>
+      ))}
+    </ul>
+  </main>
+</Layout>
+
+<style>
+.tag {
+  --uno: rounded-md py-1 px-2 text-4 border-gray border cursor-pointer;
+}
+</style>

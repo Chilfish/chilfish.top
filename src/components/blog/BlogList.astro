@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets'
-import BlogTags from './BlogTags.astro'
 import { formatDate } from '~/utils'
 import type { Blog } from '~/types'
 
@@ -39,16 +38,13 @@ const { blogs } = Astro.props
           { blog.description }
         </p>
 
-        <div class="meta flex items-center gap-2 py-2 text-3">
-          <span>
+        <div class="meta flex items-center gap-2 pt-2 text-3">
+          <div>
             <span class="i-tabler-calendar icon" />
             <time>
               { formatDate(blog.date) }
             </time>
-          </span>
-
-          <BlogTags tags={blog.tags} />
-
+          </div>
         </div>
       </div>
     </a>
@@ -64,7 +60,7 @@ const { blogs } = Astro.props
   mask-image: linear-gradient(180deg,#fff -16%,#0000 90%);
 }
 
-.meta > span {
+.meta > div {
   --uno: icon-box;
 }
 </style>

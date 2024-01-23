@@ -3,76 +3,61 @@
 // and cannot be imported
 const SocialList = [
   {
-    name: 'blog',
-    text: 'Blog',
-    link: 'https://note.chilfish.top',
-    icon: 'i-ri-book-2-line',
-    class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
-  },
-  {
     name: 'github',
-    text: '',
     link: 'https://github.com/Chilfish',
-    icon: 'i-ri-github-fill',
-    class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
+    icon: 'i-simple-icons:github',
+    color: '#010101',
   },
   {
-    name: 'mail',
-    text: '',
+    name: 'gmail',
     link: 'mailto:chill4fish@gmail.com',
-    icon: 'i-ri-mail-fill',
-    class: 'hover:bg-[#E84234]',
+    icon: 'i-simple-icons:gmail',
+    color: '#E84234',
   },
   {
     name: 'twitter',
-    text: '',
     link: 'https://twitter.com/chilllish',
-    icon: 'i-fa-brands-twitter',
-    class: 'hover:bg-[#00ACEE]',
+    icon: 'i-simple-icons:twitter',
+    color: '#00ACEE',
   },
   {
     name: 'tel',
-    text: '',
     link: 'https://t.me/Chilfish',
-    icon: 'i-ri-telegram-fill',
-    class: 'hover:bg-[#0088CC]',
+    icon: 'i-simple-icons:telegram',
+    color: '#0088CC',
   },
   {
     name: 'discord',
-    text: '',
     link: 'https://discord.com/users/1039168181215961199',
-    icon: 'i-ic-baseline-discord',
-    class: 'hover:bg-[#5865F2]',
+    icon: 'i-simple-icons:discord',
+    color: '#5865F2',
   },
   {
     name: 'weibo',
-    text: '',
     link: 'https://weibo.com/chilfish',
-    icon: 'i-fa-brands-weibo',
-    class: 'hover:bg-[#FF8200]',
+    icon: 'i-simple-icons:sinaweibo',
+    color: '#FF8200',
   },
   {
-    name: 'bili',
-    text: '',
+    name: 'bilibili',
     link: 'https://space.bilibili.com/259486090',
-    icon: 'i-ri-bilibili-fill',
-    class: 'hover:bg-[#fb7299]',
+    icon: 'i-simple-icons:bilibili',
+    color: '#fb7299',
   },
   {
     name: 'zhihu',
-    text: '',
     link: 'https://www.zhihu.com/people/Walmart_Zelo',
-    icon: 'i-ri-zhihu-line',
-    class: 'hover:bg-[#558EFF]',
+    icon: 'i-simple-icons:zhihu',
+    color: '#0066fe',
   },
   {
-    name: '163',
-    text: '',
+    name: '163 Music',
     link: 'https://music.163.com/user/home?id=1533509979',
-    icon: 'i-ri-netease-cloud-music-line',
-    class: 'hover:bg-[#DD001B]',
+    icon: 'i-simple-icons:neteasecloudmusic',
+    color: '#DD001B',
   },
-]
+] as const
+
 ---
 
 <div class="mt-4">
@@ -80,19 +65,14 @@ const SocialList = [
   <ul>
     { SocialList.map(social => (
       <a
-        class={social.class}
+        style={{
+          'background-color': social.color,
+        }}
         href={social.link}
+        title={social.name}
         target="_blank"
       >
-        <div class={`icon ${social.icon}`} />
-
-        {social.text
-          ? (
-            <div class="ml-1">
-              {social.text}
-            </div>
-          )
-          : null }
+        <span class={`icon ${social.icon}`} />
       </a>
     )) }
   </ul>
@@ -108,6 +88,6 @@ ul {
 }
 
 a {
-  --uno: center rounded-md bg-primary px-3 py-2 text-center transition-colors text-sm hover:text-white text-white;
+  --uno: rounded-full p-2 icon-box text-white;
 }
 </style>

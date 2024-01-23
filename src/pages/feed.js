@@ -21,6 +21,5 @@ export async function GET(context) {
       link: `/blog/${slug}`,
     })),
     customData: `<language>zh-cn</language>`,
-    stylesheet: 'https://fastly.jsdelivr.net/gh/genmon/aboutfeeds@main/tools/pretty-feed-v3.xsl',
   })
 }

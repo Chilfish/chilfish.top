@@ -1,62 +1,49 @@
 import { z } from 'astro:content'
 import { githubHost, imgHost } from './config'
+import type { Tech } from './techs'
 
 export * from './config'
-
-export const LangColors = {
-  TypeScript: '#3178c6',
-  JavaScript: '#f1e05a',
-  Vue: '#41b883',
-  React: '#61dafb',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  Scss: '#c6538c',
-  Markdown: '#083fa1',
-  Kotlin: '#a97bff',
-  Python: '#3572a5',
-} as const
-
-export type Languages = keyof typeof LangColors
+export * from './techs'
 
 const _Project = z.object({
-  id: z.number(),
   name: z.string(),
   description: z.string(),
-  banner: z.string().url(),
+  banner: z.string().url().optional(),
   license: z.string(),
-  language: z.string(),
-  stars: z.number(),
-  color: z.string(),
+  techs: z.array(z.custom<Tech>()),
   url: z.string().url(),
-  isGithub: z.boolean(),
+  isWeb: z.boolean(),
 })
 
 export type Project = z.infer<typeof _Project>
 
-export const Projects: Project[] = [
+export const ProjectList: Project[] = [
   {
-    id: 1,
     name: 'Weibo-archiver',
     description: '将你的新浪微博存档备份的油猴脚本，为号被完全夹没前绸缪 😭',
     banner: `${imgHost}/v0.1.10.png`,
     license: 'MIT',
-    language: 'Typescript',
-    stars: 36,
-    color: LangColors.TypeScript,
+    techs: ['ts', 'vue', 'monkey'],
     url: `${githubHost}/Weibo-archiver`,
-    isGithub: true,
+    isWeb: false,
   },
   {
-    id: 2,
     name: 'Chillab',
     description: '实现我一些小想法的地方',
     banner: `${imgHost}/chillab.webp`,
     license: 'MIT',
-    language: 'Vue',
-    stars: 0,
-    color: LangColors.Vue,
-    url: `${githubHost}/Chillab`,
-    isGithub: true,
+    techs: ['nuxt', 'ts', 'unocss'],
+    url: `https://vue.chilfish.top`,
+    isWeb: true,
+  },
+  {
+    name: 'Chilfish.top',
+    description: '我的个人网站',
+    banner: `${imgHost}/chilfish.top.webp`,
+    license: 'MIT',
+    techs: ['astro', 'vue', 'ts'],
+    url: `https://chilfish.top`,
+    isWeb: true,
   },
 ]
 
@@ -69,8 +56,8 @@ export const SponsorList = [
     message: '非常感谢您开发了方便的好工具~!',
     reply: '感谢你的支持😇',
     project: {
-      name: Projects[0].name,
-      url: Projects[0].url,
+      name: ProjectList[0].name,
+      url: ProjectList[0].url,
     },
   },
 ]

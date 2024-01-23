@@ -13,9 +13,15 @@ export async function getBlogs(): Promise<Blog[]> {
   })))
 }
 
-export async function getPagingBlogs(page: number, limit: number): Promise<Blog[]> {
+export async function getBlogsByTag(tag: string): Promise<Blog[]> {
   const posts = await getBlogs()
-  return posts.slice((page - 1) * limit, page * limit)
+  return posts.filter(post => post.data.tags.includes(tag))
+}
+
+export async function getAllTags(): Promise<string[]> {
+  const posts = await getBlogs()
+  const tags = posts.map(post => post.data.tags).flat()
+  return [...new Set(tags)]
 }
 
 /**

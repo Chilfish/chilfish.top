@@ -19,12 +19,13 @@ type Props = {
   frontmatter?: MarkdownLayoutProps<props>['frontmatter']
 } & props
 
-const { title, aclass, author, description, cover, date }
+const { title: _title, aclass, author, description, cover, date }
  = Astro.props.frontmatter || Astro.props
 
 const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
 const image = cover || '/avatar.png'
 const pubDate = (date ?? new Date()).toLocaleDateString()
+const title = `${_title} | Chilfish`
 ---
 
 <!doctype html>

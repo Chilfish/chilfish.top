@@ -29,10 +29,11 @@ const TypeArr = [
 
 type Props = {
   type: typeof TypeArr[number]['type']
+  aclass?: string
   text?: string
 }
 
-const { type, text } = Astro.props
+const { type, text, aclass = '' } = Astro.props
 
 const color = TypeArr.find(item => item.type === type)!.color
 const icon = TypeArr.find(item => item.type === type)!.icon
@@ -43,7 +44,7 @@ const title = type.charAt(0).toUpperCase() + type.slice(1)
   style={`
     border-left-color: ${color};
   `}
-  class="alert m-3 border-l-3 p-2 pl-4"
+  class={`alert m-3 border-l-3 p-2 pl-4 ${aclass}`}
 >
   <p
     style={`color: ${color}`}

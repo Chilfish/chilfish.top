@@ -1,5 +1,4 @@
 ---
-import Alert from '@cp/common/Alert.astro'
 import LinkBtn from '@cp/common/LinkBtn.astro'
 import PostList from '@cp/blog/BlogList.astro'
 import Layout from './Layout.astro'
@@ -7,28 +6,20 @@ import type { BlogPage } from '~/types'
 
 interface Props {
   page: BlogPage
+  title: string
+  h1: string
 }
 
-const { page } = Astro.props
+const { page, title, h1 } = Astro.props
 ---
 
-<Layout title="Blogs | Chilfish">
+<Layout title={title}>
   <main
-    class="mx-auto my-4 max-w-86ch flex flex-col items-center px-6"
+    class="mx-auto max-w-86ch flex flex-col items-center px-6"
   >
-    <Alert type="important">
-      <p>
-        This website is still under construction. Some pages may not be available yet.
-        See also
-        <a
-          target="_blank"
-          href="https://note.chilfish.top/blogs"
-          class="text-blue-500 hover:underline"
-        >
-         note.chilfish.top
-        </a>.
-      </p>
-    </Alert>
+    <h1 class="mb-6 text-xl">
+      {h1}
+    </h1>
 
     <PostList blogs={page.data} />
 
@@ -49,5 +40,6 @@ const { page } = Astro.props
         </LinkBtn>
       ) }
     </div>
+    <slot name="footer" />
   </main>
 </Layout>

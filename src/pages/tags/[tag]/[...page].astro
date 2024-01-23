@@ -1,0 +1,39 @@
+---
+import type { GetStaticPaths } from 'astro'
+
+import BlogListLayout from '~/layouts/BlogListLayout.astro'
+import { getAllTags, getBlogsByTag } from '~/utils'
+import type { BlogPage } from '~/types'
+
+export const prerender = true
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const tags = await getAllTags()
+
+  const res = await Promise.all(tags.map(async (tag) => {
+    const blogsByTag = await getBlogsByTag(tag)
+
+    return paginate(blogsByTag, {
+      pageSize: 8,
+      params: {
+        tag,
+      },
+    })
+  }))
+
+  return res.flat()
+}) satisfies GetStaticPaths
+
+interface Props {
+  page: BlogPage
+}
+
+const { page } = Astro.props
+const { tag } = Astro.params
+---
+
+<BlogListLayout
+  page={page}
+  title={tag}
+  h1={`#${tag} 标签下的 ${page.total} 篇Blogs`}
+/>

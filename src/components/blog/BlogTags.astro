@@ -7,18 +7,21 @@ const { tags } = Astro.props
 ---
 
 {tags && tags.length > 0 && (
-  <span class="tags icon-box">
+  <div class="tags icon-box">
     <span class="i-tabler-tag icon"></span>
     { tags.map(tag => (
-      <span class="tag">
+      <a
+        href={`/tags/${tag}/`}
+        class="tag decoration-none"
+      >
         { tag }
-      </span>
+      </a>
     ))}
-  </span>
+  </div>
 )}
 
 <style>
-.tag {
+.tags a.tag {
   --uno: rounded-md px-1 border-gray border cursor-pointer;
 }
 </style>
