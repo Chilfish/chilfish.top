@@ -144,4 +144,4 @@ class FileController {
 [chilpost-sb]: https://github.com/Chilfish/chilpost-sb
 [JetBrains/Exposed]: https://github.com/JetBrains/Exposed
 [org.bitbucket.b_c:jose4j]: https://bitbucket.org/b_c/jose4j/wiki/Home
-[all 200 api]: ../../2023/return_all_HTTP200_api.md#spring-boot
+[all 200 api]: ../return_all_HTTP200_api.md#spring-boot

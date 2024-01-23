@@ -142,7 +142,7 @@ category: blog
 
 这时想加上登录的功能了，毕竟得要试多窗口聊天。对比几个方案后选用了 Token 的方式身份验证了，即 npm：`JWT: JSON Web Token`
 
-这本身用起来也很简单，照着 README 给的 api 封装一下就好
+这本身用起来也很简单，照着 index 给的 api 封装一下就好
 
 大抵就是前端每次请求都带上登录时后端返回的 Token（通常存在 Cookie 或 localStorage 中 ），服务器再对传来的 Token 用私钥解密，没错则通过鉴权
 
@@ -312,6 +312,6 @@ socket.on(api.join, (user) => {
 
 然后才想起来是不是得写一个开发日志什么的记录下坑……但先玩再说吧，然后正好一星期就过去了…尽在互联网冲浪了，果然就停不下来了
 
-做完后再补上项目的 README 好了
+做完后再补上项目的 index 好了
 
 > （后续来看）其实不大对，只要登陆进去的时候将自己加入`client.join(userId);`，就能够用这个来私聊了 `server.to(message.receiveId).emit('message', message);`

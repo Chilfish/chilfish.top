@@ -84,7 +84,7 @@ proot-distro login ubuntu
 
 开始时，选上 Ubuntu -> Minimal -> Terminal 就行了
 
-然后就是设置 UBuntu 了，具体的 [Getting Start](../../cs/linux/start.md)
+然后就是设置 UBuntu 了，具体的 [Getting Start](../../note/cs/linux/start.md)
 
 ### 一些坑点
 

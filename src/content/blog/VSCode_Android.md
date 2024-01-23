@@ -10,7 +10,7 @@ tags: [Linux, Termux]
 
 虽然 [文档](https://coder.com/docs/code-server/latest/termux) 已经讲好了，但实际用 pkg 下下来的 node-lts 已经是 v18 了，但 code-server 居然仅支持 v16，而 apt 和 pkg 又没法指定版本......尝试了诸如 n、fnm、nvm 这样的 node 版本管理器，但实测在 wsl2 的 Ubuntu 完美运行，就是在 Termux 上出现了网络、目录、权限等问题下不了或者运行不过...... fnm 在 Termux 的网络问题过了两年了 [issue](https://github.com/Schniz/fnm/issues/520) 还是没人理.... 但也不能直接从 [.tar.gz](https://github.com/Schniz/fnm/issues/161) 上安装
 
-但还是最后在 Reddit 上翻到了一个 [教程](https://gist.github.com/ppoffice/b9e88c9fd1daf882bc0e7f31221dda01?permalink_comment_id=4339755#gistcomment-4339755)，说是要先 [装个 Ubuntu](../tips/android.md/#安装-ubuntu)，然后就能愉快地使用了......
+但还是最后在 Reddit 上翻到了一个 [教程](https://gist.github.com/ppoffice/b9e88c9fd1daf882bc0e7f31221dda01?permalink_comment_id=4339755#gistcomment-4339755)，说是要先 [装个 Ubuntu](./tips/android.md#安装-ubuntu)，然后就能愉快地使用了......
 
 而且 Code FA 也差不多是这个方案，用 proot-distro 来跑 Ubuntu
 
@@ -24,13 +24,13 @@ tags: [Linux, Termux]
 
 ### Start Ubuntu
 
-前置的在 [安装 UserLAnd](../tips/android.md#更好的-userland)
+前置的在 [安装 UserLAnd](./tips/android.md#更好的-userland)
 
 ### 一键安装
 
 > 更新：现在已经支持直接从 pkg 仓库安装了，就能方便地升级之类的， 见 [文档](https://coder.com/docs/code-server/latest/termux#installation)
 
-噢这实在是太蠢了，居然要一点一点地下载安装，但其实只要一条脚本就好了......就在 README 里，照着文档的反而一堆坑
+噢这实在是太蠢了，居然要一点一点地下载安装，但其实只要一条脚本就好了......就在 index 里，照着文档的反而一堆坑
 
 ```bash
 curl -fsSL https://code-server.dev/install.sh | sh

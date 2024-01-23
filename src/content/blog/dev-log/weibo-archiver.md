@@ -256,7 +256,7 @@ async function searchText(p: string): Promise<Post[]> {
 
 下载图片这部分还能尝试一下 Rust 的加速），用户就不需要额外的环境配置。而且像是分词索引这部分也就能很合理地存在用户电脑上，不用再正则暴力搜索了
 
-[事件]: ../../logs/2023-s.md#2023-03-13
+[事件]: ../diary/2023-s.md#2023-03-13
 [backup]: https://github.com/chilfish/weibo-backup/
 [archiver]: https://github.com/chilfish/Weibo-archiver
 [monkey-vite]: https://github.com/lisonge/vite-plugin-monkey

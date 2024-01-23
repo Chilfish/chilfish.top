@@ -6,7 +6,7 @@ tags: [Linux]
 
 > 建议熟记）：[国光：Web 狗的要懂的 Linux 基础知识](https://www.sqlsec.com/2019/10/linux.html)
 
-[Getting Start](../../cs/linux/start.md)
+[Getting Start](../../note/cs/linux/start.md)
 
 ### Ubuntu 安装 NeoVim>=0.9
 

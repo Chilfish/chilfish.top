@@ -447,7 +447,7 @@ export const toastDefault = {
 至此，基本就完成了
 
 [el-message]: https://github.com/element-plus/element-plus/tree/dev/packages/components/message/
-[gpt]: ../../gpt/SFCWithInstall.md
+[gpt]: ../note/gpt/SFCWithInstall.md
 [Github]: https://github.com/Chilfish/learn-vue/tree/vue/src/components/Toast
 [引入 element-plus]: https://element-plus.org/zh-CN/guide/quickstart.html
 [vue app.use]: https://cn.vuejs.org/api/application.html#app-use
