@@ -49,6 +49,11 @@
     "unocss": "^0.58.3",
     "unplugin-auto-import": "^0.17.3"
   },
+  "pnpm": {
+    "overrides": {
+      "hasown": "npm:@nolyfill/hasown@latest"
+    }
+  },
   "lint-staged": {
     "*": "eslint --fix"
   }

@@ -69,6 +69,28 @@ article {
     margin: 1rem 0;
   }
 
+  figure {
+    margin: 1rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 80%;
+      transition: all ease-in-out 300ms;
+      max-height: 28rem;
+      border-radius: 8px;
+      margin: 0;
+
+      --uno: object-cover sm:object-contain;
+    }
+    figcaption {
+      color: #999;
+      padding: 0.4rem;
+      margin: 0 0 1rem;
+    }
+  }
+
   table {
     width: 80%;
     margin: 1rem auto;
