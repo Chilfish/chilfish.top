@@ -45,7 +45,7 @@ onMounted(() => {
       <span class="mb-2 text-xl font-bold">
         目录
       </span>
-      <ol>
+      <ol class="h-85vh overflow-y-auto pb-4">
         <li
           v-for="header in filteredHeaders"
           ref="tocItems"

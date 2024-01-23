@@ -14,7 +14,7 @@ const posts = (await getPosts()).slice(0, 5)
   <ul>
     {posts.map(({ data: post, slug }) => (
       <a
-        href={`/blog/${slug}/`}
+        href={`/blog/${slug}`}
       >
         <h3 class="font-400 underline">
           {post.title}
@@ -26,10 +26,10 @@ const posts = (await getPosts()).slice(0, 5)
     ))}
 
     <a
-      href="/blog"
+      href="/note"
       class="underline"
     >
-    All posts
+      Some notes
     </a>
   </ul>
 </div>

@@ -5,8 +5,8 @@ export const onRequest = defineMiddleware(async (_context, next) => {
   const html = await response.text()
 
   const regex = /<a\s+href="([^"]+)">/gi
-  const result = html.replace(regex, (match, href) => {
-    const newHref = href.replace(/\.md$/i, '').toLowerCase()
+  const result = html.replace(regex, (_match, href) => {
+    const newHref = href.replace(/\.md/i, '').toLowerCase()
     return `<a href="${newHref}">`
   })
   return new Response(result, response)

@@ -11,14 +11,14 @@ const { posts } = Astro.props
 ---
 
 <ul
-  class="w-full center-col gap-3"
+  class="w-86vw center-col gap-3 sm:w-52vw"
 >
   { posts.map(({ data: post, slug, collection: type }) => (
     <a
       class="post relative w-full flex flex-col rounded-md p-3 shadow"
       uno-h={post.cover ? '60' : 'auto'}
       uno-bg="light-3 dark:dark-3"
-      href={`/${type}/${slug}/`}
+      href={`/${type}/${slug}`}
     >
       { post.cover && (
         <Image
