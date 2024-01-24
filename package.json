@@ -48,6 +48,7 @@
     "rehype-external-links": "^3.0.0",
     "rehype-figure": "^1.0.1",
     "rehype-rewrite": "^4.0.2",
+    "remark-emoji": "^4.0.1",
     "sass": "^1.70.0",
     "typescript": "^5.3.3",
     "unocss": "^0.58.3",

@@ -1,6 +1,7 @@
-import type { RehypePlugins } from 'astro'
+import type { RehypePlugins, RemarkPlugins } from 'astro'
 import rehypeExternalLinks, { type Options } from 'rehype-external-links'
 import rehypeRewrite, { type RehypeRewriteOptions } from 'rehype-rewrite'
+import remarkEmoji from 'remark-emoji'
 import rehypeFigure from 'rehype-figure'
 import { getHostIcon } from './constant/hostIcons'
 import { imgHost } from './constant/config'
@@ -70,5 +71,6 @@ export const rehypePlugins: RehypePlugins = [
   rehypeFigure,
 ]
 
-export const remarkPlugins = [
+export const remarkPlugins: RemarkPlugins = [
+  [remarkEmoji, { emoticon: true, accessible: true }],
 ]
