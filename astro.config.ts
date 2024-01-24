@@ -6,9 +6,11 @@ import mdx from '@astrojs/mdx'
 import vue from '@astrojs/vue'
 import UnoCSS from 'unocss/astro'
 import vercel from '@astrojs/vercel/serverless'
+
 import expressiveCode from 'astro-expressive-code'
 
 import { host } from './src/constant/config'
+import { rehypePlugins } from './src/markdownPlugins'
 
 const cp = (name: string) => `./src/components/common/${name}.astro`
 
@@ -50,6 +52,7 @@ export default defineConfig({
         // light: 'vitesse-light',
       },
     },
+    rehypePlugins,
   },
   prefetch: true,
   image: {
