@@ -1,8 +1,9 @@
 ---
+import { Image } from 'astro:assets'
 import BackToTop from '@cp/common/BackToTop.astro'
-import TableOfContent from '@cp/blog/TableOfContent.vue'
-import BlogMeta from '@cp/blog/BlogMeta.astro'
-import AdjacentBlogs from '@cp/blog/AdjacentBlogs.astro'
+import TableOfContent from '@cp/post/TableOfContent.vue'
+import PostMeta from '@cp/post/PostMeta.astro'
+import AdjacentPosts from '@cp/post/AdjacentPosts.astro'
 import Layout from './Layout.astro'
 import '@assets/post-details.scss'
 import type { Post } from '~/types'
@@ -12,7 +13,7 @@ type Props = {
 }
 const { post } = Astro.props
 
-const { title, author, description, date, maxDepthTOC, tags, keywords } = post.data
+const { title, author, description, date, maxDepthTOC, tags, keywords, cover } = post.data
 
 const { Content, headings } = await post.render()
 ---
@@ -29,7 +30,7 @@ const { Content, headings } = await post.render()
     id="page-top"
     class="flex px-4 sm:px-12"
   >
-    <AdjacentBlogs
+    <AdjacentPosts
       type={post.collection}
       slug={post.slug}
     />
@@ -39,12 +40,22 @@ const { Content, headings } = await post.render()
       uno-sm="mx-10 w-19/30"
     >
       <article>
-        <BlogMeta
+        <PostMeta
           title={title}
           author={author!}
           pubDate={date!}
           tags={tags}
         />
+
+        { cover && (
+          <Image
+            src={cover}
+            alt={title}
+            width={1200}
+            height={630}
+            class="h-64 w-full rounded-lg object-cover object-top-center transition-height sm:h-96"
+          />
+        )}
         <Content />
       </article>
     </main>

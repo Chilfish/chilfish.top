@@ -24,10 +24,17 @@ const image = cover || '/avatar.png'
 const pubDate = (date ?? new Date()).toLocaleDateString()
 const title = `${_title} | Chilfish`
 const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
+
+const cookie = Astro.cookies
+
+const theme = cookie.get('theme')?.value ?? 'light'
 ---
 
 <!doctype html>
-<html lang="en">
+<html
+  class={theme}
+  lang="en"
+>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -103,21 +110,6 @@ const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
 @import '@assets/main.scss';
 @import '@assets/NProgress.scss';
 </style>
-
-<script is:inline>
-function setDarkMode(document) {
-  const theme = localStorage.theme ? 'dark' : 'light'
-  const html = document.querySelector('html')
-  html.classList.add(theme)
-}
-
-setDarkMode(document)
-
-document.addEventListener('astro:before-swap', (ev) => {
-  // Pass the incoming document to set the theme on it
-  setDarkMode(ev.newDocument)
-})
-</script>
 
 <script is:inline>
 NProgress.configure({

@@ -7,7 +7,7 @@ cover: https://p.chilfish.top/blog/dev-log/weibo-archiver.png
 keywords: Weibo Archiver 备份 存档 炸号 保存微博 微博 开发记录
 ---
 
-![Weibo-archiver](/blog/dev-log/weibo-archiver.png)
+<!-- ![Weibo-archiver](/blog/dev-log/weibo-archiver.png) -->
 
 项目地址：[Chilfish/Weibo-archiver]
 

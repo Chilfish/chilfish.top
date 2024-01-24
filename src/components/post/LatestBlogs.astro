@@ -2,7 +2,7 @@
 import LinkBar from '@cp/common/LinkBar.astro'
 import { formatDate, getPosts } from '~/utils'
 
-const posts = (await getPosts()).slice(0, 5)
+const posts = (await getPosts('blog')).slice(0, 5)
 ---
 
 <div>

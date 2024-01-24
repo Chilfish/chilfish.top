@@ -21,7 +21,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       },
     }),
     ...paginate(notes, {
-      pageSize,
+      pageSize: 12,
       params: {
         type: 'note',
       },
