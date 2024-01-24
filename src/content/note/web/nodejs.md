@@ -20,9 +20,7 @@ tags: [Node.js]
   ```
 - `package.json` 文件包含的信息：
 
-<figure><img src="/img/web/Node_package.png"/><figcaption>
-  配置信息
-</figcaption></figure>
+![配置信息](/blog/web/Node_package.png)
 
 - 其中最后的 `type` 字段是涉及到模块规范的支持，它有两个可选值： `commonjs` 和 `module` ，其默认值为 `commonjs`
 

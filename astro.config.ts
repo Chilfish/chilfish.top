@@ -9,8 +9,8 @@ import vercel from '@astrojs/vercel/serverless'
 
 import expressiveCode from 'astro-expressive-code'
 
-import { host } from './src/constant/config'
-import { rehypePlugins } from './src/markdownPlugins'
+import { host, imgHost } from './src/constant/config'
+import { rehypePlugins, remarkPlugins } from './src/markdownPlugins'
 
 const cp = (name: string) => `./src/components/common/${name}.astro`
 
@@ -32,7 +32,7 @@ export default defineConfig({
       dirs: ['src/utils'],
     }),
     AutoImportAstro({
-      imports: [cp('Alert')],
+      imports: [cp('Alert'), 'image'],
     }),
     expressiveCode({
       themes: ['vitesse-dark'],
@@ -53,9 +53,11 @@ export default defineConfig({
       },
     },
     rehypePlugins,
+    remarkPlugins,
   },
   prefetch: true,
   image: {
     service: squooshImageService(),
+    domains: [imgHost.replace(/https?:\/\//, '')],
   },
 })

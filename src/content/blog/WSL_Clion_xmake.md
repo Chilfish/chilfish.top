@@ -18,9 +18,7 @@ tags: [WSL, C++]
 
 只要在 设置 -> 构建 -> 工具链 -> +号 新建中选择 WSL，它就会自动检测到 WSL 的发行版等配置（在这之前要去 WSL 先安装好 C++工具链(g++,gdb,cmake 这些的)
 
-<figure align="center"><img src="/img/Cion_WSL.webp"/><figcaption>
-自动检测到WSL环境
-</figcaption></figure>
+![自动检测到WSL环境](/blog/Cion_WSL.webp)
 
 ### 安装 XMake
 
@@ -34,21 +32,15 @@ XMake 可以只需安装在 win 上， 在 [Github releases](https://github.com/
 
 在新建项目之前，要先指定 XMake 的目录
 
-<figure align="center"><img src="/img/Cion_XMake_jdk.webp"/><figcaption>
-选添加 XMake JDK
-</figcaption></figure>
+![选添加 XMake JDK](/blog/Cion_XMake_jdk.webp)
 
-<figure align="center"><img src="/img/Cion_XMake_jdk1.webp"/><figcaption>
-选中 XMake 目录
-</figcaption></figure>
+![选中 XMake 目录](/blog/Cion_XMake_jdk1.webp)
 
 ### 项目结构
 
 `XMake.lua` 是 XMake 的配置文件，`src/main.cpp` 是项目的入口文件。这时候 Clion 需要 `CMakeLists.txt` 才能配置项目，而 XMake 正好能生成 CMakeLists，在工具栏的 `XMake -> Update CMakeLists`
 
-<figure align="center"><img src="/img/Cion_XMake_options.webp"/><figcaption>
-装了 XMake 插件就能在工具栏看到
-</figcaption></figure>
+![装了 XMake 插件就能在工具栏看到](/blog/Cion_XMake_options.webp)
 
 但通常此时去生成或构建会报错：
 

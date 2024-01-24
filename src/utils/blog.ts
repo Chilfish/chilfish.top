@@ -18,12 +18,12 @@ export async function getPosts(type: ContentType = 'blog'): Promise<Post[]> {
 
 export async function getPostsByTag(tag: string) {
   const posts = await getAllPosts()
-  return posts.flat().filter(post => post.data.tags.includes(tag))
+  return posts.flat().filter(post => post.data.tags?.includes(tag))
 }
 
 export async function getAllTags(): Promise<string[]> {
   const posts = await getAllPosts()
-  const tags = posts.flat().map(post => post.data.tags).flat()
+  const tags = posts.flat().map(post => post.data.tags!).flat()
   return [...new Set(tags)]
 }
 

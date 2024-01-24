@@ -5,9 +5,7 @@ date: 2022-11-12
 
 ## 概述
 
-<figure><img src="/img/cs/DNS_0.png"/><figcaption>
-  DNS 架构
-</figcaption></figure>
+![DNS 架构](/blog/cs/DNS_0.png)
 
 域名和 IP 地址的映射关系必须保存在域名服务器中，供所有其他应用查询。显然不能将所有信息都储存在一台域名服务器中。DNS 使用**分布在各地**的域名服务器来实现域名到 IP 地址的转换
 

@@ -31,31 +31,23 @@ IP 地址是 IP 协议中非常重要的内容，IP 数据报中含有 **收/发
 
 IP 地址就好像**电话号码**（地址码）：有了某人的电话号码，你就能与他通话了。同样，有了某台主机的 IP 地址，你就能与这台主机通信了
 
-<figure><img src="/img/cs/IP_0.png"/><figcaption>
-  IP 的作用就是在复杂的网络环境中将数据包发送给指定的主机
-</figcaption></figure>
+![IP 的作用就是在复杂的网络环境中将数据包发送给指定的主机](/blog/cs/IP_0.png)
 
 按照 TCP/IP 协议规定，IP 地址用二进制来表示，每个 IP 地址长 32 比特，也就是 4 个字节（这里说的是 IPV4 地址长 **32 比特 / 4 字节**，而 IPV6 地址占 **128 比特 / 16 字节**）。那么，IPV4 地址的最大值就是 $2^{32} = 42,9496,7296$ ，也就是说：最多给大约 43 亿台接入互联网的设备配置其独一无二的 IPV4 地址，但在 2011 年 2 月 3 日，IPV4 就宣布耗尽了
 
 一个采用二进制形式的 IP 地址是一串很长的数字，人们处理起来也太费劲了。为了方便人们的使用，IP 地址习惯性地被写成十进制的形式，使用 “.” 分开不同的字节。这种表示法叫做点分十进制表示法，这显然比一连串二进制地 1 和 0 容易记忆得多。举个例子：
 
-<!-- <figure><img src="/img/cs/ip_1.png"/><figcaption>
-  IP 地址的表示方式
-</figcaption></figure> -->
+<!-- ![IP 地址的表示方式](/blog/cs/ip_1.png) -->
 
 ### IP 地址的格式
 
 IP 地址由 **网络地址** 和 **主机地址** 组成。网络地址是指某个局域网网段的标识，该网段内的主机们用主机地址来标识，因此同一网段内不允许有重复的主机地址。即 IP 地址在网段内有唯一性
 
-<figure align="center"><img src="/img/cs/IP_id_host.webp"/><figcaption>
-  IP 地址的主机标识
-</figcaption></figure>
+![IP 地址的主机标识](/blog/cs/IP_id_host.webp)
 
 而路由器接收包时，只要判断包的目标 IP 地址中的 网络地址 就能判断目标处于路由器内的哪个网段
 
-<figure align="center"><img src="/img/cs/IP_id_net.webp"/><figcaption>
-  IP 地址的网络标识
-</figcaption></figure>
+![IP 地址的网络标识](/blog/cs/IP_id_net.webp)
 
 网络地址和主机地址的分段点是由 **子网掩码** 来决定的，以及 IP 地址的分类
 
@@ -148,9 +140,7 @@ DHCP 分配的地址于租约相关联，并且一般都是具有有效期。如
 
 ### IPV4 数据报的首部格式
 
-<figure align="center"><img src="/img/cs/IP_message.webp"/><figcaption>
-  IPV4 报文的首部格式
-</figcaption></figure>
+![IPV4 报文的首部格式](/blog/cs/IP_message.webp)
 
 **标识**: 同一个 IP 数据报 的分片，使用相同的标识；IP 数据报大小超过 MTU 时，将数据报分片，分片完成的 IP 数据报分片，其标识都是相同的
 

@@ -22,9 +22,7 @@ date: 2022-02-19
   - `ful-width` 全角
 - `write-mode` 文字书写方向
 
-<figure><img src="/img/web/CSS_write_mode.png"/><figcaption>
-  书写方向
-</figcaption></figure>
+![书写方向](/blog/web/CSS_write_mode.png)
 
 - `white-space`：对文本的**换行操作**进行控制
   - 默认值是 `normal`，设置文本到达父元素的边界就自动换行
@@ -126,9 +124,7 @@ date: 2022-02-19
 - `height`、`width` , 宽高
 - 但是，如图 完整的框是指 长：`width + 2\*(margin + padding + border)`
 
-<figure><img src="/img/web/CSS_border.png"/><figcaption>
-  Border
-</figcaption></figure>
+![Border](/blog/web/CSS_border.png)
 
 - 而用了 **`box-sizing: border-box;`** 后，边距不影响宽度了（放全局）
 
@@ -307,9 +303,7 @@ date: 2022-02-19
 - `fixed` : 相对于浏览器窗口固定
 - `sticky` : **粘性定位**，当元素(滚动条)移动到预设位置时固定
 
-<figure><img src="/img/web/CSS_position.png"/><figcaption>
-  position
-</figcaption></figure>
+![position](/blog/web/CSS_position.png)
 
 #### column 多列布局
 

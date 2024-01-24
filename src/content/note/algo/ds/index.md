@@ -43,9 +43,7 @@ tags: [Algorithm, DS]
 
 在计算机或普遍的的编程语言中，数据通常分为两大类： **原始数据结构**、**非原始数据结构**
 
-<figure><img src="/img/algo/DS_base.png"/><figcaption>
-  计算机内的数据分类
-</figcaption></figure>
+![计算机内的数据分类](/blog/algo/DS_base.png)
 
 #### 原始数据结构的特点
 

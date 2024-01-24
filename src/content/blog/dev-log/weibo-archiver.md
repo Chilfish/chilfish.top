@@ -2,18 +2,14 @@
 title: Weibo-archiver 存档你的微博 | 开发记录
 date: 2023-08-31
 tags: [logs, vue]
-category: blog
 description: 将你的新浪微博存档备份，为号被完全夹没前绸缪 😭。支持导出为 HTML 文件、包含所有的图片、前15条评论
-banner: https://p.chilfish.top/v0.1.10.png
-head:
-  - - meta
-    - name: keywords
-      content: Weibo Archiver 备份 存档 炸号 保存微博 微博 开发记录
+cover: https://p.chilfish.top/blog/dev-log/weibo-archiver.png
+keywords: Weibo Archiver 备份 存档 炸号 保存微博 微博 开发记录
 ---
 
-<figure align="center"><img src="https://p.chilfish.top/v0.1.10.png"/></figure>
+![Weibo-archiver](/blog/dev-log/weibo-archiver.png)
 
-项目地址：[archiver]
+项目地址：[Chilfish/Weibo-archiver]
 
 ## 还得自己写一份
 
@@ -258,7 +254,7 @@ async function searchText(p: string): Promise<Post[]> {
 
 [事件]: ../diary/2023-s.md#2023-03-13
 [backup]: https://github.com/chilfish/weibo-backup/
-[archiver]: https://github.com/chilfish/Weibo-archiver
+[Chilfish/Weibo-archiver]: https://github.com/chilfish/Weibo-archiver
 [monkey-vite]: https://github.com/lisonge/vite-plugin-monkey
 [pr/search]: https://github.com/Chilfish/Weibo-archiver/pull/2
 [小众软件]: https://weibo.com/1684197391/NncPS3sud

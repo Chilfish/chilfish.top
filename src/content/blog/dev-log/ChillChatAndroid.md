@@ -29,15 +29,11 @@ category: blog
 
 hh 其实在一开始写 XML 的时候就想好了期末选题，所以一直以来都在写 Chat 的界面，到 Composable 也是。所以只要复制过来再改改就好了，但为了舒服的 commits，还是按功能来拆分 commit 了）还好没全复制过来，因为后来新学好了 MVI 的架构，对于史来说的旧项目，还是得重构蛮久的
 
-<figure align="center"><img src="/img/dev-log/commits.webp"/><figcaption>
-  得亏有写过，直接搬组件过来就好）
-</figcaption></figure>
+![得亏有写过，直接搬组件过来就好）](/blog/dev-log/commits.webp)
 
 然后是截至 5 月 11 号的 UI，但其实 UI 没写多少（都在之前学的时候写好了），主要是 Room 数据库和 ViewModel 这些的设计了
 
-<figure align="center"><img src="/img/dev-log/screenshot_0511.webp"/><figcaption>
-  Material 3，Yes！
-</figcaption></figure>
+![Material 3，Yes！](/blog/dev-log/screenshot_0511.webp)
 
 > 先睡再说了）
 
@@ -45,9 +41,7 @@ hh 其实在一开始写 XML 的时候就想好了期末选题，所以一直以
 
 此时的 UI：
 
-<figure align="center"><img class="w40" src="/img/dev-log/message.webp"/><figcaption>
-  大概的样子）仿了
-</figcaption></figure>
+![大概的样子）仿了](/blog/dev-log/message.webp)
 
 差不多就差插到 Room 里了，其他就先完成本地修改的吧，然后再处理 server 端
 
@@ -57,15 +51,11 @@ hh 其实在一开始写 XML 的时候就想好了期末选题，所以一直以
 
 再就是明明已经 insert 进了 fake Data，但还是没创 db 一样，只有退出重进之后才会创文件，只好预先地在 init 中先 query 一遍
 
-<figure align="center"><img src="/img/dev-log/repoProvider.webp"/><figcaption>
- 还整了一个暴露出来的单例
-</figcaption></figure>
+![还整了一个暴露出来的单例](/blog/dev-log/repoProvider.webp)
 
 再就是写着写着忘记应该异步来写了（虽然这协程就是为了异步）
 
-<figure align="center"><img src="/img/dev-log/async.webp"/><figcaption>
-  JS to Kotlin）
-</figcaption></figure>
+![JS to Kotlin）](/blog/dev-log/async.webp)
 
 #### 路由......
 

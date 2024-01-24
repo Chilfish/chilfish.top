@@ -13,7 +13,7 @@ Rust 作为一门系统级语言，在命令行工具的开发上有着天然的
 
 下载：`scoop install main/bat`
 
-<figure align="center"><img src="https://imgur.com/rGsdnDe.png"/></figure>
+![](https://imgur.com/rGsdnDe.png)
 
 ### eza
 
@@ -27,9 +27,7 @@ function lss {
 
 下载：`scoop install main/eza`
 
-<figure align="center"><img src="/img/rustify_eza.webp"/><figcaption>
-图片描述
-</figcaption></figure>
+![图片描述](/blog/rustify_eza.webp)
 
 ### zoxide
 
@@ -65,7 +63,7 @@ function lss {
 
 下载：`scoop install main/tokei`
 
-<figure align="center"><img src="/img/rustify_tokei.webp"/></figure>
+![](/blog/rustify_tokei.webp)
 
 ### nushell
 

@@ -14,7 +14,7 @@ tags: [Algorithm, DS]
 
 #### 结构
 
-<figure><img src="/img/algo/list_0.png"/></figure>
+![](/blog/algo/list_0.png)
 
 - **头指针：** 一个指向第一个节点地址的指针变量，而不存数据。头指针具有标识单链表的作用，所以经常用头指针代表单链表的名字
 - **头结点：** 在单链表的第一个结点之前附设一个结点，它没有直接前驱，称之为头结点。可不存信息，也可以作为监视哨，或用于存放线性表的长度等附加信息指针域中存放首元结点的地址
@@ -27,9 +27,7 @@ tags: [Algorithm, DS]
 
 > 详见： [List.hpp](https://github.com/Organic-Fish/FishCode/blob/master/CPP/DataStruct/List/List.hpp)
 
-<figure><img src="/img/algo/list_1.svg"/><figcaption>
-现假设单链表 s 中的数据为 {1, 2, 3, 4, 5};
-</figcaption></figure>
+![现假设单链表 s 中的数据为 {1, 2, 3, 4, 5};](/blog/algo/list_1.svg)
 
 #### 链表中的数据表示
 
@@ -138,9 +136,7 @@ void insert(int index, const T &value) {
 }
 ```
 
-<figure><img src="/img/algo/list_2.png"/><figcaption>
-  在 <code>getNode</code> 中，返回的p节点的 <b>首指针</b> 的地址与 head节点的第三个节点的地址相同，所以才做到了只是修改 p 但也影响到了 head
-</figcaption></figure>
+![在 <code>getNode</code> 中，返回的p节点的 <b>首指针</b> 的地址与 head节点的第三个节点的地址相同，所以才做到了只是修改 p 但也影响到了 head](/blog/algo/list_2.png)
 
 > 噢所谓的 “链表能快速地增删元素，但在指定位置时却要遍历” 的矛盾，是在于
 >

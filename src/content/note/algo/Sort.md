@@ -54,9 +54,7 @@ tags: [Algorithm, Sort]
 
 #### 动图
 
-<figure><img src="/img/algo/sort_bubble.gif"/><figcaption>
-  冒泡排序
-</figcaption></figure>
+![冒泡排序](/blog/algo/sort_bubble.gif)
 
 #### 码
 
@@ -81,13 +79,9 @@ void Bubble(vi &arr) {
 
 #### 动图
 
-<figure><img src="/img/algo/sort_quick.gif"/><figcaption>
-  快排
-</figcaption></figure>
+![快排](/blog/algo/sort_quick.gif)
 
-<figure><img src="/img/algo/sort_quick.jpg"/><figcaption>
-  快排分解
-</figcaption></figure>
+![快排分解](/blog/algo/sort_quick.jpg)
 
 #### 码
 
@@ -124,7 +118,7 @@ void quick(vi& arr, int begin, int end) {
 
 #### 动图
 
-<figure><img src="/img/algo/sort_insert.gif"/></figure>
+![](/blog/algo/sort_insert.gif)
 
 #### 码
 
@@ -148,7 +142,7 @@ void insert(vi& arr) {
 
 #### 图
 
-<figure><img src="/img/algo/sort_shell.png"/></figure>
+![](/blog/algo/sort_shell.png)
 
 #### 码
 
@@ -174,7 +168,7 @@ void Shell(vi &arr) {
 
 #### 动图
 
-<figure><img src="/img/algo/sort_select.gif"/></figure>
+![](/blog/algo/sort_select.gif)
 
 #### 码
 
@@ -206,7 +200,7 @@ void Select(vi &arr) {
 
 #### 图
 
-<figure><img src="/img/algo/sort_heap.gif"/></figure>
+![](/blog/algo/sort_heap.gif)
 
 #### 码
 
@@ -247,9 +241,9 @@ void heap_sort(vi &arr) {
 
 #### 动图
 
-<figure><img src="/img/algo/sort_merge.gif"/></figure>
+![](/blog/algo/sort_merge.gif)
 
-<figure><img src="/img/algo/sort_merge_1.png"/></figure>
+![](/blog/algo/sort_merge_1.png)
 
 #### 码
 
@@ -354,7 +348,7 @@ void Count(vi &arr) {
 
 #### 动图
 
-<figure><img src="/img/algo/sort_bucket.webp"/><figcaption></figcaption></figure>
+![<figcaption></figcaption>](/blog/algo/sort_bucket.webp)
 
 #### 码
 
@@ -391,7 +385,7 @@ void bucket(vi& arr, int cnt = 3) {
 
 #### 图
 
-<figure><img src="/img/algo/sort_radix.gif"/></figure>
+![](/blog/algo/sort_radix.gif)
 
 #### 码
 

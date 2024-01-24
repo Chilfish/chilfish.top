@@ -20,7 +20,7 @@ const posts = (await getPosts()).slice(0, 5)
           {post.title}
         </h3>
         <time class="ml-2 min-w-fit">
-          { formatDate(post.date) }
+          { formatDate(post.date!) }
         </time>
       </a>
     ))}

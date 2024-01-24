@@ -14,9 +14,7 @@ tags: [logs]
 
 但他 ↓ 的这说法倒也挺戳我的）虽然是有点小跟风学，然后耽误了另一边……
 
-<figure><img src="/img/stack.png"/><figcaption>
-<a target="_blank" href="https://juejin.cn/post/6844903901435527175">via:掘金：一个程序员的五年总结，给你不一样的角度_恋猫de小郭 </a>
-</figcaption></figure>
+![<a target="_blank" href="https://juejin.cn/post/6844903901435527175">via:掘金：一个程序员的五年总结，给你不一样的角度_恋猫de小郭 </a>](/blog/stack.png)
 
 ### 结果
 

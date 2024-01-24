@@ -12,7 +12,7 @@ type Props = {
 }
 const { post } = Astro.props
 
-const { title, author, description, date, maxDepthTOC, tags } = post.data
+const { title, author, description, date, maxDepthTOC, tags, keywords } = post.data
 
 const { Content, headings } = await post.render()
 ---
@@ -20,6 +20,7 @@ const { Content, headings } = await post.render()
 <Layout
   title={title}
   description={description}
+  keywords={keywords}
   author={author}
   date={date}
   aclass="mx-auto relative"
@@ -40,8 +41,8 @@ const { Content, headings } = await post.render()
       <article>
         <BlogMeta
           title={title}
-          author={author}
-          pubDate={date}
+          author={author!}
+          pubDate={date!}
           tags={tags}
         />
         <Content />

@@ -69,9 +69,7 @@ vue ui
 
 项目文件结构
 
-<figure><img src="/img/web/Vue_proj.png"/><figcaption>
-  文件结构
-</figcaption></figure>
+![文件结构](/blog/web/Vue_proj.png)
 
 #### 运行
 

@@ -5,13 +5,10 @@ import type { MarkdownLayoutProps } from 'astro'
 
 import Footer from '@cp/common/Footer.astro'
 import Header from '@cp/common/Header.astro'
+import type { PostSchema } from '~/content/config'
 
-interface props {
+interface props extends Partial<PostSchema> {
   title: string
-  author?: string
-  date?: Date
-  description?: string
-  cover?: string
   aclass?: string
 }
 
@@ -19,13 +16,14 @@ type Props = {
   frontmatter?: MarkdownLayoutProps<props>['frontmatter']
 } & props
 
-const { title: _title, aclass, author, description, cover, date }
+const { title: _title, aclass, author, description, cover, date, tags, keywords: _keywords }
  = Astro.props.frontmatter || Astro.props
 
 const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
 const image = cover || '/avatar.png'
 const pubDate = (date ?? new Date()).toLocaleDateString()
 const title = `${_title} | Chilfish`
+const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
 ---
 
 <!doctype html>
@@ -52,6 +50,10 @@ const title = `${_title} | Chilfish`
     <meta
       name="author"
       content={author}
+    />
+    <meta
+      name="keywords"
+      content={keywords}
     />
     <SEO
       title={title}

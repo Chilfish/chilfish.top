@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import { formatDate } from '~/utils'
 import type { Post } from '~/types'
 
@@ -21,10 +20,10 @@ const { posts } = Astro.props
       href={`/${type}/${slug}`}
     >
       { post.cover && (
-        <Image
+        <img
           src={post.cover}
           alt={post.title}
-          class="absolute right-0 top-0 z-0 max-h-52 rounded-md"
+          class="absolute right-0 top-0 z-0 max-h-52 w-full rounded-md"
           uno-object="cover top-center"
         />
       )}

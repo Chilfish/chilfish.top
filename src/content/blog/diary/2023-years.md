@@ -16,9 +16,7 @@ category: blog
 
 这个列表还是从 [bgm.tv] 上手动 F12 筛出来的，补番的话就是搜索出来，复制卡片的 HTML 再 append 回去😹忘了好像有个很方便地筛年度动漫的工具，也就凑合着看吧hhh
 
-<figure align="center"><img src="/img/diary/23-anime.webp"/><figcaption>
- From bgm.tv
-</figcaption></figure>
+![From bgm.tv](/blog/diary/23-anime.webp)
 
 年底前突然想着听 MyGo!!!!! 的歌（当然是从春日影开始😎），之后就一发不可收拾。在 31 号完成了大部分的大作业和考试之后，那种感觉来了，起床之后立马启动了起来，还是带b站弹幕的存档
 
@@ -26,9 +24,7 @@ category: blog
 
 我觉得它给我最大的情绪感的是灯宝，其次是祥子（特别是在众多二创中所表达的情感），最喜欢的还是猫猫（以及圣青木）。我发现即便知道是立石凛在唱，但带入tomori来想的话，可以说完全是另一种感觉😭
 
-<figure align="center"><img src="/img/diary/mygo-meme.webp"/><figcaption>
-还得等一年的母鸡卡😫
-</figcaption></figure>
+![还得等一年的母鸡卡😫](/blog/diary/mygo-meme.webp)
 
 2022 年末还在 bocchi 感的时候，欧尼酱来了……完后接了个大魔境，看一半直接第一次地将漫画给补完了😣全是特别让人共鸣的
 
@@ -40,16 +36,12 @@ category: blog
 
 #### Coding
 
-<figure align="center"><img src="/img/diary/2023-time.webp"/><figcaption>
-Activities
-</figcaption></figure>
+![Activities](/blog/diary/2023-time.webp)
 
 <figure><embed style="width: 70%" src="https://wakatime.com/share/@Chilfish/171112ac-ec19-44f7-a3df-d3c8626cdccb.svg"></embed></figure>
 
 相对地来讲，2023 年是特别活跃的一年。给别人项目交了第一个重构的 pr、提了一些 bug issues，自用的一个小工具也赚了 30+ 的 stars🥳
 
-<figure align="center"><img src="/img/diary/2023-weibo-archiver.webp"/><figcaption>
- 好耶
-</figcaption></figure>
+![好耶](/blog/diary/2023-weibo-archiver.webp)
 
 [bgm.tv]: https://bgm.tv/anime/browser/airtime/2023?sort=rank

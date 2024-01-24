@@ -20,9 +20,7 @@ date: 2022-09-26
 
 ### 从输入 URL 到页面加载的全过程
 
-<figure><img src="/img/cs/HTTP_url.png"/><figcaption>
-  URL 到页面加载
-</figcaption></figure>
+![URL 到页面加载](/blog/cs/HTTP_url.png)
 
 1. 首先在浏览器中输入 `URL`
 2. **查找缓存**：浏览器先查看浏览器缓存-系统缓存-路由缓存中是否有该地址页面，如果有则显示页面内容。如果没有则进行下一步

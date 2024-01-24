@@ -24,9 +24,7 @@ tags: [Linux, WSL]
 
 按 **Win + S** 快捷键打开搜索，输入 「启动或关闭 Windows 功能」 并打开。建议把下图的功能都打开，等待完成后按提示重启电脑
 
-<figure align="center"><img class="w40" src="/img/WSL_Start.png"/><figcaption>
-打开 WSL 功能及虚拟机
-</figcaption></figure>
+![打开 WSL 功能及虚拟机](/blog/WSL_Start.png)
 
 ### 安装 WSL2
 
@@ -87,9 +85,7 @@ wsl -l -v
 
 安装完毕后，重启 Windows Terminal，在菜单栏的 更多 里就可以看到 Ubuntu 终端的选项了
 
-<figure class="img w40" align="center"><img src="/img/WSL_Terminal.png"/><figcaption>
-好诶
-</figcaption></figure>
+![好诶](/blog/WSL_Terminal.png)
 
 ### Ubuntu 与 Win 的文件可以互相访问
 

@@ -122,9 +122,7 @@ feof($file); // 文件尾 (return bool)
 
 #### 读写模式
 
-<figure><img src="/img/lang/php_file.png"/><figcaption>
-  文件的读写模式
-</figcaption></figure>
+![文件的读写模式](/blog/lang/php_file.png)
 
 ### 服务器环境信息
 

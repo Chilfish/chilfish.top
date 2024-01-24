@@ -17,13 +17,11 @@ date: 2023-12-12 12:12:12
 }
 ```
 
-<figure align="center"><img src="/img/api200_example.webp"/><figcaption>
-看似全都是 200，但实际有些是未登录的状态
-</figcaption></figure>
+![看似全都是 200，但实际有些是未登录的状态](/blog/api200_example.webp)
 
 正好也看到知乎的一个讨论：[为什么那么多公司做前后端分离项目后端响应的 HTTP 状态一律 200？][知乎]
 
-<figure align="center"><img src="/img/api200_zhihu.webp"/></figure>
+![](/blog/api200_zhihu.webp)
 
 感觉确实很对，从运维的角度来看，这样做确实会方便很多。例如 vercel 的 log 对于大于 400 的状态码都会标黄或是标红，但很多时候都是只业务层面的错误，而不是系统层面的错误，这样的话就会造成很多误解，而且也不方便排查问题
 

@@ -11,3 +11,10 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+declare module 'rehype-figure' {
+  import type { Plugin } from 'unified'
+
+  const rehypeFigure: Plugin
+  export default rehypeFigure
+}

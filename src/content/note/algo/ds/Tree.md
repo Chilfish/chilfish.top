@@ -10,9 +10,7 @@ tags: [Algorithm, DS]
 
 树这种数据结构有很多的应用：如操作系统的文件管理的结构就是一个树状的，从根目录(磁盘)开始一直套娃下去打开文件夹直至没有文件夹或找到目标文件(夹)、又如 `Json`、`yaml`这类的数据存储类型都可以看做是树
 
-<figure><img src="/img/algo/tree_unix.png"/><figcaption>
-  Unix 的文件层次树
-</figcaption></figure>
+![Unix 的文件层次树](/blog/algo/tree_unix.png)
 
 正如 **打开文件夹找文件** 的过程而言，对树的遍历就是一个 **递归** 的过程（指只是点开下一个文件夹或返回键的情况下，毕竟在 GUI 下还可以直接点面包屑的节点跳转到先前节点），而内部对数据的存储的结构也是 **不连续的连式存储**
 
@@ -22,9 +20,7 @@ tags: [Algorithm, DS]
 
 <div class="h5" id="tree1">先在这里种一棵二叉树：</div>
 
-<figure align="center"><img src="/img/algo/tree.png"/><figcaption>
-一颗普通的二叉树
-</figcaption></figure>
+![一颗普通的二叉树](/blog/algo/tree.png)
 
 在这棵树中：
 
@@ -63,9 +59,7 @@ tags: [Algorithm, DS]
 
 查找二叉树就是规定了在构造二叉树的时候左子节点必须大于父节点，右子节点必须小于其父节点
 
-<figure><img src="/img/algo/tree_full_binary.png"/><figcaption>
-  完全二叉树与满二叉树
-</figcaption></figure>
+![完全二叉树与满二叉树](/blog/algo/tree_full_binary.png)
 
 ### 遍历方式
 

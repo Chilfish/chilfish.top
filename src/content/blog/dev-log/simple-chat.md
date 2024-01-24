@@ -19,9 +19,7 @@ category: blog
 
 2022-12-23：临睡前 B 站给推荐了 [[Qt | OpenGL] 计算机图形学大作业（摆烂）| 场景编辑器](https://www.bilibili.com/video/BV1LG411N7EE/)，可能是之前看了几个好玩的图形学作业。瞬间感觉墙，Qt 还能这么玩，于是顺手点进主页，然后就看到了……
 
-<figure><img src="/img/dev-log/motivation.jpg"/><figcaption>
-看起来也太好玩了吧）
-</figcaption></figure>
+![看起来也太好玩了吧）](/blog/dev-log/motivation.jpg)
 
 2022-12-24：爬起后突然好奇下学期的安卓作业要怎么写，然后翻到学校前几届在 GitHub 上的 lab 的选题列表：[HzuApps](https://github.com/hzuapps/android-labs-2020/issues)。本来想做个音乐播放器的，但想了又想，反复打开网易云和 QQ 音乐，意识到也太折腾了）毕竟连 Vue 版本都没动工…… 最后还是打算做个简易的私聊聊天器）
 
@@ -68,13 +66,9 @@ category: blog
 
 当天完成了 HTML 的部分，还找到了一些图标库：[tailwind toolbox](https://tailwindtoolbox.com/icons)，[heroicons](https://heroicons.com/)。可以说超复刻了）
 
-<figure><img src="/img/dev-log/main.png"/><figcaption>
-这时还没写js和手机端
-</figcaption></figure>
+![这时还没写js和手机端](/blog/dev-log/main.png)
 
-<figure><img src="/img/dev-log/phone.png"/><figcaption>
-后来补上的手机响应式
-</figcaption></figure>
+![后来补上的手机响应式](/blog/dev-log/phone.png)
 
 #### 22-12-30
 

@@ -71,9 +71,7 @@ xhr 提供了 3 个属性来获取请求返回的数据，分别是：`xhr.respo
 
 ### 发送过程的状态
 
-<figure><img src="/img/Ajax_onreadystate.png"/><figcaption>
-  发送过程的状态
-</figcaption></figure>
+![发送过程的状态](/blog/Ajax_onreadystate.png)
 
 ### 设置请求的超时时间
 
@@ -97,9 +95,7 @@ xhr 提供了 3 个属性来获取请求返回的数据，分别是：`xhr.respo
 
 #### 事件触发条件
 
-<figure><img src="/img/Ajax_onxxx.png"/><figcaption>
-事件触发条件
-</figcaption></figure>
+![事件触发条件](/blog/Ajax_onxxx.png)
 
 #### 事件触发顺序
 

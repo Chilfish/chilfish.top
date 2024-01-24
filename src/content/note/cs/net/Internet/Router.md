@@ -22,9 +22,7 @@ IP 分组转发算法的基本思想是：根据每个接口的 IP 地址和子�
 
 例如。路由器的接口 0 的 IP 地址 `192.168.0.128` 做为左边网络的默认网关
 
-<figure align="center"><img src="/img/cs/Router_sample.webp"/><figcaption>
-  以这个网络为例
-</figcaption></figure>
+![以这个网络为例](/blog/cs/Router_sample.webp)
 
 > 主机 A 会将该 IP 数据报传输给自己的默认网关，也就是图中所示的路由器接口 0
 

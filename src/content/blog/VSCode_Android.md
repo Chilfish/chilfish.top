@@ -14,9 +14,7 @@ tags: [Linux, Termux]
 
 而且 Code FA 也差不多是这个方案，用 proot-distro 来跑 Ubuntu
 
-<figure align="center"><img src="/img/vscode_termux.webp"/><figcaption>
-好诶
-</figcaption></figure>
+![好诶](/blog/vscode_termux.webp)
 
 但是睡前想了又想，这不就是在模拟器里套模拟器了嘛...
 
@@ -44,9 +42,7 @@ code-server --auth none
 
 这边建议用 Chrome 打开 http://localhost:8080 ，然后选安装为应用，PWA 会更舒服些
 
-<figure align="center"><img src="/img/vscode_ubuntu.webp"/><figcaption>
-好诶
-</figcaption></figure>
+![好诶](/blog/vscode_ubuntu.webp)
 
 但同样是内嵌 Ubuntu，Termux 套出来的还是识别出安卓诶
 

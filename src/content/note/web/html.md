@@ -5,7 +5,7 @@ date: 2022-02-19
 
 ## 关键字缩写
 
-<figure><img   src="/img/web/html_label.png"/></figure>
+![](/blog/web/html_label.png)
 
 > 参考字典：[HTML 元素参考\_MDN ](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element)
 
@@ -19,9 +19,7 @@ date: 2022-02-19
 
 #### 表单的属性和方法
 
-<figure><img src="/img/web/html_form.png"/><figcaption>
-  表单
-</figcaption></figure>
+![表单](/blog/web/html_form.png)
 
 - **且：**
 
@@ -37,11 +35,11 @@ date: 2022-02-19
 
 #### 定义
 
-<figure><img src="/img/web/html_input.png"/></figure>
+![](/blog/web/html_input.png)
 
 #### type 的类型
 
-<figure><img src="/img/web/html_input_type.png"/></figure>
+![](/blog/web/html_input_type.png)
 
 ### button
 
