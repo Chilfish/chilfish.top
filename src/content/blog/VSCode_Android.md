@@ -42,7 +42,7 @@ curl -fsSL https://code-server.dev/install.sh | sh
 code-server --auth none
 ```
 
-这边建议用 Chrome 打开 http://localhost:8080，然后选安装为应用，PWA 会更舒服些
+这边建议用 Chrome 打开 http://localhost:8080 ，然后选安装为应用，PWA 会更舒服些
 
 <figure align="center"><img src="/img/vscode_ubuntu.webp"/><figcaption>
 好诶
