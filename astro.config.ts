@@ -32,7 +32,7 @@ export default defineConfig({
       dirs: ['src/utils'],
     }),
     AutoImportAstro({
-      imports: [cp('Alert'), 'image'],
+      imports: [cp('Alert')],
     }),
     expressiveCode({
       themes: ['vitesse-dark'],
