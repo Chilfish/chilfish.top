@@ -7,13 +7,10 @@ type Props = {
 }
 
 const { posts } = Astro.props
-
-const isNote = posts[0].collection === 'note'
 ---
 
 <ul
   class="w-full center-col gap-3 trans-all"
-  uno-grid={`${isNote ? '~ cols-1 md:cols-3 sm:cols-2' : ''}`}
 >
   { posts.map(({ data: post, slug, collection: type }) => (
     <a
@@ -69,7 +66,7 @@ const isNote = posts[0].collection === 'note'
   right: 0;
   top: 0;
   z-index: 0;
-  max-height: 22rem;
+  max-height: 16rem;
   width: 100%;
   border-radius: 8px;
 

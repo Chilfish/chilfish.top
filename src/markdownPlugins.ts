@@ -72,5 +72,5 @@ export const rehypePlugins: RehypePlugins = [
 ]
 
 export const remarkPlugins: RemarkPlugins = [
-  [remarkEmoji, { emoticon: true, accessible: true }],
+  [remarkEmoji, { accessible: true }],
 ]

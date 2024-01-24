@@ -1,7 +1,10 @@
 import type { CollectionEntry } from 'astro:content'
 import type { ContentType } from '~/types'
 
-export function formatDate(date: Date): string {
+export function formatDate(date: Date | string): string {
+  if (typeof date === 'string')
+    date = new Date(date)
+
   return date.toLocaleDateString('zh-cn', {
     year: 'numeric',
     month: '2-digit',

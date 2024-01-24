@@ -1,0 +1,27 @@
+---
+import Timeline from '../common/Timeline.astro'
+import type { Post } from '~/types'
+
+interface Props {
+  posts: Post[]
+  title: string
+}
+
+const { posts, title } = Astro.props
+---
+
+<div class="mx-auto w-auto transition-width md:w-120ch">
+  <h1 class="text-center text-xl">
+    {title} | 时间线
+  </h1>
+  <p class="my-6 text-center">
+    共有 {posts.length} 篇文章
+  </p>
+
+  <Timeline timelines={posts.map(({ data, slug, collection }) => ({
+    title: data.title,
+    time: data.date,
+    href: `/${collection}/${slug}`,
+  }))}
+  />
+</div>

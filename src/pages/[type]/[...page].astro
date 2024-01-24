@@ -2,8 +2,11 @@
 import type { GetStaticPaths } from 'astro'
 
 import Alert from '@cp/common/Alert.astro'
+import PostTimeLine from '~/components/post/PostTimeLine.astro'
+import Layout from '~/layouts/Layout.astro'
 import PostDetails from '~/layouts/PostDetails.astro'
 import BlogListLayout from '~/layouts/BlogListLayout.astro'
+
 import { getAllPosts } from '~/utils'
 import { pageSize } from '~/constant/config'
 import type { Post, PostPage } from '~/types'
@@ -21,7 +24,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       },
     }),
     ...paginate(notes, {
-      pageSize: 12,
+      pageSize: 1000,
       params: {
         type: 'note',
       },
@@ -47,29 +50,39 @@ type Props = {
 }
 
 const { post, page } = Astro.props
+const { type } = Astro.params
 
 ---
 
 {
   post
     ? <PostDetails post={post} />
-    : (
-      <BlogListLayout
-        page={page}
-        title="Blogs"
-        h1={`共有 ${page.total} 篇文章`}
-      >
-        <Alert slot="footer" type="important">
-          <p> This website is still under construction. Some pages may not be available yet.
-        See also
-          <a
-            target="_blank"
-            href="https://note.chilfish.top/blogs"
-            class="text-blue-500 hover:underline"
-          >  note.chilfish.top
-          </a>.
-          </p>
-        </Alert>
-      </BlogListLayout>
+    : (type === 'blog'
+      ? (
+        <BlogListLayout
+          page={page}
+          title="Blogs"
+          h1={`共有 ${page.total} 篇文章`}
+        >
+          <Alert slot="footer" type="important">
+            <p> This website is still under construction. Some pages may not be available yet. See also
+              <a
+                target="_blank"
+                href="https://note.chilfish.top/blogs"
+                class="text-blue-500 hover:underline"
+              >  note.chilfish.top
+              </a>.
+            </p>
+          </Alert>
+        </BlogListLayout>
+      )
+      : (
+        <Layout title="Notes timeline">
+          <PostTimeLine
+            title="一些笔记们"
+            posts={page.data}
+          />
+        </Layout>
+      )
     )
 }
