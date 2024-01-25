@@ -1,7 +1,7 @@
 ---
 title: DataBinding
 date: 2023-04-18
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 > import 进来的一个 包名.databinding.MyFragmentBinding 指的是？

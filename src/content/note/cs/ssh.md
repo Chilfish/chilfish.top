@@ -1,7 +1,7 @@
 ---
 title: SSH
 date: 2023-04-05
-tags: [SSH]
+tags: [note, SSH]
 ---
 
 ### SSH

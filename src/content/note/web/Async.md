@@ -1,7 +1,7 @@
 ---
 title: 同步、异步与阻塞、非阻塞
 date: 2022-10-16
-tags: [js]
+tags: [note, js]
 ---
 
 ## 概述

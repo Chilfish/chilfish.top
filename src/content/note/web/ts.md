@@ -1,6 +1,7 @@
 ---
 title: TypeScript
 date: 2023-07-13
+tags: [note, web, ts]
 ---
 
 可以先从 [Typescript 入门教程] 开始，然后再到 [Typescript 文档] 补了，也可以熟读 [Typescript Book]
@@ -12,7 +13,7 @@ date: 2023-07-13
 在 DOM 的事件中有这么一句： `x.addEventListener('click', fn)`，这里用字符串 click 来指定事件的类型，而且在 VSCode 的写下 `cl`的时候还会有完整的补全。这背后就是字面量类型的作用了
 
 ```ts
-type Event = 'click' | 'blur' | 'keydown'
+type Events = 'click' | 'blur' | 'keydown'
 ```
 
 ### 键值类型

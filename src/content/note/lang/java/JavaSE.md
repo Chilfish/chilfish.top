@@ -1,6 +1,7 @@
 ---
 title: JavaSE
 date: 2022-07-24
+tags: [note]
 ---
 
 [标准库与第三方库](Libs.md)、[Kotlin](../Kotlin.md)

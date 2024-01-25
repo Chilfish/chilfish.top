@@ -1,7 +1,7 @@
 ---
 title: 链表（Linked List）
 date: 2022-08-07
-tags: [Algorithm, DS]
+tags: [note, Algorithm, c++]
 ---
 
 ## 单链表

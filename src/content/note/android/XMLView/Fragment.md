@@ -1,7 +1,7 @@
 ---
 title: Fragment in XML
 date: 2023-03-26
-tags: [Android]
+tags: [note, android]
 ---
 
 其实就是将某些 Layout 以某种排列方式呈现出来。命名规范一般如下

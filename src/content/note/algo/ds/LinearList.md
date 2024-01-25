@@ -1,7 +1,7 @@
 ---
 title: 动态数组、栈、队列
 date: 2022-07-30
-tags: [Algorithm, DS]
+tags: [note, Algorithm, c++]
 ---
 
 ## 动态数组（Array）

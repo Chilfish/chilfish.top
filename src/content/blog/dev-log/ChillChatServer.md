@@ -1,8 +1,7 @@
 ---
 title: Chill Chat app Server
 date: 2023-05-29
-tags: [logs]
-category: blog
+tags: [dev-logs, nestjs]
 ---
 
 ### 再次的全包

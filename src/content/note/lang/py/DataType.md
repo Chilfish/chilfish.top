@@ -1,7 +1,7 @@
 ---
 title: Python 数据类型
 date: 2023-04-07
-tags: [Python]
+tags: [note, py]
 ---
 
 列表（list）、元组（tuple）、字符串（string）、字典（dict）、集合（set）

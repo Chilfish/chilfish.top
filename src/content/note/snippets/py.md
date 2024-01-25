@@ -1,6 +1,7 @@
 ---
 title: Python 代码片段们
 date: 2023-12-30
+tags: [note, py]
 ---
 
 ### Serve the Vite SPA

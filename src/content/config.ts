@@ -3,7 +3,7 @@ import { defineCollection, z } from 'astro:content'
 const postSchema = z.object({
   title: z.string(),
   cover: z.string().optional(),
-  tags: z.array(z.string()).optional().default(['untag']),
+  tags: z.array(z.string()).optional().default(['blog']),
   keywords: z.string().optional().default('Blog'),
   author: z.string().optional().default('Chilfish'),
   description: z.string().optional().default(''),

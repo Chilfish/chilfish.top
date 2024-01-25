@@ -1,7 +1,7 @@
 ---
 title: Jetpack Compose
 date: 2023-05-02
-tags: [Android]
+tags: [note, android]
 ---
 
 [组件](Components.md)、[ViewModel](ViewModel.md)、[数据层](DataLayer.md)、[DataStore](DataStore.md)

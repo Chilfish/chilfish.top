@@ -1,7 +1,7 @@
 ---
 title: 组件们以及组件化
 date: 2023-05-02
-tags: [Android]
+tags: [note, android]
 ---
 
 ## 组件主题

@@ -1,8 +1,7 @@
 ---
 title: Jetpack Compose Chat app
 date: 2023-05-11
-tags: [logs, Android]
-category: blog
+tags: [dev-logs, Android, Koktlin]
 ---
 
 ### 开始

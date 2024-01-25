@@ -1,11 +1,10 @@
 ---
 title: Kotlin
 date: 2023-05-02
+tags: [note, kotlin, android]
 ---
 
-:::info
-主要是 Android Compose 方面的 Kotlin
-:::
+> 主要是 Android Compose 方面的 Kotlin
 
 ## 数据类型
 

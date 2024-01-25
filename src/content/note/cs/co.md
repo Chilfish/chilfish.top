@@ -1,7 +1,7 @@
 ---
 title: 计算机组成原理 (part)
 date: 2023-06-01
-tags: []
+tags: [note, cs]
 ---
 
 [计算机组成：结构化方法 读书杂记](SCO_note.md)

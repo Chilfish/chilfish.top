@@ -1,7 +1,7 @@
 ---
 title: VSCode on Android
 date: 2023-04-04
-tags: [Linux, Termux]
+tags: [Linux, Android]
 ---
 
 ### 折腾前言

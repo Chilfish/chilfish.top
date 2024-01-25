@@ -1,7 +1,7 @@
 ---
 title: 自定义组件
 date: 2023-03-25
-tags: [Android]
+tags: [note, android]
 ---
 
 组件的好处当然就是可复用性了，整前端的肯定要封一堆组件）

@@ -1,7 +1,7 @@
 ---
 title: C / C++
 date: 2022-04-14
-tags: [C++]
+tags: [note, C++]
 ---
 
 > 默认 C++标准：C++20，编译环境： `gcc version 12.2.0 (x86_64-posix-seh-rev1, Built by MinGW-W64 project)`，操作系统： `Win10 19045.2486`，若无说明，默认都带了万能头与 std 的命名空间（见：[ACM 的头模板](../algo/index.md#acm)）

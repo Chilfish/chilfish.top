@@ -1,7 +1,7 @@
 ---
 title: 数据结构 (C++ 描述)
 date: 2022-10-08
-tags: [Algorithm, DS]
+tags: [note, Algorithm, c++]
 ---
 
 :::info

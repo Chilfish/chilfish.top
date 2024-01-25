@@ -1,7 +1,7 @@
 ---
 title: 动态规划 Dynamic Programming
 date: 2021-12-13
-tags: [Algorithm, DP]
+tags: [note, Algorithm, c++]
 ---
 
 ## 普通 DP

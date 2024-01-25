@@ -1,7 +1,7 @@
 ---
 title: Git & GitHub
 date: 2022-07-10
-tags: [Git]
+tags: [note, Git]
 ---
 
 ## Git config

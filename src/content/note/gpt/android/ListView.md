@@ -1,7 +1,7 @@
 ---
 title: ListView
 date: 2023-03-19
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 > Your task is to provide a clear and concise guide on how to use Android's ListView, as well as the Material Design component that corresponds to it. Your response should include a basic introduction on how ListView works and how it can be used, as well as information on how to customize its style and behavior. Additionally, you should provide information on the Material Design component that corresponds to ListView, including its specific features and use cases. Please note that your response should be flexible enough to allow for various relevant and creative comparisons between the ListView and its Material Design counterpart.

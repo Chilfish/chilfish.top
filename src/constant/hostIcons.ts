@@ -1,6 +1,7 @@
 export const hostIcons = {
   'default': 'i-tabler:link',
   'github.com': 'i-simple-icons:github',
+  'github.io': 'i-simple-icons:github',
   'zhihu.com': 'i-simple-icons:zhihu',
   'twitter.com': 'i-simple-icons:twitter',
   'vercel.com': 'i-simple-icons:vercel',
@@ -16,7 +17,7 @@ export const hostIcons = {
   'unocss.dev': 'i-simple-icons:unocss',
   'juejin.cn': 'i-simple-icons:juejin',
   'stackoverflow.com': 'i-simple-icons:stackoverflow',
-  'v2ex': 'i-simple-icons:v2ex',
+  'v2ex.com': 'i-simple-icons:v2ex',
   'dribbble.com': 'i-simple-icons:dribbble',
   'example.com': 'i-tabler:world',
   'google.com': 'i-simple-icons:google',
@@ -27,6 +28,7 @@ export const hostIcons = {
   'douban.com': 'i-simple-icons:douban',
   'android.com': 'i-simple-icons:android',
   'npmjs.com': 'i-simple-icons:npm',
+  'mozilla.org': 'i-simple-icons:mozilla',
 } as const
 
 export type HostIcons = typeof hostIcons

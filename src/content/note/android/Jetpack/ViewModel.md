@@ -1,7 +1,7 @@
 ---
 title: ViewModel
 date: 2023-05-02
-tags: [Android]
+tags: [note, android]
 ---
 
 ### ViewModel

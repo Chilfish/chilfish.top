@@ -1,7 +1,7 @@
 ---
-title: 2023 末
+title: 2023 末？
 date: 2024-01-13
-category: blog
+tags: [diary]
 ---
 
 ### 1

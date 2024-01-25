@@ -1,7 +1,7 @@
 ---
 title: Android Adapter
 date: 2023-03-19
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 ### 解释 Adapter

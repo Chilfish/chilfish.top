@@ -1,7 +1,7 @@
 ---
 title: 排序算法 (C++ 描述)
 date: 2022-04-14
-tags: [Algorithm, Sort]
+tags: [note, Algorithm, c++]
 ---
 
 ## 分类
@@ -348,7 +348,7 @@ void Count(vi &arr) {
 
 #### 动图
 
-![<figcaption></figcaption>](/blog/algo/sort_bucket.webp)
+![](/blog/algo/sort_bucket.webp)
 
 #### 码
 

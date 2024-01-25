@@ -1,6 +1,7 @@
 ---
 title: 第三方库与标准库
 date: 2023-04-12
+tags: [note]
 ---
 
 > 由 GPT 与 GitHub Copilot 强力驱动

@@ -1,7 +1,7 @@
 ---
 title: Android 开发
 date: 2023-03-14
-tags: [Android]
+tags: [note, android]
 ---
 
 > 由 GPT 与 GitHub Copilot 强力驱动

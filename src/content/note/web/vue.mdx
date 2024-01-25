@@ -1,16 +1,13 @@
 ---
 title: Vue.js
 date: 2022-06-04
-tags: [Vue]
+tags: [note, Vue]
 ---
 
-a demo: [Shopping Car](ShoppingCart.demo.md)
-
-2023 update: [Get Start](start.md)
-
-:::warning
-Old School 警告）以下内容是在 2022 年上半年所写的，挺多过时、啰嗦错误的地方
-:::
+<Alert type='warning'>
+  Old School 警告）以下内容是在 2022 年上半年所写的，挺多过时、啰嗦错误的地方 <br/>
+  项目启动用 [antfu/vitesse](https://github.com/antfu/vitesse) 就好
+</Alert>
 
 ## 创建
 
@@ -18,26 +15,26 @@ Old School 警告）以下内容是在 2022 年上半年所写的，挺多过时
 
 - 直接引用文件或是 cdn：`https://unpkg.com/vue@next`
 
-  ```js
-  <div id="app">{{}}</div>
+```js
+<div id='app'>{{}}</div>
 
-  const app = {
-    data() {
-      return {} // 返回对象
-    },
-    // 函数方法
-    methods: {},
-  }
-  Vue.createApp(app).mount('#app') // 要挂载的HTML的元素
+const app = {
+  data() {
+    return {} // 返回对象
+  },
+  // 函数方法
+  methods: {},
+}
+Vue.createApp(app).mount('#app') // 要挂载的HTML的元素
 
-  // 或：
-  const app = Vue.createApp({
-    data() {
-      return {}
-    },
-  })
-  const vm = app.mount('#app')
-  ```
+// 或：
+const app = Vue.createApp({
+  data() {
+    return {}
+  },
+})
+const vm = app.mount('#app')
+```
 
 - `data` 选项是一个函数。Vue 在创建新组件实例的过程中调用此函数。它应该**返回一个对象**，然后 Vue 会通过响应性系统将其包裹起来，并以 `$data` 的形式存储在组件实例中
 - `mount()` 挂载应用：应用实例必须在调用了 `.mount()` 方法后才会渲染出来。该方法接收一个“容器”参数，可以是一个实际的 DOM 元素或是一个 CSS 选择器字符串
@@ -102,9 +99,9 @@ export default defineComponent({
 
   ```html
   <script setup>
-    const msg = "Hello!";
+    const msg = 'Hello!'
     function log() {
-      console.log(msg);
+      console.log(msg)
     }
   </script>
 
@@ -129,7 +126,7 @@ export default defineComponent({
   <script>
     return {
       rawHtml: '<span style="color:red">mie</span>',
-    };
+    }
   </script>
   ```
 - `v-bind:属性名=""`，如 `:id="dynId"` | `:href="url"`，实现动态的属性值
@@ -139,10 +136,10 @@ export default defineComponent({
     <script>
       return {
         obj: {
-          id: "mie",
-          class: "haha btns",
+          id: 'mie',
+          class: 'haha btns',
         },
-      };
+      }
     </script>
     ```
   - 还能使用 js 表达式 (而不是语句)：
@@ -159,7 +156,7 @@ export default defineComponent({
           active: true,
           err: false,
         },
-      };
+      }
     </script>
     <!-- 最终的结果是 <div class="active"></div> -->
     ```
@@ -172,9 +169,7 @@ export default defineComponent({
   - 但为了避免重复渲染，要加属性：`:key="index"`
   - 循环对象时：
     ```html
-    <li v-for="(value, key, index) in items">
-      {{key}}: {{value}}, index: {{index}}
-    </li>
+    <li v-for="(value, key, index) in items">{{key}}: {{value}}, index: {{index}}</li>
     ```
   - 循环范围：
     ```html
@@ -232,15 +227,25 @@ export default defineComponent({
 ```html
 <div>Checked names: {{ checkedNames }}</div>
 
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+<input
+  type="checkbox"
+  id="jack"
+  value="Jack"
+  v-model="checkedNames"
+/>
 <label for="jack">Jack</label>
 
-<input type="checkbox" id="john" value="John" v-model="checkedNames" />
+<input
+  type="checkbox"
+  id="john"
+  value="John"
+  v-model="checkedNames"
+/>
 <label for="john">John</label>
 <script>
   return {
     checkedNames: [],
-  };
+  }
 </script>
 ```
 
@@ -250,7 +255,10 @@ export default defineComponent({
 <p>Selected: {{ selected }}</p>
 <span>选项：</span>
 <select v-model="selected">
-  <option v-for="option in options" :value="option.value">
+  <option
+    v-for="option in options"
+    :value="option.value"
+  >
     {{ option.text }}
   </option>
 </select>
@@ -332,13 +340,13 @@ export default defineComponent({
   要想定义的 `watch` 能够做出预期的行为，数据源必须具备**响应性**或者是一个 **`getter`** ，如果只是通过 `let` 定义一个普通变量，然后去改变这个变量的值，这样是无法监听的
   - `getter`函数：
     ```ts
-    () => userInfo.name; // 只监听 name 的变化
-    () => ({ ...userInfo }) // 监听整个对象的变化
+    ;() => userInfo.name // 只监听 name 的变化
+    ;() => ({ ...userInfo }) // 监听整个对象的变化
     ```
 - **监听的回调函数：**
   ```ts
   // 参数：
-  (newValue, oldValue) => {
+  ;(newValue, oldValue) => {
     console.log('打印变化前后的值', { oldValue, newValue })
   }
   ```
@@ -356,7 +364,54 @@ export default defineComponent({
   ```
 - **监听的选项：** 传入一个对象
 
-  <table><thead><tr><th >选项</th><th >类型</th><th >默认值</th><th >可选值</th><th >作用</th></tr></thead><tbody><tr><td >deep</td><td >boolean</td><td >false</td><td >true | false</td><td >是否进行深度监听</td></tr><tr><td >immediate</td><td >boolean</td><td >false</td><td >true | false</td><td >是否立即执行监听回调</td></tr><tr><td >flush</td><td >string</td><td >'pre'</td><td >'pre' | 'post' | 'sync'</td><td >控制监听回调的调用时机</td></tr><tr><td >onTrack</td><td >(e) =&gt; void</td><td ></td><td ></td><td >在数据源被追踪时调用</td></tr><tr><td >onTrigger</td><td >(e) =&gt; void</td><td ></td><td ></td><td >在监听回调被触发时调用</td></tr></tbody></table>
+  <table>
+    <thead>
+      <tr>
+        <th>选项</th>
+        <th>类型</th>
+        <th>默认值</th>
+        <th>可选值</th>
+        <th>作用</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>deep</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>true | false</td>
+        <td>是否进行深度监听</td>
+      </tr>
+      <tr>
+        <td>immediate</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>true | false</td>
+        <td>是否立即执行监听回调</td>
+      </tr>
+      <tr>
+        <td>flush</td>
+        <td>string</td>
+        <td>'pre'</td>
+        <td>'pre' | 'post' | 'sync'</td>
+        <td>控制监听回调的调用时机</td>
+      </tr>
+      <tr>
+        <td>onTrack</td>
+        <td>(e) =&gt; void</td>
+        <td></td>
+        <td></td>
+        <td>在数据源被追踪时调用</td>
+      </tr>
+      <tr>
+        <td>onTrigger</td>
+        <td>(e) =&gt; void</td>
+        <td></td>
+        <td></td>
+        <td>在监听回调被触发时调用</td>
+      </tr>
+    </tbody>
+  </table>
 
   - `deep`： `deep` 选项接受一个布尔值，可以设置为 `true` 开启深度监听，或者是 `false` 关闭深度监听，默认情况下这个选项是 `false` 关闭深度监听的，但也存在特例 (`reactive`)
     设置为 `false` 的情况下，如果直接监听一个响应式的 **引用类型** 数据（e.g. `Object` 、 `Array` … ），虽然它的属性的值有变化，但对其本身来说是不变的，所以不会触发 `watch` 的 `callback` 。这时候要手动启用 `deep`
@@ -432,9 +487,7 @@ export default router
 <router-link :to="{ name: 'home' }">User</router-link>
 
 <!-- 带查询参数，下面的结果为 `/register?plan=private` -->
-<router-link :to="{ path: '/register', query: { plan: 'private' }}">
-  Register
-</router-link>
+<router-link :to="{ path: '/register', query: { plan: 'private' }}"> Register </router-link>
 ```
 
 ## 多组件
@@ -450,7 +503,7 @@ export default router
 </template>
 
 <script setup>
-  import FishBar from "cp/FishBar/index.vue";
+  import FishBar from 'cp/FishBar/index.vue'
 </script>
 
 <!-- FishBar/index.vue -->
@@ -470,14 +523,9 @@ export default router
   <div class="tableBox">
 
   <span></span>
-  |方案|父组件向子组件|子组件向父组件|
-  |:----|:----|:----|
-  |props / emits|props|emits|
-  |v-model / emits|v-model|emits|
-  |ref / emits|ref|emits|
-  |provide / inject|provide|inject|
-  |EventBus|emit / on|emit / on|
-  |Vuex|-|-|
+  |方案|父组件向子组件|子组件向父组件| |:----|:----|:----| |props / emits|props|emits| |v-model /
+  emits|v-model|emits| |ref / emits|ref|emits| |provide / inject|provide|inject| |EventBus|emit /
+  on|emit / on| |Vuex|-|-|
 
   </div>
 

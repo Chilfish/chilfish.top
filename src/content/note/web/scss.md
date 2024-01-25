@@ -1,6 +1,7 @@
 ---
 title: Scss、Less 拓展的 CSS
 date: 2022-11-19
+tags: [note, web, css]
 ---
 
 > [Scss 教程](https://juejin.cn/post/7055101823442485255)

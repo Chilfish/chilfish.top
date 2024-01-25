@@ -1,7 +1,7 @@
 ---
 title: Python Basic
 date: 2023-04-07
-tags: [Python]
+tags: [note, py]
 ---
 
 对......两年了才开始学 Py，真的人身苦短啊......有些地方相较于 js 省事了太多，简单活也比 C++ 舒服太多了

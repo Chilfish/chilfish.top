@@ -47,10 +47,7 @@ export default defineConfig({
   ],
   markdown: {
     shikiConfig: {
-      experimentalThemes: {
-        dark: 'vitesse-dark',
-        // light: 'vitesse-light',
-      },
+      theme: 'vitesse-dark',
     },
     rehypePlugins,
     remarkPlugins,

@@ -1,7 +1,7 @@
 ---
 title: Fragment
 date: 2023-03-27
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 ## 参数

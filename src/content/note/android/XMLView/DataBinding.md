@@ -1,7 +1,7 @@
 ---
 title: DataBinding
 date: 2023-05-03
-tags: [Android]
+tags: [note, android]
 ---
 
 [文档](https://developer.android.com/topic/libraries/data-binding)

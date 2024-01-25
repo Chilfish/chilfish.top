@@ -1,7 +1,7 @@
 ---
 title: 算 法
 date: 2022-07-31
-tags: [Algorithm]
+tags: [note, Algorithm, c++]
 ---
 
 - [C++ 小语法](../lang/Cpp.md)

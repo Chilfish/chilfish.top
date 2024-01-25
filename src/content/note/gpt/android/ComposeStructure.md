@@ -1,7 +1,7 @@
 ---
 title: Compose 的架构模式
 date: 2023-04-25
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 > 既然都用 Composable 了，那 Fragment 该会用在哪里？请举例说明

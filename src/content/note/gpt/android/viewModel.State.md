@@ -1,7 +1,7 @@
 ---
 title: ViewModel 状态管理
 date: 2023-05-29
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 > As an expert in Jetpack Compose, please provide a detailed and practical response to my following questions. In your response, please use real-world examples and official documentation, blogs, or other relevant sources to support your answer. Your response should be clear and specific, and should provide a thorough explanation of the topic. If necessary, please provide complete code examples to support your answers. Please note that your response should be flexible enough to allow for various relevant and creative examples and comparisons related to the topic. If you got that, response "OK".

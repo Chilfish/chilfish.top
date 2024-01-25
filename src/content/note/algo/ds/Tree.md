@@ -1,7 +1,7 @@
 ---
 title: 各种树
 date: 2022-11-08
-tags: [Algorithm, DS]
+tags: [note, Algorithm, c++]
 ---
 
 ## 概述

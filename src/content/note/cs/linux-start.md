@@ -4,8 +4,6 @@ date: 2023-04-05
 tags: [Linux]
 ---
 
-> 从未如此混乱的 Ubuntu 开局......
-
 这里以一个比较干净的 Ubuntu 来举例
 
 ### sshd

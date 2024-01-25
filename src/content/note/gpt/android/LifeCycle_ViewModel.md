@@ -1,7 +1,7 @@
 ---
 title: 用 ViewModel 来管理生命周期
 date: 2023-05-07
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 > 我在 Activity 中启动了一个 Fragment，但旋转屏幕后报错 Unable to instantiate fragment xx.NewNoteFragment: could not find Fragment constructor

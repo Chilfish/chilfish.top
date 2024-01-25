@@ -1,7 +1,7 @@
 ---
 title: 常见接口及其通信协议
 date: 2022-09-28
-tags: [cs]
+tags: [note, cs]
 ---
 
 ## USB 接口

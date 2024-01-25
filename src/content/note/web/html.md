@@ -1,6 +1,7 @@
 ---
 title: HTML
 date: 2022-02-19
+tags: [note, web]
 ---
 
 ## 关键字缩写

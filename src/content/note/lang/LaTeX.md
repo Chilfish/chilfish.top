@@ -1,6 +1,7 @@
 ---
 title: LaTeX & KaTeX
 date: 2022-02-25
+tags: [note]
 ---
 
 ## 前言

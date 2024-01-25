@@ -1,7 +1,7 @@
 ---
 title: TypeScript 代码片段们
 date: 2023-12-30
-tags: [ts]
+tags: [note, ts]
 ---
 
 ### Image ArrayBuffer to URL

@@ -1,7 +1,7 @@
 ---
 title: Adapter 的使用
 date: 2023-03-23
-tags: [Android]
+tags: [note, android]
 ---
 
 ## Adapter

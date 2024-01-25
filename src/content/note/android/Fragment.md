@@ -1,7 +1,7 @@
 ---
 title: Fragment 组件
 date: 2023-03-26
-tags: [Android]
+tags: [note, android]
 ---
 
 [Fragment in XML View](XMLView/Fragment.md)

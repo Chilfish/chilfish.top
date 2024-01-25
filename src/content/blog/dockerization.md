@@ -1,6 +1,7 @@
 ---
 title: Docker 化你的项目
 date: 2023-12-13
+tags: [Docker]
 ---
 
 ## 为什么要 Docker 化

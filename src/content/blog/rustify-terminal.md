@@ -1,6 +1,7 @@
 ---
 title: 锈化你的命令行工具
 date: 2023-11-21
+tags: [Rust]
 ---
 
 Rust 作为一门系统级语言，在命令行工具的开发上有着天然的优势。于是就在 Github 的 Rust topic 下找到了一些有意思的项目，并通过 [scoop](https://scoop.sh) 安装到了 Windows 上

@@ -1,6 +1,7 @@
 ---
 title: 应用层
 date: 2022-10-24
+tags: [note, net]
 ---
 
 > [DNS](DNS.md)、[HTTP](HTTP.md)

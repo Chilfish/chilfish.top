@@ -1,8 +1,7 @@
 ---
 title: Chilpost
 date: 2023-08-06
-tags: [logs, Vue, Nuxt]
-category: blog
+tags: [dev-logs, Vue, Nuxt]
 ---
 
 ### 开始

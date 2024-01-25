@@ -1,7 +1,7 @@
 ---
 title: 文件 IO 流
 date: 2023-04-12
-tags: [Android]
+tags: [note, android]
 ---
 
 ### 读取项目 assets 的文本文件

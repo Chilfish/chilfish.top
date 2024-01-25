@@ -1,7 +1,7 @@
 ---
 title: Dev logs
 date: 2023-03-21
-tags: [Android]
+tags: [note, android]
 ---
 
 > 还不知道要怎么分类，那就还是先整在一起吧

@@ -1,6 +1,7 @@
 ---
 title: DNS 域名解析系统
 date: 2022-11-12
+tags: [note, net]
 ---
 
 ## 概述

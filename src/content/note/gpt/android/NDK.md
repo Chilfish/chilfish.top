@@ -1,7 +1,7 @@
 ---
 title: Android NDK
 date: 2023-06-07
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 > What can Android NDK do?

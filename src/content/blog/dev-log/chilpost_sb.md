@@ -1,7 +1,7 @@
 ---
 title: Chilpost Spring Boot Kotlin 后端实现
 date: 2023-12-12
-category: blog
+tags: [dev-logs, api, Kotlin, Spring Boot]
 ---
 
 咱还是因为 Web 的大作业要求 Spring Boot，有些看不起 Node 后端，那还是写一份 SB 的实现吧😹当然，得是 Kotlin 的😇

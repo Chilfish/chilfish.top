@@ -1,7 +1,7 @@
 ---
 title: 搜索算法
 date: 2022-02-13
-tags: [Algorithm, Search]
+tags: [note, Algorithm, c++]
 ---
 
 ## 二分搜索

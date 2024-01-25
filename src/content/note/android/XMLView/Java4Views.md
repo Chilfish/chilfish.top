@@ -1,7 +1,7 @@
 ---
 title: 控制 View 属性的 Java 代码
 date: 2023-04-12
-tags: [Android]
+tags: [note, android]
 ---
 
 旨在用 Java 动态控制 xml 中的属性）这不 js 嘛）

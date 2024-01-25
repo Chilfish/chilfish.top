@@ -1,6 +1,7 @@
 ---
 title: CSS 样式表
 date: 2022-02-19
+tags: [note, web, css]
 ---
 
 [Scss](Scss.md)

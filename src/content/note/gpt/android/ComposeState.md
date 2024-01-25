@@ -1,7 +1,7 @@
 ---
 title: Compose 的组件状态
 date: 2023-04-21
-tags: [GPT]
+tags: [GPT, android]
 ---
 
 > 感觉这里的“状态”都很像 React 的 Status、Vue 的 Ref 这样的概念

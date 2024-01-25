@@ -1,6 +1,7 @@
 ---
 title: PHP
 date: 2022-04-19
+tags: [note]
 ---
 
 ## 基础语法

@@ -6,6 +6,9 @@ import rehypeFigure from 'rehype-figure'
 import { getHostIcon } from './constant/hostIcons'
 import { imgHost } from './constant/config'
 
+const isDev = import.meta.env.DEV
+const IMGHOST = isDev ? 'http://localhost:5173' : imgHost
+
 const rehypeExternalLinksOptions: Options = {
   target: '_blank',
   rel: ['noopener', 'noreferrer', 'nofollow'],
@@ -40,7 +43,13 @@ const rehypeRewriteOptions: RehypeRewriteOptions = {
       if (href.startsWith('http'))
         return
 
-      const newHref = href.replace(/\.md/i, '/').toLowerCase()
+      let newHref = href.replace(/\.md/i, '/').toLowerCase()
+
+      // 如果是同级目录，则指向到上一级
+      const list = ['/', '#', '../']
+      if (list.some(item => !newHref.startsWith(item)))
+        newHref = `../${newHref}`
+
       node.properties.href = newHref
     }
 
@@ -48,7 +57,7 @@ const rehypeRewriteOptions: RehypeRewriteOptions = {
       let src = node.properties.src as string
 
       if (src.startsWith('/'))
-        src = `${imgHost}${src}`
+        src = `${IMGHOST}${src}`
 
       const imgProp: Partial<HTMLImageElement> = {
         decoding: 'async',

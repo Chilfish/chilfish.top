@@ -1,7 +1,7 @@
 ---
 title: Deploy a Minecraft Server on Android Termux
 date: 2023-04-03
-tags: [Linux, Termux]
+tags: [Linux, Android]
 ---
 
 其实是突然想到，让米板 5 干坐着也不是事，有些浪费这 855 Plus 了）于是就意识到 MC 服务器不都一般在 Linux 上的嘛，然后这不是还有一个 Termux 嘛，网上一搜果然有，接下来就是验证想法了
