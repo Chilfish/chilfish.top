@@ -1,0 +1,76 @@
+---
+interface Props {
+  src: string
+  alt: string
+  width?: number
+  height?: number
+  placeholder?: string
+  [key: string]: any
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  placeholder = '/placeholder.webp',
+  ...rest
+} = Astro.props
+---
+
+<img
+  data-placeholder={placeholder}
+  data-src={src}
+  alt={alt}
+  src={placeholder}
+  width={width}
+  height={height}
+  loading="lazy"
+  decoding="async"
+  {...rest}
+/>
+
+<script>
+function loadImg(img: HTMLImageElement) {
+  const placeholder = img.dataset.placeholder!
+  const src = img.dataset.src!
+
+  const newImg = new Image()
+  newImg.src = src
+
+  newImg.onload = () => {
+    img.src = src
+    img.classList.add('loaded')
+    img.removeAttribute('data-src')
+    img.removeAttribute('data-placeholder')
+  }
+  newImg.onerror = () => {
+    img.src = placeholder
+    img.classList.add('error')
+  }
+}
+
+function loadImgs() {
+  const imgs = document.querySelectorAll('img')
+  imgs.forEach((img) => {
+    if (img.dataset.src)
+      loadImg(img)
+  })
+}
+
+loadImgs()
+
+document.addEventListener('astro:after-swap', () => {
+  loadImgs()
+})
+</script>
+
+<style>
+my-image {
+  display: contents;
+}
+
+img {
+  --uno: trans-all;
+}
+</style>
