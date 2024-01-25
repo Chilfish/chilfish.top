@@ -2,24 +2,25 @@
 import type { GetStaticPaths } from 'astro'
 
 import BlogListLayout from '~/layouts/BlogListLayout.astro'
-import { getAllTags, getPostsByTag } from '~/utils'
+import { filterTags, getAllPosts, getPostsByTag } from '~/utils'
 import { pageSize } from '~/constant/config'
 import type { PostPage } from '~/types'
 
 export const prerender = true
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const tags = await getAllTags()
+  const posts = (await getAllPosts()).flat()
+  const tags = [...new Set(filterTags(posts))]
 
-  const res = await Promise.all(tags.map(async (tag) => {
-    const blogsByTag = await getPostsByTag(tag)
+  return tags.flatMap((_tag) => {
+    const tag = _tag.toLowerCase()
+    const blogsByTag = getPostsByTag(posts, tag)
+
     return paginate(blogsByTag, {
       pageSize,
       params: { tag },
     })
-  }))
-
-  return res.flat()
+  })
 }) satisfies GetStaticPaths
 
 interface Props {

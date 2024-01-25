@@ -1,20 +1,34 @@
 ---
 import Layout from '~/layouts/Layout.astro'
-import { getAllTags } from '~/utils'
+import { filterTags, getAllPosts } from '~/utils'
 
-const tags = await getAllTags()
+const posts = (await getAllPosts()).flat()
+const allTags = filterTags(posts)
+
+const tagsWithCount: {
+  [tag: string]: number
+} = {}
+
+allTags.forEach((tag) => {
+  const count = allTags.filter(t => t === tag).length
+  tagsWithCount[tag] = count
+})
+
+const sortedTags = Object
+  .entries(tagsWithCount)
+  .toSorted((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
 ---
 
 <Layout title="Tags">
-  <main class="px-12">
-    <h1 class="mb-6 text-2xl">所有标签</h1>
+  <main class="main-width">
+    <h1 class="mb-6 text-2xl">所有标签 | 共 {sortedTags.length} 个</h1>
     <ul class="tsgs flex flex-wrap items-center gap-3">
-      { tags.map(tag => (
+      { sortedTags.map(([tag, count]) => (
         <a
           href={`/tags/${tag}`}
           class="tag"
         >
-          { tag }
+          { tag } <> { count } </>
         </a>
       ))}
     </ul>

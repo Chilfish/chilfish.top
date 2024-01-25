@@ -10,7 +10,7 @@ interface Props {
 const { posts, title } = Astro.props
 ---
 
-<div class="mx-auto w-auto transition-width md:w-120ch">
+<main class="main-width">
   <h1 class="text-center text-xl">
     {title} | 时间线
   </h1>
@@ -24,4 +24,4 @@ const { posts, title } = Astro.props
     href: `/${collection}/${slug}`,
   }))}
   />
-</div>
+</main>

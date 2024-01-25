@@ -16,15 +16,17 @@ export async function getPosts(type: ContentType = 'blog'): Promise<Post[]> {
   return sortPostsByDate(posts)
 }
 
-export async function getPostsByTag(tag: string) {
-  const posts = await getAllPosts()
-  return posts.flat().filter(post => post.data.tags?.includes(tag))
+export function getPostsByTag(posts: Post[], tag: string) {
+  return posts
+    .filter(post => post.data.tags
+      .map(tag => tag.toLowerCase()).includes(tag),
+    )
 }
 
-export async function getAllTags(): Promise<string[]> {
-  const posts = await getAllPosts()
-  const tags = posts.flat().map(post => post.data.tags!).flat()
-  return [...new Set(tags)]
+export function filterTags(posts: Post[]) {
+  return posts
+    .flatMap(post => post.data.tags)
+    .map(tag => tag.toLowerCase())
 }
 
 /**
