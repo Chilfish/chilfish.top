@@ -11,7 +11,7 @@ const { tags } = Astro.props
     <span class="i-tabler-tag icon"></span>
     { tags.map(tag => (
       <a
-        href={`/tags/${tag}`}
+        href={`/tags/${tag.toLocaleLowerCase()}/`}
         class="tag decoration-none"
       >
         { tag }

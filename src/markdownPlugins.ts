@@ -40,7 +40,7 @@ const rehypeRewriteOptions: RehypeRewriteOptions = {
       if (href.startsWith('http'))
         return
 
-      const newHref = href.replace(/\.md/i, '').toLowerCase()
+      const newHref = href.replace(/\.md/i, '/').toLowerCase()
       node.properties.href = newHref
     }
 
