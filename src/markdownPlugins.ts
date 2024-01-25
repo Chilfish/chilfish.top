@@ -54,13 +54,14 @@ const rehypeRewriteOptions: RehypeRewriteOptions = {
         decoding: 'async',
         loading: 'lazy',
         referrerPolicy: 'same-origin',
-        src,
+        src: '/placeholder.webp',
       }
 
       node.properties = {
         ...node.properties,
-        ...(imgProp as any),
-      }
+        ...imgProp,
+        dataSrc: src, // dateset: data-src
+      } as any
     }
   },
 }
