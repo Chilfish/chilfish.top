@@ -13,9 +13,8 @@ interface ImportMeta {
 }
 
 declare module 'rehype-figure' {
-  import type { Plugin } from 'unified'
 
-  const rehypeFigure: Plugin
+  const rehypeFigure: () => any
   export default rehypeFigure
 }
 
