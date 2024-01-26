@@ -27,7 +27,13 @@ const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
 
 const cookie = Astro.cookies
 
-const theme = cookie.get('theme')?.value ?? 'light'
+const theme = cookie.get('theme')?.value ?? (() => {
+  cookie.set('theme', 'auto', {
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 10),
+    path: '/',
+  })
+  return 'auto'
+})()
 ---
 
 <!doctype html>

@@ -8,10 +8,7 @@ defineProps<{
 const cookies = useCookies(['theme'])
 
 const dark = useDark({
-  valueDark: 'dark',
-  valueLight: 'light',
   storageKey: 'theme',
-  initialValue: 'light',
   disableTransition: false,
   onChanged(_isDark, defaultHandler, mode) {
     cookies.set('theme', mode, {

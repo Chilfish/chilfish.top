@@ -39,7 +39,7 @@ onMounted(() => {
 <template>
   <aside
     class="mb-4 hidden w-1/5 flex-1 transition-opacity"
-    uno-sm="block"
+    uno-md="block"
   >
     <nav class="toc">
       <span class="mb-2 text-xl font-bold">

@@ -7,7 +7,7 @@ const { tags } = Astro.props
 ---
 
 {tags && tags.length > 0 && (
-  <div class="tags icon-box">
+  <div class="tags icon-box flex-wrap">
     <span class="i-tabler-tag icon"></span>
     { tags.map(tag => (
       <a

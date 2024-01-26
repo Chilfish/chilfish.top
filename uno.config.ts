@@ -37,7 +37,7 @@ export default defineConfig({
       'bg-hover': 'hover:bg-gray-2 dark:hover:bg-dark-6',
     },
     {
-      'main-width': 'mx-auto w-full transition-width md:w-100ch',
+      'main-width': 'mx-auto w-full transition-width md:w-80ch',
     },
   ],
   theme: {
