@@ -64,7 +64,7 @@ function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
 
         // 如果是同级目录，则指向到上一级
         const list = ['/', '#', '../']
-        if (list.some(item => !newHref.startsWith(item)))
+        if (!list.some(item => newHref.startsWith(item)))
           newHref = `../${newHref}`
 
         node.properties.href = newHref

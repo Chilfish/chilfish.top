@@ -28,10 +28,21 @@ const handler = useThrottleFn(() => {
   })
 }, 100)
 
+function addAnchor() {
+  headings.value.forEach((heading) => {
+    const anchor = document.createElement('a')
+    anchor.className = 'anchor'
+    anchor.href = `#${heading.id}`
+    anchor.textContent = '#'
+    heading.innerHTML = anchor.outerHTML + heading.innerHTML
+  })
+}
+
 onMounted(() => {
-  headings.value = Array.from(document.querySelectorAll('h2, h3, h4'))
+  headings.value = Array.from(document.querySelectorAll('h2, h3, h4, h5'))
 
   handler()
+  addAnchor()
   useEventListener(document, 'scroll', handler)
 })
 </script>

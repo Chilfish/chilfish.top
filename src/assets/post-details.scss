@@ -16,6 +16,22 @@ article {
     margin: 1rem 0;
   }
 
+  h2,
+  h3,
+  h4,
+  h5 {
+    &:hover .anchor {
+      opacity: 1;
+    }
+
+    .anchor {
+      opacity: 0;
+      margin-right: 0.5rem;
+      transition: opacity ease-in-out 300ms;
+      --uno: text-primary;
+    }
+  }
+
   a {
     --uno: underline;
   }
@@ -26,8 +42,6 @@ article {
     letter-spacing: 0.03rem;
     text-indent: 2rem;
   }
-
-
 
   img {
     border-radius: 12px;
@@ -88,7 +102,7 @@ article {
       border-radius: 8px;
       margin: 0;
 
-      --uno: object-cover sm: object-contain;
+      --uno: object-cover sm:object-contain;
     }
     figcaption {
       color: #999;
@@ -118,11 +132,11 @@ article {
     tr,
     tr:nth-child(even),
     tr:nth-child(odd) {
-      --uno: bg-light-7 dark: bg-dark-7;
+      --uno: bg-light-7 dark:bg-dark-7;
     }
     th,
     tr:hover {
-      --uno: bg-light-8 dark: bg-dark-8;
+      --uno: bg-light-8 dark:bg-dark-8;
     }
     td,
     th {
