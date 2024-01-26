@@ -26,7 +26,9 @@ article {
 
     .anchor {
       opacity: 0;
-      margin-right: 0.5rem;
+      font-size: 1rem;
+      margin-right: 4px;
+      margin-left: -14px;
       transition: opacity ease-in-out 300ms;
       --uno: text-primary;
     }
@@ -38,9 +40,10 @@ article {
 
   p {
     line-height: 1.8rem;
-    margin: 0.8rem 0;
-    letter-spacing: 0.03rem;
-    text-indent: 2rem;
+    margin: 1rem 0;
+    letter-spacing: 1px;
+    text-indent: 0rem;
+    font-size: 1rem;
   }
 
   img {

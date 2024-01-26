@@ -1,15 +1,46 @@
 ---
 interface Props {
   href: string
+  type?: 'default' | 'outline' | 'text'
+  dashed?: boolean
   aclass?: string
+  noRef?: boolean
+  target?: '_blank' | '_self' | '_parent' | '_top'
 }
 
-const { href, aclass } = Astro.props
+const {
+  href,
+  aclass,
+  type = 'default',
+  dashed = false,
+  noRef = false,
+  target = '_self',
+} = Astro.props
+
+const dashedClass = dashed ? 'border border-dashed border-gray' : null
+const typeClass = (() => {
+  switch (type) {
+    case 'default':
+      return 'bg-primary text-white'
+    case 'outline':
+      return 'bg-transparent text-primary border border-primary'
+    case 'text':
+      return 'bg-transparent text-primary'
+  }
+})()
+
+const rel = noRef ? 'noopener noreferrer nofollow' : null
 ---
 
 <a
   href={href}
-  class={`${aclass ?? ''}`}
+  rel={rel}
+  target={target}
+  class:list={[
+    aclass,
+    dashedClass,
+    typeClass,
+  ]}
 >
   <slot />
 </a>
@@ -21,6 +52,6 @@ a {
   border-radius: 8px;
   width: fit-content;
 
-  --uno: text-light bg-primary transition-color;
+  --uno: transition-color;
 }
 </style>
