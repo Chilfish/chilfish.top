@@ -1,0 +1,26 @@
+---
+import Image from '~/components/common/Image.astro'
+import Layout from '~/layouts/Layout.astro';
+
+---
+
+<Layout
+  title="这是哪里？"
+>
+  <main class="mt-12 center-col gap-4 main-width">
+    <h1 class="text-3xl">这是哪里？</h1>
+    <p class="text-2xl">这里是 404，我们怎么到这的？</p>
+    <a
+      class="text-4.5 text-primary underline"
+      href="/"
+    >
+      带我回首页
+    </a>
+
+    <Image
+      class="mt-4 w-96 rounded-4"
+      src="/404.webp"
+      alt="404 NotFound Page"
+    />
+  </main>
+</Layout>
