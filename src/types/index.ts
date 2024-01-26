@@ -7,3 +7,8 @@ export type ContentType = 'blog' | 'note'
 
 export type Post<T extends ContentType = ContentType> = CollectionEntry<T>
 export type PostPage<T extends ContentType = ContentType> = Page<Post<T>>
+
+export interface PrevNext {
+  title?: string
+  link?: string
+}

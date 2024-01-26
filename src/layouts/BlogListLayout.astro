@@ -3,6 +3,7 @@ import LinkBtn from '@cp/common/LinkBtn.astro'
 import PostList from '@cp/post/BlogList.astro'
 import Layout from './Layout.astro'
 import type { PostPage } from '~/types'
+import PagesNav from '~/components/common/PagesNav.astro'
 
 interface Props {
   page: PostPage
@@ -23,23 +24,14 @@ const { page, title, h1 } = Astro.props
 
     <PostList posts={page.data} />
 
-    <div class="mt-6 w-full flex items-center justify-between">
-      { page.url.prev && (
-        <LinkBtn
-          href={page.url.prev}
-        >
-          上一页
-        </LinkBtn>
-      ) }
-      { page.url.next && (
-        <LinkBtn
-          href={page.url.next}
-          aclass="ml-auto"
-        >
-        下一页
-        </LinkBtn>
-      ) }
-    </div>
+    <PagesNav
+      prev={{
+        link: page.url.prev,
+      }}
+      next={{
+        link: page.url.next,
+      }}
+    />
     <slot name="footer" />
   </main>
 </Layout>

@@ -33,14 +33,20 @@ export function filterTags(posts: Post[]) {
  * 获取相邻的 8 条博客
  */
 export async function getAdjacentBlogs(slug: string, type: ContentType = 'blog') {
-  const posts = (await getPosts(type)).flat()
+  const posts = await getPosts(type)
   const index = posts.findIndex(post => post.slug === slug)
 
   const resPosts = []
 
-  for (let i = index - 4; i < index + 4; i++) {
+  let prevStart = index - 4
+
+  // 如果没有最后四篇
+  if (index >= posts.length - 4)
+    prevStart = posts.length - 8
+
+  for (let i = prevStart; i < index + 4; i++) {
     if (i < 0)
-      continue
+      i = 0
     resPosts.push(posts[i])
   }
 

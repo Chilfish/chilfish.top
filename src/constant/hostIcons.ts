@@ -29,6 +29,8 @@ export const hostIcons = {
   'android.com': 'i-simple-icons:android',
   'npmjs.com': 'i-simple-icons:npm',
   'mozilla.org': 'i-simple-icons:mozilla',
+  'apple.com': 'i-simple-icons:apple',
+  'microsoft.com': 'i-simple-icons:microsoft',
 } as const
 
 export type HostIcons = typeof hostIcons

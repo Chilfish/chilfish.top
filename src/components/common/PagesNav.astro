@@ -1,0 +1,32 @@
+---
+import LinkBtn from './LinkBtn.astro'
+import type { PrevNext } from '~/types'
+
+interface Props {
+  prev: PrevNext
+  next: PrevNext
+}
+
+const { prev, next } = Astro.props
+---
+
+<nav class="mt-12 w-full flex items-center justify-between">
+  { prev?.link && (
+    <LinkBtn
+      href={prev.link}
+      aclass="bg-transparent! hover:bg-primary!"
+    >
+      { prev.title && <p>{prev.title}</p> }
+      <p class="text-start text-sm">← Previous</p>
+    </LinkBtn>
+  )}
+  {next?.link && (
+    <LinkBtn
+      href={next.link}
+      aclass="bg-transparent! hover:bg-primary! ml-auto"
+    >
+      { next.title && <p>{next.title}</p> }
+      <p class="text-end text-sm">Next →</p>
+    </LinkBtn>
+  )}
+</nav>

@@ -9,7 +9,7 @@ import BlogListLayout from '~/layouts/BlogListLayout.astro'
 
 import { getAllPosts } from '~/utils'
 import { pageSize } from '~/constant/config'
-import type { Post, PostPage } from '~/types'
+import type { Post, PostPage, PrevNext } from '~/types'
 
 export const prerender = true
 
@@ -29,52 +29,64 @@ export const getStaticPaths = (async ({ paginate }) => {
         type: 'note',
       },
     }),
-    ...posts.flat().map(post => ({
-      props: {
-        post,
-      },
-      params: {
-        page: post.slug,
-        type: post.collection,
-      },
-    })),
+    ...posts.flat().map((post, idx, _posts) => {
+      const prevP = _posts[idx - 1] as Post | undefined
+      const nextP = _posts[idx + 1] as Post | undefined
+
+      return {
+        props: {
+          post,
+          prev: {
+            title: prevP?.data.title,
+            link: prevP ? `/${prevP.collection}/${prevP.slug}/` : undefined,
+          },
+          next: {
+            title: nextP?.data.title,
+            link: nextP ? `/${nextP.collection}/${nextP.slug}/` : undefined,
+          },
+        },
+        params: {
+          page: post.slug,
+          type: post.collection,
+        },
+      }
+    }),
   ]
 }) satisfies GetStaticPaths
 
 type Props = {
   page: PostPage
   post: undefined
+  prev: undefined
+  next: undefined
 } | {
-  page: undefined
   post: Post
+  prev: PrevNext
+  next: PrevNext
+  page: undefined
 }
 
-const { post, page } = Astro.props
+const { post, page, prev, next } = Astro.props
 const { type } = Astro.params
 
 ---
 
 {
   post
-    ? <PostDetails post={post} />
+    ? (
+      <PostDetails
+        post={post}
+        next={next!}
+        prev={prev!}
+      />
+    )
     : (type === 'blog'
       ? (
         <BlogListLayout
           page={page}
           title="Blogs"
           h1={`共有 ${page.total} 篇文章`}
-        >
-          <Alert slot="footer" type="important">
-            <p> This website is still under construction. Some pages may not be available yet. See also
-              <a
-                target="_blank"
-                href="https://note.chilfish.top/blogs"
-                class="text-blue-500 hover:underline"
-              >  note.chilfish.top
-              </a>.
-            </p>
-          </Alert>
-        </BlogListLayout>
+        />
       )
       : (
         <Layout title="Notes timeline">

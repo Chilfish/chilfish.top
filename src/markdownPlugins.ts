@@ -70,7 +70,7 @@ function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
         node.properties.href = newHref
       }
 
-      if (node.tagName === 'img') {
+      else if (node.tagName === 'img') {
         let src = node.properties.src as string
 
         if (src.startsWith('/'))
@@ -86,7 +86,9 @@ function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
         node.properties = {
           ...node.properties,
           ...imgProp,
-          dataSrc: src, // dateset，用于自定义 Image 组件的解析
+
+          // dateset，用于自定义 Image 组件的解析
+          dataSrc: isRss ? undefined : src,
         } as any
       }
     },

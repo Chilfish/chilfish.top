@@ -1,4 +1,4 @@
-export * from './blog'
+export * from './post'
 export * from './date'
 export * from './fetchMusic'
 

@@ -6,12 +6,15 @@ import PostMeta from '@cp/post/PostMeta.astro'
 import AdjacentPosts from '@cp/post/AdjacentPosts.astro'
 import Layout from './Layout.astro'
 import '@assets/post-details.scss'
-import type { Post } from '~/types'
+import type { Post, PrevNext } from '~/types'
+import PagesNav from '~/components/common/PagesNav.astro'
 
-type Props = {
+interface Props {
   post: Post
+  next: PrevNext
+  prev: PrevNext
 }
-const { post } = Astro.props
+const { post, next, prev } = Astro.props
 
 const { title, author, description, date, maxDepthTOC, tags, keywords, cover } = post.data
 
@@ -58,14 +61,24 @@ const { Content, headings } = await post.render()
         )}
         <Content />
       </article>
+
+      <PagesNav
+        prev={prev}
+        next={next}
+      />
     </main>
 
-    <TableOfContent
-      headers={headings}
-      maxDeep={maxDepthTOC || 4}
-      client:idle
-    />
+    { headings.length > 0 && (
+      <TableOfContent
+        headers={headings}
+        maxDeep={maxDepthTOC || 4}
+        client:idle
+      />
+    )}
   </section>
 
   <BackToTop />
 </Layout>
+
+<style>
+</style>
