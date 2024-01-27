@@ -2,8 +2,8 @@
 interface Props {
   src: string
   alt: string
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
   placeholder?: string
   [key: string]: any
 }
@@ -25,6 +25,7 @@ const {
   src={placeholder}
   width={width}
   height={height}
+  style={{ width, height }}
   loading="lazy"
   decoding="async"
   {...rest}

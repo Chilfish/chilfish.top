@@ -3,14 +3,14 @@ interface Props {
   href: string
   type?: 'default' | 'outline' | 'text'
   dashed?: boolean
-  aclass?: string
+  class?: string
   noRef?: boolean
   target?: '_blank' | '_self' | '_parent' | '_top'
 }
 
 const {
   href,
-  aclass,
+  class: className,
   type = 'default',
   dashed = false,
   noRef = false,
@@ -37,7 +37,7 @@ const rel = noRef ? 'noopener noreferrer nofollow' : null
   rel={rel}
   target={target}
   class:list={[
-    aclass,
+    className,
     dashedClass,
     typeClass,
   ]}

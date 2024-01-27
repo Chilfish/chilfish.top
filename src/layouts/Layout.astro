@@ -9,14 +9,23 @@ import type { PostSchema } from '~/content/config'
 
 interface props extends Partial<PostSchema> {
   title: string
-  aclass?: string
+  class?: string
 }
 
 type Props = {
   frontmatter?: MarkdownLayoutProps<props>['frontmatter']
 } & props
 
-const { title: _title, aclass, author, description, cover, date, tags, keywords: _keywords }
+const {
+  title: _title,
+  class: className,
+  author,
+  description,
+  cover,
+  date,
+  tags,
+  keywords: _keywords,
+}
  = Astro.props.frontmatter || Astro.props
 
 const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
@@ -103,7 +112,7 @@ const theme = cookie.get('theme')?.value ?? (() => {
     <title>{title}</title>
   </head>
   <body
-    class={aclass}
+    class:list={[className]}
     transition:animate="fade"
   >
     <Header />

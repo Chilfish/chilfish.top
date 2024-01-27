@@ -1,5 +1,4 @@
 ---
-import BlogTags from './Tags.astro'
 import { formatDate } from '~/utils'
 
 type Props = {
@@ -7,10 +6,9 @@ type Props = {
   author: string
   pubDate: Date
   modifiedDate?: Date
-  tags?: Array<string>
 }
 
-const { title, author, pubDate, modifiedDate, tags } = Astro.props
+const { title, author, pubDate, modifiedDate } = Astro.props
 ---
 
 <header class="mb-6 flex flex-col justify-center border-b border-gray p-4">
@@ -49,7 +47,5 @@ const { title, author, pubDate, modifiedDate, tags } = Astro.props
         <time> {formatDate(modifiedDate)} </time>
       </div>
     )}
-
-    <BlogTags tags={tags} />
   </div>
 </header>

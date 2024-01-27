@@ -1,0 +1,31 @@
+---
+type Props = {
+  tags?: string[]
+  class?: string
+}
+
+const { tags, class: className } = Astro.props
+---
+
+{tags && tags.length > 0 && (
+  <div
+    class:list={['tags flex flex-wrap items-center gap-3', className]}
+  >
+    { tags.map(tag => (
+      <a
+        href={`/tags/${tag.toLocaleLowerCase()}/`}
+        class="tag"
+      >
+        <span class="mr-1 text-4.5">#</span> { tag }
+      </a>
+    ))}
+  </div>
+)}
+
+<style>
+a.tag {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 8px;
+}
+</style>

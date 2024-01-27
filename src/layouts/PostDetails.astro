@@ -1,13 +1,15 @@
 ---
 import Image from '@cp/common/Image.astro'
 import BackToTop from '@cp/common/BackToTop.astro'
-import TableOfContent from '@cp/post/TableOfContent.vue'
-import PostMeta from '@cp/post/PostMeta.astro'
+import PagesNav from '@cp/common/PagesNav.astro'
 import AdjacentPosts from '@cp/post/AdjacentPosts.astro'
+import PostMeta from '@cp/post/PostMeta.astro'
+import PostTags from '@cp/post/PostTags.astro'
+import TableOfContent from '@cp/post/TableOfContent.vue'
 import Layout from './Layout.astro'
-import '@assets/post-details.scss'
+
 import type { Post, PrevNext } from '~/types'
-import PagesNav from '~/components/common/PagesNav.astro'
+import '@assets/post-details.scss'
 
 interface Props {
   post: Post
@@ -27,7 +29,7 @@ const { Content, headings } = await post.render()
   keywords={keywords}
   author={author}
   date={date}
-  aclass="mx-auto relative"
+  class="relative mx-auto"
 >
   <section
     id="page-top"
@@ -47,7 +49,6 @@ const { Content, headings } = await post.render()
           title={title}
           author={author!}
           pubDate={date!}
-          tags={tags}
         />
 
         { cover && (
@@ -59,7 +60,13 @@ const { Content, headings } = await post.render()
             class="h-64 w-full rounded-lg object-cover object-top-center transition-height sm:h-96"
           />
         )}
+
         <Content />
+
+        <PostTags
+          class="mt-4"
+          tags={tags}
+        />
       </article>
 
       <PagesNav

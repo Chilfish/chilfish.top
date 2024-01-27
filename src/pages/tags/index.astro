@@ -22,13 +22,16 @@ const sortedTags = Object
 <Layout title="Tags">
   <main class="px-6 main-width">
     <h1 class="mb-6 text-2xl">所有标签 | 共 {sortedTags.length} 个</h1>
-    <ul class="tsgs flex flex-wrap items-center gap-3">
+    <ul class="tsgs flex flex-wrap items-center gap-5">
       { sortedTags.map(([tag, count]) => (
         <a
-          href={`/tags/${tag}`}
+          href={`/tags/${tag}/`}
           class="tag"
         >
-          { tag } <> { count } </>
+          <span class="mr-0.5 text-5">#</span>
+          <span>
+            { tag } <sp> { count } </sp>
+          </span>
         </a>
       ))}
     </ul>
@@ -37,6 +40,8 @@ const sortedTags = Object
 
 <style>
 .tag {
-  --uno: rounded-md py-1 px-2 text-4 border-gray border cursor-pointer;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 8px;
 }
 </style>

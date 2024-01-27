@@ -9,7 +9,7 @@ interface Props {
 
 const { prev, next } = Astro.props
 
-const aclass = 'bg-transparent hover:bg-primary'
+const className = 'bg-transparent hover:dark:bg-dark hover:bg-light'
 ---
 
 <nav
@@ -18,7 +18,8 @@ const aclass = 'bg-transparent hover:bg-primary'
   { prev?.link && (
     <LinkBtn
       href={prev.link}
-      aclass={aclass}
+      class:list={[className, 'mr-4']}
+      type="text"
       dashed
     >
       { prev.title && <p>{prev.title}</p> }
@@ -28,7 +29,8 @@ const aclass = 'bg-transparent hover:bg-primary'
   {next?.link && (
     <LinkBtn
       href={next.link}
-      aclass={`${aclass} ml-auto`}
+      class:list={[className, 'ml-auto']}
+      type="text"
       dashed
     >
       { next.title && <p>{next.title}</p> }
