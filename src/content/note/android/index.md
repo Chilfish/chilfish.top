@@ -10,7 +10,6 @@ tags: [note, android]
 
 - [安卓开发总览](devSummary.md)
 - [Logs](Logs.md)
-- [获取文件 IO](FileIO.md)
 - [Fragment](Fragment.md)
 
 **XML View**
@@ -57,7 +56,7 @@ tags: [note, android]
 
 安卓 API level 是指安卓系统提供的一组应用程序接口（API）的版本号。每个 API level 都包含了一系列的新特性、改进和 bug 修复，以及对之前版本的 API 的兼容性支持。开发者可以根据 API level 来确定所使用的 API 是否可用，并在不同的 API level 上进行开发和测试
 
-![<a target="_blank" href="https://developer.android.com/guide/topics/manifest/uses-sdk-element">谷歌文档：API level</a>](/blog/cs/API-Level.webp)
+![https://developer.android.com/guide/topics/manifest/uses-sdk-element 谷歌文档：API level](/blog/cs/API-Level.webp)
 
 ### 处理器架构
 

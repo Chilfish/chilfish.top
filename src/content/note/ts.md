@@ -1,7 +1,7 @@
 ---
-title: TypeScript
+title: TypeScript 语法
 date: 2023-07-13
-tags: [note, web, ts]
+tags: [note, ts]
 ---
 
 可以先从 [Typescript 入门教程] 开始，然后再到 [Typescript 文档] 补了，也可以熟读 [Typescript Book]

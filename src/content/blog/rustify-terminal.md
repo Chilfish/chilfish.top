@@ -14,8 +14,6 @@ Rust 作为一门系统级语言，在命令行工具的开发上有着天然的
 
 下载：`scoop install main/bat`
 
-![](https://imgur.com/rGsdnDe.png)
-
 ### eza
 
 [eza-community/eza](https://github.com/eza-community/eza) 是一个 ls 的替代品，有更好看的输出、gitignore 支持、更多的排序方式等特性。这是我的一个配置

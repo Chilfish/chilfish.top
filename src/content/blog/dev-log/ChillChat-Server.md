@@ -20,7 +20,7 @@ tags: [dev-logs, nestjs]
 
 最后是一星期从上手到基本完成基本要求，虽然从架构上来说还差了挺多的，虽然感觉应该够应付了
 
-[Chat-Full]: ./ChillChatAndroid.md
+[Chat-Full]: ./ChillChat-Android.md
 [Nest.js]: https://nestjs.com
 [Typegoose]: https://typegoose.github.io/
 [kindagoose]: https://github.com/GrapeoffJS/kindagoose

@@ -4,7 +4,7 @@ date: 2022-07-31
 tags: [note, Algorithm, c++]
 ---
 
-- [C++ 小语法](../lang/Cpp.md)
+- [C++ 小语法](Cpp.md)
 - [数据结构](ds/index.md)
 - [STL 标准库](STL.md)
 - [排序算法](Sort.md)

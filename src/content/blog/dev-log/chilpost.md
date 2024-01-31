@@ -220,8 +220,8 @@ useDarkStore() // init dark mode
 [elk]: https://github.com/elk-zone/elk
 [stylelint config]: https://github.com/Chilfish/chilpost/blob/vue/.stylelintrc.cjs
 [utils/sqlToTs.ts]: https://github.com/Chilfish/chilpost/blob/35945eea1c0ec3f3c029788848163dc972e3960b/server/utils/sqlToTs.server.ts
-[return_all_HTTP200_api]: ../return_all_HTTP200_api.md
-[chilpost-sb]: ./chilpost_sb.md
+[return_all_HTTP200_api]: ../return-all-HTTP200-api.md
+[chilpost-sb]: ./chilpost-sb.md
 [Migrate to Nuxt3]: https://github.com/Chilfish/chilpost/pull/5
 [chilpost/#12]: https://github.com/Chilfish/chilpost/pull/12
 [chilpost/#13]: https://github.com/Chilfish/chilpost/pull/13

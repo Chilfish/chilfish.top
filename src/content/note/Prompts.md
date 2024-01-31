@@ -1,7 +1,7 @@
 ---
 title: My GPT Prompts
 date: 2023-03-16
-tags: [GPT]
+tags: [note]
 ---
 
 ### 单词练习

@@ -8,7 +8,7 @@ tags: [Vue]
 
 一直很想封装一个 Toast 来着，但想到用函数的形式来调用 `Toast('hello')`，才意识到这似乎有一点难搞，于是就去翻看了 element-plus 的实现：[el-message]
 
-果然还是要用到函数式渲染的 createVNode 来调用组件 SFC，一些细节可见 [gpt]，完整可见：[Github]（如果它还在的话）
+果然还是要用到函数式渲染的 createVNode 来调用组件 SFC，完整可见：[Github]
 
 ### Vue Plugin
 
@@ -447,7 +447,6 @@ export const toastDefault = {
 至此，基本就完成了
 
 [el-message]: https://github.com/element-plus/element-plus/tree/dev/packages/components/message/
-[gpt]: ../note/gpt/SFCWithInstall.md
 [Github]: https://github.com/Chilfish/learn-vue/tree/vue/src/components/Toast
 [引入 element-plus]: https://element-plus.org/zh-CN/guide/quickstart.html
 [vue app.use]: https://cn.vuejs.org/api/application.html#app-use

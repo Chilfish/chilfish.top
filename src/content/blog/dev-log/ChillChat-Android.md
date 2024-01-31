@@ -109,6 +109,4 @@ Scaffold(
 
 [DataBinding]: ../../note/android/XMLView/DataBinding.md
 [Jetpack]: ../../note/android/Jetpack/index.md
-[Compose_State]: ../note/gpt/android/ComposeState.md
-[Compose_Structure]: ../note/gpt/android/ComposeStructure.md
 [JetChat]: https://github.com/android/compose-samples/blob/main/Jetchat/app/src/main/java/com/example/compose/jetchat/conversation/Conversation.kt#L148-L150
