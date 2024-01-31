@@ -18,7 +18,7 @@ export async function getPosts(type: ContentType = 'blog'): Promise<Post[]> {
 
 export function getPostsByTag(posts: Post[], tag: string) {
   return posts
-    .filter(post => post.data.tags
+    .filter(({ data }) => data.tags
       .map(tag => tag.toLowerCase()).includes(tag),
     )
 }

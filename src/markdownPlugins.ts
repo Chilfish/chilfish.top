@@ -67,6 +67,10 @@ function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
         if (!list.some(item => newHref.startsWith(item)))
           newHref = `../${newHref}`
 
+        // 因为 SSG 是 filename/index.html，所以还得再走一层
+        if (href.startsWith('../'))
+          newHref = `../${newHref}`
+
         node.properties.href = newHref
       }
 

@@ -1,8 +1,8 @@
 ---
 import Layout from '~/layouts/Layout.astro'
-import { filterTags, getAllPosts } from '~/utils'
+import { filterTags, getPosts } from '~/utils'
 
-const posts = (await getAllPosts()).flat()
+const posts = await getPosts('blog')
 const allTags = filterTags(posts)
 
 const tagsWithCount: {

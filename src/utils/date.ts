@@ -1,5 +1,4 @@
-import type { CollectionEntry } from 'astro:content'
-import type { ContentType } from '~/types'
+import type { Post } from '~/types'
 
 export function formatDate(date: Date | string): string {
   if (typeof date === 'string')
@@ -13,7 +12,7 @@ export function formatDate(date: Date | string): string {
 }
 
 export function sortPostsByDate(
-  posts: CollectionEntry<ContentType>[],
+  posts: Post[],
 ) {
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 }

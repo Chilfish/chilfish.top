@@ -1,7 +1,7 @@
 ---
 import PostTimeLine from '~/components/post/PostTimeLine.astro'
 import Layout from '~/layouts/Layout.astro'
-import { getAllPosts } from '~/utils'
+import { getAllPosts, sortPostsByDate } from '~/utils'
 
 const posts = (await getAllPosts()).flat()
 ---
@@ -11,6 +11,6 @@ const posts = (await getAllPosts()).flat()
 >
   <PostTimeLine
     title="归档"
-    posts={posts}
+    posts={sortPostsByDate(posts)}
   />
 </Layout>
