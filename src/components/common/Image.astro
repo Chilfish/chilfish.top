@@ -19,43 +19,34 @@ const {
 ---
 
 <img
-  data-placeholder={placeholder}
   data-src={src}
   alt={alt}
   src={placeholder}
   width={width}
   height={height}
-  style={{ width, height }}
   loading="lazy"
   decoding="async"
   {...rest}
 />
 
 <script>
-function loadImg(img: HTMLImageElement) {
-  const placeholder = img.dataset.placeholder!
-  const src = img.dataset.src!
-
-  const newImg = new Image()
-  newImg.src = src
-
-  newImg.onload = () => {
-    img.src = src
-    img.classList.add('loaded')
-    img.removeAttribute('data-src')
-    img.removeAttribute('data-placeholder')
-  }
-  newImg.onerror = () => {
-    img.src = placeholder
-    img.classList.add('error')
-  }
-}
+const imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const img = entry.target as HTMLImageElement
+      const src = img.dataset.src!
+      img.setAttribute('src', src)
+      img.removeAttribute('data-src')
+      imgObserver.unobserve(img)
+    }
+  })
+})
 
 function loadImgs() {
   const imgs = document.querySelectorAll('img')
   imgs.forEach((img) => {
     if (img.dataset.src)
-      loadImg(img)
+      imgObserver.observe(img)
   })
 }
 
@@ -65,13 +56,3 @@ document.addEventListener('astro:after-swap', () => {
   loadImgs()
 })
 </script>
-
-<style>
-my-image {
-  display: contents;
-}
-
-img {
-  --uno: trans-all;
-}
-</style>

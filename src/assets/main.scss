@@ -50,6 +50,10 @@ p {
   text-wrap: pretty;
 }
 
+img {
+  --uno: trans-all;
+}
+
 code {
   --uno: font-mono;
   padding: 3px 4px;
