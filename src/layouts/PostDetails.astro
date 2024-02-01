@@ -9,6 +9,7 @@ import TableOfContent from '@cp/post/TableOfContent.vue'
 import Layout from './Layout.astro'
 
 import type { Post, PrevNext } from '~/types'
+import type { PostSchema } from '~/content/config'
 import '@assets/post-details.scss'
 
 interface Props {
@@ -18,17 +19,15 @@ interface Props {
 }
 const { post, next, prev } = Astro.props
 
-const { title, author, description, date, maxDepthTOC, tags, keywords, cover } = post.data
+const { title, author, date, maxDepthTOC, tags, cover } = post.data
 
-const { Content, headings } = await post.render()
+const { Content, headings, remarkPluginFrontmatter } = await post.render()
+
+const frontmatter = remarkPluginFrontmatter as PostSchema
 ---
 
 <Layout
-  title={title}
-  description={description}
-  keywords={keywords}
-  author={author}
-  date={date}
+  {...frontmatter}
   class="relative mx-auto"
 >
   <section
@@ -46,9 +45,9 @@ const { Content, headings } = await post.render()
     >
       <article>
         <PostMeta
-          title={title}
+          {...frontmatter}
           author={author!}
-          pubDate={date!}
+          date={date!}
         />
 
         { cover && (

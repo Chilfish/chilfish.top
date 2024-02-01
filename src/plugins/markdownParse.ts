@@ -1,17 +1,10 @@
-import type { RehypePlugins, RemarkPlugins } from 'astro'
-import { unified } from 'unified'
-import rehypeExternalLinks, { type Options } from 'rehype-external-links'
-import rehypeRewrite, { type RehypeRewriteOptions } from 'rehype-rewrite'
-import remarkEmoji from 'remark-emoji'
-import rehypeFigure from 'rehype-figure'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
+import type { Options } from 'rehype-external-links'
+import type { RehypeRewriteOptions } from 'rehype-rewrite'
 
 // 在解析 markdown 的这一阶段，是没有 Astro 上下文的，所以不能导入任何涉及到 Astro 的 API
 // 当然类型定义是可以的，因为类型定义不会被编译到最终的代码中
-import { imgHost } from './constant/config'
-import { getHostIcon } from './constant/hostIcons'
+import { imgHost } from '../constant/config'
+import { getHostIcon } from '../constant/hostIcons'
 
 const isDev = import.meta.env.DEV
 const IMGHOST = isDev ? 'http://localhost:5173' : imgHost
@@ -19,7 +12,7 @@ const IMGHOST = isDev ? 'http://localhost:5173' : imgHost
 /**
  * 重写外链的插件，添加对应的网站图标
  */
-const rehypeExternalLinksOptions: Options = {
+export const rehypeExternalLinksOptions: Options = {
   target: '_blank',
   rel: ['noopener', 'noreferrer', 'nofollow'],
   content(element) {
@@ -48,7 +41,7 @@ const rehypeExternalLinksOptions: Options = {
  * - 修改了 img 标签，优化加载以及设置图床链接
  * @param isRss 是否是 rss
  */
-function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
+export function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
   return {
     rewrite(node) {
       if (node.type !== 'element')
@@ -97,35 +90,4 @@ function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
       }
     },
   }
-}
-
-export const rehypePlugins: RehypePlugins = [
-  [rehypeExternalLinks, rehypeExternalLinksOptions],
-  [rehypeRewrite, rehypeRewriteOptions()],
-
-  // 将 md 的图片语法，转换为 figure 标签 wrapped 的图片
-  // 将 alt 属性转换为 figcaption 标签
-  [rehypeFigure, { className: 'figure' }],
-]
-
-export const remarkPlugins: RemarkPlugins = [
-  // 将 md 的 emoji 语法转换为 emoji 图标
-  [remarkEmoji, { accessible: true }],
-]
-
-/**
- * markdown 转 HTML 的编译器
- * @param markdown markdown 文本
- */
-export async function markdownCompiler(markdown: string) {
-  return await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(remarkEmoji, { accessible: true })
-    .use(rehypeExternalLinks, rehypeExternalLinksOptions)
-    .use(rehypeFigure)
-    .use(rehypeRewrite, rehypeRewriteOptions(true))
-    .use(rehypeStringify)
-    .process(markdown)
-    .then(file => file.toString())
 }

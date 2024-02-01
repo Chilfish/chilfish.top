@@ -1,7 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro'
 
-import Alert from '@cp/common/Alert.astro'
 import PostTimeLine from '~/components/post/PostTimeLine.astro'
 import Layout from '~/layouts/Layout.astro'
 import PostDetails from '~/layouts/PostDetails.astro'
@@ -68,7 +67,6 @@ type Props = {
 
 const { post, page, prev, next } = Astro.props
 const { type } = Astro.params
-
 ---
 
 {

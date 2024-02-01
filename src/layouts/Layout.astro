@@ -5,6 +5,7 @@ import type { MarkdownLayoutProps } from 'astro'
 
 import Footer from '@cp/common/Footer.astro'
 import Header from '@cp/common/Header.astro'
+import { host } from '~/constant'
 import type { PostSchema } from '~/content/config'
 
 interface props extends Partial<PostSchema> {
@@ -28,9 +29,11 @@ const {
 }
  = Astro.props.frontmatter || Astro.props
 
+// console.log(Astro.props)
+
 const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
-const image = cover || '/avatar.png'
-const pubDate = (date ?? new Date()).toLocaleDateString()
+const image = cover || `${host}/avatar.png`
+const pubDate = new Date((date as any)).toLocaleDateString()
 const title = `${_title} | Chilfish`
 const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
 

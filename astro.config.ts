@@ -10,7 +10,7 @@ import vercel from '@astrojs/vercel/serverless'
 import expressiveCode from 'astro-expressive-code'
 
 import { host, imgHost } from './src/constant/config'
-import { rehypePlugins, remarkPlugins } from './src/markdownPlugins'
+import { rehypePlugins, remarkPlugins } from './src/plugins'
 
 const cp = (name: string) => `./src/components/common/${name}.astro`
 

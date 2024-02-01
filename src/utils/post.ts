@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content'
 import { sortPostsByDate } from './date'
-import type { ContentType, Post } from '~/types'
+import type { ContentType, Post, PostSchema } from '~/types'
 
 export async function getAllPosts() {
   const [blogs, notes] = await Promise.all([
@@ -13,14 +13,17 @@ export async function getAllPosts() {
 export async function getPosts(type: ContentType = 'blog'): Promise<Post[]> {
   const posts = await getCollection(type, ({ data }) => !data.isDraft)
 
-  return sortPostsByDate(posts)
+  return sortPostsByDate(posts.map(post => ({
+    ...post,
+    data: {
+      ...post.data,
+      tags: (post.data as PostSchema).tags.map(tag => tag.toLowerCase()),
+    },
+  })))
 }
 
 export function getPostsByTag(posts: Post[], tag: string) {
-  return posts
-    .filter(({ data }) => data.tags
-      .map(tag => tag.toLowerCase()).includes(tag),
-    )
+  return posts.filter(({ data }) => data.tags.includes(tag))
 }
 
 export function filterTags(posts: Post[]) {

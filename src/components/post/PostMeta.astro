@@ -1,14 +1,17 @@
 ---
+import type { PostSchema } from '~/types'
 import { formatDate } from '~/utils'
 
-type Props = {
-  title: string
-  author: string
-  pubDate: Date
-  modifiedDate?: Date
-}
+type Props = PostSchema
 
-const { title, author, pubDate, modifiedDate } = Astro.props
+const {
+  title,
+  author,
+  date: pubDate,
+  modifiedDate,
+  reading,
+  words,
+} = Astro.props
 ---
 
 <header class="mb-6 flex flex-col justify-center border-b border-gray p-4">
@@ -19,33 +22,40 @@ const { title, author, pubDate, modifiedDate } = Astro.props
   </h1>
 
   <div
-    class="flex flex-wrap items-center gap-4"
+    class="metas flex flex-wrap items-center gap-4"
   >
-    <div
-      title="作者"
-      class="icon-box"
-    >
-      <span class="i-tabler-user icon" />
+    <div title="作者">
+      <span i-tabler-user />
       <span> {author} </span>
     </div>
 
-    <div
-      title="写作日期"
-      class="icon-box"
-    >
-      <span class="i-tabler-calendar icon" />
+    <div title="写作日期">
+      <i i-tabler-calendar />
       <time> {formatDate(pubDate)} </time>
     </div>
 
     {modifiedDate && (
-      <div
-        title="最后修改日期"
-        class="icon-box"
-      >
-        <span class="i-tabler-edit icon" />
+      <div title="最后修改日期">
+        <i i-tabler-edit />
         <span>上次编辑于</span>
         <time> {formatDate(modifiedDate)} </time>
       </div>
     )}
+
+    <div title="阅读时长">
+      <i i-tabler-clock />
+      <span> 预计 {reading.toFixed(0)} 分钟 </span>
+    </div>
+
+    <div title="总字数">
+      <i i-tabler-pencil />
+      <span> {words} 字 </span>
+    </div>
   </div>
 </header>
+
+<style>
+.metas div {
+  --uno: icon-box;
+}
+</style>
