@@ -24,11 +24,13 @@
     "astro-expressive-code": "^0.32.3",
     "astro-seo": "^0.8.0",
     "consola": "^3.2.3",
+    "echarts": "^5.4.3",
     "mdast-util-to-string": "^4.0.0",
     "nprogress": "^0.2.0",
     "reading-time": "^1.5.0",
     "universal-cookie": "^7.0.2",
-    "vue": "^3.4.15"
+    "vue": "^3.4.15",
+    "vue-echarts": "^6.6.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.3",

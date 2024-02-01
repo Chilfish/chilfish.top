@@ -24,6 +24,7 @@ const { title, author, date, maxDepthTOC, tags, cover } = post.data
 const { Content, headings, remarkPluginFrontmatter } = await post.render()
 
 const frontmatter = remarkPluginFrontmatter as PostSchema
+
 ---
 
 <Layout

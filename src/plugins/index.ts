@@ -19,12 +19,16 @@ export * from './markdownParse'
 export async function markdownCompiler(markdown: string) {
   return await unified()
     .use(remarkParse)
-    .use(remarkRehype)
+    .use(remarkRehype, {
+      allowDangerousHtml: true,
+    })
     .use(remarkEmoji, { accessible: true })
     .use(rehypeExternalLinks, rehypeExternalLinksOptions)
     .use(rehypeFigure)
     .use(rehypeRewrite, rehypeRewriteOptions(true))
-    .use(rehypeStringify)
+    .use(rehypeStringify, {
+      allowDangerousHtml: true,
+    })
     .process(markdown)
     .then(file => file.toString())
 }

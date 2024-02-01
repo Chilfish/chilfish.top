@@ -1,7 +1,7 @@
 import type { Post } from '~/types'
 
-export function formatDate(date: Date | string): string {
-  if (typeof date === 'string')
+export function formatDate(date: Date | string | number): string {
+  if (typeof date === 'string' || typeof date === 'number')
     date = new Date(date)
 
   return date.toLocaleDateString('zh-cn', {
@@ -15,4 +15,10 @@ export function sortPostsByDate(
   posts: Post[],
 ) {
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+}
+
+export function todayToLastMonth(count = 1) {
+  const today = new Date()
+  const lastMonth = new Date(today.getFullYear(), today.getMonth() - count, today.getDate())
+  return [lastMonth, today]
 }

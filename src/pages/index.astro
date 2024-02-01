@@ -3,11 +3,16 @@ import Layout from '@layouts/Layout.astro'
 import LatestBlogs from '@cp/post/LatestBlogs.astro'
 import Projects from '@cp/Projects.astro'
 import Socials from '@cp/Socials.astro'
+import Heatmap from '@cp/Heatmap.vue'
+
+import { getWords } from '~/utils'
+
+const words = await getWords()
 ---
 
 <Layout title="Chilfish">
   <main
-    class="mx-auto max-w-86ch p-4"
+    class="mx-auto max-w-92ch p-4"
   >
     <header>
       <h1 class="text-3xl font-bold">
@@ -21,6 +26,11 @@ import Socials from '@cp/Socials.astro'
     <Socials />
     <Projects />
     <LatestBlogs />
+
+    <Heatmap
+      data={words}
+      client:only="vue"
+    />
 
   </main>
 </Layout>
