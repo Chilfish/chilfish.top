@@ -3,11 +3,6 @@ import Layout from '@layouts/Layout.astro'
 import LatestBlogs from '@cp/post/LatestBlogs.astro'
 import Projects from '@cp/Projects.astro'
 import Socials from '@cp/Socials.astro'
-import Heatmap from '@cp/Heatmap.vue'
-
-import { getWords } from '~/utils'
-
-const words = await getWords()
 ---
 
 <Layout title="Chilfish">
@@ -26,11 +21,6 @@ const words = await getWords()
     <Socials />
     <Projects />
     <LatestBlogs />
-
-    <Heatmap
-      data={words}
-      client:only="vue"
-    />
 
   </main>
 </Layout>

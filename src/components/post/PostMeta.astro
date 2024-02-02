@@ -2,7 +2,9 @@
 import type { PostSchema } from '~/types'
 import { formatDate } from '~/utils'
 
-type Props = PostSchema
+type Props = PostSchema & {
+  category: string
+}
 
 const {
   title,
@@ -11,6 +13,7 @@ const {
   modifiedDate,
   reading,
   words,
+  category,
 } = Astro.props
 ---
 
@@ -42,14 +45,14 @@ const {
       </div>
     )}
 
-    <div title="阅读时长">
+    <div title={`${words} 个字`}>
       <i i-tabler-clock />
       <span> 预计 {reading.toFixed(0)} 分钟 </span>
     </div>
 
-    <div title="总字数">
-      <i i-tabler-pencil />
-      <span> {words} 字 </span>
+    <div title="分类">
+      <i i-tabler-tag />
+      <span> {category} </span>
     </div>
   </div>
 </header>

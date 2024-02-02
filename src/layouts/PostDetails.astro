@@ -19,9 +19,32 @@ interface Props {
 }
 const { post, next, prev } = Astro.props
 
-const { title, author, date, maxDepthTOC, tags, cover } = post.data
+/**
+ * 获取分类，如果是再根目录下的文章，返回 collection
+ * 否则返回第一个 slug，即文件夹名
+ */
+function category() {
+  const slugs = post.slug.split('/')
+  if (slugs.length === 1)
+    return post.collection
 
-const { Content, headings, remarkPluginFrontmatter } = await post.render()
+  return slugs[0]
+}
+
+const {
+  title,
+  author,
+  date,
+  maxDepthTOC,
+  tags,
+  cover,
+} = post.data
+
+const {
+  Content,
+  headings,
+  remarkPluginFrontmatter,
+} = await post.render()
 
 const frontmatter = remarkPluginFrontmatter as PostSchema
 
@@ -49,6 +72,7 @@ const frontmatter = remarkPluginFrontmatter as PostSchema
           {...frontmatter}
           author={author!}
           date={date!}
+          category={category()}
         />
 
         { cover && (

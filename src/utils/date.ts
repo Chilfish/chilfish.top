@@ -17,6 +17,11 @@ export function sortPostsByDate(
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 }
 
+export function lastYear() {
+  const today = new Date()
+  return new Date(today.getFullYear() - 1, today.getMonth(), today.getDate())
+}
+
 export function todayToLastMonth(count = 1) {
   const today = new Date()
   const lastMonth = new Date(today.getFullYear(), today.getMonth() - count, today.getDate())

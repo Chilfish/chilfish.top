@@ -3,6 +3,9 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 const cookies = useCookies(['theme'])
 
 export const isDark = useDark({
+  valueLight: 'light',
+  valueDark: 'dark',
+  initialValue: cookies.get('theme') || 'light',
   storageKey: 'theme',
   disableTransition: false,
   onChanged(_isDark, defaultHandler, mode) {

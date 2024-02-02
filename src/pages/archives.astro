@@ -1,16 +1,27 @@
 ---
+import Heatmap from '@cp/Heatmap.vue'
 import PostTimeLine from '~/components/post/PostTimeLine.astro'
 import Layout from '~/layouts/Layout.astro'
-import { getAllPosts, sortPostsByDate } from '~/utils'
+import { getWords, sortPostsByDate } from '~/utils'
 
-const posts = (await getAllPosts()).flat()
+const { posts, words, total } = await getWords()
 ---
 
 <Layout
   title="归档"
 >
-  <PostTimeLine
-    title="归档"
-    posts={sortPostsByDate(posts)}
-  />
+  <main class="center-col">
+    <h3 class="text-xl">
+      总共 {total} 千字
+    </h3>
+    <Heatmap
+      data={words}
+      client:only="vue"
+    />
+
+    <PostTimeLine
+      title="归档"
+      posts={sortPostsByDate(posts)}
+    />
+  </main>
 </Layout>

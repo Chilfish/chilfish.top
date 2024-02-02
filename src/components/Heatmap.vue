@@ -152,10 +152,7 @@ function onClick(e: any) {
 </script>
 
 <template>
-  <div class="mt-6 w-full">
-    <h3 class="text-xl">
-      近一年共 {{ data.length }} 篇文章
-    </h3>
+  <div class="w-full center">
     <VChart
       class="chart center"
       :option="option"
