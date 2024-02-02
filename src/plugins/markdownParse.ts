@@ -35,13 +35,18 @@ export const rehypeExternalLinksOptions: Options = {
   },
 }
 
+function findChildren(node: any, tagName: string) {
+  return node.children.find((item: any) => item?.type === 'element' && item?.tagName === tagName) || null
+}
+
 /**
  * 重写 html 的插件
  * - 修改了 a 标签的 href 属性，来适配 Astro 的路由
  * - 修改了 img 标签，优化加载以及设置图床链接
  * @param isRss 是否是 rss
  */
-export function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
+export function rehypeRewriteOptions(config?: { isRss: boolean }): RehypeRewriteOptions {
+  const { isRss } = config || { isRss: false }
   return {
     rewrite(node) {
       if (node.type !== 'element')
@@ -67,9 +72,14 @@ export function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
         node.properties.href = newHref
       }
 
-      else if (node.tagName === 'img') {
-        let src = node.properties.src as string
+      else if (node.tagName === 'figure') {
+        const img = findChildren(node, 'img')
+        const figcaption = findChildren(node, 'figcaption')
 
+        if (!img)
+          return
+
+        let src = img.properties.src as string
         if (src.startsWith('/'))
           src = `${IMGHOST}${src}`
 
@@ -79,14 +89,26 @@ export function rehypeRewriteOptions(isRss = false): RehypeRewriteOptions {
           referrerPolicy: 'same-origin',
           src: isRss ? src : '/placeholder.webp',
         }
-
-        node.properties = {
+        img.properties = {
           ...node.properties,
           ...imgProp,
 
           // dateset，用于自定义 Image 组件的解析
           dataSrc: isRss ? undefined : src,
         } as any
+
+        node.children = [
+          {
+            type: 'element',
+            tagName: 'a',
+            properties: {
+              href: img.properties.src,
+              target: '_blank',
+            },
+            children: [img],
+          },
+          figcaption,
+        ].filter(Boolean)
       }
     },
   }

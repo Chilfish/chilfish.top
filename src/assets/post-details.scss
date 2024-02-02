@@ -98,12 +98,15 @@ article {
     flex-direction: column;
     align-items: center;
 
-    img {
+    a {
       width: 80%;
       transition: all ease-in-out 300ms;
-      max-height: 28rem;
-      border-radius: 8px;
       margin: 0;
+    }
+
+    img {
+      max-height: 28rem;
+      border-radius: 6px;
 
       --uno: object-cover sm:object-contain;
     }

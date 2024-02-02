@@ -23,23 +23,25 @@ export async function markdownCompiler(markdown: string) {
       allowDangerousHtml: true,
     })
     .use(remarkEmoji, { accessible: true })
-    .use(rehypeExternalLinks, rehypeExternalLinksOptions)
     .use(rehypeFigure)
-    .use(rehypeRewrite, rehypeRewriteOptions(true))
+    .use(rehypeRewrite, rehypeRewriteOptions({ isRss: true }))
     .use(rehypeStringify, {
       allowDangerousHtml: true,
+      closeSelfClosing: true,
+      closeEmptyElements: true,
+      omitOptionalTags: true,
     })
     .process(markdown)
     .then(file => file.toString())
 }
 
 export const rehypePlugins: RehypePlugins = [
-  [rehypeExternalLinks, rehypeExternalLinksOptions],
-  [rehypeRewrite, rehypeRewriteOptions()],
-
   // 将 md 的图片语法，转换为 figure 标签 wrapped 的图片
   // 将 alt 属性转换为 figcaption 标签
   [rehypeFigure, { className: 'figure' }],
+
+  [rehypeExternalLinks, rehypeExternalLinksOptions],
+  [rehypeRewrite, rehypeRewriteOptions()],
 ]
 
 export const remarkPlugins: RemarkPlugins = [
