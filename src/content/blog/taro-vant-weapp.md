@@ -283,7 +283,7 @@ const config = {
 
 ### 使用 `@ngify/http` 请求库
 
-[@ngify/http] 适配了微信小程序特殊的 `wx.request`（也就是在小程序里是没有 XMLRequest 或是 fetch 的，得用它自己的请求库），并配合 [RxJs](RxJs&ngify-http.md) 风格的处理
+[@ngify/http] 适配了微信小程序特殊的 `wx.request`（也就是在小程序里是没有 XMLRequest 或是 fetch 的，得用它自己的请求库），并配合 [RxJs](RxJs-ngify-http.md) 风格的处理
 
 首先新建一个 `src/service` 文件夹专门用来处理请求，在 index.ts 中初始化设置为 wx 请求库：
 

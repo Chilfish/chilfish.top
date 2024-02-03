@@ -48,7 +48,6 @@ article {
 
   img {
     border-radius: 12px;
-    max-width: 90%;
     margin: 1rem auto;
     --uno: sm:max-w-70%;
   }
@@ -93,27 +92,18 @@ article {
   }
 
   figure {
-    margin: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    a {
-      width: 80%;
-      transition: all ease-in-out 300ms;
-      margin: 0;
-    }
-
-    img {
+    padding: 1rem 0;
+    color: #999;
+    text-align: center;
+    font-size: 0.8rem;
+    
+   embed, img {
+      margin: 0 auto 0.4rem;
       max-height: 28rem;
       border-radius: 6px;
+      cursor: zoom-in;
 
       --uno: object-cover sm:object-contain;
-    }
-    figcaption {
-      color: #999;
-      padding: 0.4rem;
-      margin: 0 0 1rem;
     }
   }
 

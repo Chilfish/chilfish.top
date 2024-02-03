@@ -1,4 +1,5 @@
 ---
+import Alert from '@cp/common/Alert.astro'
 import Image from '@cp/common/Image.astro'
 import BackToTop from '@cp/common/BackToTop.astro'
 import PagesNav from '@cp/common/PagesNav.astro'
@@ -6,10 +7,12 @@ import AdjacentPosts from '@cp/post/AdjacentPosts.astro'
 import PostMeta from '@cp/post/PostMeta.astro'
 import PostTags from '@cp/post/PostTags.astro'
 import TableOfContent from '@cp/post/TableOfContent.vue'
+import ImagePreview from '@cp/common/ImagePreview.vue'
 import Layout from './Layout.astro'
 
 import type { Post, PrevNext } from '~/types'
 import type { PostSchema } from '~/content/config'
+import { MONTH, formatDate } from '~/utils/date'
 import '@assets/post-details.scss'
 
 interface Props {
@@ -47,7 +50,6 @@ const {
 } = await post.render()
 
 const frontmatter = remarkPluginFrontmatter as PostSchema
-
 ---
 
 <Layout
@@ -74,6 +76,15 @@ const frontmatter = remarkPluginFrontmatter as PostSchema
           date={date!}
           category={category()}
         />
+
+        { Date.now() - date.valueOf() > 4 * MONTH && !tags.includes('diary') && (
+          <Alert
+            type="warning"
+            class="mt-4"
+          >
+            本文发布于 {formatDate(date)}，内容可能已过时。
+          </Alert>
+        )}
 
         { cover && (
           <Image
@@ -108,5 +119,6 @@ const frontmatter = remarkPluginFrontmatter as PostSchema
     )}
   </section>
 
+  <ImagePreview client:only="vue" />
   <BackToTop />
 </Layout>

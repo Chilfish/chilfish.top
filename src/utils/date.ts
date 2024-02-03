@@ -1,5 +1,9 @@
 import type { Post } from '~/types'
 
+export const DAY = 1000 * 60 * 60 * 24
+export const MONTH = DAY * 30
+export const YEAR = DAY * 365
+
 export function formatDate(date: Date | string | number): string {
   if (typeof date === 'string' || typeof date === 'number')
     date = new Date(date)
@@ -14,7 +18,7 @@ export function formatDate(date: Date | string | number): string {
 export function sortPostsByDate(
   posts: Post[],
 ) {
-  return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  return posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 }
 
 export function lastYear() {

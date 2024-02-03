@@ -38,7 +38,7 @@ export async function markdownCompiler(markdown: string) {
 export const rehypePlugins: RehypePlugins = [
   // 将 md 的图片语法，转换为 figure 标签 wrapped 的图片
   // 将 alt 属性转换为 figcaption 标签
-  [rehypeFigure, { className: 'figure' }],
+  rehypeFigure,
 
   [rehypeExternalLinks, rehypeExternalLinksOptions],
   [rehypeRewrite, rehypeRewriteOptions()],

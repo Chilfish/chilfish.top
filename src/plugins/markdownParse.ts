@@ -98,15 +98,7 @@ export function rehypeRewriteOptions(config?: { isRss: boolean }): RehypeRewrite
         } as any
 
         node.children = [
-          {
-            type: 'element',
-            tagName: 'a',
-            properties: {
-              href: img.properties.src,
-              target: '_blank',
-            },
-            children: [img],
-          },
+          img,
           figcaption,
         ].filter(Boolean)
       }
