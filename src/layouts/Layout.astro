@@ -36,21 +36,10 @@ const image = cover || `${host}/avatar.png`
 const pubDate = new Date((date as any)).toLocaleDateString()
 const title = `${_title} | Chilfish`
 const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
-
-const cookie = Astro.cookies
-
-const theme = cookie.get('theme')?.value ?? (() => {
-  cookie.set('theme', 'auto', {
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 10),
-    path: '/',
-  })
-  return 'auto'
-})()
 ---
 
 <!doctype html>
 <html
-  class={theme}
   lang="en"
 >
   <head>
@@ -118,9 +107,9 @@ const theme = cookie.get('theme')?.value ?? (() => {
     class:list={[className]}
     transition:animate="fade"
   >
-    <Header />
+    <Header transition:persist />
     <slot />
-    <Footer />
+    <Footer transition:persist />
   </body>
 </html>
 
@@ -139,5 +128,17 @@ document.addEventListener('astro:before-preparation', () => {
 })
 document.addEventListener('astro:after-preparation', () => {
   NProgress.done()
+})
+
+function setDarkMode(document) {
+  const theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
+  document.documentElement.classList.add(theme)
+}
+
+setDarkMode(document)
+
+document.addEventListener('astro:before-swap', (ev) => {
+  // Pass the incoming document to set the theme on it
+  setDarkMode(ev.newDocument)
 })
 </script>

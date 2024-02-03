@@ -1,6 +1,5 @@
 import { getCollection } from 'astro:content'
 import { sortPostsByDate } from './date'
-import { lastYear } from '.'
 import type { ContentType, Post, PostSchema } from '~/types'
 import { getReadTime } from '~/plugins/read-time'
 

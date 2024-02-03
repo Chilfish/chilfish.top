@@ -1,7 +1,7 @@
 <button
   class="dark-toggle icon-box"
 >
-  <i />
+  <i class="i-tabler-sun" />
 </button>
 
 <script>
@@ -10,12 +10,16 @@ function toggleDark() {
   const btn = document.querySelector('.dark-toggle')! as HTMLButtonElement
   const icon = btn.querySelector('.dark-toggle i')!
 
-  icon.classList.add(isDark.value ? 'i-tabler-moon' : 'i-tabler-sun')
+  function toggleIcon() {
+    icon.classList.toggle('i-tabler-sun')
+    icon.classList.toggle('i-tabler-moon')
+  }
+
+  toggleIcon()
 
   btn.onclick = () => {
     toggle()
-    icon.classList.toggle('i-tabler-sun')
-    icon.classList.toggle('i-tabler-moon')
+    toggleIcon()
   }
 }
 

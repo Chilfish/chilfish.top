@@ -6,7 +6,7 @@ tags: [diary]
 
 ### 1
 
-// TODO
+![只是过了12个月而已😎](/blog/diary/2023-2024.webp)
 
 ### 一些记录
 
@@ -42,6 +42,6 @@ tags: [diary]
 
 相对地来讲，2023 年是特别活跃的一年。给别人项目交了第一个重构的 pr、提了一些 bug issues，自用的一个小工具也赚了 30+ 的 stars🥳
 
-![好耶](/blog/diary/2023-weibo-archiver.webp)
+![好耶](https://opengraph.githubassets.com/35fa1fa95a1708486ab5c56d62770dd8fd0759e95f1844683a0eb66771b7b13e/Chilfish/Weibo-archiver)
 
 [bgm.tv]: https://bgm.tv/anime/browser/airtime/2023?sort=rank
