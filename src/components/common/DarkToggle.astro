@@ -1,0 +1,25 @@
+<button
+  class="dark-toggle icon-box"
+>
+  <i />
+</button>
+
+<script>
+function toggleDark() {
+  const toggle = useToggle(isDark)
+  const btn = document.querySelector('.dark-toggle')! as HTMLButtonElement
+  const icon = btn.querySelector('.dark-toggle i')!
+
+  icon.classList.add(isDark.value ? 'i-tabler-moon' : 'i-tabler-sun')
+
+  btn.onclick = () => {
+    toggle()
+    icon.classList.toggle('i-tabler-sun')
+    icon.classList.toggle('i-tabler-moon')
+  }
+}
+
+document.addEventListener('astro:page-load', () => {
+  toggleDark()
+})
+</script>
