@@ -10,7 +10,7 @@ export const ProjectList: Project[] = [
   {
     name: 'Weibo-archiver',
     description: '将你的新浪微博存档备份的油猴脚本，为号被完全夹没前绸缪 😭',
-    banner: `${imgHost}/weibo/cover.png`,
+    banner: `${imgHost}/weibo/cover.webp`,
     license: 'MIT',
     techs: ['ts', 'vue', 'monkey'],
     url: `${githubHost}/Weibo-archiver`,

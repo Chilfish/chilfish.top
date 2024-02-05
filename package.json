@@ -1,7 +1,17 @@
 {
-  "name": "learn-astro",
+  "name": "chilfish-top",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.14.3",
+  "description": "Chilfish's personal website.",
+  "author": {
+    "name": "Chilfish",
+    "email": "chill4fish@gmail.com",
+    "url": "https://chilfish.top"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/Chilfish/chilfish.top",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -9,8 +19,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --fix",
-    "postinstall": "husky install",
-    "up": "taze major -Iw"
+    "up": "taze major -Iw",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",

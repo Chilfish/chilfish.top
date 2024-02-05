@@ -210,7 +210,7 @@ class son : public | private | protected father {};
 
 #### 重载运算符
 
-![](/blog/lang/cpp_overload.png)
+![](/blog/lang/cpp_overload.webp)
 
 **一元运算符：** 如负号、自增自减
 
@@ -372,7 +372,7 @@ print({2, 3, 4});
 
 #### 定义
 
-![](/blog/lang/cpp_lambda.png)
+![](/blog/lang/cpp_lambda.webp)
 
 - **捕获列表**
   - 当为默认的 `[]` 时，lambda 内是不能访问当前作用域中的变量的（除了全局）
@@ -524,7 +524,3 @@ isspace(c) //-->是否为空格
 sprintf(ans, "%d+%d=%d", x, y, x + y);
 // →同时还把 + = 也存进去了
 ```
-
-#### 符号优先级
-
-![符号优先级](/blog/lang/cpp_priority.png)

@@ -71,7 +71,7 @@ int main() {
 - 在全局变量中，一维数组大小不超过 1e8，二维数组大小不超过 1e4
 - 对于 1s 的时间限制，需要保证程序的所有语句的总执行次数不超过 1e8.
 
-![复杂度限制](/blog/algo/cpp_1.png)
+![复杂度限制](/blog/algo/cpp_1.webp)
 
 一般 ACM 或者笔试题的时间限制是 1 秒或 2 秒。在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳
 
@@ -121,14 +121,14 @@ for (i = 1; i <= n; i++)  //打表
   }
 ```
 
-![求表](/blog/algo/cpp_2.png)
+![求表](/blog/algo/cpp_2.webp)
 
 ```cpp
 cin >> x1 >> y1 >> x2 >> y2;   //求表
 cout << sum[x2][y2] - sum[x1 - 1][y2] - sum[x2][y1 - 1] + sum[x1 - 1][y1 - 1];
 ```
 
-![还原](/blog/algo/cpp_3.png)
+![还原](/blog/algo/cpp_3.webp)
 
 #### 差分
 
@@ -173,9 +173,9 @@ int main() {
 
 以数组 $Arr = \{8,6,1,4,5,5,1,1,3,2,1,4,9,0,7,4\}$ 为例
 
-![树的每个节点都是区间和](/blog/algo/TreeArr0.png)
+![树的每个节点都是区间和](/blog/algo/TreeArr0.webp)
 
-![树状数组与原数组的对应关系](/blog/algo/TreeArr1.png)
+![树状数组与原数组的对应关系](/blog/algo/TreeArr1.webp)
 
 #### 树状数组的几种变式
 

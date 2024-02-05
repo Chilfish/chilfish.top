@@ -6,9 +6,6 @@ import type { RehypeRewriteOptions } from 'rehype-rewrite'
 import { imgHost } from '../constant/config'
 import { getHostIcon } from '../constant/hostIcons'
 
-const isDev = import.meta.env.DEV
-const IMGHOST = isDev ? 'http://localhost:5173' : imgHost
-
 /**
  * 重写外链的插件，添加对应的网站图标
  */
@@ -81,7 +78,7 @@ export function rehypeRewriteOptions(config?: { isRss: boolean }): RehypeRewrite
 
         let src = img.properties.src as string
         if (src.startsWith('/'))
-          src = `${IMGHOST}${src}`
+          src = `${imgHost}${src}`
 
         const imgProp: Partial<HTMLImageElement> = {
           decoding: 'async',

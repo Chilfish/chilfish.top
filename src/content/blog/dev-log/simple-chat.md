@@ -65,9 +65,9 @@ tags: [dev-logs, js]
 
 当天完成了 HTML 的部分，还找到了一些图标库：[tailwind toolbox](https://tailwindtoolbox.com/icons)，[heroicons](https://heroicons.com/)。可以说超复刻了）
 
-![这时还没写js和手机端](/blog/dev-log/main.png)
+![这时还没写js和手机端](/blog/dev-log/main.webp)
 
-![后来补上的手机响应式](/blog/dev-log/phone.png)
+![后来补上的手机响应式](/blog/dev-log/phone.webp)
 
 #### 22-12-30
 

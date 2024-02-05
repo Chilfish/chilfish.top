@@ -3,7 +3,7 @@ title: Weibo-archiver 存档你的微博 | 开发记录
 date: 2023-08-31
 tags: [dev-logs, vue]
 description: 将你的新浪微博存档备份，为号被完全夹没前绸缪 😭。支持导出为 HTML 文件、包含所有的图片、前15条评论
-cover: https://p.chilfish.top/weibo/cover.png
+cover: https://p.chilfish.top/weibo/cover.webp
 keywords: Weibo Archiver, 备份, 存档, 炸号, 保存微博, 微博, 开发记录
 ---
 
