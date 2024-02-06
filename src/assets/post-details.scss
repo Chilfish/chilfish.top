@@ -35,7 +35,12 @@ article {
   }
 
   a {
-    --uno: underline;
+    i {
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    text-decoration-line: underline;
+    text-underline-offset: 5px;
   }
 
   p {
@@ -49,7 +54,7 @@ article {
   img {
     border-radius: 12px;
     margin: 1rem auto;
-    --uno: sm:max-w-70%;
+    --uno: sm:max-w-64%;
   }
 
   ul {

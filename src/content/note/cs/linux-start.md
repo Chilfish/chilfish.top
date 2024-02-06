@@ -1,5 +1,5 @@
 ---
-title: Ubuntu - get start
+title: Ubuntu，启动！
 date: 2023-04-05
 tags: [Linux]
 ---
@@ -185,4 +185,4 @@ fnm install --lts
 
 > 在 Win 下安装，可以先下 [fnm.exe](https://github.com/Schniz/fnm/releases)，并放到环境变量中，下载 node 步骤是一样的
 
-> 但有个问题是 `node -v` 不起作用，因为 node 不在环境变量中，需要去 Powershell 的配置文件 `~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` 中添加一句 `fnm env --use-on-cd | Out-String | Invoke-Expression` 就好了
+> 但有个问题是 `node -v` 不起作用，因为 node 不在环境变量中，需要去 Powershell 的配置文件 `$PROFILE` 中添加一句 `fnm env --use-on-cd | Out-String | Invoke-Expression` 就好了

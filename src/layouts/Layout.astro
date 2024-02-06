@@ -1,108 +1,22 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
-import { SEO } from 'astro-seo'
-import type { MarkdownLayoutProps } from 'astro'
-
+import Head from '@cp/common/Head.astro'
 import Footer from '@cp/common/Footer.astro'
 import Header from '@cp/common/Header.astro'
-import { host } from '~/constant'
-import type { PostSchema } from '~/content/config'
+import type { MainProps } from '~/types'
 
-interface props extends Partial<PostSchema> {
-  title: string
-  class?: string
-}
-
-type Props = {
-  frontmatter?: MarkdownLayoutProps<props>['frontmatter']
-} & props
+type Props = MainProps
 
 const {
-  title: _title,
   class: className,
-  author,
-  description,
-  cover,
-  date,
-  tags,
-  keywords: _keywords,
-}
- = Astro.props.frontmatter || Astro.props
-
-// console.log(Astro.props)
-
-const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
-const image = cover || `${host}/avatar.webp`
-const pubDate = new Date((date as any)).toLocaleDateString()
-const title = `${_title} | Chilfish`
-const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
+  ...rest
+} = Astro.props
 ---
 
 <!doctype html>
 <html
-  lang="en"
+  lang="zh-cn"
 >
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width"
-    />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/favicon.ico"
-    />
-    <link
-      rel="sitemap"
-      href="/sitemap-index.xml"
-    />
-    <meta
-      name="generator"
-      content={Astro.generator}
-    />
-    <meta
-      name="author"
-      content={author}
-    />
-    <meta
-      name="keywords"
-      content={keywords}
-    />
-    <SEO
-      title={title}
-      description={desc}
-      openGraph={{
-        basic: {
-          title,
-          type: 'website',
-          image,
-        },
-        image: {
-          url: image,
-          alt: title,
-        },
-        optional: {
-          description: desc,
-        },
-        article: {
-          publishedTime: pubDate,
-          modifiedTime: pubDate,
-          authors: [author ?? 'Chilfish'],
-        },
-      }}
-      twitter={{
-        creator: '@chilllish',
-        title,
-        description: desc,
-        image,
-      }}
-    />
-
-    <script is:inline src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
-    <ViewTransitions />
-    <title>{title}</title>
-  </head>
+  <Head {...rest} />
   <body
     class:list={[className]}
     transition:animate="fade"

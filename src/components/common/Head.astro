@@ -1,0 +1,89 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import { SEO } from 'astro-seo'
+import { host } from '~/constant'
+import type { MainProps } from '~/types'
+
+type Props = MainProps
+
+const {
+  title: _title,
+  author,
+  description,
+  cover,
+  date,
+  tags,
+  keywords: _keywords,
+}
+ = Astro.props.frontmatter || Astro.props
+
+// console.log(Astro.props)
+
+const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
+const image = cover || `${host}/avatar.webp`
+const pubDate = new Date((date as any)).toLocaleDateString()
+const title = `${_title} | Chilfish`
+const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width"
+  />
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/favicon.ico"
+  />
+  <link
+    rel="sitemap"
+    href="/sitemap-index.xml"
+  />
+  <meta
+    name="generator"
+    content={Astro.generator}
+  />
+  <meta
+    name="author"
+    content={author}
+  />
+  <meta
+    name="keywords"
+    content={keywords}
+  />
+  <SEO
+    title={title}
+    description={desc}
+    openGraph={{
+      basic: {
+        title,
+        type: 'website',
+        image,
+      },
+      image: {
+        url: image,
+        alt: title,
+      },
+      optional: {
+        description: desc,
+      },
+      article: {
+        publishedTime: pubDate,
+        modifiedTime: pubDate,
+        authors: [author ?? 'Chilfish'],
+      },
+    }}
+    twitter={{
+      creator: '@chilllish',
+      title,
+      description: desc,
+      image,
+    }}
+  />
+
+  <script is:inline src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+  <ViewTransitions />
+  <title>{title}</title>
+</head>

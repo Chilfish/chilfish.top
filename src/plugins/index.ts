@@ -1,14 +1,13 @@
 import { unified } from 'unified'
-import rehypeExternalLinks from 'rehype-external-links'
 import rehypeRewrite from 'rehype-rewrite'
 import remarkEmoji from 'remark-emoji'
-import rehypeFigure from 'rehype-figure'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
+import rehypeRaw from 'rehype-raw'
 
 import type { RehypePlugins, RemarkPlugins } from 'astro'
-import { rehypeExternalLinksOptions, rehypeRewriteOptions } from './markdownParse'
+import { rehypeRewriteOptions } from './markdownParse'
 import { remarkReadingTime } from './read-time'
 
 export * from './markdownParse'
@@ -22,8 +21,8 @@ export async function markdownCompiler(markdown: string) {
     .use(remarkRehype, {
       allowDangerousHtml: true,
     })
+    .use(rehypeRaw)
     .use(remarkEmoji, { accessible: true })
-    .use(rehypeFigure)
     .use(rehypeRewrite, rehypeRewriteOptions({ isRss: true }))
     .use(rehypeStringify, {
       allowDangerousHtml: true,
@@ -36,12 +35,8 @@ export async function markdownCompiler(markdown: string) {
 }
 
 export const rehypePlugins: RehypePlugins = [
-  // 将 md 的图片语法，转换为 figure 标签 wrapped 的图片
-  // 将 alt 属性转换为 figcaption 标签
-  rehypeFigure,
-
-  [rehypeExternalLinks, rehypeExternalLinksOptions],
-  [rehypeRewrite, rehypeRewriteOptions()],
+  rehypeRaw,
+  [rehypeRewrite, rehypeRewriteOptions({ isRss: false })],
 ]
 
 export const remarkPlugins: RemarkPlugins = [

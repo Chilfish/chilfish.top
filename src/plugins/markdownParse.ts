@@ -1,40 +1,10 @@
-import type { Options } from 'rehype-external-links'
 import type { RehypeRewriteOptions } from 'rehype-rewrite'
 
 // 在解析 markdown 的这一阶段，是没有 Astro 上下文的，所以不能导入任何涉及到 Astro 的 API
 // 当然类型定义是可以的，因为类型定义不会被编译到最终的代码中
-import { imgHost } from '../constant/config'
-import { getHostIcon } from '../constant/hostIcons'
 
-/**
- * 重写外链的插件，添加对应的网站图标
- */
-export const rehypeExternalLinksOptions: Options = {
-  target: '_blank',
-  rel: ['noopener', 'noreferrer', 'nofollow'],
-  content(element) {
-    const href = element.properties?.href as string
-    const hostname = new URL(href).hostname.replace('www.', '')
-
-    const icon = getHostIcon(hostname)
-
-    return {
-      type: 'element',
-      tagName: 'i',
-      properties: {
-        className: ['icon ml-4px', icon],
-      },
-      children: [{
-        type: 'text',
-        value: '',
-      }],
-    }
-  },
-}
-
-function findChildren(node: any, tagName: string) {
-  return node.children.find((item: any) => item?.type === 'element' && item?.tagName === tagName) || null
-}
+import rehypeImage from './rehype-image'
+import rehypeLink from './rehype-link'
 
 /**
  * 重写 html 的插件
@@ -45,9 +15,12 @@ function findChildren(node: any, tagName: string) {
 export function rehypeRewriteOptions(config?: { isRss: boolean }): RehypeRewriteOptions {
   const { isRss } = config || { isRss: false }
   return {
-    rewrite(node) {
+    rewrite(node, _index, parent) {
       if (node.type !== 'element')
         return
+
+      node = rehypeImage({ node, parent, isRss })
+      node = rehypeLink(node as any)
 
       // remove all end with .md
       if (node.tagName === 'a') {
@@ -67,37 +40,6 @@ export function rehypeRewriteOptions(config?: { isRss: boolean }): RehypeRewrite
           newHref = `../${newHref}`
 
         node.properties.href = newHref
-      }
-
-      else if (node.tagName === 'figure') {
-        const img = findChildren(node, 'img')
-        const figcaption = findChildren(node, 'figcaption')
-
-        if (!img)
-          return
-
-        let src = img.properties.src as string
-        if (src.startsWith('/'))
-          src = `${imgHost}${src}`
-
-        const imgProp: Partial<HTMLImageElement> = {
-          decoding: 'async',
-          loading: 'lazy',
-          referrerPolicy: 'same-origin',
-          src: isRss ? src : '/placeholder.webp',
-        }
-        img.properties = {
-          ...node.properties,
-          ...imgProp,
-
-          // dateset，用于自定义 Image 组件的解析
-          dataSrc: isRss ? undefined : src,
-        } as any
-
-        node.children = [
-          img,
-          figcaption,
-        ].filter(Boolean)
       }
     },
   }
