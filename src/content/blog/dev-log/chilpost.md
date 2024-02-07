@@ -1,5 +1,5 @@
 ---
-title: Chilpost
+title: Chilpost - 又一个仿推应用
 date: 2023-08-06
 tags: [dev-logs, Vue, Nuxt]
 ---
