@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import Giscus from '@giscus/vue'
+
+const theme = computed(() => isDark.value ? 'dark' : 'light')
 </script>
 
 <template>
@@ -14,11 +16,10 @@ import Giscus from '@giscus/vue'
       reactions-enabled="1"
       emit-metadata="0"
       input-position="top"
-      theme="preferred_color_scheme"
-      lang="zh-CN"
       loading="lazy"
       crossorigin="anonymous"
       async
+      :theme="theme"
     />
   </div>
 </template>
