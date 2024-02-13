@@ -6,9 +6,7 @@ import mdx from '@astrojs/mdx'
 import vue from '@astrojs/vue'
 import UnoCSS from 'unocss/astro'
 import vercel from '@astrojs/vercel/serverless'
-
 import expressiveCode from 'astro-expressive-code'
-
 import { host, imgHost } from './src/constant/config'
 import { rehypePlugins, remarkPlugins } from './src/plugins'
 
@@ -17,7 +15,6 @@ const cp = (name: string) => `./src/components/common/${name}.astro`
 // https://astro.build/config
 export default defineConfig({
   site: host,
-
   // SSR mode
   output: 'server',
   adapter: vercel({
@@ -26,9 +23,7 @@ export default defineConfig({
     },
   }),
   integrations: [
-    vue({
-      jsx: true,
-    }),
+    vue(),
     sitemap(),
     AutoImport({
       dts: 'src/types/auto-imports.d.ts',
