@@ -1,10 +1,9 @@
 ---
-import Heatmap from '@cp/Heatmap.vue'
 import PostTimeLine from '~/components/post/PostTimeLine.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getWords, sortPostsByDate } from '~/utils'
 
-const { posts, words, total } = await getWords()
+const { posts, total } = await getWords()
 ---
 
 <Layout
@@ -14,10 +13,6 @@ const { posts, words, total } = await getWords()
     <h3 class="text-xl">
       总共 {total} 千字
     </h3>
-    <Heatmap
-      data={words}
-      client:only="vue"
-    />
 
     <PostTimeLine
       title="归档"

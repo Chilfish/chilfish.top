@@ -9,13 +9,6 @@ type Props = {
 
 const { record, idx } = Astro.props
 
-function duration() {
-  const raw = record.dt
-  const minutes = Math.floor(raw / 1000 / 60)
-  const seconds = Math.floor(raw / 1000) % 60
-  return `${minutes}:${seconds.toString().padStart(2, '0')}`
-}
-
 let index = `${idx}`
 if (idx < 10)
   index = `0${idx}`
@@ -53,13 +46,11 @@ if (idx < 10)
     </div>
   </div>
 
-  <div class="duration">
-    <div> { duration() } </div>
-
-    {record.playCount > 0
-      ? <div> • { record.playCount } 次 </div>
-      : null}
-  </div>
+  { record.playCount > 0 && (
+    <div class="duration">
+      { record.playCount } 次
+    </div>
+  )}
 </a>
 
 <style>

@@ -3,5 +3,5 @@
 
 pnpm lint-staged
 
-pnpm astro check
+pnpm check
 
