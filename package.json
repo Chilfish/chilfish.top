@@ -20,7 +20,7 @@
     "astro": "astro",
     "lint": "eslint . --fix",
     "up": "taze major -Iw",
-    "check": "echo astro check",
+    "check": "astro check",
     "prepare": "husky"
   },
   "dependencies": {
