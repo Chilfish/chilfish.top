@@ -4,14 +4,6 @@ date: 2022-07-31
 tags: [note, Algorithm, c++]
 ---
 
-- [C++ 小语法](Cpp.md)
-- [数据结构](ds/index.md)
-- [STL 标准库](STL.md)
-- [排序算法](Sort.md)
-- [动态规划 DP](DP.md)
-- [搜索](Search.md)
-- [数学](Math.md)
-
 ## 小算法
 
 ### ACM

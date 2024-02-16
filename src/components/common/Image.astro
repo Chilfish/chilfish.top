@@ -5,6 +5,7 @@ interface Props {
   width?: number | string
   height?: number | string
   placeholder?: string
+  lazy?: boolean
   [key: string]: any
 }
 
@@ -14,18 +15,27 @@ const {
   width,
   height,
   placeholder = '/placeholder.webp',
+  lazy = true,
   ...rest
 } = Astro.props
+
+const data = lazy
+  ? {
+    'data-src': src,
+    'src': placeholder,
+    'loading': 'lazy',
+  }
+  : {
+    src,
+  }
 ---
 
 <img
-  data-src={src}
   alt={alt}
-  src={placeholder}
   width={width}
   height={height}
-  loading="lazy"
   decoding="async"
+  {...(data as any)}
   {...rest}
 />
 
