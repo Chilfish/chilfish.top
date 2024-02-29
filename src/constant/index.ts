@@ -36,18 +36,29 @@ export const ProjectList: Project[] = [
   },
 ]
 
+const weibo = {
+  name: ProjectList[0].name,
+  url: ProjectList[0].url,
+}
+
 export const SponsorList = [
   {
     id: 0,
     name: 'SaraKale',
     time: '2024-01-14 10:07',
     amount: 50.00,
-    message: '非常感谢您开发了方便的好工具~!',
+    message: '非常感谢您开发了方便的好工具~！',
     reply: '感谢你的支持😇',
-    project: {
-      name: ProjectList[0].name,
-      url: ProjectList[0].url,
-    },
+    project: weibo,
+  },
+  {
+    id: 1,
+    name: '匿名',
+    time: '2024-02-28 16:56',
+    amount: 20.00,
+    message: '感谢你！如果能用index.html直接查看就更好了。',
+    reply: '❤️更方便的桌面版 app 正在开发中~',
+    project: weibo,
   },
 ]
 
