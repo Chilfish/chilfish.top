@@ -346,7 +346,7 @@ export type ToastParamsNormalized = Omit<ToastProps, 'id'> & {
 
 // Toast 函数的返回，为了能让调用方手动提前 close
 export interface ToastHandler {
-  close(): void
+  close: () => void
 }
 
 // Toast 函数本体

@@ -6,12 +6,59 @@ import Layout from '~/layouts/Layout.astro'
   title="About Me"
   description="About Chilfish"
 >
-  <main class="flex flex-col gap-4 px-12 text-4 main-width md:w-100ch">
-    <h2 class="text-6">
-      Hi there 👋
-    </h2>
+  <main class="flex flex-col gap-4 px-4 text-4 main-width md:w-100ch">
+    <h2 class="text-6">Hi there 👋</h2>
     <p>
-      我是 <strong>Chilfish</strong>，// TODO
+      我是 <strong>Chilfish</strong>，是学生，事前端开发者，被鉴定为纯纯的 infp😤
     </p>
+    <p>
+      喜欢折腾一堆东西，热爱着开源与助人，但很懒😅 日常很多絮絮叨叨的都在
+      <a
+        href="https://weibo.com/chilfish"
+        target="_blank"
+      >
+        微博
+      </a>
+      里以日均六七条发电着
+    </p>
+    <p>
+      Jpop、Rock 是目前的最爱，
+      <a href="/music"> 最近在听 </a>
+      。所以 mygo!!!!!さん, LOVE🤘
+    </p>
+    其他的暂时没想好）
+
+    <picture
+      class="w-full flex flex-col gap-4 pt-6"
+    >
+      <div class="item-center flex justify-start gap-2">
+        <img
+          src="https://visitor-badge.laobi.icu/badge?page_id=Chilfish"
+          alt="visitors"
+        />
+        <img
+          src="https://wakatime.com/badge/user/0842a71f-c026-4b09-8aa0-f8398b4c3423.svg"
+          alt="wakatime"
+        />
+      </div>
+
+      <div>
+        <img
+          alt="Chilfish's Github"
+          src="https://gh.chilfish.top/api?username=chilfish&show_icons=true&count_private=true&theme=vue-dark"
+        />
+        <img
+          class="my-4"
+          alt="Chilfish's WakaTime"
+          src="https://gh.chilfish.top/api/wakatime?layout=compact&langs_count=6&useKey=1&theme=vue-dark"
+        />
+      </div>
+    </picture>
   </main>
 </Layout>
+
+<style>
+  a {
+    --uno: text-primary hover: underline;
+  }
+</style>

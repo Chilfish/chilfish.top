@@ -17,12 +17,21 @@
           "value": "public, max-age=86400"
         }
       ]
+    },
+    {
+      "source": "/feed",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
     }
   ],
   "redirects": [
     {
       "destination": "https://github.com/Chilfish",
-      "source": "/github"
+      "source": "/git"
     },
     {
       "destination": "https://chilfish.top",

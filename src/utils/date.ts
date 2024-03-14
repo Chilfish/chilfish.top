@@ -18,7 +18,12 @@ export function formatDate(date: Date | string | number): string {
 export function sortPostsByDate(
   posts: Post[],
 ) {
-  return posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  return posts.sort((a, b) => {
+    if (a.data.modifiedDate && b.data.modifiedDate)
+      return b.data.modifiedDate.valueOf() - a.data.modifiedDate!.valueOf()
+
+    return b.data.date.valueOf() - a.data.date.valueOf()
+  })
 }
 
 export function lastYear() {

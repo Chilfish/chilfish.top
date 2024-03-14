@@ -19,9 +19,18 @@ const posts = (await getPosts('blog')).slice(0, 5)
         <h3 class="font-400 underline">
           {post.title}
         </h3>
-        <time class="ml-2 min-w-fit">
-          { formatDate(post.date!) }
-        </time>
+        {post.modifiedDate
+          ? (
+            <time class="ml-2 min-w-fit">
+              <span class="text-3">编辑于</span>
+              { formatDate(post.modifiedDate) }
+            </time>
+          )
+          : (
+            <time class="ml-2 min-w-fit">
+              { formatDate(post.date!) }
+            </time>
+          )}
       </a>
     ))}
 
