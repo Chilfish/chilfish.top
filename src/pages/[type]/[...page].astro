@@ -3,12 +3,16 @@ import type { GetStaticPaths } from 'astro'
 
 import PostTimeLine from '~/components/post/PostTimeLine.astro'
 import Layout from '~/layouts/Layout.astro'
-import PostDetails from '~/layouts/PostDetails.astro'
 import BlogListLayout from '~/layouts/BlogListLayout.astro'
 
 import { getAllPosts } from '~/utils'
 import { pageSize } from '~/constant/config'
-import type { Post, PostPage, PrevNext } from '~/types'
+import type { PostPage } from '~/types'
+
+const url = Astro.url.pathname.split('/').filter(Boolean)
+
+Astro.redirect(`/posts/${url[url.length - 1]}/`)
+console.log(url)
 
 export const prerender = true
 
@@ -28,71 +32,32 @@ export const getStaticPaths = (async ({ paginate }) => {
         type: 'note',
       },
     }),
-    ...posts.flat().map((post, idx, _posts) => {
-      const prevP = _posts[idx - 1] as Post | undefined
-      const nextP = _posts[idx + 1] as Post | undefined
-
-      return {
-        props: {
-          post,
-          prev: {
-            title: prevP?.data.title,
-            link: prevP ? `/${prevP.collection}/${prevP.slug}/` : undefined,
-          },
-          next: {
-            title: nextP?.data.title,
-            link: nextP ? `/${nextP.collection}/${nextP.slug}/` : undefined,
-          },
-        },
-        params: {
-          page: post.slug,
-          type: post.collection,
-        },
-      }
-    }),
   ]
 }) satisfies GetStaticPaths
 
 type Props = {
   page: PostPage
-  post: undefined
-  prev: undefined
-  next: undefined
-} | {
-  post: Post
-  prev: PrevNext
-  next: PrevNext
-  page: undefined
 }
 
-const { post, page, prev, next } = Astro.props
+const { page } = Astro.props
 const { type } = Astro.params
 ---
 
 {
-  post
+  type === 'blog'
     ? (
-      <PostDetails
-        post={post}
-        next={next!}
-        prev={prev!}
+      <BlogListLayout
+        page={page}
+        title="Blogs"
+        h1={`共有 ${page.total} 篇文章`}
       />
     )
-    : (type === 'blog'
-      ? (
-        <BlogListLayout
-          page={page}
-          title="Blogs"
-          h1={`共有 ${page.total} 篇文章`}
+    : (
+      <Layout title="Notes timeline">
+        <PostTimeLine
+          title="一些笔记们"
+          posts={page.data}
         />
-      )
-      : (
-        <Layout title="Notes timeline">
-          <PostTimeLine
-            title="一些笔记们"
-            posts={page.data}
-          />
-        </Layout>
-      )
+      </Layout>
     )
 }

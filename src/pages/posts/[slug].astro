@@ -1,0 +1,48 @@
+---
+import type { GetStaticPaths } from 'astro'
+import PostDetails from '~/layouts/PostDetails.astro'
+import { getAllPosts } from '~/utils'
+import type { Post, PrevNext } from '~/types'
+
+type Props = {
+  post: Post
+  prev: PrevNext
+  next: PrevNext
+}
+
+const { post, prev, next } = Astro.props
+
+export const prerender = true
+
+export const getStaticPaths = (async () => {
+  const posts = await getAllPosts()
+  return posts.flat().map((post, idx, _posts) => {
+    const prevP = _posts[idx - 1] as Post | undefined
+    const nextP = _posts[idx + 1] as Post | undefined
+    const slug = post.slug.split('/').reverse()[0]
+
+    return {
+      props: {
+        post,
+        prev: {
+          title: prevP?.data.title,
+          link: prevP ? `/posts/${prevP.slug.split('/').reverse()[0]}/` : undefined,
+        },
+        next: {
+          title: nextP?.data.title,
+          link: nextP ? `/posts/${nextP.slug.split('/').reverse()[0]}/` : undefined,
+        },
+      },
+      params: {
+        slug,
+      },
+    }
+  })
+}) satisfies GetStaticPaths
+---
+
+<PostDetails
+  post={post}
+  prev={prev}
+  next={next}
+/>

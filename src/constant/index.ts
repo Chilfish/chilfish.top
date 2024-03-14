@@ -22,7 +22,7 @@ export const ProjectList: Project[] = [
     banner: `${imgHost}/chillab.webp`,
     license: 'MIT',
     techs: ['nuxt', 'ts', 'unocss'],
-    url: `https://vue.chilfish.top`,
+    url: `${githubHost}/chillab`,
     isWeb: true,
   },
   {
@@ -31,7 +31,7 @@ export const ProjectList: Project[] = [
     banner: `${imgHost}/chilfish.top.webp`,
     license: 'MIT',
     techs: ['astro', 'vue', 'ts'],
-    url: `https://chilfish.top`,
+    url: `${githubHost}/chilfish.top`,
     isWeb: true,
   },
 ]
@@ -57,9 +57,10 @@ export const SponsorList = [
     time: '2024-02-28 16:56',
     amount: 20.00,
     message: '感谢你！如果能用index.html直接查看就更好了。',
-    reply: '❤️更方便的桌面版 app 正在开发中~',
+    reply: '现在能直接访问 weibo.chilfish.top 来查看了🥳，感谢你的支持',
     project: weibo,
   },
 ]
+  .sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime())
 
 export type Sponsor = typeof SponsorList[number]

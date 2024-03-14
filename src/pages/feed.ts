@@ -5,7 +5,7 @@ import { markdownCompiler } from '~/plugins'
 import { getPosts } from '~/utils'
 
 const excludes = ['forks']
-const limit = 20
+const limit = 15
 
 export const GET: APIRoute = async (context) => {
   const blogs = await getPosts()

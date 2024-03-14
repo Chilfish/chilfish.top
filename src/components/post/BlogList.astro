@@ -13,11 +13,11 @@ const { posts } = Astro.props
 <ul
   class="w-full center-col gap-3 trans-all"
 >
-  { posts.map(({ data: post, slug, collection: type }) => (
+  { posts.map(({ data: post, slug }) => (
     <a
       class="post"
       uno-bg="light-3 dark:dark-3"
-      href={`/${type}/${slug}/`}
+      href={`/posts/${slug.split('/').reverse()[0]}/`}
     >
       <div class="post-content p-3">
         <h2 class="text-4 font-bold">

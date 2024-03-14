@@ -18,10 +18,11 @@ const { posts, title } = Astro.props
     共有 {posts.length} 篇文章
   </p>
 
-  <Timeline timelines={posts.map(({ data, slug, collection }) => ({
-    title: data.title,
-    time: data.date,
-    href: `/${collection}/${slug}/`,
-  }))}
+  <Timeline
+    timelines={posts.map(({ data, slug }) => ({
+      title: data.title,
+      time: data.date,
+      href: `/posts/${slug.split('/').reverse()[0]}/`,
+    }))}
   />
 </main>
