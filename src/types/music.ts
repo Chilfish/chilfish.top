@@ -26,8 +26,8 @@ export interface Song {
 }
 
 export interface SongRecord extends Song {
-  playCount: number
-  score: number
+  playCount?: number
+  score?: number
 }
 
-export type NCMType = 'weekData' | 'allData'
+export type NCMType = 'weekly' | 'likes'

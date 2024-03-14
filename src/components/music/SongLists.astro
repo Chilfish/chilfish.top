@@ -1,7 +1,7 @@
 ---
 import Image from '../common/Image.astro'
 import Songs from './Songs.astro'
-import { fetchMusic } from '~/utils/fetchMusic'
+import { musicLikes, musicRank } from '~/utils'
 import type { NCMType } from '~/types'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 const { type } = Astro.props
 
 let pic = '/placeholder.webp'
-const records = await fetchMusic(type)
+const records = type === 'weekly' ? await musicRank() : await musicLikes()
 
 if (records.length > 0)
   pic = records[0]?.al.picUrl
@@ -34,7 +34,7 @@ if (records.length > 0)
       </div>
     </div>
     <p class="text-7 font-bold">
-      { type === 'weekData' ? '周榜' : '总榜' }
+      { type === 'weekly' ? '听歌周榜' : '最近红心' }
     </p>
   </header>
 

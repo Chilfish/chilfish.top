@@ -1,11 +1,11 @@
 ---
-import SongRank from '@cp/music/SongRank.astro'
+import SongLists from '@cp/music/SongLists.astro'
 import Layout from '~/layouts/Layout.astro'
 ---
 
 <Layout title="Music Records">
   <main class="w-full center-col gap-4">
-    <SongRank type="weekData" />
-    <!-- <SongRank type="allData" /> -->
+    <SongLists type="weekly" />
+    <SongLists type="likes" />
   </main>
 </Layout>

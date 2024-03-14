@@ -12,6 +12,13 @@ const { record, idx } = Astro.props
 let index = `${idx}`
 if (idx < 10)
   index = `0${idx}`
+
+function duration() {
+  const raw = record.dt
+  const minutes = Math.floor(raw / 1000 / 60)
+  const seconds = Math.floor(raw / 1000) % 60
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`
+}
 ---
 
 <a
@@ -22,12 +29,12 @@ if (idx < 10)
   target="_blank"
   referrerpolicy="no-referrer"
 >
-  <div> { index } </div>
+  <div>{index}</div>
 
   <div class="h-12 w-12 flex-shrink-0">
     <Image
       class="h-12 w-12 rounded-md"
-      alt={record.name}
+      alt="cover"
       src={record.al.picUrl}
       width={48}
       height={48}
@@ -36,33 +43,33 @@ if (idx < 10)
 
   <div class="flex flex-col gap-1">
     <div class="record-name">
-      { record.name }
+      {record.name}
     </div>
 
     <div class="mt-2 truncate">
-      { record.ar.map(a => a.name).join(', ') }
+      {record.ar.map(a => a.name).join(', ')}
       -
-      {record.al.name }
+      {record.al.name}
     </div>
   </div>
 
-  { record.playCount > 0 && (
-    <div class="duration">
-      { record.playCount } 次
-    </div>
-  )}
+  <div class="duration">
+    <span>{duration()}</span>
+    <span>·</span>
+    {!!record.playCount && <span>{record.playCount} 次</span>}
+  </div>
 </a>
 
 <style>
-.song {
-  --uno: h-18 w-90vw flex items-center justify-between gap-3 rounded-md px-3 py-2 text-3 sm:w-40rem sm:text-3.5;
-}
+  .song {
+    --uno: h-18 w-90vw flex items-center justify-between gap-3 rounded-md px-3 py-2 text-3 sm:w-40rem sm:text-3.5;
+  }
 
-.record-name {
-  --uno: text-4 truncate;
-}
+  .record-name {
+    --uno: text-4 truncate;
+  }
 
-.duration {
-  --uno: ml-auto min-w-fit flex items-center justify-end;
-}
+  .duration {
+    --uno: ml-auto min-w-fit flex items-center justify-end gap-1;
+  }
 </style>
