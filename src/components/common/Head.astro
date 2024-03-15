@@ -22,7 +22,7 @@ const {
 const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
 const image = cover || `${host}/avatar.webp`
 const pubDate = new Date((date as any)).toLocaleDateString()
-const title = `${_title} | Chilfish`
+const title = _title ? `${_title} | Chilfish` : 'Chilfish'
 const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
 ---
 
@@ -80,6 +80,7 @@ const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
       title,
       description: desc,
       image,
+      card: cover ? 'summary_large_image' : 'summary',
     }}
   />
 

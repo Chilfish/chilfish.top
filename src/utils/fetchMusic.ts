@@ -1,6 +1,6 @@
 import { consola } from 'consola'
 import { ofetch } from 'ofetch'
-import type { NCMType, Song } from '~/types'
+import type { Song } from '~/types'
 
 const {
   NCM_API = '',
@@ -53,7 +53,7 @@ function parseSong(song: Song) {
 export async function musicRank() {
   const url = `${NCM_API}/user/record?uid=${NCM_UID}&type=1`
 
-  const data = await fetcher<RankData>(url)
+  const { data } = await fetcher<{ data: RankData }>(url)
 
   if (!data)
     return []
@@ -66,7 +66,7 @@ export async function musicRank() {
 }
 
 export async function musicLikes() {
-  const data = await fetcher<{ songs: Song[] }>('/playlist/track/all?id=2648568306&limit=20')
+  const { data } = await fetcher<{ data: { songs: Song[] } }>('/playlist/track/all?id=2648568306&limit=20')
 
   if (!data)
     return []
