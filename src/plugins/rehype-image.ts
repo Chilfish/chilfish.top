@@ -38,13 +38,14 @@ export default function rehypeImage(
   if (isRawImg) {
     node.tagName = 'figure'
     const img = node.children[0] as RootContentMap['element']
+    const alt = img.properties.alt
     img.properties = addPropsToImg(img.properties, isRss)
 
     const figcaption = {
       type: 'element',
       tagName: 'figcaption',
       properties: {},
-      children: [{ type: 'text', value: img.properties.alt }],
+      children: [{ type: 'text', value: alt }],
     } as RootContentMap['element']
 
     node.children.push(figcaption)
