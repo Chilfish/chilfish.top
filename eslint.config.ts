@@ -11,49 +11,47 @@ const compat = new FlatCompat({
   resolvePluginsRelativeTo: __dirname,
 })
 
-export default antfu(
-  {
-    unocss: true,
-    formatters: {
-      css: false,
+export default antfu({
+  unocss: true,
+  formatters: {
+    css: false,
+  },
+  rules: {
+    'no-console': 'off',
+    'vue/no-multiple-template-root': 'off',
+    'vue/no-unused-refs': 'off',
+    'node/prefer-global/process': 'off',
+  },
+},
+// Legacy config
+// thanks https://github.com/antfu/eslint-config/issues/146#issuecomment-1834425495
+...compat.config({
+  overrides: [{
+    files: ['*.astro'],
+    extends: [
+      'plugin:astro/recommended',
+    ],
+    globals: {
+      astroHTML: true,
+    },
+    env: {
+      // Enables global variables available in Astro components.
+      'node': true,
+      'astro/astro': true,
+      'es2020': true,
+    },
+    parser: 'astro-eslint-parser',
+    parserOptions: {
+      parser: '@typescript-eslint/parser',
+      extraFileExtensions: ['.astro'],
     },
     rules: {
-      'no-console': 'off',
-      'vue/no-multiple-template-root': 'off',
-      'vue/no-unused-refs': 'off',
-      'node/prefer-global/process': 'off',
+      // this is necessary to force a correct indentation in astro
+      'style/indent': ['error', 2],
+      'style/jsx-indent': 'off',
+      'style/jsx-one-expression-per-line': 'off',
+      'no-unused-vars': 'off',
+      'unused-imports/no-unused-vars': 'off',
     },
-  },
-  // Legacy config
-  // thanks https://github.com/antfu/eslint-config/issues/146#issuecomment-1834425495
-  ...compat.config({
-    overrides: [{
-      files: ['*.astro'],
-      extends: [
-        'plugin:astro/recommended',
-      ],
-      globals: {
-        astroHTML: true,
-      },
-      env: {
-        // Enables global variables available in Astro components.
-        'node': true,
-        'astro/astro': true,
-        'es2020': true,
-      },
-      parser: 'astro-eslint-parser',
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
-      },
-      rules: {
-        // this is necessary to force a correct indentation in astro
-        'style/indent': ['error', 2],
-        'style/jsx-indent': 'off',
-        'style/jsx-one-expression-per-line': 'off',
-        'no-unused-vars': 'off',
-        'unused-imports/no-unused-vars': 'off',
-      },
-    }],
-  }),
-)
+  }],
+}))

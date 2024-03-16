@@ -9,7 +9,6 @@ import rehypeLink from './rehype-link'
 /**
  * 重写 html 的插件
  * - 修改了 a 标签的 href 属性，来适配 Astro 的路由
- * @param isRss 是否是 rss
  */
 export function rehypeRewriteOptions(config?: { isRss: boolean }): RehypeRewriteOptions {
   const { isRss } = config || { isRss: false }

@@ -1,4 +1,3 @@
-import { consola } from 'consola'
 import { ofetch } from 'ofetch'
 import type { Song } from '~/types'
 
@@ -27,12 +26,6 @@ const fetcher = ofetch.create({
     'Cache-Control': 's-max-age=86400, stale-while-revalidate=30', // 缓存一天
     'CDN-Cache-Control': 'max-age=86400',
     'Vercel-CDN-Cache-Control': 'max-age=86400',
-  },
-  onRequestError(context) {
-    consola.error(`[fetchMusic] ${context.error?.cause || context.error?.message}`)
-  },
-  onResponseError(context) {
-    consola.error(`[fetchMusic] ${context.response?.status} ${context.response?.statusText}`)
   },
 })
 
