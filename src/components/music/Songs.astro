@@ -55,8 +55,10 @@ function duration() {
 
   <div class="duration">
     <span>{duration()}</span>
-    <span>·</span>
-    {!!record.playCount && <span>{record.playCount} 次</span>}
+
+    {!!record.playCount
+    && <span>·</span>
+    <span>{record.playCount} 次</span>}
   </div>
 </a>
 

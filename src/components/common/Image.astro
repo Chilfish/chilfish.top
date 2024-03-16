@@ -47,6 +47,7 @@ const imgObserver = new IntersectionObserver((entries) => {
       const src = img.dataset.src!
       img.setAttribute('src', src)
       img.removeAttribute('data-src')
+
       imgObserver.unobserve(img)
     }
   })
@@ -57,6 +58,9 @@ function loadImgs() {
   imgs.forEach((img) => {
     if (img.dataset.src)
       imgObserver.observe(img)
+    img.onerror = () => {
+      img.src = '/placeholder.webp'
+    }
   })
 }
 

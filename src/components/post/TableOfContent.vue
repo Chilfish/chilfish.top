@@ -82,15 +82,15 @@ onMounted(() => {
   }
 }
 .toc-depth-3 {
-  padding-left: 2rem;
+  padding-left: 1.5rem;
 }
 .toc-depth-4 {
-  padding-left: 4rem;
+  padding-left: 2rem;
 }
 .toc-depth-5 {
-  padding-left: 6rem;
+  padding-left: 2.5rem;
 }
 .toc-depth-6 {
-  padding-left: 8rem;
+  padding-left: 2.6rem;
 }
 </style>

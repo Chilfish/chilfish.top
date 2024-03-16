@@ -13,6 +13,7 @@ function addPropsToImg(props: any, isRss: boolean = false) {
     referrerPolicy: 'same-origin',
     src: isRss ? src : '/placeholder.webp',
     dataSrc: isRss ? undefined : src,
+    alt: isRss ? props.alt : 'image',
   }
   return imgProp as any
 }
