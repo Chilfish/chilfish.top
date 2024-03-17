@@ -15,6 +15,8 @@ export default antfu({
   unocss: true,
   formatters: {
     css: false,
+    markdown: true,
+    astro: false,
   },
   rules: {
     'no-console': 'off',

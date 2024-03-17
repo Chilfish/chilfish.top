@@ -70,9 +70,10 @@ code {
 .expressive-code {
   border-radius: 12px;
   margin: 1rem 0;
+  padding-bottom: 1rem;
   overflow: auto;
   .frame pre {
-    max-height: 30rem;
+    max-height: 36rem;
     --uno: text-3 sm:text-3.5;
   }
 }

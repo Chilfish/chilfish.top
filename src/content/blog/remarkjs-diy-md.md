@@ -2,7 +2,7 @@
 title: 使用 Remark.js 自定义渲染 MD
 description: 使用 remark.js 和 remark-rehype 来自定义渲染 markdown，实现外链网站的图标、图片懒加载、阅读时间等
 date: 2024-03-14
-tags: [js, markdown]
+tags: [ts, markdown]
 ---
 
 ### Astro.js yes

@@ -1,7 +1,7 @@
 ---
 title: RxJs & @ngify/http
 date: 2023-07-17
-tags: [js]
+tags: [ts]
 ---
 
 ## RxJs
