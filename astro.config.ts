@@ -23,7 +23,9 @@ export default defineConfig({
     },
   }),
   integrations: [
-    vue(),
+    vue({
+      jsx: true,
+    }),
     sitemap(),
     AutoImport({
       dts: 'src/types/auto-imports.d.ts',

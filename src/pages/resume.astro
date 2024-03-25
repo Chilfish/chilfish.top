@@ -1,0 +1,28 @@
+---
+import Head from '@cp/common/Head.astro'
+import ResumeV from '@cp/Resume.vue'
+---
+
+<!doctype html>
+<html
+  lang="zh-cn"
+>
+  <Head
+    title="Resume"
+  />
+  <body>
+    <main
+      class="mx-auto flex flex-col gap-4 rounded bg-white px-4 px-6 py-4 py-8 text-sm"
+      uno-w="md:21cm full"
+    >
+      <ResumeV client:load />
+    </main>
+  </body>
+</html>
+
+<style>
+body {
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle fill="%2364748b" cx="2" cy="2" r=".5"/></svg>');
+  background-repeat: repeat;
+}
+</style>
