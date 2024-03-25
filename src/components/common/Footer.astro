@@ -1,12 +1,43 @@
-  <footer
-    class="mt-auto center gap-2 py-3 text-3 text-gray-5"
-  >
-    <p>MIT Licensed | Copyright © 2023-{ new Date().getFullYear() } </p>
+---
+const url = Astro.url
+const isInPost = url.pathname.startsWith('/posts/')
+---
+
+<footer
+  class="mt-auto center-col gap-2 py-4 text-3 text-gray-5"
+>
+  {isInPost && (
+    <p>
+      如未另行说明，那么
+      <a
+        href={url}
+        target="_blank"
+      >
+        本页面
+      </a>
+      中的内容已根据
+      <a
+        href="https://creativecommons.org/licenses/by/4.0/deed.zh-hans"
+        target="_blank"
+      >
+        知识共享署名 4.0 许可
+      </a>
+      获得了许可
+    </p>
+  )}
+  <p>Copyright © 2023-{ new Date().getFullYear() }
     <a
-      target="_blank"
       href="https://github.com/Chilfish"
-      class="hover:underline"
+      target="_blank"
     >
       @Chilfish
     </a>
-  </footer>
+  </p>
+</footer>
+
+<style>
+a {
+  --uno: text-primary underline;
+}
+
+</style>

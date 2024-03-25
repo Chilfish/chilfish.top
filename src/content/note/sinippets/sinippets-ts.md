@@ -122,8 +122,8 @@ function waitForElement(
     const observer = new MutationObserver(() => {
       const element = $(selector)
       if (element) {
-        resolve(element)
         observer.disconnect()
+        resolve(element)
       }
     })
 
@@ -132,5 +132,90 @@ function waitForElement(
       subtree: true,
     })
   })
+}
+```
+
+### 防抖函数
+
+```ts
+export function debounce<T extends (...args: any[]) => any>(
+  fn: T,
+  delay = 300,
+): T {
+  let timer: number | null = null
+  return function (this: any, ...args: Parameters<T>) {
+    if (timer)
+      clearTimeout(timer)
+
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+      timer = null
+    }, delay)
+  } as T
+}
+```
+
+### 节流函数
+
+```ts
+export function throttle<T extends (...args: any[]) => any>(
+  fn: T,
+  delay = 300,
+): T {
+  let lastTime = 0
+  return function (this: any, ...args: Parameters<T>) {
+    const now = Date.now()
+    if (now - lastTime > delay) {
+      fn.apply(this, args)
+      lastTime = now
+    }
+  } as T
+}
+```
+
+### 经典深拷贝
+
+```ts
+interface Obj { [key: string]: any }
+interface CloneOptions {
+  /** 包含继承来的原型 */
+  includeProto?: boolean
+}
+
+export function deepClone<T = any>(
+  x: T,
+  options: CloneOptions = {
+    includeProto: false,
+  },
+): T {
+  const isObj = (x: any): x is Obj => x && Object.prototype.toString.call(x) === '[object Object]'
+  const set = (obj: any) => isObj(obj) ? deepClone(obj) : obj
+
+  if (!isObj(x))
+    return x
+
+  if (Array.isArray(x)) {
+    const output = Array(x.length)
+    x.forEach((value, index) => output[index] = set(value))
+    return output as T
+  }
+
+  const output: Obj = {}
+  for (const key in x) {
+    if (Object.hasOwnProperty.call(x, key)) {
+      output[key] = set(x[key])
+    }
+    else if (options.includeProto) {
+      console.log(key)
+      Object.defineProperty(output, key, {
+        value: set(x[key]),
+        writable: true,
+        enumerable: true,
+        configurable: true,
+      })
+    }
+  }
+
+  return output as T
 }
 ```
