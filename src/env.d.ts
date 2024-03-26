@@ -6,6 +6,7 @@ interface ImportMetaEnv {
   readonly NCM_UID: number
   readonly NCM_API: string
   readonly NCM_COOKIE: string
+  readonly RESUME_INFO: string
 }
 
 interface ImportMeta {
