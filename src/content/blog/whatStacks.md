@@ -29,11 +29,10 @@ tags: [diary]
   - :white_check_mark: HTML / CSS
   - :white_check_mark: TailWind, UnoCSS, Scss
   - :white_check_mark: Basic JS / TS / Node.js
-  - :construction: Vue.js/Nuxt (Learning)
+  - :white_check_mark: Vue.js/Nuxt (Learning)
   - :white_large_square: React.js (scheduled)
-  - :white_large_square: Solid.js、Astro.js
-  - :white_large_square: Uniapp (Just see see)
-  - :x: WeChat Mini app (Not yet scheduled)
+  - :white_check_mark: Astro.js
+  - :white_check_mark: Uniapp (Just see see)
   - :white_check_mark: PHP (Learned for homework, but not in deep)
 - :white_check_mark: C#
   - :white_large_square: Basic (Learned, but not in deep)
@@ -45,7 +44,7 @@ tags: [diary]
   - :white_check_mark: Android (Most interested, learning)
   - :white_check_mark: Basic Kotlin on Android
   - :white_check_mark: JavaFX (Learned for homework, not interested)
-  - :white_large_square: Backend (Not yet scheduled)
+  - :white_check_mark: Spring Boot
 - :white_check_mark: Python
   - :white_check_mark: Basic
   - :white_large_square: Web Crawler (Most interested, scheduled)

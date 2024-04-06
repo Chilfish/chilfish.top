@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 auto-imports.d.ts
 # temp/
+
+.obsidian/

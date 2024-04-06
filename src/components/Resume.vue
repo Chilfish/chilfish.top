@@ -12,6 +12,7 @@ const avatar = isDev
   : 'https://p.chilfish.top/wechat.webp'
 
 const info = resumeInfo.split(';')
+const age = new Date().getFullYear() - 2003
 
 const MyInfo = () => (
   <div class="center-col items-start gap-4">
@@ -30,7 +31,12 @@ const MyInfo = () => (
     >
       <div>
         <i class="i-tabler:user" />
-        <span>男 | 21岁</span>
+        <span>
+          男
+          <span class="mx-1">|</span>
+          {age}
+          岁
+        </span>
       </div>
 
       <div>
@@ -67,7 +73,7 @@ interface TProjectTitle {
   date: string
 }
 
-const ProjectTitle = (props: TProjectTitle, context: SetupContext) => (
+const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
   <>
     <div class="project-title">
       <div class="flex flex-wrap items-center justify-start">
@@ -85,7 +91,7 @@ const ProjectTitle = (props: TProjectTitle, context: SetupContext) => (
       </div>
       <time>{props.date}</time>
     </div>
-    {context.slots.default?.()}
+    {slots.default?.()}
   </>
 )
 </script>
@@ -109,7 +115,7 @@ const ProjectTitle = (props: TProjectTitle, context: SetupContext) => (
       <span>{{ info[2] }} | 软件工程 | 本科</span>
       <time>2021 - 2025</time>
     </div>
-    <p>获得英语四级证书、蓝桥杯省二等奖</p>
+    <p>英语四级证书、蓝桥杯省二等奖</p>
   </section>
 
   <section>
@@ -118,16 +124,19 @@ const ProjectTitle = (props: TProjectTitle, context: SetupContext) => (
     </h2>
     <ul>
       <li>
-        熟练使用 Vue3 和 TypeScript，JavaScript 基础扎实。
+        熟练使用 Vue3 和 TypeScript，基础扎实；熟练运用 Nuxt、Astro 等开发框架。
       </li>
       <li>
-        熟练如 pinia、vueuse 的 Vue 生态库；熟练运用 Nuxt3、Astro 等开发框架；有小程序和 Electron 跨端经验。
+        熟练如 Pinia、Vueuse 等 Vue 生态库；有小程序和 Electron 跨端开发经验。
       </li>
       <li>
-        熟悉 Node.js 开发，了解 Web 全栈开发，包括 Nest.js、Nitro.js、DrizzleORM 等后端技术。
+        熟悉 Node.js 开发，了解 Web 全栈开发，包括 Nest.js、Database-ORM、Spring Boot 等后端技术。
       </li>
       <li>
-        熟练阅读并理解英文文档，能够高效检索信息，注重代码的健壮性和可扩展性；积极参与开源项目，热衷于开发易用且实用的产品，乐于帮助他人解决问题。
+        熟悉 Git 与 GitHub 的协作工作流，了解 CI/CD 流程。
+      </li>
+      <li>
+        能够高效检索信息、解决问题，注重代码的健壮性和可扩展性；积极参与开源项目，热衷于开发易用且实用的产品。
       </li>
     </ul>
   </section>
@@ -142,34 +151,37 @@ const ProjectTitle = (props: TProjectTitle, context: SetupContext) => (
           title="Weibo-archiver - 微博备份工具"
           url="https://github.com/Chilfish/weibo-archiver"
           date="2023.10 至今"
-          :stars="136"
+          :stars="150"
         >
           <p>
-            介绍：针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储、及在线查看于一体的解决方案，下载量达到3k+。该项目使用到了Vue、Vite、油猴插件、NaiveUI、UnoCSS、Pinia、Nuxt、IndexedDB等技术。
+            介绍：针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储及在线查看于一体的解决方案，下载量达到3k+。
+          </p>
+          <p>
+            技术：Vue3、Vite、油猴脚本、NaiveUI、UnoCSS、Pinia、Nuxt、IndexedDB、CLI开发等。
           </p>
         </ProjectTitle>
 
         <ul>
           <li>
-            利用油猴脚本技术，实现了在微博用户页面动态注 入Vue 构建的控制面板 UI，为用户提供丰富的数据导出选项。
+            利用油猴脚本技术，在微博用户页面动态注入 Vue 构建的控制面板 UI，提供丰富的数据导出选项。
           </li>
           <li>
-            通过调用微博API爬取用户数据，并采用 IndexedDB 进行数据暂存，避免大量数据一次性加载至内存中，优化了内存使用并支持从断点续爬功能。
+            通过 Axios 调用微博 API 爬取用户数据，暂存在 IndexedDB 中，避免大量数据加载到内存中。
           </li>
           <li>
-            实现了数据的解析清洗工作，并提供了包含微博图片链接的 CSV 文件导出功能，方便用户下载图片。
+            开发了在线查看平台，用户可导入爬取的微博数据，通过 IndexedDB 在浏览器端存储数据，无需后端数据库支持，确保数据私密性。
           </li>
           <li>
-            开发了在线查看平台，用户可导入爬取的微博数据，通过 IndexedDB 在浏览器端存储数据，无需后端数据库支持，确保了数据的私密性。
+            在线平台基于 fuse.js 实现微博搜索，利用 IndexedDB 的索引和游标技术实现时间范围筛选、分页查看等功能。
           </li>
           <li>
-            在线平台支持基于 fuse.js 的本地微博搜索、时间范围筛选、分页查看等功能，利用 IndexedDB 的索引和游标技术，大幅提升了数据检索速度和用户体验。
+            在线平台选用 Nuxt 框架，基于 SSG 特性进行页面预渲染，优化 SEO 并提升首屏加载速度。
           </li>
           <li>
-            采用 GitHub Issues 和 PR 管理项目开发流程，通过 GitHub Actions 实现 CI/CD 集成，确保了代码质量和项目的持续集成、快速部署。
+            通过 GitHub Actions 实现 CI/CD 集成，确保代码质量和项目持续集成、快速部署。
           </li>
           <li>
-            选用 Nuxt 框架基于 SSG 特性进行页面预渲染，优化了 SEO 并提升了首屏加载速度。
+            除了油猴脚本，还支持 CLI 调用，方便用户在服务器端进行数据爬取。
           </li>
         </ul>
       </li>

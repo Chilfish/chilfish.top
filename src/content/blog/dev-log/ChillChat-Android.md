@@ -107,6 +107,5 @@ Scaffold(
 
 ### 连接 SocketIO
 
-[DataBinding]: ../../note/android/XMLView/DataBinding.md
 [Jetpack]: ../../note/android/Jetpack/index.md
 [JetChat]: https://github.com/android/compose-samples/blob/main/Jetchat/app/src/main/java/com/example/compose/jetchat/conversation/Conversation.kt#L148-L150

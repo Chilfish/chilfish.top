@@ -94,7 +94,7 @@ const pageSize = computed({
 
 ### 数据都存在 indexedDB 里
 
-相对地，数据使用 indexedDB 存在浏览器里，它基于 sqlite 来实现，于是就能实现很多像是建立索引、游标分页等操作，这比以前全加载到内存里操作 json 好多了。记在了 [pr: indexedDB #23]
+相对地，数据使用 indexedDB 存在浏览器里，它是 NoSQL 的一种，能实现很多像是建立索引、游标分页等操作，这比以前全加载到内存里操作 json 好多了。记在了 [pr: indexedDB #23]
 
 使用的是 [jakearchibald/idb] 强大的 indexedDB 库，对原生操作基本都完整封装拓展了。只不过在全文搜索时，还是没想好怎么做比较好，毕竟 indexedDB 还是 key-val 式的数据库，一开始还想着先中文分词然后建索引，但最终还是用经典的 [fusejs] 来实现了
 
@@ -122,6 +122,162 @@ const pageSize = computed({
 
 例如范围 a 里有 300 条微博，用户切换到了第 25 页，这是他想切到只有10条微博的时间范围 b 时，这时候还是第 25 页，就导致游标越界了。所以应该改为只要切换时间范围，就把页码设为 1 就好了😅
 
+### CI/CD 与自动部署
+
+因为这是一个 monorepo，而我仅需要部署里面的 apps/web 部分，同时也只应该下载与它有关的依赖（总不能让它连 electron 都下了吧）
+
+部署到 vercel 时首先遇到的是找不到输出了，尽管已经指定了输出目录，但却不能识别框架类别，上线全 404……然后才发现要把 project root directory 设为 apps/web，这样就能一键识别了
+
+同时要改一下构建的条件，现在每次推送都会触发构建，有时改的就没涉及到 web 的部分，但好在可以设置 [vercel ignored build step]
+
+```js
+const {
+  VERCEL_GIT_COMMIT_REF,
+  VERCEL_GIT_COMMIT_MESSAGE,
+} = process.env
+
+// 在 main 分支，commit message 包含 web，或是 release、update deps
+// 在包含 web 的任何分支
+// 若不在 main 或 web 分支，则只要 commit message 包含 web
+const messages = [
+  'release',
+  'update deps',
+  'web',
+]
+const shouldProceed = messages.some(message => VERCEL_GIT_COMMIT_MESSAGE.includes(message))
+const isMainBranch = VERCEL_GIT_COMMIT_REF === 'main'
+const isWebBranch = VERCEL_GIT_COMMIT_REF.includes('web')
+
+if (
+  (isMainBranch && shouldProceed)
+  || isWebBranch
+  || shouldProceed
+) {
+  console.log('✅ - Build can proceed')
+  process.exit(1)
+}
+else {
+  console.log('🛑 - Build cancelled')
+  process.exit(0)
+}
+```
+
+而我还希望能够每次 push 都构建一份 beta 版本，于是学了一下 GitHub Actions，将构建的产物上传到 artifact 工件里
+
+```yml
+name: beta Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - monkey
+    paths-ignore:
+      - '**.md'
+      - '.github/**'
+      - '!.github/workflows/**'
+      - 'apps/desktop/**'
+      - packages/database
+
+jobs:
+  install-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install monkey
+        run: pnpm install:monkey
+
+      - name: Install Web
+        run: pnpm install:web
+
+      - name: build and zip
+        run: pnpm release
+
+      - name: upload monkey
+        uses: actions/upload-artifact@v4
+        with:
+          name: weibo-archiver.user.js
+          path: dist/weibo-archiver.user.js
+
+      - name: upload web
+        uses: actions/upload-artifact@v4
+        with:
+          name: weibo-archiver-webapp
+          path: dist/weibo-archiver-webapp.zip
+
+      - name: upload scripts
+        uses: actions/upload-artifact@v4
+        with:
+          name: weibo-archiver-scripts
+          path: dist/weibo-archiver-scripts.zip
+```
+
+### CLI 版本
+
+收到了个 CLI 版本的功能请求，要可以在命令行里调用，就能够实现定时运行了。正好也一直很想做一份 CLI，之前重构 core 就是为了能够以库的形式单独运行爬虫，或是在 electron 的 Node 进程里调用
+
+用的是 [unjs/citty] 库来构建，[unjs/unbuild] 来打包，又一次地和 rollup 打包器斗智斗勇了好一会😹
+
+```ts
+import { defineBuildConfig } from 'unbuild'
+
+const inShared = [
+  'axios',
+  'p-queue',
+  '@weibo-archiver/shared',
+]
+
+export default defineBuildConfig({
+  entries: [{
+    input: 'src/index.ts',
+    name: 'weibo-archiver',
+  }],
+  declaration: false,
+  clean: true,
+  failOnWarn: false,
+  rollup: {
+    emitCJS: false,
+    esbuild: {
+      target: 'esnext',
+    },
+    output: {
+      // 打包 @weibo-archiver/shared 依赖，会 tree-shaking
+      manualChunks(id: string) {
+        if (inShared.some(dep => id.includes(dep)))
+          return 'vendor'
+      },
+    },
+  },
+})
+```
+
 [Chilfish/Weibo-archiver]: https://github.com/chilfish/Weibo-archiver
 [speechless]: https://speechless.fun/
 [sponsors]: https://chilfish.top/sponsors
@@ -137,3 +293,6 @@ const pageSize = computed({
 [fusejs]: https://www.fusejs.io/
 [pr: multi user #36]: https://github.com/Chilfish/Weibo-archiver/pull/36
 [core: storage.ts]: https://github.com/Chilfish/Weibo-archiver/blob/66b31ce/packages/core/src/utils/storage.ts
+[vercel ignored build step]: https://vercel.com/guides/how-do-i-use-the-ignored-build-step-field-on-vercel
+[unjs/citty]: https://github.com/unjs/citty/
+[unjs/unbuild]: https://github.com/unjs/unbuild

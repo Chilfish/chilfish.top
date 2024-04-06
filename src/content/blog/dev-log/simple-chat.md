@@ -7,10 +7,6 @@ tags: [dev-logs, ts]
 > 始于 `2022-12-28 22:34` 的新建文件夹，到 `2023-01-05` 基本完成了 Web 前端、后端除了“同意好友添加、账号密码验证”，基本的*纯文本*聊天大体上是可以动了）
 >
 > 然后就瘫玩了一星期（归咎于新冠后遗症（））……连后来才想起来的“开发日志”也是拖着没写，那大体地按时间顺序吧
->
-> 后来大致完成后才想到移动到 `~/Projects` 下，在这之前的 commit 记录可以看 [这个时间点的 SocketServer](https://github.com/Chilfish/FishCode/tree/c9f13d58a133126de9e0b884a278a2f4f4f67996/Web/node/SocketServer)，之后就到 [/tree/main/](https://github.com/Chilfish/FishCode/tree/main/Projects/SocketServer) 下了
->
-> （private 了，到时候有空捡起来再 public 吧......
 
 > 其实算是归档了，已经完全不想碰了......
 

@@ -57,30 +57,6 @@ int main() {
 
 ### 复杂度
 
-#### 复杂度限制
-
-- 在函数(非递归)中，一维数组大小不超过 1e5.
-- 在全局变量中，一维数组大小不超过 1e8，二维数组大小不超过 1e4
-- 对于 1s 的时间限制，需要保证程序的所有语句的总执行次数不超过 1e8.
-
-![复杂度限制](/blog/algo/cpp_1.webp)
-
-一般 ACM 或者笔试题的时间限制是 1 秒或 2 秒。在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳
-
-下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：
-
-- $n \le 30$： 指数级别， dfs+剪枝，状态压缩 dp
-- $n \le 100  \to  O(n^3)$：floyd，dp，高斯消元
-- $n \le 1000  \to  O(n^2), O(n^2 \times \log_2n)$ ，dp，二分，朴素版 Dijkstra、朴素版 Prim、Bellman-Ford
-- $n \le 10^4  \to  O(n \times \sqrt n)$：块状链表、分块、莫队
-- $n \le 10^5  \to  O(n\log_2n)$： 各种 `sort`，线段树、树状数组、`set/map`、`heap`、拓扑排序、`dijkstra+heap`、`prim+heap`、`Kruskal`、`spfa`、求凸包、求半平面交、二分、`CDQ` 分治、整体二分、后缀数组、树链剖分、动态树
-- $n \le 10^6  \to  O(n)$： 以及常数较小的 $O(n\log_2n)$ 算法 $\to$ 单调队列、 `hash`、双指针扫描、并查集，`kmp`、AC 自动机，sort、树状数组、heap、dijkstra、spfa
-- $n \le 10^7  \to  O(n)$：双指针扫描、kmp、AC 自动机、线性筛素数
-- $n \le 10^9  \to  O(\sqrt n)$：判断质数
-- $n \le 10^{18}  \to  O(\log_2n)$：最大公约数，快速幂，数位 DP
-- $n \le 10^{1000}  \to  O((\log_2n)^2)$：高精度加减乘除
-- $n \le 10^{100000}  \to  O(\log_2k \times \log_2(\log_2k)$：k 表示位数，高精度加减、FFT/NTT
-
 ### 前缀和与差分
 
 **题目要求：** 对长为 n 的数组进行 m 次查询：求 $[l, r]$ 之间的和
@@ -89,8 +65,6 @@ int main() {
 - 前缀和主要应用在对给定数组进行离线求和，与求区间和。离线在于预先遍历求一次和后，之后就可以直接读取了， 复杂度为 $O(n)$
 
 此时，前 n 项和为：`sum[n]`，$[l ,r]$ 之间的和为 `sum[r] - sum[l - 1]`
-
-#### 一维
 
 ```cpp
 int sum(int l, int r) {
@@ -102,25 +76,6 @@ for (int i = 1; i <= n; i++) {
   sum[i] = sum[i - 1] + a[i];
 }
 ```
-
-#### 二维
-
-```cpp
-for (i = 1; i <= n; i++)  //打表
-  for (j = 1; j <= m; j++) {
-    cin >> mpa[i][j];
-    sum[i][j] = mpa[i][j] + sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1];
-  }
-```
-
-![求表](/blog/algo/cpp_2.webp)
-
-```cpp
-cin >> x1 >> y1 >> x2 >> y2;   //求表
-cout << sum[x2][y2] - sum[x1 - 1][y2] - sum[x2][y1 - 1] + sum[x1 - 1][y1 - 1];
-```
-
-![还原](/blog/algo/cpp_3.webp)
 
 #### 差分
 
