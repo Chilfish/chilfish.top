@@ -18,7 +18,7 @@ IDE 已经帮忙把账号密码存在全局了，而且设置的用户名和邮�
 
 正好看到 [在一台电脑上同时使用多个 github 账号](https://blog.csdn.net/qq_43199318/article/details/103469792) 中使用到了 SSH，于是就跟着设置好了，还顺便升级了下 git 版本）
 
-> 更详细的说明可见 [SSH](../note/cs/ssh.md)
+> 更详细的说明可见 [SSH](../note/ssh.md)
 > 以下终端 windows 下要在 Git Bash 的命令窗口下执行（或是 powershell
 
 ## 设置 SSH

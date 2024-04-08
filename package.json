@@ -11,11 +11,10 @@
     "url": "https://chilfish.top"
   },
   "license": "MIT",
-  "homepage": "https://github.com/Chilfish/chilfish.top",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "pnpm check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --fix",

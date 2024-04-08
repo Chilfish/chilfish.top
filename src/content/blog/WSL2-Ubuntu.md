@@ -102,7 +102,7 @@ wsl hostname
 
 ## 配置
 
-> 或者 [Ubuntu-start](../note/cs/linux-start.md#sshd)
+> 或者 [Ubuntu-start](../note/linux-start.md#sshd)
 
 ### SSH
 

@@ -6,7 +6,7 @@ tags: [note, cs]
 
 本篇为《计算机组成：结构化方法 第六版》的读书杂记
 
-![读起来特别舒服](/blog/cs/SCO.webp)
+![读起来特别舒服](/blog/SCO.webp)
 
 ### 概述
 
@@ -129,4 +129,4 @@ RAM 通常是通过内存条（Memory Module）的形式插入计算机的内存
 
 磁盘、IDE 盘、SCSI 盘、RAID 盘、固态硬盘、只读光盘、可刻光盘、可擦写光盘、DVD、Blu-Ray
 
-![层次储存结构](/blog/cs/Notes-ROM.webp)
+![层次储存结构](/blog/Notes-ROM.webp)
