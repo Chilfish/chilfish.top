@@ -245,38 +245,7 @@ jobs:
 
 用的是 [unjs/citty] 库来构建，[unjs/unbuild] 来打包，又一次地和 rollup 打包器斗智斗勇了好一会😹
 
-```ts
-import { defineBuildConfig } from 'unbuild'
-
-const inShared = [
-  'axios',
-  'p-queue',
-  '@weibo-archiver/shared',
-]
-
-export default defineBuildConfig({
-  entries: [{
-    input: 'src/index.ts',
-    name: 'weibo-archiver',
-  }],
-  declaration: false,
-  clean: true,
-  failOnWarn: false,
-  rollup: {
-    emitCJS: false,
-    esbuild: {
-      target: 'esnext',
-    },
-    output: {
-      // 打包 @weibo-archiver/shared 依赖，会 tree-shaking
-      manualChunks(id: string) {
-        if (inShared.some(dep => id.includes(dep)))
-          return 'vendor'
-      },
-    },
-  },
-})
-```
+发现为了引用并打包 monorepo 下的其他 package，应该将它放在 devDependencies 下，并将它的依赖放在 peerDependencies 中，这样打包时就能够 tree-shake 地将它们打包在一起了
 
 [Chilfish/Weibo-archiver]: https://github.com/chilfish/Weibo-archiver
 [speechless]: https://speechless.fun/
