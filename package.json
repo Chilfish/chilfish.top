@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "pnpm@8.15.7",
   "description": "Chilfish's personal website.",
   "author": {
     "name": "Chilfish",
@@ -17,44 +17,41 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "check": "astro check",
-    "prepare": "husky || true"
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.2.4",
+    "@astrojs/mdx": "^2.3.0",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/vercel": "^7.5.2",
-    "@astrojs/vue": "^4.0.10",
+    "@astrojs/vercel": "^7.5.3",
+    "@astrojs/vue": "^4.1.0",
     "@giscus/vue": "^3.0.0",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
-    "astro": "^4.5.16",
-    "astro-expressive-code": "^0.33.5",
+    "astro": "^4.6.1",
+    "astro-expressive-code": "^0.35.0",
     "astro-seo": "^0.8.3",
     "nprogress": "^0.2.0",
     "reading-time": "^1.5.0",
-    "vue": "^3.4.21"
+    "vue": "^3.4.22"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.12.2",
+    "@antfu/eslint-config": "^2.14.0",
     "@astrojs/sitemap": "^3.1.2",
-    "@eslint/eslintrc": "^3.0.2",
     "@iconify-json/octicon": "^1.1.53",
-    "@iconify-json/simple-icons": "^1.1.98",
-    "@iconify-json/tabler": "^1.1.109",
-    "@types/eslint__eslintrc": "^2.1.1",
+    "@iconify-json/simple-icons": "^1.1.99",
+    "@iconify-json/tabler": "^1.1.110",
     "@types/hast": "^3.0.4",
-    "@types/node": "^20.12.5",
-    "@unocss/eslint-plugin": "^0.59.0",
-    "@unocss/reset": "^0.59.0",
+    "@types/node": "^20.12.7",
+    "@unocss/eslint-plugin": "^0.59.2",
+    "@unocss/reset": "^0.59.2",
     "astro-auto-import": "^0.4.2",
     "eslint": "npm:eslint-ts-patch@8.57.0-0",
-    "eslint-plugin-astro": "^0.33.1",
+    "eslint-plugin-astro": "^0.34.0",
     "eslint-plugin-format": "^0.1.0",
     "eslint-ts-patch": "8.57.0-0",
-    "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "mdast-util-to-string": "^4.0.0",
     "naive-ui": "^2.38.1",
@@ -65,16 +62,20 @@
     "remark-emoji": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
-    "sass": "^1.74.1",
-    "typescript": "^5.4.4",
+    "sass": "^1.75.0",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.4.5",
     "unified": "^11.0.4",
-    "unocss": "^0.59.0",
+    "unocss": "^0.59.2",
     "unplugin-auto-import": "^0.17.5"
   },
   "pnpm": {
     "overrides": {
       "hasown": "npm:@nolyfill/hasown@latest"
     }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"

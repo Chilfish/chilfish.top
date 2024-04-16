@@ -151,7 +151,7 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
           title="Weibo-archiver - 微博备份工具"
           url="https://github.com/Chilfish/weibo-archiver"
           date="2023.10 至今"
-          :stars="150"
+          :stars="170"
         >
           <p>
             介绍：针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储及在线查看于一体的解决方案，下载量达到3k+。
@@ -243,5 +243,6 @@ ul.projects {
 time {
   color: #94a3b8;
   font-weight: bold;
+  font-size: 0.875rem;
 }
 </style>
