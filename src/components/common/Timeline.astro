@@ -54,7 +54,7 @@ years.forEach((year) => {
 
 <style lang="scss">
 h2.year-title {
-  --uno: mt-6 text-5 w-full text-start font-bold;
+  @apply: mt-6 text-5 w-full text-start font-bold;
 }
 
 li.timeline {
@@ -79,7 +79,7 @@ li.timeline {
     height: 10px;
     width: 10px;
     border-radius: 9999px;
-    --uno: bg-primary;
+    @apply: bg-primary;
   }
 
   .line {
@@ -88,7 +88,7 @@ li.timeline {
     height: 100%;
     width: 2px;
     left: -1px;
-    --uno: bg-primary;
+    @apply: bg-primary;
   }
 }
 

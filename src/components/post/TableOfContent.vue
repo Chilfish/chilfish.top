@@ -78,7 +78,7 @@ onMounted(() => {
   position: sticky;
   top: 4rem;
   li.active {
-    --uno: text-blue;
+    @apply: text-blue;
   }
 }
 .toc-depth-3 {

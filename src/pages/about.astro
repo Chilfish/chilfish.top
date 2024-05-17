@@ -9,13 +9,17 @@ import Layout from '~/layouts/Layout.astro'
   <main class="flex flex-col gap-4 px-4 text-4 main-width md:w-100ch">
     <h2 class="text-6">Hi there 👋</h2>
     <p>
-      我是 <strong>Chilfish</strong>，是学生，事前端开发者，被鉴定为纯纯的 infp😤
+      我是 <strong>Chilfish</strong>，是学生，事主打前端的懒狗开发者。被鉴定为了纯纯的 infp😤
     </p>
     <p>
-      喜欢折腾一堆东西，热爱着开源与助人，但很懒😅 日常很多絮絮叨叨的都在
+      喜欢折腾一堆东西，热爱着开源与助人，但很懒，很多都是起了兴致才突发奇想地全身心投入去做的，然后没了后续😅
+    </p>
+    <p>
+      日常很多絮絮叨叨的都在
       <a
         href="https://weibo.com/chilfish"
         target="_blank"
+        class="link"
       >
         微博
       </a>
@@ -23,15 +27,18 @@ import Layout from '~/layouts/Layout.astro'
     </p>
     <p>
       Jpop、Rock 是目前的最爱，
-      <a href="/music"> 最近在听 </a>
-      。所以 mygo!!!!!さん, LOVE🤘
+      <a class="link" href="/music">这里</a>是最近在听。
+      所以 mygo!!!!!さん, 大LOVE🤘
     </p>
-    其他的暂时没想好）
+
+    <p>
+      其他的暂时没想好）
+    </p>
 
     <picture
       class="w-full flex flex-col gap-4 pt-6"
     >
-      <div class="item-center flex justify-start gap-2">
+      <div class="flex items-center justify-start gap-2">
         <img
           src="https://visitor-badge.laobi.icu/badge?page_id=Chilfish"
           alt="visitors"
@@ -56,9 +63,3 @@ import Layout from '~/layouts/Layout.astro'
     </picture>
   </main>
 </Layout>
-
-<style>
-  a {
-    --uno: text-primary hover: underline;
-  }
-</style>

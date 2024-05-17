@@ -45,7 +45,7 @@ keywords: Weibo Archiver, 备份, 存档, 炸号, 保存微博, 微博, 开发�
 其中，图片防盗链的问题，b 站（转发卡片的图片）和微博的策略不同，只好在油猴预览时就按原链接用 weibo 的 referer，本地预览就换为 `/assets/img` 这样的本地图片（但存在数据里的还是原图链接）。插曲是，为了能够解析带图转发的图片，想法是将它转换为自定义协议 `[img://${src}]`，而后显示的时候再解析成一个 `<button data-src="${path}">查看图片</button>`
 
 ```ts
-const retweetImg = /<a[^>]*href="([^"]*)"[^>]*>查看图片<\/a>/gm.exec(text)
+const retweetImg = /<a[^>]*href="([^"]*)"[^>]*>查看图片<\/a>/.exec(text)
 
 if (retweetImg && retweetImg[1]) {
   const img = retweetImg[1]
@@ -210,7 +210,7 @@ export default defineConfig({
 async function searchText(p: string): Promise<Post[]> {
   const res = posts.value.filter((post) => {
     const word = p.toLowerCase().trim().replace(/ /g, '')
-    const regex = new RegExp(word, 'igm')
+    const regex = new RegExp(word, 'gim')
     return (
       regex.test(post.text)
       || (post.card && regex.test(post.card?.title))

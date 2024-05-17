@@ -35,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  --uno: bg-light-7 dark:bg-dark-8 dark:text-white text-black;
+  @apply: bg-light-7 dark:bg-dark-8 dark:text-white text-black;
 }
 
 h1,
@@ -51,11 +51,11 @@ p {
 }
 
 img {
-  --uno: trans-all;
+  @apply: trans-all;
 }
 
 code {
-  --uno: font-mono;
+  @apply: font-mono;
   padding: 3px 4px;
   border-radius: 4px;
   color: #353841;
@@ -74,10 +74,26 @@ code {
   overflow: auto;
   .frame pre {
     max-height: 36rem;
-    --uno: text-3 sm:text-3.5;
+    @apply: text-3 sm:text-3.5;
   }
 }
 
 i {
-  --uno: icon;
+  @apply: icon;
+}
+
+a.link,
+footer a,
+article a {
+  i {
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+  @apply: decoration-primary;
+
+  &:hover {
+    @apply: text-primary;
+  }
 }

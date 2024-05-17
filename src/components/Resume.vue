@@ -191,7 +191,7 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
 
 <style>
 .resume-info > div {
-  --uno: icon-box w-fit;
+  @apply: icon-box w-fit;
 }
 
 .resume-title {

@@ -60,7 +60,7 @@ const { posts } = Astro.props
   display: flex;
   align-items: center;
   justify-content: space-between;
-  --uno: rounded-md shadow;
+  @apply: rounded-md shadow;
 }
 
 .post-content {
@@ -72,6 +72,6 @@ const { posts } = Astro.props
 }
 
 .meta > div {
-  --uno: icon-box;
+  @apply: icon-box;
 }
 </style>
