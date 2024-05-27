@@ -14,7 +14,7 @@ tags: [Vue]
 
 我们按 “它是怎么被导入并调用” 的思路来理解源码
 
-先从 [引入 element-plus] 的文档开始，它只要 import 并 `app.use(ElementPlus)` 就能使用了，而 [vue app.use] 指的是安装一个插件，[vue Plugin] 是一个有 `install()` 方法的用在 Vue 全局的工具代码
+先从[引入 element-plus] 的文档开始，它只要 import 并 `app.use(ElementPlus)` 就能使用了，而 [vue app.use] 指的是安装一个插件，[vue Plugin] 是一个有 `install()` 方法的用在 Vue 全局的工具代码
 
 element-plus 是一个 monorepo，在 /packages 下是项目各个包的根目录，从 `import ElementPlus from 'element-plus'` 在仓库中找到 [/packages/element-plus] 这就是它的入口处。在 index.ts 中可以看出它导出了将所有组件和插件设为 vue installer 插件
 
@@ -27,7 +27,7 @@ import Plugins from './plugin'
 export default makeInstaller([...Components, ...Plugins])
 ```
 
-顺着过去找到 makeInstaller 的定义，它的作用就是将这些组件们打包成一个 element-plus 插件，然后就可以在 vue 入口处使用了（app.use()）
+顺着过去找到 makeInstaller 的定义，它的作用就是将这些组件们打包成一个 element-plus 插件，然后就可以在 vue 入口处使用了 (app.use())
 
 ```ts
 /**
@@ -52,7 +52,7 @@ export function makeInstaller(components: Plugin[] = []) {
 }
 ```
 
-上面是它简化后的样子，其实他还有一个前置步骤是将组件包装成 vue 插件，然后再在这里全部导入（从 forEach 就可以看出，这就是文档说的 全量导入）。这时候我们再点进 `/packages/components` 里的一个组件（如 Message），可以看出它是这样写的
+上面是它简化后的样子，其实他还有一个前置步骤是将组件包装成 vue 插件，然后再在这里全部导入 (从 forEach 就可以看出，这就是文档说的全量导入)。这时候我们再点进 `/packages/components` 里的一个组件 (如 Message)，可以看出它是这样写的
 
 ```ts
 // 这其实引用的是本仓库的包，这就是 monorepo 的应用之一，用类似别名的方式，告别费脑子的相对路径
@@ -89,7 +89,7 @@ export function withInstall<T extends Component>(main: T) {
 }
 ```
 
-首先定义的类型是因为，其实有 [vue app.component()] 这样全局注册组件的方式，也就是说其实每个组件 SFC (\*.vue 文件) 都是可 install 的，但又不是每个 SFC 都是组件（defineComponent()），所以需要显示声明它的类型为 Plugin，同时必须要在 SFC 中指定它的名字
+首先定义的类型是因为，其实有 [vue app.component()] 这样全局注册组件的方式，也就是说其实每个组件 SFC (\*.vue 文件) 都是可 install 的，但又不是每个 SFC 都是组件 (defineComponent())，所以需要显示声明它的类型为 Plugin，同时必须要在 SFC 中指定它的名字
 
 ```vue
 <script lang="ts" setup>
@@ -106,7 +106,7 @@ defineOptions({
 
 ### Function With Install
 
-如果想要以函数的方式来召唤组件，就要使用 createVNode 来创建组件。与组件注册不同的是，它是注册到全局方法中，并要为它指定全局上下文 context，以访问一些全局的信息（如依赖注入或是其他的 app.config.globalProperties 方法）
+如果想要以函数的方式来召唤组件，就要使用 createVNode 来创建组件。与组件注册不同的是，它是注册到全局方法中，并要为它指定全局上下文 context，以访问一些全局的信息 (如依赖注入或是其他的 app.config.globalProperties 方法)
 
 ```ts
 /**
@@ -135,7 +135,7 @@ export function withInstallFunction<T>(fn: T, name: string) {
 
 ### createVNode
 
-我们先写好 `Toast.vue`，并为了方便管理，将 props 抽离出来，以 [props 运行时声明] 的形式来写，再在 SFC 中 import
+我们先写好 `Toast.vue`，并为了方便管理，将 props 抽离出来，以 [props 运行时声明]的形式来写，再在 SFC 中 import
 
 ```ts
 export const definePropType = <T>(val: any): PropType<T> => val
@@ -167,7 +167,7 @@ export const toastProps = {
 } as const
 ```
 
-其中，为了能够给它完整的一生...命周期，用 `transition` 和 `v-show` 的形式绑定 hooks，这样就能在 Toast 消失后回收它，而不只是 `v-if`。毕竟每一个 Toast 都是一个新的实例，没用了就要销毁，不然可能会内存堆积（好像是吧）
+其中，为了能够给它完整的一生...命周期，用 `transition` 和 `v-show` 的形式绑定 hooks，这样就能在 Toast 消失后回收它，而不只是 `v-if`。毕竟每一个 Toast 都是一个新的实例，没用了就要销毁，不然可能会内存堆积 (好像是吧)
 
 ```vue
 <template>
@@ -269,7 +269,7 @@ export function getOffsetOrSpace(id: string, offset: number) {
 }
 ```
 
-然后在 Toast.vue 中堆计算属性就行（下面的示例忽略了计时器的处理）
+然后在 Toast.vue 中堆计算属性就行 (下面的示例忽略了计时器的处理)
 
 ```ts
 import { useResizeObserver } from '@vueuse/core'
@@ -311,7 +311,7 @@ Toast({ message: 'hello', type: 'info' })
 Toast.error({ message: 'error', duration: 4000 })
 ```
 
-首先要将所有的参数都设为可选的 （Partial\<T\>），对于 type，虽然是 string，但要限定于 `'info' | 'error'` 等这些类型。这就是为什么要把 props 抽离出来，这也是为了方便管理这些参数
+首先要将所有的参数都设为可选的 (Partial\<T\>)，对于 type，虽然是 string，但要限定于 `'info' | 'error'` 等这些类型。这就是为什么要把 props 抽离出来，这也是为了方便管理这些参数
 
 ```ts
 import type {
@@ -427,7 +427,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 })
 ```
 
-第二个就是 document not defined 了，这需要特判，`export const isClient = process.client` （eslint 或许会提示要用 node:process，但那就更冲突了，client 端是没有 node 的...... disable 就好 `/* eslint-disable n/prefer-global/process */`）
+第二个就是 document not defined 了，这需要特判，`export const isClient = process.client` (eslint 或许会提示要用 node:process，但那就更冲突了，client 端是没有 node 的...... disable 就好 `/* eslint-disable n/prefer-global/process */`)
 
 ```ts
 // 在 normalizeOptions 的使用 document 之前加上

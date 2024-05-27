@@ -6,7 +6,7 @@ tags: [Vue, Weapp]
 
 ### 开始
 
-小程序跨端除了只适用 Vue 的 Uniapp 外，还有京东的 [Taro]，支持 Vue/React，目前使用 WebPack 5 进行编译，后续会使用 Vite。[Vant] 是有赞的移动端为主的组件库，[Vant-WeApp] 是其中的微信小程序版（也就是这个只能用在微信小程序中，h5 都不能）
+小程序跨端除了只适用 Vue 的 Uniapp 外，还有京东的 [Taro]，支持 Vue/React，目前使用 WebPack 5 进行编译，后续会使用 Vite。[Vant] 是有赞的移动端为主的组件库，[Vant-WeApp] 是其中的微信小程序版 (也就是这个只能用在微信小程序中，h5 都不能)
 
 [仓库地址]
 
@@ -22,15 +22,15 @@ taro init
 
 其中选择默认模板即可，同时由于模板的依赖有许多都过时了而导致编译失败，需要先升级 `pnpm up --latest`
 
-[Taro 的项目结构] 和内部 Vue 的写法主要是以小程序 `<View/>` 的为主，当然也可以设置成 HTML 的标签
+[Taro 的项目结构]和内部 Vue 的写法主要是以小程序 `<View/>` 的为主，当然也可以设置成 HTML 的标签
 
 ### 配置
 
-`app.config.ts` 是小程序的全局配置，`/pages` 下是页面路由，每个页面的 `*.config.ts` 是该页面的小程序配置。这些皮脂定义了路由页面（全局）、窗口状态和样式等。可见文档：[全局配置] 和 [页面配置]
+`app.config.ts` 是小程序的全局配置，`/pages` 下是页面路由，每个页面的 `*.config.ts` 是该页面的小程序配置。这些皮脂定义了路由页面 (全局)、窗口状态和样式等。可见文档：[全局配置]和[页面配置]
 
 #### eslint
 
-新建 Vue 项目当然得 extend @antfu 的 配置）
+新建 Vue 项目当然得 extend @antfu 的配置）
 
 ```bash
 pnpm add -D @antfu/eslint-config
@@ -118,7 +118,7 @@ pages: ['pages/index/index', 'pages/profile/profile']
 
 #### 子路由和跳转
 
-由于小程序是一个 SPA 应用，基本就只能在当前页切换。因此 pages 更像是对应的是 主页的 tab page，而 subPages 是要跳转的路由页面，他们通常会放在 packages 文件夹下
+由于小程序是一个 SPA 应用，基本就只能在当前页切换。因此 pages 更像是对应的是主页的 tab page，而 subPages 是要跳转的路由页面，他们通常会放在 packages 文件夹下
 
 ```ts
 export default defineAppConfig({
@@ -176,13 +176,13 @@ const config = {
 }
 ```
 
-其中，`copy.patterns` 是指将 node_modules 里 @vant 的组件 dist 目录复制到编译文件夹中，这是因为 [文档][taro-vant]：
+其中，`copy.patterns` 是指将 node_modules 里 @vant 的组件 dist 目录复制到编译文件夹中，这是因为[文档][taro-vant]：
 
 > vant 组件中包含一些小程序原生文件的依赖，目前 Taro 没有对这些依赖进行分析
 
 ### 引用 Vant 组件
 
-这需要手动在配置文件中导入具名组件（像是 `<van-button/>`），可以在全局导入，但有时候会引用冲突（？）导致有些组件不能在全局导入的时候共存，就需要在各自的 page 下 using 了
+这需要手动在配置文件中导入具名组件 (像是 `<van-button/>`)，可以在全局导入，但有时候会引用冲突 (？) 导致有些组件不能在全局导入的时候共存，就需要在各自的 page 下 using 了
 
 ```ts
 // app.config.ts
@@ -193,7 +193,7 @@ export default defineAppConfig({
 })
 ```
 
-这里的地址取决于在编译配置中将组件复制的地址（相对于编译后的 `/dist/app.json`）来说，当然可以写一个函数来简化：
+这里的地址取决于在编译配置中将组件复制的地址 (相对于编译后的 `/dist/app.json`) 来说，当然可以写一个函数来简化：
 
 ```ts
 // vant.ts
@@ -236,7 +236,7 @@ const msg = ref('Hello world')
 </template>
 ```
 
-只不过这种是属于使用 npm 包的方式，它需要在 `/dist` 下有 node_modules 和 packages.json，并在编译前在开发者工具中点 构建 npm 才能使用
+只不过这种是属于使用 npm 包的方式，它需要在 `/dist` 下有 node_modules 和 packages.json，并在编译前在开发者工具中点构建 npm 才能使用
 
 所以就多了一步 copy：
 
@@ -277,13 +277,13 @@ const config = {
 
 虽然 cli 会提示强烈建议开启缓存，但实测发现它会导致很多配置方面的问题
 
-首先每次编译的时候，它默认都会将 `/dist` 删除，然后将存在某个地方的缓存与当前编译结果 diff（也许） 后复制过来。但对于微信开发者工具来说，由于项目根目录被清空了，它会直接报错：找不到 app.json 之类的，这时候就要让开发者工具重新编译......（它本来是可以热重载差异化编译的）
+首先每次编译的时候，它默认都会将 `/dist` 删除，然后将存在某个地方的缓存与当前编译结果 diff (也许) 后复制过来。但对于微信开发者工具来说，由于项目根目录被清空了，它会直接报错：找不到 app.json 之类的，这时候就要让开发者工具重新编译......(它本来是可以热重载差异化编译的)
 
-回到缓存问题，我发现实际上开了缓存后，修改 app.config.ts 之类的配置文件后，再次 pnpm 编译， `dist/app.*` 的内容实际上还是很早之前的，这时候例如添加页面、组件都并没有应用上，小程序那边就会报错：xx not found 之类问题......
+回到缓存问题，我发现实际上开了缓存后，修改 app.config.ts 之类的配置文件后，再次 pnpm 编译，`dist/app.*` 的内容实际上还是很早之前的，这时候例如添加页面、组件都并没有应用上，小程序那边就会报错：xx not found 之类问题......
 
 ### 使用 `@ngify/http` 请求库
 
-[@ngify/http] 适配了微信小程序特殊的 `wx.request`（也就是在小程序里是没有 XMLRequest 或是 fetch 的，得用它自己的请求库），并配合 [RxJs](RxJs-ngify-http.md) 风格的处理
+[@ngify/http] 适配了微信小程序特殊的 `wx.request` (也就是在小程序里是没有 XMLRequest 或是 fetch 的，得用它自己的请求库)，并配合 [RxJs](RxJs-ngify-http.md) 风格的处理
 
 首先新建一个 `src/service` 文件夹专门用来处理请求，在 index.ts 中初始化设置为 wx 请求库：
 

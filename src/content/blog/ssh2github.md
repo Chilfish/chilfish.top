@@ -12,14 +12,14 @@ tags: [Git, SSH]
 git config --global credential.helper store
 ```
 
-IDE 已经帮忙把账号密码存在全局了，而且设置的用户名和邮箱也是全局的，所以就“新手友好”多了
+IDE 已经帮忙把账号密码存在全局了，而且设置的用户名和邮箱也是全局的，所以就 “新手友好” 多了
 
 而 SSH 协议在初次配置好之后，前后都不用输入账号密码，也还能保证数据的安全。这倒没什么，主要是我想用两个 GitHub 账号来练习一下，两个不同的邮箱注册。但这时问题就在，开始时我都把账号信息设全局了，这要怎么以另一个 git 身份来推拉呢……？
 
-正好看到 [在一台电脑上同时使用多个 github 账号](https://blog.csdn.net/qq_43199318/article/details/103469792) 中使用到了 SSH，于是就跟着设置好了，还顺便升级了下 git 版本）
+正好看到[在一台电脑上同时使用多个 github 账号](https://blog.csdn.net/qq_43199318/article/details/103469792)中使用到了 SSH，于是就跟着设置好了，还顺便升级了下 git 版本）
 
 > 更详细的说明可见 [SSH](../note/ssh.md)
-> 以下终端 windows 下要在 Git Bash 的命令窗口下执行（或是 powershell
+> 以下终端 windows 下要在 Git Bash 的命令窗口下执行 (或是 powershell
 
 ## 设置 SSH
 
@@ -215,7 +215,7 @@ git config user.name  ID1
 git config user.email E1
 ```
 
-但这也太不优雅了，于是有一个开源的 npm 包： [git 多用户切换设置 gum](https://github.com/gauseen/gum)。前提得先装了 Node.js）或许有别的可以代替，那再找找看吧
+但这也太不优雅了，于是有一个开源的 npm 包：[git 多用户切换设置 gum](https://github.com/gauseen/gum)。前提得先装了 Node.js）或许有别的可以代替，那再找找看吧
 
 ```shell
 pnpm i -g @gauseen/gum

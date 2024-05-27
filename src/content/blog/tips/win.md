@@ -8,7 +8,7 @@ tags: [Win]
 
 在目录 `"~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"` 中添加脚本就行
 
-> 只在 powershell (Bash 类的终端) 中，`~` 才被表示为 `C:\Users\Username`， explorer 的路径栏也不支持
+> 只在 powershell (Bash 类的终端) 中，`~` 才被表示为 `C:\Users\Username`，explorer 的路径栏也不支持
 
 至于 powershell 的启动配置文件，可以通过 `$profile | Get-Member -Type NoteProperty` 来查看
 
@@ -45,4 +45,4 @@ l----      2023/02/19 19:39      D:/Link -> D:/Target
 
 也就是能在网络适配器中看到并启用了 WLAN，但是在网络界面并没有 WIFI 选项
 
-需要先 win 键，搜索 服务，翻到 WLAN AutConfig 选项，大概率是停用了，需要双击打开，选择启动类型为自动，然后右键启动
+需要先 win 键，搜索服务，翻到 WLAN AutConfig 选项，大概率是停用了，需要双击打开，选择启动类型为自动，然后右键启动

@@ -27,14 +27,13 @@ export function rehypeRewriteOptions(config?: { isRss: boolean }): RehypeRewrite
           return
 
         let newHref = href.replace(/\.md/i, '/').toLowerCase()
+        // 因为 SSG 是 filename/index.html，所以还得再走一层
+        if (href.startsWith('../'))
+          newHref = `../${newHref}`
 
         // 如果是同级目录，则指向到上一级
         const list = ['/', '#', '../']
         if (!list.some(item => newHref.startsWith(item)))
-          newHref = `../${newHref}`
-
-        // 因为 SSG 是 filename/index.html，所以还得再走一层
-        if (href.startsWith('../'))
           newHref = `../${newHref}`
 
         node.properties.href = newHref

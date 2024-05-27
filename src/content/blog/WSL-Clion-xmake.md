@@ -6,25 +6,25 @@ tags: [WSL, C++]
 
 ## 开始
 
-用了太多 JB 家的产品，想着在学生优惠的期限内~~都用个遍~~，那在 C++中它正好有 [Clion](https://www.jetbrains.com/clion/download/) ，而且还用不习惯 MS 的 VS，VSCode 写项目又有点轻，那就 Clion 用着试试吧
+用了太多 JB 家的产品，想着在学生优惠的期限内~~都用个遍~~，那在 C++中它正好有 [Clion](https://www.jetbrains.com/clion/download/)，而且还用不习惯 MS 的 VS，VSCode 写项目又有点轻，那就 Clion 用着试试吧
 
 如果想编译在 Linux 环境的话，WSL 是 win 用户的一大选择
 
-一些版本：Clion: `2022.3.2`、WSL2:` Ubuntu 20.4`、gcc: `v11.1.0 on Ubuntu`、XMake: `v2.7.5`
+一些版本：Clion：`2022.3.2`、WSL2：` Ubuntu 20.4`、gcc：`v11.1.0 on Ubuntu`、XMake：`v2.7.5`
 
 > 肯定错漏百出）之后再改了
 
 ### 将 WSL 作为工具链
 
-只要在 设置 -> 构建 -> 工具链 -> +号 新建中选择 WSL，它就会自动检测到 WSL 的发行版等配置（在这之前要去 WSL 先安装好 C++工具链(g++,gdb,cmake 这些的)
+只要在设置 -> 构建 -> 工具链 -> +号新建中选择 WSL，它就会自动检测到 WSL 的发行版等配置 (在这之前要去 WSL 先安装好 C++工具链 (g++,gdb,cmake 这些的)
 
 ![自动检测到WSL环境](/blog/Cion_WSL.webp)
 
 ### 安装 XMake
 
-[XMake.io](https://XMake.io/#/zh-cn/) 主要用于 C/C++ 的项目配置，还有自带的 [包管理](https://xrepo.XMake.io/#/zh-cn/getting_started)。它不用写繁琐的 cmake 配置，虽然是`XMake.lua`作为配置文件，但没多少 lua 的语法，它还能生成 `CMakeLists.txt` 来兼容和 IDE 适配
+[XMake.io](https://XMake.io/#/zh-cn/) 主要用于 C/C++ 的项目配置，还有自带的[包管理](https://xrepo.XMake.io/#/zh-cn/getting_started)。它不用写繁琐的 cmake 配置，虽然是 `XMake.lua` 作为配置文件，但没多少 lua 的语法，它还能生成 `CMakeLists.txt` 来兼容和 IDE 适配
 
-XMake 可以只需安装在 win 上， 在 [Github releases](https://github.com/XMake-io/XMake/releases) 可找到安装包，或用 scoop：`scoop install XMake`）如果不用 scoop 的话，还需要将 XMake 的目录放进环境变量中
+XMake 可以只需安装在 win 上，在 [Github releases](https://github.com/XMake-io/XMake/releases) 可找到安装包，或用 scoop：`scoop install XMake`）如果不用 scoop 的话，还需要将 XMake 的目录放进环境变量中
 
 然后需要在 Clion 上下载插件：XMake，就可以在新建 Clion 项目中看到 XMake 了
 
@@ -58,7 +58,7 @@ error: target(untitled): toolchain not found!
 xmake f -p linux -a x86_64 -m debug
 ```
 
-这时再生成或构建项目时，就能看到 ok 了（这里的 MS VS 不是必须的）
+这时再生成或构建项目时，就能看到 ok 了 (这里的 MS VS 不是必须的)
 
 ```bash
 xmake project -k cmake -y
@@ -68,13 +68,13 @@ create ok!
 进程已结束,退出代码0
 ```
 
-回到 `src/main.cpp`，Clion 会提示选择 `CMakeLists.txt`，只要选上刚生成的就行了，并打开 CmakeLists 选上 **自动重新加载 CMake 项目**，这样每当 CMakeLists 有变化时都会自动加载上
+回到 `src/main.cpp`，Clion 会提示选择 `CMakeLists.txt`，只要选上刚生成的就行了，并打开 CmakeLists 选上**自动重新加载 CMake 项目**，这样每当 CMakeLists 有变化时都会自动加载上
 
 ## 铛铛~
 
 ### 运行项目
 
-这里有两种方式去运行，一是直接运行 Clion 根据 CMake 生成的运行配置（运行键）。在它的构建输出可以看到：
+这里有两种方式去运行，一是直接运行 Clion 根据 CMake 生成的运行配置 (运行键)。在它的构建输出可以看到：
 
 ```bash
 ====================[ 构建 | untitled | Debug ]===================================
@@ -99,7 +99,7 @@ hello world!
 
 ### 运行单文件
 
-为了保证运行单文件时头文件能正确引用上，需要在 CMakeLists 里添加上 `add_executable(xxx src/test/xxx.cpp)` ，然后运行在 main 函数旁的三角按钮：运行 xxx
+为了保证运行单文件时头文件能正确引用上，需要在 CMakeLists 里添加上 `add_executable(xxx src/test/xxx.cpp)`，然后运行在 main 函数旁的三角按钮：运行 xxx
 
 或者下载 CLion 插件 `C/C++ single file execution`，在 cpp 文件中右键，选上最后一行的 `add executable for single C++ file`，它就会自动把这个文件添加到 CMakeList 里
 

@@ -3,24 +3,35 @@ import Image from '~/components/common/Image.astro'
 import Layout from '~/layouts/Layout.astro'
 ---
 
-<Layout
-  title="这是哪里？"
->
+<Layout title="这是哪里？">
   <main class="mt-12 center-col gap-4 main-width">
-    <h1 class="text-3xl">这里是 404🧐</h1>
+    <h1 class="text-3xl">啊哦，这里是 404🧐</h1>
     <p class="text-2xl">我们迷子是怎么到这的？</p>
     <a
-      class="text-4.5 text-primary underline"
+      class="link text-4.5"
       href="/"
     >
       带我回首页
     </a>
 
-    <Image
-      class="mt-4 w-96 rounded-4"
-      src="/404.webp"
-      alt="404 NotFound Page"
-    />
-    <p class="text-3 text-gray">即使迷路，也要拼命前进😤</p>
+    <figure>
+      <Image
+        class="mt-4 w-120 rounded-4"
+        src="/404.webp"
+        alt="404 NotFound Page"
+      />
+      <figcaption uno-text="2 gray center">
+        404 logo designed by
+        <a
+          href="https://x.com/sawaratsuki1004"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @さわらつき
+        </a>
+      </figcaption>
+    </figure>
+
+    <p class="text-4 text-gray">即使迷路，也要拼命砥砺前行😤</p>
   </main>
 </Layout>

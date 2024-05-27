@@ -8,7 +8,7 @@ tags: [dev-logs, Android, Kotlin]
 
 总算是大致地学好了 Compose，现在终于新建文件夹了...... 这其实是安卓期末课设来着的，但队友不学安卓，他们整后端去了，那我就可以自由开发了 hhh
 
-先大概地过了 XML 部分，RecycleView、Fragment 什么的一通嗦了，然后新建项目的时候被 AS 用 [DataBinding][DataBinding] 给吸引过去了。了解到是属于 [Jetpack][Jetpack] 的一部分后，以及顺便用 AS 迁移到了 Kotlin，补了点语法（一堆 api 和用法真完全是为了实用而开发的了），然后就正式地换用 Compose 来写了
+先大概地过了 XML 部分，RecycleView、Fragment 什么的一通嗦了，然后新建项目的时候被 AS 用 [DataBinding][DataBinding] 给吸引过去了。了解到是属于 [Jetpack][Jetpack] 的一部分后，以及顺便用 AS 迁移到了 Kotlin，补了点语法 (一堆 api 和用法真完全是为了实用而开发的了)，然后就正式地换用 Compose 来写了
 
 当然，后来也是有用 Jetpack 组件 + XML 的方式来重构或练习了，但对比下来，还是 Compose 舒服多了
 
@@ -30,7 +30,7 @@ hh 其实在一开始写 XML 的时候就想好了期末选题，所以一直以
 
 ![得亏有写过，直接搬组件过来就好）](/blog/dev-log/commits.webp)
 
-然后是截至 5 月 11 号的 UI，但其实 UI 没写多少（都在之前学的时候写好了），主要是 Room 数据库和 ViewModel 这些的设计了
+然后是截至 5 月 11 号的 UI，但其实 UI 没写多少 (都在之前学的时候写好了)，主要是 Room 数据库和 ViewModel 这些的设计了
 
 ![Material 3，Yes！](/blog/dev-log/screenshot_0511.webp)
 
@@ -46,13 +46,13 @@ hh 其实在一开始写 XML 的时候就想好了期末选题，所以一直以
 
 #### Room
 
-一开始很蠢地为每个 Entity 都按流程地创 Dao、Repository 和 Database 实例，直到要 join 查表的时候才意识到应该是同一个 db 然后多个表才对（其实也是到实例化他们的时候觉得太怪了）
+一开始很蠢地为每个 Entity 都按流程地创 Dao、Repository 和 Database 实例，直到要 join 查表的时候才意识到应该是同一个 db 然后多个表才对 (其实也是到实例化他们的时候觉得太怪了)
 
 再就是明明已经 insert 进了 fake Data，但还是没创 db 一样，只有退出重进之后才会创文件，只好预先地在 init 中先 query 一遍
 
 ![还整了一个暴露出来的单例](/blog/dev-log/repoProvider.webp)
 
-再就是写着写着忘记应该异步来写了（虽然这协程就是为了异步）
+再就是写着写着忘记应该异步来写了 (虽然这协程就是为了异步)
 
 ![JS to Kotlin）](/blog/dev-log/async.webp)
 

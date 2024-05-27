@@ -5,11 +5,11 @@ tags: [ts, promise]
 description: 不再仅仅只是无脑 Promise.all 了，Promise 的一些细节
 ---
 
-虽然用了很久的 Promise 来处理异步事件，但一直都没系统地整理它们的一些用法😅
+虽然用了很久的 Promise 来处理异步事件，但一直都没系统地整理它们的一些用法 😅
 
 ## 经典的异步与事件循环
 
-JavaScript 对于异步事件的处理是通过事件循环来实现的，核心概念是事件队列（Event Queue）和执行栈（Call Stack）。执行栈用于存储代码的执行顺序，而事件队列则存储异步操作的回调函数。当执行栈为空时，事件循环会从事件队列中取出一个回调函数，放入执行栈中执行
+JavaScript 对于异步事件的处理是通过事件循环来实现的，核心概念是事件队列 (Event Queue) 和执行栈 (Call Stack)。执行栈用于存储代码的执行顺序，而事件队列则存储异步操作的回调函数。当执行栈为空时，事件循环会从事件队列中取出一个回调函数，放入执行栈中执行
 
 事件循环遵循以下几个步骤，这个过程会不断循环，直到事件队列和调用栈都为空。
 
@@ -18,7 +18,7 @@ JavaScript 对于异步事件的处理是通过事件循环来实现的，核心
 - 等待：等待调用栈为空。
 - 执行回调：当调用栈为空时，事件循环会从事件队列中取出一个回调函数，放入调用栈中执行。
 
-在 JavaScript 中，常见的异步操作包括定时器（setTimeout, setInterval）、Promise、事件监听器等。这些异步操作会在事件循环中被处理，确保它们能够按照正确的顺序执行。
+在 JavaScript 中，常见的异步操作包括定时器 (setTimeout，setInterval)、Promise、事件监听器等。这些异步操作会在事件循环中被处理，确保它们能够按照正确的顺序执行。
 
 虽然支持传入 Promise 数组来运行，但实际上因为默认下 js 是单线程的，这些 Promise 只是在不断地切换的并发运行，而不是真正的并行运行。得切到 worker 里才能真正多线程运行
 
@@ -70,7 +70,7 @@ Promise.all 接收一个 promise 数组，返回一个新的 promise 数组，�
 
 ### Promise.allSettled
 
-Promise.allSettled 与 Promise.all 类似，但不会因为某个 promise reject 而 reject，而是会等待所有的 promise 都 settle（resolve 或 reject）后才 resolve
+Promise.allSettled 与 Promise.all 类似，但不会因为某个 promise reject 而 reject，而是会等待所有的 promise 都 settle (resolve 或 reject) 后才 resolve
 
 reject 的结果将呈现在 then 的结果中，而不会被 catch 捕获，类型如下：
 

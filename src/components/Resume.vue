@@ -124,16 +124,19 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
     </h2>
     <ul>
       <li>
-        熟练使用 Vue3 和 TypeScript，基础扎实；熟练运用 Nuxt、Astro 等开发框架。
+        熟练使用 Vue3 和 TypeScript，基础扎实，跟随最新规范；熟练运用 Nuxt、Astro 等开发框架。
       </li>
       <li>
-        熟练如 Pinia、Vueuse 等 Vue 生态库；有小程序和 Electron 跨端开发经验。
+        熟练如 Pinia、Vueuse 等 Vue 生态库及相关构建工具；有小程序和 Electron 跨端开发经验。
       </li>
       <li>
-        熟悉 Node.js 开发，了解 Web 全栈开发，包括 Nest.js、Database-ORM、Spring Boot 等后端技术。
+        熟悉 Node.js 及CLI开发，了解 Web 全栈开发，包括 Nest.js、Database-ORM、Spring Boot 等后端技术。
       </li>
       <li>
-        熟悉 Git 与 GitHub 的协作工作流，了解 CI/CD 流程。
+        熟悉计算机网络相关知识，熟悉相关 API 设计规范。
+      </li>
+      <li>
+        熟悉 Git 与 GitHub 的协作工作流，了解 CI/CD 流程，高效管理和部署项目。
       </li>
       <li>
         能够高效检索信息、解决问题，注重代码的健壮性和可扩展性；积极参与开源项目，热衷于开发易用且实用的产品。
@@ -151,10 +154,10 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
           title="Weibo-archiver - 微博备份工具"
           url="https://github.com/Chilfish/weibo-archiver"
           date="2023.10 至今"
-          :stars="170"
+          :stars="190"
         >
           <p>
-            介绍：针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储及在线查看于一体的解决方案，下载量达到3k+。
+            介绍：针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储及在线查看于一体的解决方案，下载量达到4k+。
           </p>
           <p>
             技术：Vue3、Vite、油猴脚本、NaiveUI、UnoCSS、Pinia、Nuxt、IndexedDB、CLI开发等。
@@ -163,19 +166,19 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
 
         <ul>
           <li>
-            利用油猴脚本技术，在微博用户页面动态注入 Vue 构建的控制面板 UI，提供丰富的数据导出选项。
+            利用油猴脚本技术在微博页面动态注入 Vue 控制面板 UI，实现了丰富的数据导出选项。
           </li>
           <li>
-            通过 Axios 调用微博 API 爬取用户数据，暂存在 IndexedDB 中，避免大量数据加载到内存中。
+            通过 Axios 爬取用户数据并动态暂存在 IndexedDB 中，避免大量数据加载到内存中。
           </li>
           <li>
-            开发了在线查看平台，用户可导入爬取的微博数据，通过 IndexedDB 在浏览器端存储数据，无需后端数据库支持，确保数据私密性。
+            开发了一个无需后端数据库支持在线查看平台，用户可导入爬取的微博数据来查看，确保数据私密性。
           </li>
           <li>
             在线平台基于 fuse.js 实现微博搜索，利用 IndexedDB 的索引和游标技术实现时间范围筛选、分页查看等功能。
           </li>
           <li>
-            在线平台选用 Nuxt 框架，基于 SSG 特性进行页面预渲染，优化 SEO 并提升首屏加载速度。
+            在线平台选用 Nuxt 框架，基于 SSG 特性进行页面预渲染，提升加载速度。
           </li>
           <li>
             通过 GitHub Actions 实现 CI/CD 集成，确保代码质量和项目持续集成、快速部署。
@@ -241,8 +244,6 @@ ul.projects {
 }
 
 time {
-  color: #94a3b8;
-  font-weight: bold;
   font-size: 0.875rem;
 }
 </style>

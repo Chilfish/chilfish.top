@@ -4,15 +4,15 @@ date: 2023-01-12
 tags: [dev-logs, ts]
 ---
 
-> 始于 `2022-12-28 22:34` 的新建文件夹，到 `2023-01-05` 基本完成了 Web 前端、后端除了“同意好友添加、账号密码验证”，基本的*纯文本*聊天大体上是可以动了）
+> 始于 `2022-12-28 22:34` 的新建文件夹，到 `2023-01-05` 基本完成了 Web 前端、后端除了 “同意好友添加、账号密码验证”，基本的*纯文本*聊天大体上是可以动了）
 >
-> 然后就瘫玩了一星期（归咎于新冠后遗症（））……连后来才想起来的“开发日志”也是拖着没写，那大体地按时间顺序吧
+> 然后就瘫玩了一星期 (归咎于新冠后遗症 ())……连后来才想起来的 “开发日志” 也是拖着没写，那大体地按时间顺序吧
 
 > 其实算是归档了，已经完全不想碰了......
 
 ### 动机
 
-2022-12-23：临睡前 B 站给推荐了 [[Qt | OpenGL] 计算机图形学大作业（摆烂）| 场景编辑器](https://www.bilibili.com/video/BV1LG411N7EE/)，可能是之前看了几个好玩的图形学作业。瞬间感觉墙，Qt 还能这么玩，于是顺手点进主页，然后就看到了……
+2022-12-23：临睡前 B 站给推荐了 [[Qt | OpenGL] 计算机图形学大作业 (摆烂)| 场景编辑器](https://www.bilibili.com/video/BV1LG411N7EE/)，可能是之前看了几个好玩的图形学作业。瞬间感觉墙，Qt 还能这么玩，于是顺手点进主页，然后就看到了……
 
 ![看起来也太好玩了吧）](/blog/dev-log/motivation.jpg)
 
@@ -26,7 +26,7 @@ tags: [dev-logs, ts]
 
 其中先试手了 [socket.io-client-java](https://github.com/socketio/socket.io-client-java) 库，毕竟 `socket.io` 与原生 `WebSocket` 不能直接通信，客户端得要用相应的库
 
-在找案例的时候，发现大都是一种 channel 的聊天室，而我更多是要私聊（后来才知道都基本差不多的，只是 `socket.join(room)` 的房间不同而已
+在找案例的时候，发现大都是一种 channel 的聊天室，而我更多是要私聊 (后来才知道都基本差不多的，只是 `socket.join(room)` 的房间不同而已
 
 我是先开发前端，用死数据填充，差不多后就用 fetch json 文件来模拟从后端获取数据，然后填充到 `<template>` 里
 
@@ -34,9 +34,9 @@ tags: [dev-logs, ts]
 
 #### 22-12-29
 
-29 号当天边学 tailWind 边设计页面了。遇到的第一个坑还是，当时有点偷懒就没用 npm 包了，就直接用了 CDN 或本地 js 。但这样 VSCode 会没有代码补全（文档）
+29 号当天边学 tailWind 边设计页面了。遇到的第一个坑还是，当时有点偷懒就没用 npm 包了，就直接用了 CDN 或本地 js。但这样 VSCode 会没有代码补全 (文档)
 
-最后还是按 [推荐](https://tailwindcss.com/docs/installation) 地下 npm 包和 `input.css`
+最后还是按[推荐](https://tailwindcss.com/docs/installation)地下 npm 包和 `input.css`
 
 总体用下来还是很舒服的，复用的话就带上 `@apply`。虽然后来才注意到 `Working mobile-first`，它的媒体查询是手机端优先的，所以要设计桌面端的话，得加上断点 `sm:h-5` 之类的，表示屏幕尺寸大于 sm 值时应用 `h-5`
 
@@ -106,13 +106,13 @@ tags: [dev-logs, ts]
 
 然后就一直在看 MongoDB 了，但顺便又看到了由此封装后的更好的 `Mongoose.js`，感觉妙耶
 
-就是在连接数据库之前，经典的得先开启数据库服务： `net start mongodb`（管理员 shell）
+就是在连接数据库之前，经典的得先开启数据库服务：`net start mongodb` (管理员 shell)
 
 而且感觉 Schema 和 Model 的概念……原来是这样啊的感觉了
 
 #### 23-01-01
 
-但最大的疑惑在于，socket.io 官网中 [客户端的配置](https://socket.io/zh-CN/docs/v4/client-installation/) 中
+但最大的疑惑在于，socket.io 官网中[客户端的配置](https://socket.io/zh-CN/docs/v4/client-installation/)中
 
 ```html
 <script src="/socket.io/socket.io.js"></script>
@@ -133,9 +133,9 @@ tags: [dev-logs, ts]
 
 这本身用起来也很简单，照着 index 给的 api 封装一下就好
 
-大抵就是前端每次请求都带上登录时后端返回的 Token（通常存在 Cookie 或 localStorage 中 ），服务器再对传来的 Token 用私钥解密，没错则通过鉴权
+大抵就是前端每次请求都带上登录时后端返回的 Token (通常存在 Cookie 或 localStorage 中)，服务器再对传来的 Token 用私钥解密，没错则通过鉴权
 
-同时又加上了 生成随机 id 的`uuid`、读取项目配置文件的`dotenv` 的 npm 包
+同时又加上了生成随机 id 的 `uuid`、读取项目配置文件的 `dotenv` 的 npm 包
 
 ```js
 // 配置文件写在根目录下的 .env 再就好
@@ -205,7 +205,7 @@ const messageSchema = new Schema({
 
 chatGPT 大好人啊）对好友数组的数据直接用用户的 `_id` 是我没想到的了，虽然想想会觉得是理所当然的了，聊天记录表的用户也是用 `_id` 来存了，这样可以让数据库很快地找到
 
-还把前端的 js 都改为了 `type="module"`，import 和 export…… 虽然没什么，但只要是我整了个 拆分时间的 util、统一 socket 的 emit 和 on 的接口
+还把前端的 js 都改为了 `type="module"`，import 和 export…… 虽然没什么，但只要是我整了个拆分时间的 util、统一 socket 的 emit 和 on 的接口
 
 ```js
 // socketApi.js
@@ -285,7 +285,7 @@ process.on('SIGINT', () => {
 
 也是这天，把这两天在想的问题突然开朗……就是我得怎样实现私聊啊，看了眼 api，就是得让两人 `socket.join(room)` 到同一个 room 里，这样 a 给 b 发消息 `socket.to(room).emit(api.sendMessage, data)` 时，只有这个房间里除了发送方之外的都接收到信息，然后更新到 UI 中
 
-但问题在于要怎么决定 room 呢……群聊的话用上群名称加标识符就好，但私聊的话……顺序是个问题：｛a2b：`ab`；b2a：`ba`｝，这样就不在一个房间里啊…chatGPT 说用哈希，但也不对啊，`ab` 和 `ba` 哈希出来的还是不同
+但问题在于要怎么决定 room 呢……群聊的话用上群名称加标识符就好，但私聊的话……顺序是个问题：{a2b：`ab`；b2a：`ba`}，这样就不在一个房间里啊…chatGPT 说用哈希，但也不对啊，`ab` 和 `ba` 哈希出来的还是不同
 
 这时已经半夜了，睡一觉后突然意识到直接把两人放到数组里在排序不就好了嘛……好吧这实在是太蠢了
 
@@ -303,4 +303,4 @@ socket.on(api.join, (user) => {
 
 做完后再补上项目的 index 好了
 
-> （后续来看）其实不大对，只要登陆进去的时候将自己加入`client.join(userId);`，就能够用这个来私聊了 `server.to(message.receiveId).emit('message', message);`
+> (后续来看) 其实不大对，只要登陆进去的时候将自己加入 `client.join(userId);`，就能够用这个来私聊了 `server.to(message.receiveId).emit('message', message);`

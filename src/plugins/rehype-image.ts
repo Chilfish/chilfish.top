@@ -1,10 +1,13 @@
 import type { Root, RootContent, RootContentMap } from 'hast'
-import { imgHost } from '../constant/config'
+import { imgHost, isDev, localImgHost } from '../constant/config'
 
 function addPropsToImg(props: any, isRss: boolean = false) {
   let src = props.src as string
+
   if (src.startsWith('/'))
     src = `${imgHost}${src}`
+  else if (!isDev && src.startsWith(localImgHost))
+    src = src.replace(localImgHost, imgHost)
 
   const imgProp = {
     ...props,

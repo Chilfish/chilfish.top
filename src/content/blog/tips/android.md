@@ -6,7 +6,7 @@ tags: [Android]
 
 ## Termux
 
-**主要参考：** [国光：Termux 高级终端安装使用配置教程](https://www.sqlsec.com/2018/05/termux.html)
+**主要参考：**[国光：Termux 高级终端安装使用配置教程](https://www.sqlsec.com/2018/05/termux.html)
 
 ### 初始化
 
@@ -22,7 +22,7 @@ sed -i 's@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.c
 pkg update
 ```
 
-然后使用 ssh 让电脑连接，不然操作起来太不舒服了（或者外接键鼠也行 hhh）
+然后使用 ssh 让电脑连接，不然操作起来太不舒服了 (或者外接键鼠也行 hhh)
 
 ```bash
 pkg install openssh -y
@@ -75,7 +75,7 @@ proot-distro login ubuntu
 
 这个的好处是，可以在 unroot 的情况直接使用 sudo，当然涉及到得 root 才能更改的系统设置是牡蛎的
 
-但 **需要注意的是**，初次需要联网验证，但有时梯子也完全不行，需要自定义它验证的地址：
+但**需要注意的是**，初次需要联网验证，但有时梯子也完全不行，需要自定义它验证的地址：
 
 - 右上角菜单 -> settings -> 勾选 Use Custom URL for Apps Server
 - 网址填上国内镜像 https://gitee.com/play-code/UserLAnd-Assets-Support/raw/staging/assets/arm64/assets.txt
@@ -90,9 +90,9 @@ proot-distro login ubuntu
 
 并不能在 Ubuntu 里用 passwd 修改密码，因为它是用默认密码来 ssh 连接的。默认密码在 File systems，长按实体 -> Edit，里面就是只读的密码了......
 
-而且，既然是 ssh 到 localhost 的，那 `cat .ssh/id_rsa.pub >> .ssh/authorized_keys` 不就好了嘛......但实际上还是不行，所以在这里是 **完全不能修改密码** 的）而且改过之后，似乎就只能随缘进去了，而且 ssh 的密码还是默认密码
+而且，既然是 ssh 到 localhost 的，那 `cat .ssh/id_rsa.pub >> .ssh/authorized_keys` 不就好了嘛......但实际上还是不行，所以在这里是**完全不能修改密码**的）而且改过之后，似乎就只能随缘进去了，而且 ssh 的密码还是默认密码
 
-绕开它联网验证的方式就是先断网打开 Session 后，就能进到它的终端了，这时再开网络（木梯似乎很随缘，所以还是断网登录吧）
+绕开它联网验证的方式就是先断网打开 Session 后，就能进到它的终端了，这时再开网络 (木梯似乎很随缘，所以还是断网登录吧)
 
 如果进不去终端，则可以通过另外 ssh 的方式，在 termux 中
 

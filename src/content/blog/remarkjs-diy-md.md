@@ -9,7 +9,7 @@ tags: [ts, markdown]
 
 迁移到 Astro 的原因之一是，尽管 vuepress 有许多插件可以扩展 Markdown 的功能，但自定义程度仍然太低。虽然也可以编写相应的插件，但既然选择了 Astro 并手动编写主题样式，那也少不了自定义解析 Markdown。
 
-Astro.js 使用 [remark.js] 进行 Markdown 解析并转换为 HTML，然后使用 [remark-rehype] 修改编译后的 HTML，在配置文件中体现在 [config: markdown.remarkPlugins] 中。
+Astro.js 使用 [remark.js] 进行 Markdown 解析并转换为 HTML，然后使用 [remark-rehype] 修改编译后的 HTML，在配置文件中体现在 [config：markdown.remarkPlugins] 中。
 
 本次打算实现以下内容：
 
@@ -25,7 +25,7 @@ Astro.js 使用 [remark.js] 进行 Markdown 解析并转换为 HTML，然后使�
 
 图标方案使用 Unocss 提供的图标库，在匹配到对应 hostname 后会添加相应的 `<i class={icon-class}/>`。由于这是动态生成的内容，在构建时 Unocss 不会输出相关图标 CSS。
 
-需要预先准备好一个包含图标信息的数组，并将其添加到 [unocss safelist] 中。（同时要注意在导入至 `unocss.config.ts` 时，在配置阶段不能导入与 Astro 相关无关包，需要单独处理：[constant/hostIcons.ts]）。
+需要预先准备好一个包含图标信息的数组，并将其添加到 [unocss safelist] 中。(同时要注意在导入至 `unocss.config.ts` 时，在配置阶段不能导入与 Astro 相关无关包，需要单独处理：[constant/hostIcons.ts])。
 
 此外，在 remark 阶段似乎没有直接访问 Astro 上下文信息。因此无法使用任何 Astro 函数；但可以导入类型。
 

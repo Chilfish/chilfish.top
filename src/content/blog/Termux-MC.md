@@ -43,9 +43,9 @@ mkdir Minecraft-server && cd Minecraft-server
 
 > vanilla.jar 是 Minecraft 官方原版服务器软件，它是未经修改的纯净服务器，只包含 Minecraft 的基本功能和特性。而 paper.jar 是一种基于原版的第三方服务器软件，它对原版进行了优化和改进，可以提供更好的性能和更多的功能
 >
-> Paper 通过优化服务器的代码、调整配置文件和添加插件等方式来提高服务器的性能和稳定性。 Paper 还提供了更多的命令和设置选项，使服务器管理更加方便。因此，对于需要更好性能和更多功能的玩家，建议使用 paper.jar 作为服务器软件
+> Paper 通过优化服务器的代码、调整配置文件和添加插件等方式来提高服务器的性能和稳定性。Paper 还提供了更多的命令和设置选项，使服务器管理更加方便。因此，对于需要更好性能和更多功能的玩家，建议使用 paper.jar 作为服务器软件
 
-运行前需要先 同意许可证：
+运行前需要先同意许可证：
 
 ```bash
 echo "eula=true" > eula.txt
@@ -57,7 +57,7 @@ echo "eula=true" > eula.txt
 java -jar paper.jar
 ```
 
-它会先下载 paper.jar 对应的 MC 包，其中还是需要木梯子。也可以在电脑上运行后，会将游戏主体下载到 `cache/mojang_{版本}.jar` ，然后将这个目录文件拷到 `Minecraft-server/` 下，再运行 paper 就好
+它会先下载 paper.jar 对应的 MC 包，其中还是需要木梯子。也可以在电脑上运行后，会将游戏主体下载到 `cache/mojang_{版本}.jar`，然后将这个目录文件拷到 `Minecraft-server/` 下，再运行 paper 就好
 
 > 同时基于 Java 的跨平台，这个 server.jar 也完全可以在 win 上直接运行，官方的那个 server.exe 应该就是把这一过程打包了
 >
@@ -79,7 +79,7 @@ java -Xms2G -Xmx2G -XX:+UseG1GC -XX:-UseAdaptiveSizePolicy -XX:-OmitStackTraceIn
 
 - `-Xms2G`：设置 Java 虚拟机初始堆大小为 2G
 - `-Xmx2G`：设置 Java 虚拟机最大堆大小为 2G
-- `-XX:+UseG1GC`：使用 G1 GC（Garbage First）垃圾回收器
+- `-XX:+UseG1GC`：使用 G1 GC (Garbage First) 垃圾回收器
 - `-XX:-UseAdaptiveSizePolicy`：禁用自适应策略
 - `-XX:-OmitStackTraceInFastThrow`：在快速抛出异常时不忽略堆栈跟踪信息
 - `-Dfml.ignoreInvalidMinecraftCertificates=True`：忽略无效的 Minecraft 证书
@@ -94,7 +94,7 @@ java -Xms2G -Xmx2G -XX:+UseG1GC -XX:-UseAdaptiveSizePolicy -XX:-OmitStackTraceIn
 
 这个文件是用来给服务器配置的，基本改一下下面的就行
 
-其中，就算关了正版验证，如果用正版的账号登录的话，他还是需要联网来验证了（所以这就是相较于 离线模式 的关系了）
+其中，就算关了正版验证，如果用正版的账号登录的话，他还是需要联网来验证了 (所以这就是相较于离线模式的关系了)
 
 ```properties
 # 关闭正版验证

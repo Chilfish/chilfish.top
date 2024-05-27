@@ -45,9 +45,13 @@ document.addEventListener('astro:after-preparation', () => {
 })
 
 function setDarkMode(document) {
-  const theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
+  let theme = localStorage.getItem('theme') || 'dark'
+  if (theme === 'light' || theme === 'auto')
+    theme = 'light'
+
   document.documentElement.classList.add(theme)
   window.__theme = theme
+  localStorage.setItem('theme', theme)
 }
 
 setDarkMode(document)

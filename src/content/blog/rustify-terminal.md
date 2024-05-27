@@ -36,7 +36,7 @@ function lss {
 
 ### fd
 
-[sharkdp/fd](https://github.com/sharkdp/fd) 。fd 是 find 的快速且用户友好的替代方案，find 是 Unix/Linux 中用于遍历文件层次结构的内置命令行程序。 fd 为最常见的用例提供固执己见的默认值。要按名称查找特定文件，请编写 fd PATTERN 而不是 `find -iname ‘*PATTERN*’` 。 fd 也非常快，并且它带有大量选项，例如默认忽略 .gitignore 中的隐藏目录、文件和模式
+[sharkdp/fd](https://github.com/sharkdp/fd)。fd 是 find 的快速且用户友好的替代方案，find 是 Unix/Linux 中用于遍历文件层次结构的内置命令行程序。fd 为最常见的用例提供固执己见的默认值。要按名称查找特定文件，请编写 fd PATTERN 而不是 `find -iname ‘*PATTERN*’`。fd 也非常快，并且它带有大量选项，例如默认忽略。gitignore 中的隐藏目录、文件和模式
 
 下载：`scoop install main/fd`
 
@@ -72,6 +72,6 @@ function lss {
 
 ### miniserver
 
-[svenstaro/miniserve](https://github.com/svenstaro/miniserve) 是一个通过 http(s) 启动文件服务器的工具，默认支持局域网访问、文件树、认证等功能，甚至能通过发起请求来上传文件（差个按钮）。可以抛弃 live-server 或是 vite 了）
+[svenstaro/miniserve](https://github.com/svenstaro/miniserve) 是一个通过 http(s) 启动文件服务器的工具，默认支持局域网访问、文件树、认证等功能，甚至能通过发起请求来上传文件 (差个按钮)。可以抛弃 live-server 或是 vite 了）
 
 下载：`scoop install main/miniserve`
