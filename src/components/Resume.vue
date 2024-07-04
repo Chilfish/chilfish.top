@@ -68,26 +68,37 @@ const MyInfo = () => (
 
 interface TProjectTitle {
   title: string
-  url: string
-  stars: number
   date: string
+  url?: string
+  stars?: number
 }
 
 const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
   <>
     <div class="project-title">
       <div class="flex flex-wrap items-center justify-start">
-        <a href={props.url} target="_blank">
-          {props.title}
-        </a>
-        <span
-          class="ml icon-box inline-flex gap-1px"
-        >
-          <i class="i-tabler:star" />
-          <span>
-            {`${props.stars} Stars`}
+        {props.url
+          ? (
+            <a href={props.url} target="_blank">
+              {props.title}
+            </a>
+            )
+          : (
+            <span class="_title">
+              {props.title}
+            </span>
+            )}
+
+        {props.stars && (
+          <span
+            class="ml icon-box inline-flex gap-1px"
+          >
+            <i class="i-tabler:star" />
+            <span>
+              {`${props.stars} Stars`}
+            </span>
           </span>
-        </span>
+        )}
       </div>
       <time>{props.date}</time>
     </div>
@@ -153,8 +164,8 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
         <ProjectTitle
           title="Weibo-archiver - 微博备份工具"
           url="https://github.com/Chilfish/weibo-archiver"
-          date="2023.10 至今"
-          :stars="190"
+          date="2023.10 - 至今"
+          :stars="220"
         >
           <p>
             介绍：针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储及在线查看于一体的解决方案，下载量达到4k+。
@@ -188,6 +199,32 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
           </li>
         </ul>
       </li>
+
+      <li>
+        <ProjectTitle
+          title="疫苗温度与定位监控系统"
+          date="2024.06.03 - 2024.06.15"
+        >
+          <p>
+            介绍：开发了一套用于实时监控疫苗运输过程中的温度和位置的大屏展示系统，集成数据统计、异常告警等功能，保障疫苗在冷链中的安全和有效性，实现了从设备数据采集到用户可视化展示的全栈解决方案。
+          </p>
+          <p>
+            技术：Vue3、TypeScript、EChart.js、Vite、Nitro.js（Nuxt服务端）、PrismaORM、MongoDB、MQTT.js、SSE 等。
+          </p>
+        </ProjectTitle>
+
+        <ul>
+          <li>
+            使用 Vue3 和 Element UI 搭建前端页面，通过 ECharts 实现地图实时监控和数据可视化。
+          </li>
+          <li>
+            前端通过 Server-Sent Events（SSE）与后端实现数据实时通信，每秒更新冷链箱子的状态。
+          </li>
+          <li>
+            后端基于 Nitro.js 开发 API 服务，结合 Prisma ORM 操作 MongoDB，确保数据处理高效可靠。
+          </li>
+        </ul>
+      </li>
     </ul>
   </section>
 </template>
@@ -202,6 +239,9 @@ const ProjectTitle = (props: TProjectTitle, { slots }: SetupContext) => (
   font-weight: bold;
   color: #333;
   padding: 0.5rem 0;
+  text-decoration-line: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: #3388bb;
 }
 
 a:hover {
@@ -222,7 +262,7 @@ section li {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  a {
+  a, ._title {
     color: #333;
     font-size: 1rem;
     font-weight: bold;
@@ -236,6 +276,7 @@ section li {
 ul.projects {
   padding-left: 0;
   & > li {
+    margin-bottom: 1.5rem;
     list-style: none;
   }
   p {
@@ -244,6 +285,7 @@ ul.projects {
 }
 
 time {
+  font-weight: bold;
   font-size: 0.875rem;
 }
 </style>

@@ -41,7 +41,20 @@ const weibo = {
   url: ProjectList[0].url,
 }
 
-export const SponsorList = [
+export interface Sponsor {
+  id: number
+  name: string
+  time: string
+  amount: number
+  message: string
+  reply: string
+  project: {
+    name: string
+    url: string
+  }
+}
+
+export const SponsorList: Sponsor[] = [
   {
     id: 0,
     name: 'SaraKale',
@@ -69,7 +82,14 @@ export const SponsorList = [
     reply: '感谢你的支持😇',
     project: weibo,
   },
+  {
+    id: 3,
+    name: '不动点明王',
+    time: '2024-06-08 11:59',
+    message: '感谢',
+    reply: '谢谢你~',
+    amount: 6.00,
+    project: weibo,
+  },
 ]
   .sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime())
-
-export type Sponsor = typeof SponsorList[number]

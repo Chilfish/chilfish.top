@@ -2,7 +2,9 @@
 import LinkBar from '@cp/common/LinkBar.astro'
 import { formatDate, getPosts } from '~/utils'
 
-const posts = (await getPosts('blog')).slice(0, 5)
+const posts = (await getPosts('blog'))
+  .filter(post => !post.data.tags.includes('diary'))
+  .slice(0, 6)
 ---
 
 <div>
