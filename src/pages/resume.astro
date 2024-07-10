@@ -1,6 +1,9 @@
 ---
 import Head from '@cp/common/Head.astro'
-import ResumeMain from '@cp/Resume.vue'
+import ResumeMain from '~/components/resume/fe.vue'
+import ResumeBe from '~/components/resume/be.vue'
+
+const isBe = Astro.url.searchParams.get('be')
 ---
 
 <!doctype html>
@@ -12,10 +15,11 @@ import ResumeMain from '@cp/Resume.vue'
   />
   <body>
     <main
-      class="mx-auto h-29.7cm flex flex-col gap-4 rounded bg-white p-8 text-12px"
+      class="mx-auto flex flex-col gap-4 rounded bg-white p-4 text-12px sm:p-x8"
+      uno-h="md:29.7cm full"
       uno-w="md:21cm full"
     >
-      <ResumeMain />
+      {isBe ? <ResumeBe /> : <ResumeMain />}
     </main>
   </body>
 </html>

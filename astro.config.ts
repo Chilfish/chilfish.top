@@ -17,11 +17,7 @@ export default defineConfig({
   site: host,
   // SSR mode
   output: 'server',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  adapter: vercel(),
   integrations: [
     vue({
       jsx: true,
