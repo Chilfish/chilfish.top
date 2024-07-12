@@ -1,9 +1,11 @@
 ---
 import Head from '@cp/common/Head.astro'
-import ResumeMain from '~/components/resume/fe.vue'
-import ResumeBe from '~/components/resume/be.vue'
+import ResumeMain from '~/components/resume/main'
+import { myJob } from '~/constant'
 
-const isBe = Astro.url.searchParams.get('be')
+const isBe = !!Astro.url.searchParams.get('be')
+
+myJob(isBe)
 ---
 
 <!doctype html>
@@ -19,7 +21,7 @@ const isBe = Astro.url.searchParams.get('be')
       uno-h="md:29.7cm full"
       uno-w="md:21cm full"
     >
-      {isBe ? <ResumeBe /> : <ResumeMain />}
+      <ResumeMain isBe={isBe} />
     </main>
   </body>
 </html>
@@ -29,4 +31,8 @@ body {
   background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle fill="%2364748b" cx="2" cy="2" r=".5"/></svg>');
   background-repeat: repeat;
 }
+</style>
+
+<style is:global lang="scss">
+@import '@assets/resume.scss';
 </style>

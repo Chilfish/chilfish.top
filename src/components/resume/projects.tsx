@@ -2,7 +2,7 @@
 import { ProjectTitle } from './component'
 
 export const Weibo = () => (
-  <>
+  <li>
     <ProjectTitle
       title="Weibo-archiver - 微博备份工具"
       url="https://github.com/Chilfish/weibo-archiver"
@@ -42,11 +42,11 @@ export const Weibo = () => (
         项目使用 pnpm workspace 管理，各个包与构建的应用之间共享与复用，提高了项目的可维护性和扩展性。
       </li>
     </ul>
-  </>
+  </li>
 )
 
 export const ColdChain = () => (
-  <>
+  <li>
     <ProjectTitle
       title="疫苗温度与定位监控系统 - 独立开发"
       date="2024.06 - 2024.06"
@@ -77,5 +77,5 @@ export const ColdChain = () => (
         采用 Redis 缓存和数据库分片策略，以及通过消息队列和异步处理机制，保证系统在高并发情况下的稳定性和高效性。
       </li>
     </ul>
-  </>
+  </li>
 )

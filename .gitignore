@@ -27,3 +27,5 @@ auto-imports.d.ts
 # temp/
 
 .obsidian/
+
+.vercel

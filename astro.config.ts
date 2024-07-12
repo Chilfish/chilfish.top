@@ -6,18 +6,23 @@ import mdx from '@astrojs/mdx'
 import vue from '@astrojs/vue'
 import UnoCSS from 'unocss/astro'
 import vercel from '@astrojs/vercel/serverless'
+import node from '@astrojs/node'
 import expressiveCode from 'astro-expressive-code'
 import { host, imgHost } from './src/constant/config'
 import { rehypePlugins, remarkPlugins } from './src/plugins'
 
 const cp = (name: string) => `./src/components/common/${name}.astro`
 
+const isNode = process.env.IS_NODE === 'TRUE'
+
 // https://astro.build/config
 export default defineConfig({
   site: host,
   // SSR mode
   output: 'server',
-  adapter: vercel(),
+  adapter: isNode
+    ? node({ mode: 'standalone' })
+    : vercel(),
   integrations: [
     vue({
       jsx: true,
