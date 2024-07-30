@@ -16,7 +16,7 @@ tags: [dev-logs, Vue, Nuxt]
 
 正好是一号开始写的，写到第六天了但还是不及初版 panik，可能是一开始就没怎么设计好，也没想到要写完它）到现在也还是用 mock 数据来模拟，第五天才加到 api 部分，但还是 Lodis (Local Dictionary Service [梗][Lodis])，纯内存数组
 
-![day 6](/blog/dev-log/time.webp)
+![day 6](https://p.chilfish.top/blog/dev-log/time.webp)
 
 后续时不时缝缝补补地改，但感觉整体的复杂度什么的都还不怎么样，这方面比较完善的实现还是 Nuxt 社区的 [elk]😹
 
@@ -190,7 +190,7 @@ useDarkStore() // init dark mode
 
 一开始就简单地用小米笔记记一下，它地云同步还算可以，就是功能有些太简陋了，之后就换到了 todoist.com
 
-![来自 todoist.com](/blog/dev-log/chilpost-todo.webp)
+![来自 todoist.com](https://p.chilfish.top/blog/dev-log/chilpost-todo.webp)
 
 ### 前后端分页
 

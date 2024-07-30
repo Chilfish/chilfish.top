@@ -74,7 +74,7 @@ const pageSize = computed({
 
 写了好几个小东西过后，逐渐意识到尽早规划的重要性 😅 边写边改、后续回过头来再改实在是太痛苦了，以及为了提醒自己、告知用户 (画饼)，完善了 README 的说明、加了一个[项目规划]，并用 [todoist] 来写好代办
 
-![暂时列下的 todos](/blog/dev-log/weibo-todo.webp)
+![暂时列下的 todos](https://p.chilfish.top/blog/dev-log/weibo-todo.webp)
 
 同时，在每次完成之后的划掉它的感觉是真的舒服 🥳 成就感超大，超可视化。接下来就是先试手 Electron 开发，之后再迁移过去了
 

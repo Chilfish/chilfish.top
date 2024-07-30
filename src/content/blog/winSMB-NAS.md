@@ -26,25 +26,25 @@ tags: [Net]
 
 到控制面板分别打开 `网络和Internet -> 网络和共享中心 -> 更改高级共享设置`，分别开放至下图
 
-![）里面的“来宾和公共” 也要打开，如果连的WIFI或以太网是公共的话](/blog/SMB_openFound.webp)
+![）里面的“来宾和公共” 也要打开，如果连的WIFI或以太网是公共的话](https://p.chilfish.top/blog/SMB_openFound.webp)
 
 #### 开启 SMB 功能
 
 这里的话，SMB 1.0 在 win10 中是默认关闭的，因为它有被中间人攻击的可能，把它关了就好，这里只要打开 SMB 直通。确定并按提示重启就好
 
-![也是 Win+S 弹出搜索后，搜索打开 启用或关闭 Windows 功能](/blog/SMB_openSMB.webp)
+![也是 Win+S 弹出搜索后，搜索打开 启用或关闭 Windows 功能](https://p.chilfish.top/blog/SMB_openSMB.webp)
 
 #### 新建一个 Win 用户
 
 虽然直接用登录的用户也行，但为了权限之类的隔离开来，可以新建一个用来共享文件夹的用户。先是 Win + S 搜索打开计算机管理，分别点开左边的 `系统工具->本地用户和组->用户`，右键选择 “新用户”，按下图填写就好）注意这里的用户名和密码就是之后手机访问时的用户名密码了
 
-![大概填成这样](/blog/SMB_PConfig.webp)
+![大概填成这样](https://p.chilfish.top/blog/SMB_PConfig.webp)
 
 #### 选择要共享的文件夹
 
 这一步我发现不同版本的 Win10 的界面都不大一样，但步骤也没差多少。首先到要开放的文件夹右键打开属性，到共享栏中，选中高级共享，按下图填写就好
 
-![）一路确定](/blog/SMB_shareDir.webp)
+![）一路确定](https://p.chilfish.top/blog/SMB_shareDir.webp)
 
 #### 确定共享状态
 
@@ -58,7 +58,7 @@ tags: [Net]
 
 我用的是跨多端 (Win、Android、IOS、Mac) 的[猫头鹰文件](https://skyjos.cn/owlfiles/)，安卓端在[酷安](https://www.coolapk.com/apk/266816)
 
-![可以连接超多地方](/blog/SMB_owl.webp)
+![可以连接超多地方](https://p.chilfish.top/blog/SMB_owl.webp)
 
 登录账号的话，不知为什么 pc 端没微信登录，安卓端没谷歌登录……只有 apple 账户是各端都有的，那就用 Apple 登录吧）
 
@@ -66,13 +66,13 @@ tags: [Net]
 
 测了下速度……基本能把千兆 WiFi 稳定在 110MB/s 左右）当然上限还是和硬盘速度有关，用移动硬盘读写却 60% 左右
 
-![上图上传，下右图下载](/blog/SMB_speed.webp)
+![上图上传，下右图下载](https://p.chilfish.top/blog/SMB_speed.webp)
 
 #### 视频播放器
 
 当然用的更多还是瘫床上观看硬盘上的视频了）用的是 [MX Player](https://whiccx5.lanzoul.com/b00109v2j) (挂的话就到酷安搜搜)，同时它也支持 SMB 连接以及超多的一堆功能，可以说是手机端视频播放器的超顶了
 
-![在左滑->本地网络中添加](/blog/SMB_MXPlayer.webp)
+![在左滑->本地网络中添加](https://p.chilfish.top/blog/SMB_MXPlayer.webp)
 
 ### 其他一些
 

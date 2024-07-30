@@ -26,7 +26,7 @@ function lss {
 
 下载：`scoop install main/eza`
 
-![图片描述](/blog/rustify_eza.webp)
+![图片描述](https://p.chilfish.top/blog/rustify_eza.webp)
 
 ### zoxide
 
@@ -62,7 +62,7 @@ function lss {
 
 下载：`scoop install main/tokei`
 
-![](/blog/rustify_tokei.webp)
+![](https://p.chilfish.top/blog/rustify_tokei.webp)
 
 ### nushell
 

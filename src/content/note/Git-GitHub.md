@@ -61,7 +61,7 @@ git clone https://github.com/Organic-Fish/Notes.git
 
 Git 操作一个新文件的流程为：工作区(也就是本地文件)–> 暂存区(staged) –> 仓库，如下图所示：
 
-![Git 新增文件流程](/blog/Git_add.webp)
+![Git 新增文件流程](https://p.chilfish.top/blog/Git_add.webp)
 
 在完成开发后
 

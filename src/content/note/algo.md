@@ -120,9 +120,9 @@ int main() {
 
 以数组 $Arr = \{8,6,1,4,5,5,1,1,3,2,1,4,9,0,7,4\}$ 为例
 
-![树的每个节点都是区间和](/blog/algo/TreeArr0.webp)
+![树的每个节点都是区间和](https://p.chilfish.top/blog/algo/TreeArr0.webp)
 
-![树状数组与原数组的对应关系](/blog/algo/TreeArr1.webp)
+![树状数组与原数组的对应关系](https://p.chilfish.top/blog/algo/TreeArr1.webp)
 
 #### 树状数组的几种变式
 
