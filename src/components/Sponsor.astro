@@ -7,34 +7,35 @@ import { SponsorList } from '~/constant'
 >
   { SponsorList.map(sponsor => (
     <div
-      class="w-full flex flex-col justify-center rounded-2 bg-light shadow-red dark:bg-dark-7"
+      class="w-full flex flex-col justify-center gap-2 rounded-2 bg-light p-3 shadow-red dark:bg-dark-7"
     >
-      <div class="flex items-center justify-between p-3">
-        <span class="text-lg font-bold">
+      <div class="flex items-center justify-between">
+        <span class="text-4 font-bold">
         @{ sponsor.name }
         </span>
-        <span class="text-3 text-gray">
+        <div class="flex gap-4 text-3 text-gray">
+
+        <span>
           { sponsor.time }
         </span>
-      </div>
-
-      <div class="px-3 pb-4 text-3.5">
-        <a
-          href={sponsor.project.url}
-          class="block"
-          target="_blank"
-        >
+         <a
+           href={sponsor.project.url}
+           target="_blank"
+         >
         项目：{ sponsor.project.name }
         </a>
 
-        <p class="my-1 text-gray">
+        </div>
+      </div>
+
+
+        <p class="text-3.5 text-gray">
         留言：{ sponsor.message }
         </p>
 
-        <p class="text-orange">
+        <p class="text-3.5 text-orange">
         开发者回复：{ sponsor.reply }
         </p>
-      </div>
 
       {/* <div
         class="flex items-center justify-between rounded-b-2 bg-red px-4 py-2 text-lg text-white font-bold"

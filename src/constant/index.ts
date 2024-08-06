@@ -64,7 +64,7 @@ export interface Sponsor {
   }
 }
 
-export const SponsorList: Sponsor[] = [
+export const SponsorList = ([
   {
     id: 0,
     name: 'SaraKale',
@@ -79,7 +79,7 @@ export const SponsorList: Sponsor[] = [
     name: '匿名',
     time: '2024-02-28 16:56',
     amount: 20.00,
-    message: '感谢你！如果能用index.html直接查看就更好了。',
+    message: '感谢你！如果能用 index.html 直接查看就更好了。',
     reply: '现在能直接访问 weibo.chilfish.top 来查看了🥳，感谢你的支持',
     project: weibo,
   },
@@ -89,7 +89,7 @@ export const SponsorList: Sponsor[] = [
     time: '2024-04-04 11:10',
     amount: 6.00,
     message: '软件做得很好！谢谢！',
-    reply: '感谢你的支持😇',
+    reply: '感谢你的支持',
     project: weibo,
   },
   {
@@ -101,5 +101,14 @@ export const SponsorList: Sponsor[] = [
     amount: 6.00,
     project: weibo,
   },
-]
+  {
+    id: 4,
+    name: '匿名',
+    time: '2024-08-04 02:03',
+    message: '感谢，很好的工具！开发辛苦了',
+    amount: 10.00,
+    reply: '感谢支持~',
+    project: weibo,
+  },
+] satisfies Sponsor[])
   .sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime())
