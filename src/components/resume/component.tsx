@@ -43,7 +43,7 @@ export const MyInfo = () => (
         <a
           href="mailto:chill4fish@gmail.com"
         >
-          chill4fish@gmail.com
+          chilfish@qq.com
         </a>
       </div>
 

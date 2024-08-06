@@ -3,9 +3,6 @@ import { host } from '~/constant'
 
 const robots = `
 User-agent: *
-Disallow:
-
-User-agent: *
 Allow: /
 
 Sitemap: ${new URL('sitemap-index.xml', host).href}
