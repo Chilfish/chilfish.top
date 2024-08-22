@@ -1,24 +1,24 @@
 /* eslint-disable antfu/top-level-function */
 import type { SetupContext } from 'vue'
-import { myJob } from '~/constant'
+import { myJob } from './'
 
 const {
-  RESUME_INFO: resumeInfo = 'Chilfish;131xxxxxx94;xx学院;',
+  RESUME_INFO: resumeInfo = 'Chilfish;131xxxxxx94;xx学院;广州;',
 } = import.meta.env
 
 const info = resumeInfo.split(';')
-const age = new Date().getFullYear() - 2003
+// const age = new Date().getFullYear() - 2003
 
 export const MyInfo = () => (
   <div class="center-col items-start gap-4">
-    <h1 class="font-bold">
+    <h2 class="font-bold">
       <span class="mr-4 text-5">
         {info[0]}
       </span>
       <span class="text-3.4">
         {myJob()}
       </span>
-    </h1>
+    </h2>
 
     <div
       class="resume-info flex flex-wrap gap-4"
@@ -28,8 +28,7 @@ export const MyInfo = () => (
         <span>
           男
           <span class="mx-1">|</span>
-          {age}
-          岁
+          {info[3]}
         </span>
       </div>
 
@@ -62,7 +61,7 @@ export const MyInfo = () => (
 
 interface TProjectTitle {
   title: string
-  date: string
+  date?: string
   url?: string
   stars?: number | string
 }

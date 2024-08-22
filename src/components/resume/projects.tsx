@@ -4,18 +4,17 @@ import { ProjectTitle } from './component'
 export const Weibo = () => (
   <li>
     <ProjectTitle
-      title="Weibo-archiver - 微博备份工具"
+      title="Weibo-archiver - 开源微博备份工具"
       url="https://github.com/Chilfish/weibo-archiver"
-      date="2023.10 - 至今"
-      stars="230"
+      stars="240"
     >
       <p>
-        <strong>介绍：</strong>
-        针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储及在线查看于一体的解决方案，下载量达到4k+。
+        <strong>技术：</strong>
+        Vue3、Vite、油猴脚本、NaiveUI、Axios、Pinia、Nuxt、IndexedDB、CLI开发等。
       </p>
       <p>
-        <strong>技术：</strong>
-        Vue3、Vite、油猴脚本、NaiveUI、UnoCSS、Pinia、Nuxt、IndexedDB、CLI开发等。
+        <strong>介绍：</strong>
+        针对现有微博爬虫工具缺乏直观用户界面的问题，开发了一套集数据爬取、存储及在线查看于一体的解决方案。
       </p>
     </ProjectTitle>
 
@@ -24,7 +23,7 @@ export const Weibo = () => (
         利用油猴脚本技术在微博页面动态注入 Vue 控制面板 UI，实现了丰富的数据导出配置。
       </li>
       <li>
-        通过 Axios 爬取微博API的用户数据并动态暂存在 IndexedDB 中，保证了数据的持久化。
+        通过 Axios 获取微博API的用户数据并动态暂存在 IndexedDB 中，以保证数据的持久化。
       </li>
       <li>
         开发了纯前端的在线查看平台，用户可导入爬取的微博数据到本地来查看，确保数据私密性。
@@ -48,16 +47,15 @@ export const Weibo = () => (
 export const ColdChain = () => (
   <li>
     <ProjectTitle
-      title="疫苗温度与定位监控系统 - 独立开发"
-      date="2024.06 - 2024.06"
+      title="疫苗温度与定位大屏监控系统 - 独立开发"
     >
+      <p>
+        <strong>技术：</strong>
+        Vue3、TypeScript、EChart.js、MongoDB、SSE、SpringBoot 等。
+      </p>
       <p>
         <strong>介绍：</strong>
         开发了一套用于实时监控疫苗运输过程中温度和位置的大屏展示系统，集成数据统计、异常告警、定位监控等功能。
-      </p>
-      <p>
-        <strong>技术：</strong>
-        Vue3、TypeScript、EChart.js、MongoDB、SSE、SpringBoot、Redis、MybatisPlus 等。
       </p>
     </ProjectTitle>
     <ul>
@@ -68,13 +66,13 @@ export const ColdChain = () => (
         前端通过 Server-Sent Events（SSE）与后端实现数据实时通信，实时地更新冷链箱子的状态。
       </li>
       <li>
-        支持注解式菜单权限拦截和数据权限拦截，确保系统权限管理的精细化和灵活性。
+        通过路由携带的信息，实现从大屏页面跳转到具体的冷链箱子的定位地图页面。
       </li>
       <li>
-        支持加载动态权限菜单，实现实时权限控制，增强系统的可维护性和扩展性。
+        地图页面接入高德地图 API，实现冷链箱子的实时定位显示。
       </li>
       <li>
-        采用 Redis 缓存和数据库分片策略，以及通过消息队列和异步处理机制，保证系统在高并发情况下的稳定性和高效性。
+        管理系统中支持注解式菜单权限拦截和数据权限拦截，确保系统权限管理的精细化和灵活性。
       </li>
     </ul>
   </li>

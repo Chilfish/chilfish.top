@@ -23,7 +23,7 @@ export const ResumeMain = (props: {
       <MyInfo />
 
       <img
-        class="w-18 rounded-1 object-cover"
+        class="w-20 rounded-1 object-cover"
         alt="个人照片"
         src={avatar}
       />
@@ -37,7 +37,7 @@ export const ResumeMain = (props: {
         </p>
         <time>2021 - 2025</time>
       </div>
-      <p>英语四级证书、蓝桥杯省二等奖</p>
+      <p>英语四级证书、蓝桥杯省奖</p>
     </Section>
 
     <Section title="专业技能">
