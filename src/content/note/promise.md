@@ -46,7 +46,7 @@ conoole.log(img.width)
 这样就可以在外面使用 img 了，而不是通过传一个回调函数的参数来使用。这种做法就叫做 **promisify**，可以写成一个通用的函数：
 
 ```ts
-function promisify<T = any>(fn: Function): (...args: any[]) => Promise<T> {
+function promisify<T = any>(fn: (...args: any[]) => any): (...args: any[]) => Promise<T> {
   return (...args: any[]) => {
     return new Promise((resolve, reject) => {
       fn(...args, (err: any, data: T) => {

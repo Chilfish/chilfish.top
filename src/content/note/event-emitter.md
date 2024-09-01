@@ -11,8 +11,9 @@ description: 事件处理器是一个经典的设计模式，它可以让我们�
 但要实现全局的事件传递，我们需要一个全局的事件处理器，最经典精简的库就是 [developit/mitt] 了，不过我们可以手动实现它
 
 ```ts
+type fn = (...args: any[]) => void
 export function emitter() {
-  const events = new Map<string, Function[]>()
+  const events = new Map<string, fn[]>()
 
   function get(name: string) {
     if (events.has(name))
@@ -23,7 +24,7 @@ export function emitter() {
   /**
    * 订阅事件
    */
-  function on(name: string, cb: Function) {
+  function on(name: string, cb: fn) {
     if (!events.has(name))
       events.set(name, [])
 
@@ -44,7 +45,7 @@ export function emitter() {
   /**
    * 取消订阅
    */
-  function off(name: string, cb: Function) {
+  function off(name: string, cb: fn) {
     const cbs = get(name)
     const index = cbs.indexOf(cb)
     if (index > -1)
@@ -54,7 +55,7 @@ export function emitter() {
   /**
    * 只订阅一次
    */
-  function once(name: string, cb: Function) {
+  function once(name: string, cb: fn) {
     const off = on(name, (...args: any[]) => {
       off()
       cb(...args)
