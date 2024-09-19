@@ -31,6 +31,10 @@ export const GET: APIRoute = async (context) => {
     description: 'Chilfish’s Blog',
     site: context.site!,
     items: rssItems,
-    customData: `<language>zh-cn</language>`,
+    customData: `<language>zh-cn</language>
+<follow_challenge>
+  <feedId>57645530191768577</feedId>
+  <userId>41455408951018496</userId>
+</follow_challenge>`,
   })
 }
