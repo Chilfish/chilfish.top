@@ -1,18 +1,18 @@
 ---
 import PostTimeLine from '~/components/post/PostTimeLine.astro'
 import Layout from '~/layouts/Layout.astro'
-import { getWords, sortPostsByDate } from '~/utils'
+import { getAllPosts, sortPostsByDate } from '~/utils'
 
-const { posts, total } = await getWords()
+const posts = (await getAllPosts()).flat()
 ---
 
 <Layout
   title="归档"
 >
   <main class="center-col">
-    <h3 class="text-xl">
+    <!-- <h3 class="text-xl">
       总共 {total} 千字
-    </h3>
+    </h3> -->
 
     <PostTimeLine
       title="归档"

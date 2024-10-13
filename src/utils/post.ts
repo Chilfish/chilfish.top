@@ -1,7 +1,6 @@
 import { getCollection } from 'astro:content'
-import { sortPostsByDate } from './date'
 import type { ContentType, Post, PostSchema } from '~/types'
-import { getReadTime } from '~/plugins/read-time'
+import { sortPostsByDate } from './date'
 
 export async function getAllPosts() {
   const [blogs, notes] = await Promise.all([
@@ -72,25 +71,25 @@ export async function getAdjacentBlogs(slug: string, type: ContentType = 'blog')
  * 获取所有的字数统计
  */
 export async function getWords() {
-  const posts = (await getAllPosts()).flat()
+  // const posts = (await getAllPosts()).flat()
 
-  const words = posts
-    .map((post) => {
-      const data = post.data as PostSchema
-      const { words } = getReadTime(post.body.trim().replace('\n', ''))
+  // const words = posts
+  //   .map((post) => {
+  //     const data = post.data as PostSchema
+  //     const { words } = getReadTime(post.body.trim().replace('\n', ''))
 
-      return {
-        date: data.date,
-        title: data.title,
-        url: `/${post.collection}/${post.slug}/`,
-        words: (words / 1000).toFixed(2),
-      }
-    })
-  const total = words.reduce((acc, cur) => acc + Number.parseFloat(cur.words), 0).toFixed(2)
+  //     return {
+  //       date: data.date,
+  //       title: data.title,
+  //       url: `/${post.collection}/${post.slug}/`,
+  //       words: (words / 1000).toFixed(2),
+  //     }
+  //   })
+  // const total = words.reduce((acc, cur) => acc + Number.parseFloat(cur.words), 0).toFixed(2)
 
-  return {
-    words,
-    total,
-    posts,
-  }
+  // return {
+  //   words,
+  //   total,
+  //   posts,
+  // }
 }

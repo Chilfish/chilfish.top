@@ -1,14 +1,13 @@
-import { unified } from 'unified'
+import type { RehypePlugins, RemarkPlugins } from 'astro'
+import rehypeRaw from 'rehype-raw'
 import rehypeRewrite from 'rehype-rewrite'
+import rehypeStringify from 'rehype-stringify'
 import remarkEmoji from 'remark-emoji'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import rehypeRaw from 'rehype-raw'
 
-import type { RehypePlugins, RemarkPlugins } from 'astro'
+import { unified } from 'unified'
 import { rehypeRewriteOptions } from './markdownParse'
-import { remarkReadingTime } from './read-time'
 
 export * from './markdownParse'
 /**
@@ -42,5 +41,4 @@ export const rehypePlugins: RehypePlugins = [
 export const remarkPlugins: RemarkPlugins = [
   // 将 md 的 emoji 语法转换为 emoji 图标
   [remarkEmoji, { accessible: true }],
-  remarkReadingTime,
 ]

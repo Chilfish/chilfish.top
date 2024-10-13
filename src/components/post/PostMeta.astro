@@ -11,8 +11,6 @@ const {
   author,
   date: pubDate,
   modifiedDate,
-  reading,
-  words,
   category,
 } = Astro.props
 ---
@@ -45,10 +43,10 @@ const {
       </div>
     )}
 
-    <div title={`预计 ${reading.toFixed(1)} 分钟`}>
+    <!-- <div title={`预计 ${reading.toFixed(1)} 分钟`}>
       <i i-tabler-pencil />
       <span> {words}个字 </span>
-    </div>
+    </div> -->
 
     <div title="分类">
       <i i-tabler-tag />

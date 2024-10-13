@@ -18,10 +18,7 @@ const post = defineCollection({
   schema: () => postSchema,
 })
 
-export type PostSchema = z.infer<typeof postSchema> & {
-  reading: number
-  words: number
-}
+export type PostSchema = z.infer<typeof postSchema>
 
 export const collections = {
   blog: post,
