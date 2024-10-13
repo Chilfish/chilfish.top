@@ -1,6 +1,6 @@
 ---
-import Head from '@cp/common/Head.astro'
 import Footer from '@cp/common/Footer.astro'
+import Head from '@cp/common/Head.astro'
 import Header from '@cp/common/Header.astro'
 import type { MainProps } from '~/types'
 
@@ -45,7 +45,7 @@ document.addEventListener('astro:after-preparation', () => {
 })
 
 function setDarkMode(document) {
-  let theme = localStorage.getItem('theme') || 'dark'
+  let theme = localStorage.getItem('theme') || 'light'
   if (theme === 'light' || theme === 'auto')
     theme = 'light'
 

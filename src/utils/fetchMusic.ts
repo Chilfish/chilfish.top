@@ -1,11 +1,6 @@
+import { NCM_API, NCM_UID } from 'astro:env/server'
 import { ofetch } from 'ofetch'
 import type { Song } from '~/types'
-
-const {
-  NCM_API = '',
-  NCM_COOKIE = '',
-  NCM_UID = 1,
-} = import.meta.env
 
 interface Data {
   playCount: number
@@ -22,10 +17,12 @@ interface RankData {
 const fetcher = ofetch.create({
   baseURL: NCM_API,
   headers: {
-    'Cookie': NCM_COOKIE,
     'Cache-Control': 's-max-age=86400, stale-while-revalidate=30', // 缓存一天
     'CDN-Cache-Control': 'max-age=86400',
     'Vercel-CDN-Cache-Control': 'max-age=86400',
+  },
+  onResponseError({ error }) {
+    console.error(error)
   },
 })
 
@@ -46,7 +43,7 @@ function parseSong(song: Song) {
 export async function musicRank() {
   const url = `${NCM_API}/user/record?uid=${NCM_UID}&type=1`
 
-  const { data } = await fetcher<{ data: RankData }>(url)
+  const { data } = await fetcher<{ data: RankData }>(url).catch(() => ({ data: null }))
 
   if (!data)
     return []
@@ -59,7 +56,7 @@ export async function musicRank() {
 }
 
 export async function musicLikes() {
-  const { data } = await fetcher<{ data: { songs: Song[] } }>('/playlist/track/all?id=2648568306&limit=20')
+  const { data } = await fetcher<{ data: { songs: Song[] } }>('/playlist/track/all?id=2648568306&limit=20').catch(() => ({ data: null }))
 
   if (!data)
     return []

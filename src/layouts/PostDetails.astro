@@ -1,19 +1,19 @@
 ---
 import Alert from '@cp/common/Alert.astro'
+import BackToTop from '@cp/common/BackToTop.astro'
 import Image from '@cp/common/Image.astro'
 import ImagePreview from '@cp/common/ImagePreview.vue'
-import BackToTop from '@cp/common/BackToTop.astro'
 import PagesNav from '@cp/common/PagesNav.astro'
 import AdjacentPosts from '@cp/post/AdjacentPosts.astro'
+import Comments from '@cp/post/Comments.vue'
 import PostMeta from '@cp/post/PostMeta.astro'
 import PostTags from '@cp/post/PostTags.astro'
-import Comments from '@cp/post/Comments.vue'
 import TableOfContent from '@cp/post/TableOfContent.vue'
-import Layout from './Layout.astro'
+import type { PostSchema } from '~/content/config'
 
 import type { Post, PrevNext } from '~/types'
-import type { PostSchema } from '~/content/config'
-import { MONTH, formatDate } from '~/utils/date'
+import { formatDate, MONTH } from '~/utils/date'
+import Layout from './Layout.astro'
 import '@assets/post-details.scss'
 
 interface Props {
