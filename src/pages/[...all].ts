@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro'
+import { redirectMap } from '~/constant/redirects'
 import { getAllPosts } from '~/utils'
 
 /**
@@ -6,14 +7,21 @@ import { getAllPosts } from '~/utils'
  */
 export const GET: APIRoute = async ({ redirect, url }) => {
   const _url = url.pathname.split('/').filter(Boolean)
-  if (_url[0] !== 'blog' && _url[0] !== 'note')
-    return redirect('/404')
+
+  // if (_url[0] !== 'blog' && _url[0] !== 'note')
+  //   return redirect('/404')
 
   const posts = await getAllPosts()
   const slugs = posts.flat().map(post => post.slug)
 
   if (slugs.includes(_url.slice(1).join('/') as any))
     return redirect(`/posts/${_url.reverse()[0]}/`)
+
+  const from = url.pathname
+  const to = redirectMap.find(redirect => redirect.from === from)?.to
+
+  if (to)
+    return redirect(to)
 
   return redirect('/404')
 }

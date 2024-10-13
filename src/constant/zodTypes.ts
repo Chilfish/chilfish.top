@@ -1,5 +1,5 @@
-import { z } from 'astro:content'
 import type { Tech } from './techs'
+import { z } from 'astro:content'
 
 const _Project = z.object({
   name: z.string(),

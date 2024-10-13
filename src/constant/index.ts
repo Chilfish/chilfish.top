@@ -1,10 +1,10 @@
-import { githubHost, imgHost } from './config'
 import type { Project } from './zodTypes'
+import { githubHost, imgHost } from './config'
 
 export * from './config'
+export * from './hostIcons'
 export * from './techs'
 export * from './zodTypes'
-export * from './hostIcons'
 
 export const ProjectList: Project[] = [
   {
