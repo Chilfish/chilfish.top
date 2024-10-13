@@ -1,6 +1,6 @@
 ---
-import Image from './Image.astro'
 import DarkToggle from './DarkToggle.astro'
+import Image from './Image.astro'
 
 ---
 
@@ -11,7 +11,7 @@ import DarkToggle from './DarkToggle.astro'
 >
   <a
     href="/"
-    class="center gap-3"
+    class="min-w-fit center gap-3"
   >
     <Image
       class="rounded-full"
@@ -31,25 +31,18 @@ import DarkToggle from './DarkToggle.astro'
   </a>
 
   <nav
-    class="w-full gap-4 trans-all"
+    class="w-full gap-4"
     uno-sm="flex w-auto py-4"
   >
-    <button class="nav-menu ml-auto icon-box p-4 sm:hidden sm:p-0">
-      <span class="i-tabler:menu-deep icon h-6 w-6"></span>
-      <span class="i-tabler:brand-x icon hidden h-6 w-6"></span>
-    </button>
-
     <ul
-      class="nav-item hidden w-full center-col gap-4 pb-4 blur-bg"
-      uno-bg="light-1 dark:dark"
-      uno-sm="flex-row flex w-fit ml-auto gap-4 p-0 bg-transparent!"
+      class="ml-auto w-fit center gap-4"
     >
-      <!-- <a href="/archives"> Archives </a> -->
     <!-- <a href="/tags"> Tags </a> -->
       <a href="/music"> Music </a>
       <a href="/sponsors"> Sponsors </a>
+      <a href="/blog"> Blogs </a>
       <a href="/about"> About </a>
-      <div class="min-w-fit center gap-4">
+      <div class="min-w-fit center gap-4 text-4">
         <!-- <a
           title="RSS Feed"
           href="/feed"
@@ -72,8 +65,8 @@ import DarkToggle from './DarkToggle.astro'
 </header>
 
 <style>
-ul.nav-item a {
-  @apply: sm:min-w-fit w-80% text-center rounded hover:text-primary;
+nav>ul a {
+  @apply: hover:text-primary;
 }
 </style>
 

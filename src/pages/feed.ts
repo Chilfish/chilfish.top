@@ -7,7 +7,7 @@ import { getPosts } from '~/utils'
 const excludes = ['forks']
 const limit = 15
 
-export const GET: APIRoute = async (context) => {
+const _GET: APIRoute = async (context) => {
   const blogs = await getPosts()
 
   const rssItems: RSSFeedItem[] = await Promise.all(
