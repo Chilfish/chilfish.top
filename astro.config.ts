@@ -58,4 +58,9 @@ export default defineConfig({
   image: {
     domains: [imgHost.replace(/https?:\/\//, '')],
   },
+  vite: {
+    ssr: {
+      external: ['node:buffer'],
+    },
+  },
 })
