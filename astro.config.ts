@@ -1,13 +1,13 @@
-import { defineConfig, squooshImageService } from 'astro/config'
-import AutoImport from 'unplugin-auto-import/astro'
-import AutoImportAstro from 'astro-auto-import'
-import sitemap from '@astrojs/sitemap'
+import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
-import vue from '@astrojs/vue'
-import UnoCSS from 'unocss/astro'
-import vercel from '@astrojs/vercel/serverless'
 import node from '@astrojs/node'
+import sitemap from '@astrojs/sitemap'
+import vue from '@astrojs/vue'
+import { defineConfig } from 'astro/config'
+import AutoImportAstro from 'astro-auto-import'
 import expressiveCode from 'astro-expressive-code'
+import UnoCSS from 'unocss/astro'
+import AutoImport from 'unplugin-auto-import/astro'
 import { host, imgHost } from './src/constant/config'
 import { rehypePlugins, remarkPlugins } from './src/plugins'
 
@@ -22,7 +22,7 @@ export default defineConfig({
   output: 'server',
   adapter: isNode
     ? node({ mode: 'standalone' })
-    : vercel(),
+    : cloudflare(),
   integrations: [
     vue({
       jsx: true,
@@ -56,7 +56,6 @@ export default defineConfig({
   },
   prefetch: true,
   image: {
-    service: squooshImageService(),
     domains: [imgHost.replace(/https?:\/\//, '')],
   },
 })
