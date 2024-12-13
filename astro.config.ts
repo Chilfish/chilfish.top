@@ -65,7 +65,7 @@ export default defineConfig({
   },
   vite: {
     ssr: {
-      external: ['node:buffer'],
+      external: ['node:buffer', 'node:fs', 'node:path', 'node:stream', 'node:url'],
     },
     css: {
       preprocessorOptions: {
