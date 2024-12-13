@@ -1,8 +1,8 @@
 ---
+import type { MainProps } from '~/types'
 import Footer from '@cp/common/Footer.astro'
 import Head from '@cp/common/Head.astro'
 import Header from '@cp/common/Header.astro'
-import type { MainProps } from '~/types'
 
 type Props = MainProps
 
@@ -28,8 +28,8 @@ const {
 </html>
 
 <style is:global lang="scss">
-@import '@assets/main.scss';
-@import '@assets/NProgress.scss';
+@use '@assets/main.scss';
+@use '@assets/NProgress.scss';
 </style>
 
 <script is:inline>

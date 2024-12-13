@@ -3,9 +3,9 @@ import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
 import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
-import { defineConfig, envField } from 'astro/config'
 import AutoImportAstro from 'astro-auto-import'
 import expressiveCode from 'astro-expressive-code'
+import { defineConfig, envField } from 'astro/config'
 import UnoCSS from 'unocss/astro'
 import AutoImport from 'unplugin-auto-import/astro'
 import { host, imgHost } from './src/constant/config'
@@ -67,21 +67,26 @@ export default defineConfig({
     ssr: {
       external: ['node:buffer'],
     },
-  },
-  experimental: {
-    env: {
-      schema: {
-        NCM_API: envField.string({
-          context: 'server',
-          default: NCM_API,
-          access: 'public',
-        }),
-        NCM_UID: envField.number({
-          context: 'server',
-          default: NCM_UID,
-          access: 'public',
-        }),
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+        },
       },
+    },
+  },
+  env: {
+    schema: {
+      NCM_API: envField.string({
+        context: 'server',
+        default: NCM_API,
+        access: 'public',
+      }),
+      NCM_UID: envField.number({
+        context: 'server',
+        default: NCM_UID,
+        access: 'public',
+      }),
     },
   },
 })
