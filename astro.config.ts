@@ -1,7 +1,8 @@
-import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
 import sitemap from '@astrojs/sitemap'
+// import cloudflare from '@astrojs/cloudflare'
+import vercel from '@astrojs/vercel'
 import vue from '@astrojs/vue'
 import AutoImportAstro from 'astro-auto-import'
 import expressiveCode from 'astro-expressive-code'
@@ -27,7 +28,7 @@ export default defineConfig({
   output: 'server',
   adapter: isNode
     ? node({ mode: 'standalone' })
-    : cloudflare(),
+    : vercel(),
   integrations: [
     vue({
       jsx: true,
