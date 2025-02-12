@@ -18,10 +18,10 @@ Stream 的 api 基本上在浏览器和 Node 环境都能使用，但也有一�
 下面的代码使用了 `pipeline` 函数，它是 Node 里的一个工具函数，用于将多个流连接起来，当其中一个流出错时，会自动关闭所有流。它在管道中对数据进行了 gzip 压缩
 
 ```ts
-import { pipeline as _pipeline } from 'node:stream'
 import { createReadStream, createWriteStream } from 'node:fs'
-import { createGzip } from 'node:zlib'
+import { pipeline as _pipeline } from 'node:stream'
 import { promisify } from 'node:util'
+import { createGzip } from 'node:zlib'
 
 const pipeline = promisify(_pipeline)
 

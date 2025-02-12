@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from 'astro'
+import type { Post, PrevNext } from '~/types'
 import PostDetails from '~/layouts/PostDetails.astro'
 import { getAllPosts } from '~/utils'
-import type { Post, PrevNext } from '~/types'
 
 type Props = {
   post: Post

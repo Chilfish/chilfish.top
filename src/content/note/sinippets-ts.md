@@ -17,19 +17,22 @@ export function toURL(arrayBuffer: ArrayBuffer) {
   let type = 'image/png'
   const buffer = new Uint8Array(arrayBuffer)
 
-  if (buffer.byteLength > 0 && buffer[0] === 60)
+  if (buffer.byteLength > 0 && buffer[0] === 60) {
     type = 'image/svg+xml'
+  }
 
   else if (
     buffer.byteLength > 3
     && buffer[0] === 71
     && buffer[1] === 73
     && buffer[2] === 70
-  )
+  ) {
     type = 'image/gif'
+  }
 
-  else if (buffer.byteLength > 2 && buffer[0] === 255 && buffer[1] === 216)
+  else if (buffer.byteLength > 2 && buffer[0] === 255 && buffer[1] === 216) {
     type = 'image/jpeg'
+  }
 
   const url = URL.createObjectURL(new Blob([buffer], { type }))
 
@@ -195,7 +198,7 @@ export function deepClone<T = any>(
     return x
 
   if (Array.isArray(x)) {
-    const output = Array(x.length)
+    const output = Array.from({ length: x.length })
     x.forEach((value, index) => output[index] = set(value))
     return output as T
   }

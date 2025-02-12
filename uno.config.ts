@@ -7,8 +7,8 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-import { TechIcons } from './src/constant/techs'
 import { HostIconList } from './src/constant/hostIcons'
+import { TechIcons } from './src/constant/techs'
 
 export default defineConfig({
   shortcuts: [

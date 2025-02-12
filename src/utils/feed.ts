@@ -1,5 +1,6 @@
+import type { RSSFeedItem } from '@astrojs/rss'
 import type { APIRoute } from 'astro'
-import rss, { type RSSFeedItem } from '@astrojs/rss'
+import rss from '@astrojs/rss'
 
 import { markdownCompiler } from '~/plugins'
 import { getPosts } from '~/utils'

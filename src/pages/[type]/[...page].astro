@@ -1,13 +1,13 @@
 ---
 import type { GetStaticPaths } from 'astro'
 
-import PostTimeLine from '~/components/post/PostTimeLine.astro'
-import Layout from '~/layouts/Layout.astro'
-import BlogListLayout from '~/layouts/BlogListLayout.astro'
-
-import { getAllPosts } from '~/utils'
-import { pageSize } from '~/constant/config'
 import type { PostPage } from '~/types'
+import PostTimeLine from '~/components/post/PostTimeLine.astro'
+import { pageSize } from '~/constant/config'
+
+import BlogListLayout from '~/layouts/BlogListLayout.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getAllPosts } from '~/utils'
 
 const url = Astro.url.pathname.split('/').filter(Boolean)
 

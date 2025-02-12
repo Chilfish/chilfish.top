@@ -19,9 +19,9 @@ tags: [Vue]
 element-plus 是一个 monorepo，在 /packages 下是项目各个包的根目录，从 `import ElementPlus from 'element-plus'` 在仓库中找到 [/packages/element-plus] 这就是它的入口处。在 index.ts 中可以看出它导出了将所有组件和插件设为 vue installer 插件
 
 ```ts
+import Components from './component'
 // /packages/element-plus/default
 import { makeInstaller } from './make-installer'
-import Components from './component'
 import Plugins from './plugin'
 
 export default makeInstaller([...Components, ...Plugins])

@@ -1,5 +1,5 @@
-import { getCollection } from 'astro:content'
 import type { ContentType, Post, PostSchema } from '~/types'
+import { getCollection } from 'astro:content'
 import { sortPostsByDate } from './date'
 
 export async function getAllPosts() {

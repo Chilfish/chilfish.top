@@ -1,10 +1,10 @@
 ---
 import type { GetStaticPaths } from 'astro'
 
+import type { PostPage } from '~/types'
+import { pageSize } from '~/constant/config'
 import BlogListLayout from '~/layouts/BlogListLayout.astro'
 import { filterTags, getAllPosts, getPostsByTag } from '~/utils'
-import { pageSize } from '~/constant/config'
-import type { PostPage } from '~/types'
 
 export const prerender = true
 

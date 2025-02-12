@@ -1,4 +1,6 @@
 ---
+import type { PostSchema } from '~/content/config'
+import type { Post, PrevNext } from '~/types'
 import Alert from '@cp/common/Alert.astro'
 import BackToTop from '@cp/common/BackToTop.astro'
 import Image from '@cp/common/Image.astro'
@@ -8,10 +10,8 @@ import AdjacentPosts from '@cp/post/AdjacentPosts.astro'
 import Comments from '@cp/post/Comments.vue'
 import PostMeta from '@cp/post/PostMeta.astro'
 import PostTags from '@cp/post/PostTags.astro'
-import TableOfContent from '@cp/post/TableOfContent.vue'
-import type { PostSchema } from '~/content/config'
 
-import type { Post, PrevNext } from '~/types'
+import TableOfContent from '@cp/post/TableOfContent.vue'
 import { formatDate, MONTH } from '~/utils/date'
 import Layout from './Layout.astro'
 import '@assets/post-details.scss'

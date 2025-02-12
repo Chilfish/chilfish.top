@@ -1,6 +1,6 @@
+import type { Song } from '~/types'
 import { NCM_API, NCM_UID } from 'astro:env/server'
 import { ofetch } from 'ofetch'
-import type { Song } from '~/types'
 
 interface Data {
   playCount: number
