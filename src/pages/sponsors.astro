@@ -2,20 +2,36 @@
 import Image from '@cp/common/Image.astro'
 import Sponsor from '@cp/Sponsor.astro'
 import { imgHost } from '~/constant'
-import Layout from '~/layouts/Layout.astro'
-
+import Layout from '~/layouts/Layout.astro';
 ---
 
-<Layout
-  title="Chilfish's sponsors"
->
-  <main class="mx-auto max-w-86ch flex flex-col justify-center gap-6 px-4">
-    <h2 class="text-2xl font-bold">
-      赞助我
-    </h2>
+<Layout title="Chilfish's sponsors">
+  <main class="mx-auto max-w-86ch flex flex-col justify-center gap-4 px-4">
+    <h2 class="text-2xl font-bold">赞助我</h2>
 
     <p>
-      如果你觉得我的项目或者文章对你有所帮助，欢迎赞助我，这对我有很大的帮助，让我有更多的动力去开发 *Heart ❤️。
+      如果你觉得我的项目或者文章对你有所帮助，欢迎赞助我，这对我有很大的帮助，让我有更多的动力去开发
+      *Heart ❤️
+    </p>
+
+    <p>
+      如果想咨询项目上的问题，可以找我的邮箱：<a
+        class="text-primary"
+        href="mailto:chilfish@qq.com"
+                          >chilfish@qq.com</a
+      >
+      忙的时候可能回复不及时，见谅
+    </p>
+
+    <p>
+      如果是
+      <a
+        class="text-primary"
+        href="https://github.com/chilfish/weibo-archiver"
+      >weibo-archiver</a
+      > 项目方面的疑惑，除了邮件外，可以先看看我们的
+      <a class="text-primary" href="https://weibo.chilfish.top/docs">文档</a> 或是
+      <a class="text-primary" href="https://github.com/chilfish/weibo-archiver/discussions">discussions</a> 列表，可能已经有人提过你的问题了
     </p>
 
     <details
@@ -28,9 +44,7 @@ import Layout from '~/layouts/Layout.astro'
         <strong>点击展开赞赏码</strong>
       </summary>
 
-      <p class="mt-4">
-        可以的话希望也留下你的昵称~❤️
-      </p>
+      <p class="mt-4">可以的话希望也留下你的昵称~❤️</p>
 
       <div class="center p-4">
         <Image

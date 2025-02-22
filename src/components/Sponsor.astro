@@ -2,49 +2,43 @@
 import { SponsorList } from '~/constant'
 ---
 
-<ul
-  class="w-full center-col gap-4"
->
-  { SponsorList.map(sponsor => (
-    <div
-      class="w-full flex flex-col justify-center gap-2 rounded-2 bg-light p-3 shadow-red dark:bg-dark-7"
-    >
-      <div class="flex items-center justify-between">
-        <span class="text-4 font-bold">
-        @{ sponsor.name }
-        </span>
-        <div class="flex gap-4 text-3 text-gray">
+<div class="container">
+  <header class="my-4">
+    <h2 class="text-2xl font-bold">赞助列表</h2>
+  </header>
 
-        <span>
-          { sponsor.time }
-        </span>
-         <a
-           href={sponsor.project.url}
-           target="_blank"
-         >
-        项目：{ sponsor.project.name }
-        </a>
+  <div class="grid grid-cols-1 gap-2 lg:grid-cols-3 md:grid-cols-2">
+    {SponsorList.map(sponsor => (
+      <div class="relative overflow-hidden border-2 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+        <div class="flex flex-col gap-2 p-2">
+          <div class="flex flex-col flex-wrap justify-between gap-2">
+            <h3 class="font-medium tracking-tight">@{sponsor.name}</h3>
+            <time class="text-sm">{sponsor.time}</time>
+          </div>
 
+          <a
+            href={sponsor.project.url}
+            target="_blank"
+            class="inline-flex items-center gap-1 text-sm text-primary/90 transition-colors hover:text-primary"
+          >
+            项目：
+            <span class="i-tabler-link h-4 w-4 transition-transform group-hover:rotate-12" />
+            {sponsor.project.name}
+          </a>
+
+          <div class="mt-auto pt-2">
+            <div class="flex items-center justify-between rounded-lg bg-primary/8 px-4 py-3 backdrop-blur-sm">
+              <div class="flex items-center gap-2">
+                <span class="i-tabler-pig-money h-5 w-5 text-primary/90" />
+                <span class="text-sm font-medium">赞助金额</span>
+              </div>
+              <span class="text-primary font-semibold">
+                ￥{sponsor.amount.toFixed(2)}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-
-
-        <p class="text-3.5 text-gray">
-        留言：{ sponsor.message }
-        </p>
-
-        <p class="text-3.5 text-orange">
-        开发者回复：{ sponsor.reply }
-        </p>
-
-      {/* <div
-        class="flex items-center justify-between rounded-b-2 bg-red px-4 py-2 text-lg text-white font-bold"
-      >
-        <span class="i-tabler-pig-money icon h-5 w-5" />
-        <span>
-        ￥{ sponsor.amount.toFixed(2) }
-        </span>
-      </div> */}
-    </div>
-  )) }
-</ul>
+    ))}
+  </div>
+</div>

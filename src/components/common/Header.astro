@@ -5,9 +5,9 @@ import Image from './Image.astro'
 ---
 
 <header
-  class="z-100 mb-6 h-14 flex items-center justify-between px-4 trans-all"
+  class="sticky top-0 z-100 mb-6 h-14 flex items-center justify-between px-4 trans-all"
   uno-bg="light-1 dark:dark"
-  uno-md="px-80"
+  uno-lg="px-80"
 >
   <a
     href="/"
@@ -31,34 +31,22 @@ import Image from './Image.astro'
   </a>
 
   <nav
-    class="w-full text-3.5"
-    uno-sm="flex w-auto py-4"
+    class="w-full text-4"
   >
     <ul
       class="ml-auto w-fit center gap-2"
     >
-    <!-- <a href="/tags"> Tags </a> -->
-      <a href="/music"> Music </a>
-      <a href="/sponsors"> Sponsors </a>
-      <a href="/blog"> Blogs </a>
-      <a href="/about"> About </a>
-      <div class="center gap-2">
-        <!-- <a
-          title="RSS Feed"
-          href="/feed"
-          class="w-fit!"
-        >
-          <span class="i-tabler:rss icon"></span>
-        </a> -->
-        <a
-          title="Github repo"
-          target="_blank"
-          href="https://github.com/chilfish"
-        >
-          <i class="i-tabler:brand-github icon"></i>
-        </a>
-        <DarkToggle />
-      </div>
+      <a href="/music" title="Music"> <i class="i-tabler:music icon"></i> </a>
+      <a href="/sponsors" title="Sponsors"> <i class="i-tabler:heart icon"></i> </a>
+      <a href="/blog" title="Blogs"> <i class="i-tabler:article icon"></i> </a>
+      <a
+        title="Github repo"
+        target="_blank"
+        href="https://github.com/chilfish"
+      >
+        <i class="i-tabler:brand-github icon"></i>
+      </a>
+      <DarkToggle />
     </ul>
   </nav>
 </header>
@@ -68,38 +56,3 @@ nav>ul a {
   @apply: hover:text-primary;
 }
 </style>
-
-<script>
-function toggleMenu() {
-  const menuBtn = document.querySelector('.nav-menu')
-  const nav = document.querySelector('.nav-item')
-  const icons = menuBtn?.querySelectorAll('.icon')
-  menuBtn?.addEventListener('click', () => {
-    nav?.classList.toggle('hidden')
-    icons?.forEach(icon => icon.classList.toggle('hidden'))
-  })
-}
-
-function toggleHeader() {
-  const header = document.querySelector('header')
-  let prevScrollPos = window.scrollY
-
-  window.addEventListener('scroll', () => {
-    if (!header)
-      return
-    const currentScrollPos = window.scrollY
-
-    if (prevScrollPos > currentScrollPos)
-      header.style.top = '0'
-    else
-      header.style.top = `-${header.offsetHeight}px`
-
-    prevScrollPos = currentScrollPos
-  })
-}
-
-document.addEventListener('astro:page-load', () => {
-  toggleMenu()
-  toggleHeader()
-})
-</script>
