@@ -8,7 +8,7 @@ const postSchema = z.object({
   keywords: z.string().optional().default('Blog'),
   author: z.string().optional().default('Chilfish'),
   description: z.string().optional().default(''),
-  isDraft: z.boolean().optional().default(false),
+  draft: z.boolean().optional().default(false),
   modifiedDate: z.date().optional(),
   maxDepthTOC: z.number().optional(),
 })
