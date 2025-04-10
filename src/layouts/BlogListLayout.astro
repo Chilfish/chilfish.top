@@ -19,6 +19,11 @@ const { page, title, h1 } = Astro.props
   >
     <h1 class="mb-6 text-xl">
       {h1}
+
+      <a
+        class="text-3 underline hover:text-primary"
+        href="/archives"
+      >（归档）</a>
     </h1>
 
     <PostList posts={page.data} />

@@ -15,7 +15,7 @@ const { post, prev, next } = Astro.props
 export const prerender = true
 
 export const getStaticPaths = (async () => {
-  const posts = await getAllPosts()
+  const posts = await getAllPosts(true)
   return posts.flat().map((post, idx, _posts) => {
     const prevP = _posts[idx - 1] as Post | undefined
     const nextP = _posts[idx + 1] as Post | undefined

@@ -1,5 +1,5 @@
 import type { Project } from './zodTypes'
-import { githubHost, imgHost } from './config'
+import { imgHost } from './config'
 
 export * from './config'
 export * from './hostIcons'
@@ -12,8 +12,8 @@ export const ProjectList: Project[] = [
     description: '将你的新浪微博存档备份的油猴脚本，为号被完全夹没前绸缪 😭',
     banner: `${imgHost}/weibo/cover.webp`,
     license: 'MIT',
-    techs: ['ts', 'nuxt', 'monkey'],
-    url: `${githubHost}/Weibo-archiver`,
+    techs: ['ts', 'vue', 'monkey'],
+    url: `https://weibo.chilfish.top`,
     isWeb: false,
   },
   // {
@@ -36,7 +36,7 @@ export const ProjectList: Project[] = [
   // },
   {
     name: 'Tweets Archiver',
-    description: '一些女声优推特的存档网站',
+    description: '一些推特的自动存档网站',
     banner: `${imgHost}/tweets-viewer.webp`,
     license: 'MIT',
     techs: ['ts', 'vue'],
