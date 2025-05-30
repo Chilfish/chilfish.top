@@ -3,7 +3,9 @@ export const isDev = import.meta.env.DEV
 export const host = 'https://chilfish.top'
 export const githubHost = 'https://github.com/Chilfish'
 
-export const localImgHost = 'http://localhost:5173'
-export const imgHost = 'https://p.chilfish.top'
+export const localImgHost = 'https://static.localhost'
+const remoteImgHost = 'https://p.chilfish.top'
+
+export const imgHost = isDev ? localImgHost : remoteImgHost
 
 export const pageSize = 16
