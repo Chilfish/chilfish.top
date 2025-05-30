@@ -31,3 +31,5 @@ auto-imports.d.ts
 .vercel
 .idea/
 .wrangler
+
+.vercel

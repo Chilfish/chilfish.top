@@ -12,7 +12,7 @@ import AutoImport from 'unplugin-auto-import/astro'
 import { host, imgHost } from './src/constant/config'
 import { rehypePlugins, remarkPlugins } from './src/plugins'
 
-const cp = (name: string) => `./src/components/common/${name}.astro`
+const cp = name => `./src/components/common/${name}.astro`
 
 const isNode = process.env.IS_NODE === 'TRUE'
 
@@ -28,7 +28,7 @@ export default defineConfig({
   output: 'server',
   adapter: isNode
     ? node({ mode: 'standalone' })
-    : vercel(),
+    : vercel({}),
   integrations: [
     vue({
       jsx: true,
