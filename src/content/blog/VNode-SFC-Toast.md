@@ -369,8 +369,8 @@ export interface ToastInstance {
 于是我们这么定义 toast 函数
 
 ```ts
-export const toast: ToastFn &
-  Partial<ToastFn> & { _context: AppContext | null } = (
+export const toast: ToastFn
+  & Partial<ToastFn> & { _context: AppContext | null } = (
     options = {},
     context,
   ) => {
