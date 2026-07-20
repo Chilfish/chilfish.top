@@ -13,7 +13,7 @@ const { posts } = Astro.props
 <ul
   class="w-full center-col gap-3 trans-all"
 >
-  { posts.map(({ data: post, slug }) => (
+  { posts.map(({ data: post, id: slug }) => (
     <a
       class="post"
       uno-bg="light-3 dark:dark-3"

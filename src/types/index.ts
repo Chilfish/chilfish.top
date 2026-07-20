@@ -1,10 +1,10 @@
 import type { MarkdownLayoutProps, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
-import type { PostSchema } from '~/content/config'
+import type { PostSchema } from '~/content.config'
 
 export * from './music'
 
-export * from '~/content/config'
+export * from '~/content.config'
 
 export type ContentType = 'blog' | 'note'
 

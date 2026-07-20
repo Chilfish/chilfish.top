@@ -1,3 +1,4 @@
+import { glob } from 'astro/loaders'
 import { defineCollection, z } from 'astro:content'
 
 const postSchema = z.object({
@@ -13,14 +14,19 @@ const postSchema = z.object({
   maxDepthTOC: z.number().optional(),
 })
 
-const post = defineCollection({
-  type: 'content',
-  schema: () => postSchema,
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: postSchema,
+})
+
+const note = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/note' }),
+  schema: postSchema,
 })
 
 export type PostSchema = z.infer<typeof postSchema>
 
 export const collections = {
-  blog: post,
-  note: post,
+  blog,
+  note,
 }

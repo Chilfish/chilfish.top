@@ -17,7 +17,7 @@ const _GET: APIRoute = async (context) => {
       .filter(({ data }) =>
         (data.tags as string[]).some(tag => !excludes.includes(tag)),
       )
-      .map(async ({ data: blog, slug, body }) => ({
+      .map(async ({ data: blog, id: slug, body }) => ({
         title: blog.title,
         content: await markdownCompiler(body),
         description: blog.description,

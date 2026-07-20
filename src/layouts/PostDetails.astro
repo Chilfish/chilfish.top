@@ -1,5 +1,5 @@
 ---
-import type { PostSchema } from '~/content/config'
+import type { PostSchema } from '~/content.config'
 import type { Post, PrevNext } from '~/types'
 import Alert from '@cp/common/Alert.astro'
 import BackToTop from '@cp/common/BackToTop.astro'
@@ -10,8 +10,9 @@ import AdjacentPosts from '@cp/post/AdjacentPosts.astro'
 import Comments from '@cp/post/Comments.vue'
 import PostMeta from '@cp/post/PostMeta.astro'
 import PostTags from '@cp/post/PostTags.astro'
-
 import TableOfContent from '@cp/post/TableOfContent.vue'
+
+import { render } from 'astro:content'
 import { formatDate, MONTH } from '~/utils/date'
 import Layout from './Layout.astro'
 import '@assets/post-details.scss'
@@ -28,7 +29,7 @@ const { post, next, prev } = Astro.props
  * 否则返回第一个 slug，即文件夹名
  */
 function category() {
-  const slugs = post.slug.split('/')
+  const slugs = post.id.split('/')
   if (slugs.length === 1)
     return post.collection
 
@@ -48,7 +49,7 @@ const {
   Content,
   headings,
   remarkPluginFrontmatter,
-} = await post.render()
+} = await render(post)
 
 const frontmatter = remarkPluginFrontmatter as PostSchema
 ---
@@ -63,7 +64,7 @@ const frontmatter = remarkPluginFrontmatter as PostSchema
   >
     <AdjacentPosts
       type={post.collection}
-      slug={post.slug}
+      slug={post.id}
     />
 
     <main

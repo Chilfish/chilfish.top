@@ -11,14 +11,15 @@ tags: [note, Git]
 <div class="tableBox">
 
 <span></span>
-命令 | 作用
-| :- | :- |
-`git config --list` | 打印出当前环境的 git 配置信息，接 `--global` 可以打印全局配置
-`git config user.name fish` | git 配置 `username` 为 `fish`,可后接`--global`
-`git config user.email xxx@gxx.com` | git 配置 `email` 为 `xxx@gxx.com`，可后接 `--global`
-`git config --global core.autocrlf false` | windows 总提示 `CR/LF` 的警告，设置后可去除
-`git config --global credential.helper store `| 终端环境保存 `https` 的密钥，避免每次都要密码
-`git config --global core.quotepath false` | 用来解决 _git status_ 显示中文乱码的问题。`git-bash`，找到`选项->文本->本地 Locale`， 设置为 `zh_CN`，而旁边的字符集选框选为 `UTF-8`
+
+| 命令                                           | 作用                                                                                                                                 |
+| :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| `git config --list`                            | 打印出当前环境的 git 配置信息，接 `--global` 可以打印全局配置                                                                        |
+| `git config user.name fish`                    | git 配置 `username` 为 `fish`,可后接`--global`                                                                                       |
+| `git config user.email xxx@gxx.com`            | git 配置 `email` 为 `xxx@gxx.com`，可后接 `--global`                                                                                 |
+| `git config --global core.autocrlf false`      | windows 总提示 `CR/LF` 的警告，设置后可去除                                                                                          |
+| `git config --global credential.helper store ` | 终端环境保存 `https` 的密钥，避免每次都要密码                                                                                        |
+| `git config --global core.quotepath false`     | 用来解决 _git status_ 显示中文乱码的问题。`git-bash`，找到`选项->文本->本地 Locale`， 设置为 `zh_CN`，而旁边的字符集选框选为 `UTF-8` |
 
 </div>
 

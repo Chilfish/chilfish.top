@@ -14,7 +14,7 @@ const posts = (await getPosts('blog'))
     aclass="mb-4"
   />
   <ul>
-    {posts.map(({ data: post, slug }) => (
+    {posts.map(({ data: post, id: slug }) => (
       <a
         href={`/posts/${slug.split('/').reverse()[0]}/`}
       >

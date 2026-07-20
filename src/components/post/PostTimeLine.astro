@@ -19,7 +19,7 @@ const { posts, title } = Astro.props
   </p>
 
   <Timeline
-    timelines={posts.map(({ data, slug }) => ({
+    timelines={posts.map(({ data, id: slug }) => ({
       title: data.title,
       time: data.date,
       href: `/posts/${slug.split('/').reverse()[0]}/`,

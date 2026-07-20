@@ -3,7 +3,7 @@ import { redirectMap } from '~/constant/redirects'
 import { getAllPosts } from '~/utils'
 
 const posts = await getAllPosts()
-const slugs = posts.flat().map(post => post.slug)
+const slugs = posts.flat().map(post => post.id)
 
 /**
  * 尝试将打平之前的 url 重定向到新的 url，对于错误的 url 重定向到 404

@@ -32,10 +32,10 @@ export default function rehypeImage(
     return node
 
   const isRawImg
-      = node.tagName === 'p'
-        && node.children.length >= 1
-        && node.children[0].type === 'element'
-        && node.children[0].tagName === 'img'
+    = node.tagName === 'p'
+      && node.children.length >= 1
+      && node.children[0].type === 'element'
+      && node.children[0].tagName === 'img'
 
   if (isRawImg) {
     node.tagName = 'figure'

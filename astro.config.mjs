@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
 import sitemap from '@astrojs/sitemap'
@@ -57,14 +59,23 @@ export default defineConfig({
     shikiConfig: {
       theme: 'vitesse-dark',
     },
-    rehypePlugins,
-    remarkPlugins,
+    processor: unified({
+      remarkPlugins,
+      rehypePlugins,
+    }),
   },
   prefetch: true,
   image: {
     domains: [imgHost.replace(/https?:\/\//, '')],
   },
   vite: {
+    resolve: {
+      alias: {
+        '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+        '@cp': fileURLToPath(new URL('./src/components', import.meta.url)),
+        '@layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
+      },
+    },
     ssr: {
       external: ['node:buffer', 'node:fs', 'node:path', 'node:stream', 'node:url'],
     },

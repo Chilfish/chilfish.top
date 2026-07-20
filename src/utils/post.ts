@@ -47,7 +47,7 @@ export function filterTags(posts: Post[]) {
  */
 export async function getAdjacentBlogs(slug: string, type: ContentType = 'blog') {
   const posts = await getPosts(type)
-  const index = posts.findIndex(post => post.slug === slug)
+  const index = posts.findIndex(post => post.id === slug)
 
   const resPosts = []
 
@@ -73,7 +73,7 @@ export async function getAdjacentBlogs(slug: string, type: ContentType = 'blog')
     .filter(post => !!post)
     .map(post => ({
       title: post.data.title,
-      slug: post.slug,
+      slug: post.id,
     }))
 }
 

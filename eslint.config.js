@@ -3,6 +3,7 @@ import antfu from '@antfu/eslint-config'
 export default antfu({
   unocss: true,
   astro: true,
+  markdown: false,
   formatters: {
     css: false,
     markdown: true,
