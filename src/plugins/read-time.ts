@@ -1,7 +1,7 @@
 // import { toString } from 'mdast-util-to-string'
 // import getReadingTime from 'reading-time'
 
-export function getReadTime(raw: any) {
+export function getReadTime(_raw: any) {
   // let text = raw
   // if (typeof raw !== 'string')
   //   text = toString(raw)

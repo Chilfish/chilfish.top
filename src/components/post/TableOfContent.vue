@@ -61,7 +61,8 @@ onMounted(() => {
           v-for="header in filteredHeaders"
           ref="tocItems"
           :key="header.slug"
-          :class="`toc-depth-${header.depth} line-height-6 mt-2 underline`"
+          class="mt-2 line-height-6 underline"
+          :class="`toc-depth-${header.depth}`"
           uno-text="3.5 hover:blue-500"
         >
           <a :href="`#${header.slug}`">
