@@ -11,7 +11,7 @@ export function addPropsToLink(link: RootContentMap['element']) {
     ...link.properties,
     ...isExternalLink(href) && {
       target: '_blank',
-      rel: 'noopener nofollow',
+      rel: ['noopener', 'nofollow'],
     },
   }
   link.properties = linkProps

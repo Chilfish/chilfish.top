@@ -34,7 +34,7 @@ export async function markdownCompiler(markdown: string) {
 }
 
 export const rehypePlugins: RehypePlugins = [
-  rehypeRaw,
+  rehypeRaw as unknown as RehypePlugins[number],
   [rehypeRewrite, rehypeRewriteOptions({ isRss: false })],
 ]
 
