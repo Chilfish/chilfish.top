@@ -19,7 +19,7 @@ const _GET: APIRoute = async (context) => {
       )
       .map(async ({ data: blog, id: slug, body }) => ({
         title: blog.title,
-        content: await markdownCompiler(body),
+        content: await markdownCompiler(body ?? ''),
         description: blog.description,
         pubDate: blog.date,
         author: blog.author,
