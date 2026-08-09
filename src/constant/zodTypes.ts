@@ -1,13 +1,13 @@
 import type { Tech } from './techs'
-import { z } from 'astro:content'
+import { z } from 'astro/zod'
 
 const _Project = z.object({
   name: z.string(),
   description: z.string(),
-  banner: z.string().url().optional(),
+  banner: z.url().optional(),
   license: z.string(),
   techs: z.array(z.custom<Tech>()),
-  url: z.string().url(),
+  url: z.url(),
   isWeb: z.boolean(),
 })
 
