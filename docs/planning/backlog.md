@@ -8,14 +8,14 @@
 
 ### A. 规范收尾（对标 Float 流程的工程债务）
 
-| 编号 | 任务                                                            | 前置条件                | 状态 |
-| ---- | --------------------------------------------------------------- | ----------------------- | ---- |
-| A1   | `simple-git-hooks` 增加 pre-push 门禁（`bun run build`）        | 无                      | 待办 |
-| A2   | 引入 Vitest 单元测试，覆盖 `src/utils/`、`src/plugins/` 纯函数  | 无                      | 待办 |
-| A3   | 建立 `.github/` issue / PR 模板                                 | 无                      | 待办 |
-| A4   | 首次里程碑发布时回填 `CHANGELOG.md` 历史                        | 确定首个版本号          | 待办 |
-| A5   | 按需补 `docs/reviews/`、`docs/requirements/`、`docs/ui-design/` | 新增大功能/独立设计系统 | 待办 |
-| A6   | 修复 `astro check` 类型错误（17 处，依赖升级后出现）            | 无                      | 待办 |
+| 编号 | 任务                                                            | 前置条件                | 状态   |
+| ---- | --------------------------------------------------------------- | ----------------------- | ------ |
+| A1   | `simple-git-hooks` 增加 pre-push 门禁（`bun run build`）        | 无                      | 待办   |
+| A2   | 引入 Vitest 单元测试，覆盖 `src/utils/`、`src/plugins/` 纯函数  | 无                      | 待办   |
+| A3   | 建立 `.github/` issue / PR 模板                                 | 无                      | 待办   |
+| A4   | 首次里程碑发布时回填 `CHANGELOG.md` 历史                        | 确定首个版本号          | 待办   |
+| A5   | 按需补 `docs/reviews/`、`docs/requirements/`、`docs/ui-design/` | 新增大功能/独立设计系统 | 待办   |
+| A6   | 修复 `astro check` 类型错误（17 处，依赖升级后出现）            | 无                      | 已交付 |
 
 ### B. 内容与体验（候选，按优先级排）
 
