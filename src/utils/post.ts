@@ -76,30 +76,3 @@ export async function getAdjacentBlogs(slug: string, type: ContentType = 'blog')
       slug: post.id,
     }))
 }
-
-/**
- * 获取所有的字数统计
- */
-export async function getWords() {
-  // const posts = (await getAllPosts()).flat()
-
-  // const words = posts
-  //   .map((post) => {
-  //     const data = post.data as PostSchema
-  //     const { words } = getReadTime(post.body.trim().replace('\n', ''))
-
-  //     return {
-  //       date: data.date,
-  //       title: data.title,
-  //       url: `/${post.collection}/${post.slug}/`,
-  //       words: (words / 1000).toFixed(2),
-  //     }
-  //   })
-  // const total = words.reduce((acc, cur) => acc + Number.parseFloat(cur.words), 0).toFixed(2)
-
-  // return {
-  //   words,
-  //   total,
-  //   posts,
-  // }
-}
