@@ -12,18 +12,27 @@ const {
   description,
   cover,
   date,
+  modifiedDate,
   tags,
   keywords: _keywords,
 }
  = Astro.props.frontmatter || Astro.props
 
-// console.log(Astro.props)
-
 const desc = description || 'Chilfish\'s personal website, built with Astro & ❤️'
 const image = cover || `${host}/avatar.webp`
-const pubDate = new Date((date as any)).toLocaleDateString()
 const title = _title ? `${_title} | Chilfish` : 'Chilfish'
 const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
+
+/** 无 date 的页面（列表 / 标签 / 归档等）不输出 article 元信息，避免 Invalid Date */
+function toIsoDate(value?: Date | string) {
+  if (!value)
+    return undefined
+
+  const parsed = new Date(value)
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString()
+}
+
+const publishedTime = toIsoDate(date)
 ---
 
 <head>
@@ -69,11 +78,15 @@ const keywords = _keywords ?? tags?.join(', ') ?? 'blog'
       optional: {
         description: desc,
       },
-      article: {
-        publishedTime: pubDate,
-        modifiedTime: pubDate,
-        authors: [author ?? 'Chilfish'],
-      },
+      ...(publishedTime
+        ? {
+            article: {
+              publishedTime,
+              modifiedTime: toIsoDate(modifiedDate) ?? publishedTime,
+              authors: [author ?? 'Chilfish'],
+            },
+          }
+        : {}),
     }}
     twitter={{
       creator: '@chilfish_',
