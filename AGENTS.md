@@ -15,8 +15,10 @@
 | 修改文章详情/列表          | `src/layouts/PostDetails.astro` + `src/components/post/`                               | 改布局/组件                 |
 | 修改交互组件（Vue island） | `src/components/**/*.vue`（Comments / TableOfContent / ImagePreview）                  | 改 Vue 组件                 |
 | 修改样式/主题              | `src/assets/*.scss` + `uno.config.ts`                                                  | CSS / UnoCSS 规则           |
-| 修改内容解析管线           | `src/plugins/`（markdownParse、rehype-image、rehype-link、read-time）                  | 改插件                      |
-| 修改工具函数               | `src/utils/`（post、date、feed、fetchMusic、useDark）                                  | 改工具                      |
+| 修改内容解析管线           | `src/plugins/`（markdownParse、rehype-image、rehype-link）                             | 改插件                      |
+| 修改订阅端点               | `src/pages/feed.ts`（`@astrojs/rss` + `markdownCompiler`）                             | 改路由                      |
+| 修改渲染模式               | 页面 `export const prerender` + `astro.config.mjs`                                     | 静态 / 按需渲染             |
+| 修改工具函数               | `src/utils/`（post、date、fetchMusic、useDark）                                        | 改工具                      |
 | 修改站点元信息/SEO         | `src/constant/config.ts` + `src/components/common/Head.astro`                          | 改配置/组件                 |
 | 修改音乐页面               | `src/components/music/` + `src/utils/fetchMusic.ts`                                    | 改组件/工具                 |
 | 修改 Astro 配置            | `astro.config.mjs`                                                                     | 改配置                      |
@@ -57,7 +59,13 @@ maxDepthTOC?: number   // TOC 最大深度，可选
 
 ### 静态站导航
 
-chilfish.top 是 Astro 静态站（非 SPA），页面间导航直接用 `<a href>`。Vue 组件是 island，**不引入 vue-router 做客户端路由**。
+chilfish.top 是 Astro 静态优先站（混合渲染，`output: 'server'` + 显式 `prerender`），**非 SPA**，页面间导航直接用 `<a href>`。Vue 组件是 island，**不引入 vue-router 做客户端路由**。
+
+### 渲染模式
+
+- 内容路由（`posts/[slug]`、分类 / 标签分页）必须 `export const prerender = true`
+- 需要请求期数据（`/music`）或按需生成的（`/feed`、`robots.txt`）保持默认按需渲染
+- 详见 [architecture.md](./docs/planning/architecture.md) ADR-006
 
 ### 样式
 
@@ -73,23 +81,23 @@ chilfish.top 是 Astro 静态站（非 SPA），页面间导航直接用 `<a hre
 
 ### 内容管线
 
-- Markdown 解析/增强走 `src/plugins/`（markdownParse、rehype-image、rehype-link、read-time），新增转换逻辑优先放这里而非散落在页面组件
+- Markdown 解析/增强走 `src/plugins/`（markdownParse、rehype-image、rehype-link），新增转换逻辑优先放这里而非散落在页面组件
 - 站点元信息与重定向集中在 `src/constant/`，不要在各页面内联重复配置
 
 ## 架构速览
 
 ```
-┌─ 浏览器 ─────────────────────────────┐
-│  Astro 静态站（SSG，无客户端路由）      │
-│  .astro 静态组件 + .vue islands         │
-│    │                                   │
-│    └─ 构建期 → Astro 内容集合            │
-│         glob: src/content/blog|note/*.md│
-│         schema: postSchema (zod)        │
-│    │                                   │
-│    └─ 页面: src/pages/（分类/分页/文章/404）│
-│         [...all].ts → redirects.ts      │
-└────────────────────────────────────────┘
+浏览器（无客户端路由）
+  └─ .astro 静态组件 + .vue islands（评论 / TOC / 图片预览）
+       │
+       ├─ 构建期：Astro 内容集合
+       │    glob: src/content/blog|note/**/*.md
+       │    schema: postSchema (zod)
+       │
+       └─ 页面: src/pages/
+            预渲染：posts/[slug]、[type]/[...page]、tags/[tag]/[...page]
+            按需：  index、archives、music、sponsors、404、robots.txt、feed
+            [...all].ts → redirects.ts（旧链接跳转）
 ```
 
 ### 关键文件层次
@@ -100,11 +108,11 @@ src/
 ├── content/
 │   ├── blog/              # 博客文章（dev-log/、diary/、tips/）
 │   └── note/              # 笔记
-├── pages/                 # 路由（静态生成）
+├── pages/                 # 路由（混合渲染，见「渲染模式」）
 ├── layouts/               # Layout / BlogListLayout / PostDetails
 ├── components/            # common/、post/、music/（.astro + .vue）
-├── plugins/               # markdownParse / rehype-* / read-time
-├── utils/                 # post / date / feed / fetchMusic / useDark
+├── plugins/               # markdownParse / rehype-image / rehype-link
+├── utils/                 # post / date / fetchMusic / useDark
 ├── constant/              # config / redirects / techs / hostIcons / zodTypes
 ├── types/                 # 类型 + auto-imports 声明
 └── assets/                # *.scss 样式
@@ -121,6 +129,8 @@ src/
    bun run lint     # ESLint（@antfu + astro）
    bun run build    # 生产构建
    ```
+   - 构建绿灯不等于功能存在：端点 / 路由改动须**实际请求一次**（见 [postmortem/001](./docs/postmortem/001-silent-failure.md)）
+   - 产物级检查：`dist/` 有预期端点、HTML 无 `Invalid Date`、日志无调试输出
 5. **Commit**：遵循 Conventional Commits（见 [git-workflow.md](./docs/engineering/git-workflow.md)）
    ```
    feat(blog): add xxx post
@@ -130,12 +140,15 @@ src/
 
 ## 常见反模式（禁止）
 
-| 反模式                               | 正确做法                       | 说明     |
-| ------------------------------------ | ------------------------------ | -------- |
-| 硬编码色值 / 内联样式                | 复用 SCSS 变量 / UnoCSS 工具类 | 样式收敛 |
-| `.astro` 里塞交互逻辑                | 拆成 `.vue` island             | 组件边界 |
-| 各页面内联重复站点配置               | 集中到 `src/constant/`         | 单一来源 |
-| 绕过 `src/plugins/` 写一次性解析逻辑 | 插件化到 `src/plugins/`        | 内容管线 |
-| 引入 vue-router 做客户端路由         | 静态 `<a>` 导航                | 静态站   |
-| `draft: true` 未去除就合并           | 发布前去掉 draft               | 内容发布 |
-| `--no-verify` 跳过 git hooks         | 修复 lint 问题后正常提交       | 门禁     |
+| 反模式                                           | 正确做法                           | 说明     |
+| ------------------------------------------------ | ---------------------------------- | -------- |
+| 硬编码色值 / 内联样式                            | 复用 SCSS 变量 / UnoCSS 工具类     | 样式收敛 |
+| `.astro` 里塞交互逻辑                            | 拆成 `.vue` island                 | 组件边界 |
+| 各页面内联重复站点配置                           | 集中到 `src/constant/`             | 单一来源 |
+| 绕过 `src/plugins/` 写一次性解析逻辑             | 插件化到 `src/plugins/`            | 内容管线 |
+| 引入 vue-router 做客户端路由                     | 静态 `<a>` 导航                    | 静态站   |
+| `draft: true` 未去除就合并                       | 发布前去掉 draft                   | 内容发布 |
+| `--no-verify` 跳过 git hooks                     | 修复 lint 问题后正常提交           | 门禁     |
+| 弃用功能以注释形式留存                           | 直接删除（git 历史可追溯）         | 死代码   |
+| 调试 `Astro.redirect()` / `console.log` 留在路由 | 用完即删；重定向只走 `[...all].ts` | 静默失效 |
+| 端点未 `export`（如 `const _GET`）               | `export const GET` 并实测请求      | 静默失效 |

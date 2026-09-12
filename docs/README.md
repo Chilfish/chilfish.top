@@ -1,6 +1,6 @@
 # 项目文档
 
-chilfish.top 的文档体系，对齐 chill-s3 项目（Float 规范）。所有文档用中文；README（根级）、CHANGELOG、CONTRIBUTING、LICENSE 用英文例外。
+chilfish.top 的文档体系。所有文档用中文；README（根级）、CHANGELOG、CONTRIBUTING、LICENSE 用英文例外。
 
 ## 项目文档索引
 
@@ -32,6 +32,15 @@ chilfish.top 的文档体系，对齐 chill-s3 项目（Float 规范）。所有
 | ---------------------------------------- | ----------------------- |
 | [README.md](./development-log/README.md) | 按天日志索引 + 记录约定 |
 
+## 根级文档
+
+| 文档                                  | 说明                               |
+| ------------------------------------- | ---------------------------------- |
+| [AGENTS.md](../AGENTS.md)             | AI 编码助手协作指南（意图 → 文件） |
+| [CHANGELOG.md](../CHANGELOG.md)       | 变更记录（Keep a Changelog）       |
+| [CONTRIBUTING.md](../CONTRIBUTING.md) | 贡献指南                           |
+| [README.md](../README.md)             | 项目说明                           |
+
 ## 规划中的目录（按需补充）
 
 - `requirements/` — 需求文档（PRD / user-stories），新增大功能时建立
@@ -47,4 +56,4 @@ chilfish.top 的文档体系，对齐 chill-s3 项目（Float 规范）。所有
 4. 所有 PR 更新 CHANGELOG（Unreleased 节）
 5. 开发日志按天记录在 [development-log/YYYY-MM-DD.md](./development-log/README.md)
 6. 已完成阶段的计划文档用 `git mv` 移到 archive/；存档不主动读取
-7. 新 Bug 模式写 postmortem，预防项同步到 CLAUDE.md / engineering/git-workflow.md
+7. 新 Bug 模式写 postmortem，预防项同步到 AGENTS.md / engineering/git-workflow.md

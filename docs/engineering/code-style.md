@@ -2,8 +2,6 @@
 
 **项目**: chilfish.top | **最后更新**: 2026-08-09
 
-> 本文档对齐 chill-s3 项目（Float 规范）的 Code Style，适配 chilfish.top（TypeScript + Astro + Vue 3 + UnoCSS + SCSS + Bun）。
-
 ## TypeScript / Astro / Vue 风格
 
 ### 命名约定
@@ -60,6 +58,7 @@ import { SITE } from '@/constant/config'
 | 各页面内联重复站点配置               | 集中到 `src/constant/`      |
 | wildcard import                      | 显式 import                 |
 | `console.log` 遗留                   | 移除或用 lint 拦截          |
+| 注释掉的弃用代码                     | 直接删除（git 历史可追溯）  |
 | 绕过 `src/plugins/` 写一次性解析逻辑 | 插件化到 `src/plugins/`     |
 | 引入 vue-router 做客户端路由         | 静态 `<a>` 导航             |
 
@@ -73,7 +72,7 @@ import { SITE } from '@/constant/config'
 
 ## 内容约定
 
-- 博客 / 笔记 frontmatter 遵循 [CLAUDE.md](../../CLAUDE.md) 中的 `postSchema`（title + date 必填）
+- 博客 / 笔记 frontmatter 遵循 [AGENTS.md](../../AGENTS.md) 中的 `postSchema`（title + date 必填）
 - Markdown 语法高亮 / 增强统一由 `astro-expressive-code` 处理，不手动内联 `<pre>` 样式
 - 图片增强走 `src/plugins/rehype-image.ts`，不在文章中写死宽高/样式
 

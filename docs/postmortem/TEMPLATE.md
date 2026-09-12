@@ -38,7 +38,7 @@
 
 ### 预防（针对整类问题）
 
-- [ ] 面向整类问题；流程级预防必须同步到 `CLAUDE.md` / `docs/engineering/git-workflow.md`
+- [ ] 面向整类问题；流程级预防必须同步到 `AGENTS.md` / `docs/engineering/git-workflow.md`
 
 ## 教训
 
@@ -53,4 +53,4 @@
 3. 填写各章节；根因归因到系统条件，不 blame 个人
 4. 在 [README.md](./README.md) 索引表加一行
 5. 将「教训」浓缩为「高频雷区」的一条自查规则（含踩坑次数 / 阈值 / 对策）
-6. 若预防属流程级，同步到 `CLAUDE.md` 或 `docs/engineering/git-workflow.md`
+6. 若预防属流程级，同步到 `AGENTS.md` 或 `docs/engineering/git-workflow.md`

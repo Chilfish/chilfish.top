@@ -2,8 +2,6 @@
 
 **项目**: chilfish.top | **最后更新**: 2026-08-09
 
-> 本文档对齐 chill-s3 项目（Float 规范）的 Git Workflow，适配 chilfish.top（Astro + Vue + UnoCSS + Bun）技术栈。
-
 ## 分支模型
 
 采用 **Trunk-Based Development**（简化版）：
@@ -145,5 +143,6 @@ chilfish.top 部署到 Vercel（`vercel.json` 已配置）：
 ## AI 协作开发
 
 - 优先使用 `gh` CLI 进行 GitHub 全流程管理
-- 新功能先写 spike 验证跨系统边界假设（PM 004 教训，见 [postmortem](../postmortem/README.md)）
-- 新库 API 行为先写 5 行 spike 验证（PM 007 教训）
+- 新功能先写 spike 验证跨系统边界假设（见 [postmortem](../postmortem/README.md)）
+- 新库 API 行为先写 5 行 spike 验证
+- 端点 / 路由类改动以「实际请求一次」为完成标准，构建绿灯不等于功能存在（[PM 001](../postmortem/001-silent-failure.md)）
