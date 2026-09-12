@@ -174,6 +174,3 @@ export const SponsorList = ([
   },
 ] satisfies Sponsor[])
   .sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime())
-
-const total = SponsorList.reduce((prev, acc) => prev + acc.amount, 0)
-console.log(total)

@@ -9,11 +9,6 @@ import BlogListLayout from '~/layouts/BlogListLayout.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getAllPosts } from '~/utils'
 
-const url = Astro.url.pathname.split('/').filter(Boolean)
-
-Astro.redirect(`/posts/${url[url.length - 1]}/`)
-console.log(url)
-
 export const prerender = true
 
 export const getStaticPaths = (async ({ paginate }) => {
