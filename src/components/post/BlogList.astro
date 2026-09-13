@@ -1,5 +1,6 @@
 ---
 import type { Post } from '~/types'
+import { Calendar } from '@lucide/astro'
 import { formatDate } from '~/utils'
 import Image from '../common/Image.astro'
 
@@ -30,7 +31,7 @@ const { posts } = Astro.props
 
         <div class="meta flex items-center gap-2 pt-2 text-3">
           <div>
-            <span class="i-tabler-calendar icon" />
+            <Calendar class="icon" />
             <time>
               { formatDate(post.date) }
             </time>

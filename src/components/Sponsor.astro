@@ -1,4 +1,5 @@
 ---
+import { Link, PiggyBank } from '@lucide/astro'
 import { SponsorList } from '~/constant'
 ---
 
@@ -22,14 +23,14 @@ import { SponsorList } from '~/constant'
             class="inline-flex items-center gap-1 text-sm text-primary/90 transition-colors hover:text-primary"
           >
             项目：
-            <span class="i-tabler-link h-4 w-4 transition-transform group-hover:rotate-12" />
+            <Link class="h-4 w-4 transition-transform group-hover:rotate-12" />
             {sponsor.project.name}
           </a>
 
           <div class="mt-auto pt-2">
             <div class="flex items-center justify-between rounded-lg bg-primary/8 px-4 py-3 backdrop-blur-sm">
               <div class="flex items-center gap-2">
-                <span class="i-tabler-pig-money h-5 w-5 text-primary/90" />
+                <PiggyBank class="h-5 w-5 text-primary/90" />
                 <span class="text-sm font-medium">赞助金额</span>
               </div>
               <span class="text-primary font-semibold">

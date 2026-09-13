@@ -1,62 +1,64 @@
 ---
-// due to UnoCSS, we had to do this, otherwise it will not be compiled
-// and cannot be imported
+import { AtSign, GitFork, Mail, MessageCircle, Music, Tv } from '@lucide/astro'
+
 const SocialList = [
   {
     name: 'github',
     link: 'https://github.com/Chilfish',
-    icon: 'i-simple-icons:github',
+    icon: GitFork,
     color: '#010101',
   },
   {
     name: 'gmail',
     link: 'mailto:chill4fish@gmail.com',
-    icon: 'i-simple-icons:gmail',
+    icon: Mail,
     color: '#E84234',
   },
   {
     name: 'weibo',
     link: 'https://weibo.com/chilfish',
-    icon: 'i-simple-icons:sinaweibo',
+    icon: MessageCircle,
     color: '#FF8200',
   },
   {
     name: 'bilibili',
     link: 'https://space.bilibili.com/259486090',
-    icon: 'i-simple-icons:bilibili',
+    icon: Tv,
     color: '#fb7299',
   },
   {
     name: 'twitter',
     link: 'https://twitter.com/chilfish_',
-    icon: 'i-simple-icons:twitter',
+    icon: AtSign,
     color: '#00ACEE',
   },
   {
     name: '163 Music',
     link: 'https://music.163.com/user/home?id=1533509979',
-    icon: 'i-simple-icons:neteasecloudmusic',
+    icon: Music,
     color: '#DD001B',
   },
 ] as const
-
 ---
 
 <div class="mt-4">
   <p>You can find me at</p>
   <ul>
-    { SocialList.map(social => (
-      <a
-        style={{
-          'background-color': social.color,
-        }}
-        href={social.link}
-        title={social.name}
-        target="_blank"
-      >
-        <span class={`icon ${social.icon}`} />
-      </a>
-    )) }
+    { SocialList.map((social) => {
+      const Icon = social.icon
+      return (
+        <a
+          style={{
+            'background-color': social.color,
+          }}
+          href={social.link}
+          title={social.name}
+          target="_blank"
+        >
+          <Icon class="icon" />
+        </a>
+      )
+    }) }
   </ul>
 </div>
 

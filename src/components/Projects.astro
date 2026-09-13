@@ -1,4 +1,5 @@
 ---
+import { ArrowRight } from '@lucide/astro'
 import { BannerProjects, githubHost, ProjectList } from '~/constant'
 import LinkBar from './common/LinkBar.astro'
 import ProjectCard from './project/ProjectCard.astro'
@@ -22,6 +23,6 @@ import ProjectCard from './project/ProjectCard.astro'
     class="mt-4 center gap-1 text-sm text-primary hover:underline"
   >
     <span>查看全部 {ProjectList.length} 个项目</span>
-    <span class="i-tabler:arrow-right icon" />
+    <ArrowRight class="icon" />
   </a>
 </div>

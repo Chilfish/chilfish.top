@@ -1,6 +1,7 @@
 ---
 import type { BannerProject } from '~/constant'
 import Image from '@cp/common/Image.astro'
+import { GitFork } from '@lucide/astro'
 
 interface Props {
   project: BannerProject
@@ -34,8 +35,10 @@ const hasRepoLink = project.repo && project.repo !== project.url
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${project.name} 源码`}
-          class="i-tabler:brand-github relative z-1 ml-auto icon shrink-0 text-3 hover:text-primary"
-        />
+          class="relative z-1 ml-auto shrink-0"
+        >
+          <GitFork class="icon text-3 hover:text-primary" />
+        </a>
       ) }
     </div>
 

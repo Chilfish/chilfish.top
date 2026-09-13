@@ -1,5 +1,6 @@
 ---
 import type { PostSchema } from '~/types'
+import { Calendar, Pencil, Tag, User } from '@lucide/astro'
 import { formatDate } from '~/utils'
 
 type Props = PostSchema & {
@@ -26,25 +27,25 @@ const {
     class="metas flex flex-wrap items-center gap-4 text-3.5"
   >
     <div title="作者">
-      <span i-tabler-user />
+      <User class="icon" />
       <span> {author} </span>
     </div>
 
     <div title="写作日期">
-      <i i-tabler-calendar />
+      <Calendar class="icon" />
       <time> {formatDate(pubDate)} </time>
     </div>
 
     {modifiedDate && (
       <div title="最后修改日期">
-        <i i-tabler-edit />
+        <Pencil class="icon" />
         <span>上次编辑于</span>
         <time> {formatDate(modifiedDate)} </time>
       </div>
     )}
 
     <div title="分类">
-      <i i-tabler-tag />
+      <Tag class="icon" />
       <span> {category} </span>
     </div>
   </div>

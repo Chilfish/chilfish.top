@@ -1,26 +1,20 @@
+---
+import { Moon, Sun } from '@lucide/astro'
+---
+
 <button
   class="dark-toggle hover:text-primary"
 >
-  <i class="i-tabler-sun" />
+  <Moon class="icon dark:hidden" />
+  <Sun class="icon hidden dark:block" />
 </button>
 
 <script>
 function toggleDark() {
   const toggle = useToggle(isDark)
   const btn = document.querySelector('.dark-toggle')! as HTMLButtonElement
-  const icon = btn.querySelector('.dark-toggle i')!
 
-  function toggleIcon() {
-    icon.classList.toggle('i-tabler-sun')
-    icon.classList.toggle('i-tabler-moon')
-  }
-
-  toggleIcon()
-
-  btn.onclick = () => {
-    toggle()
-    toggleIcon()
-  }
+  btn.onclick = () => toggle()
 }
 
 document.addEventListener('astro:page-load', () => {

@@ -1,5 +1,6 @@
 ---
 import type { NCMType } from '~/types'
+import { Heart } from '@lucide/astro'
 import { musicLikes, musicRank } from '~/utils'
 import Image from '../common/Image.astro'
 import Songs from './Songs.astro'
@@ -30,7 +31,7 @@ if (records.length > 0)
       <div
         class="absolute top-0 h-full w-full rounded-md bg-[#24242480]"
       >
-        <div class="i-tabler-heart h-full w-full text-light" />
+        <Heart class="h-full w-full text-light" />
       </div>
     </div>
     <p class="text-7 font-bold">

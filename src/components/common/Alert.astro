@@ -1,28 +1,30 @@
 ---
+import { BadgeAlert, Info, Lightbulb, OctagonAlert, TriangleAlert } from '@lucide/astro'
+
 const TypeArr = [
   {
     type: 'note',
-    icon: 'i-tabler-info-circle',
+    icon: Info,
     color: '#2f81f7',
   },
   {
     type: 'warning',
-    icon: 'i-tabler-alert-triangle',
+    icon: TriangleAlert,
     color: '#d29922',
   },
   {
     type: 'caution',
-    icon: 'i-tabler-alert-octagon',
+    icon: OctagonAlert,
     color: '#f85149',
   },
   {
     type: 'tip',
-    icon: 'i-octicon:light-bulb',
+    icon: Lightbulb,
     color: '#3fb950',
   },
   {
     type: 'important',
-    icon: 'i-octicon:report',
+    icon: BadgeAlert,
     color: '#a371f7',
   },
 ] as const
@@ -36,7 +38,7 @@ type Props = {
 const { type, text, class: className = '' } = Astro.props
 
 const color = TypeArr.find(item => item.type === type)!.color
-const icon = TypeArr.find(item => item.type === type)!.icon
+const Icon = TypeArr.find(item => item.type === type)!.icon
 const title = type.charAt(0).toUpperCase() + type.slice(1)
 ---
 
@@ -50,7 +52,7 @@ const title = type.charAt(0).toUpperCase() + type.slice(1)
     style={`color: ${color}`}
     class="mb-2 flex items-center gap-2 font-bold"
   >
-    <i class={`icon ${icon}`}> </i>
+    <Icon class="icon" />
     <span>{title}</span>
   </div>
   { text

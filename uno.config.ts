@@ -1,13 +1,11 @@
 import {
   defineConfig,
   presetAttributify,
-  presetIcons,
   presetTypography,
   presetWind3,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-import { HostIconList } from './src/constant/hostIcons'
 
 export default defineConfig({
   shortcuts: [
@@ -49,16 +47,10 @@ export default defineConfig({
     presetAttributify({
       prefix: 'uno-',
     }),
-    presetIcons({
-      scale: 1.2,
-    }),
     presetTypography(),
   ],
   transformers: [
     transformerDirectives(),
     transformerVariantGroup(),
-  ],
-  safelist: [
-    ...HostIconList,
   ],
 })
