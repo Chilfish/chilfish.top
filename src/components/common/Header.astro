@@ -1,5 +1,7 @@
 ---
-import { GitFork, Heart, LayoutGrid, Music, Newspaper } from '@lucide/astro'
+import { Heart, LayoutGrid, Music, Newspaper } from '@lucide/astro'
+import { siGithub } from 'simple-icons'
+import BrandIcon from './BrandIcon.astro'
 import DarkToggle from './DarkToggle.astro'
 import Image from './Image.astro'
 ---
@@ -45,7 +47,7 @@ import Image from './Image.astro'
         target="_blank"
         href="https://github.com/chilfish"
       >
-        <GitFork class="icon" />
+        <BrandIcon icon={siGithub} class="icon" />
       </a>
       <DarkToggle />
     </ul>

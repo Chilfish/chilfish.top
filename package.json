@@ -36,6 +36,7 @@
     "astro-expressive-code": "^0.44.2",
     "astro-seo": "^1.2.0",
     "nprogress": "^0.2.0",
+    "simple-icons": "^16.31.0",
     "vue": "^3.5.42"
   },
   "devDependencies": {

@@ -1,41 +1,42 @@
 ---
-import { AtSign, GitFork, Mail, MessageCircle, Music, Tv } from '@lucide/astro'
+import { siBilibili, siGithub, siGmail, siNeteasecloudmusic, siSinaweibo, siX } from 'simple-icons'
+import BrandIcon from './common/BrandIcon.astro'
 
 const SocialList = [
   {
     name: 'github',
     link: 'https://github.com/Chilfish',
-    icon: GitFork,
+    icon: siGithub,
     color: '#010101',
   },
   {
     name: 'gmail',
     link: 'mailto:chill4fish@gmail.com',
-    icon: Mail,
+    icon: siGmail,
     color: '#E84234',
   },
   {
     name: 'weibo',
     link: 'https://weibo.com/chilfish',
-    icon: MessageCircle,
+    icon: siSinaweibo,
     color: '#FF8200',
   },
   {
     name: 'bilibili',
     link: 'https://space.bilibili.com/259486090',
-    icon: Tv,
+    icon: siBilibili,
     color: '#fb7299',
   },
   {
     name: 'twitter',
     link: 'https://twitter.com/chilfish_',
-    icon: AtSign,
+    icon: siX,
     color: '#00ACEE',
   },
   {
     name: '163 Music',
     link: 'https://music.163.com/user/home?id=1533509979',
-    icon: Music,
+    icon: siNeteasecloudmusic,
     color: '#DD001B',
   },
 ] as const
@@ -44,21 +45,18 @@ const SocialList = [
 <div class="mt-4">
   <p>You can find me at</p>
   <ul>
-    { SocialList.map((social) => {
-      const Icon = social.icon
-      return (
-        <a
-          style={{
-            'background-color': social.color,
-          }}
-          href={social.link}
-          title={social.name}
-          target="_blank"
-        >
-          <Icon class="icon" />
-        </a>
-      )
-    }) }
+    { SocialList.map(social => (
+      <a
+        style={{
+          'background-color': social.color,
+        }}
+        href={social.link}
+        title={social.name}
+        target="_blank"
+      >
+        <BrandIcon icon={social.icon} class="icon" />
+      </a>
+    )) }
   </ul>
 </div>
 

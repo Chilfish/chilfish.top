@@ -1,6 +1,8 @@
 ---
 import type { Project } from '~/constant'
-import { ArrowUpRight, GitFork } from '@lucide/astro'
+import BrandIcon from '@cp/common/BrandIcon.astro'
+import { ArrowUpRight } from '@lucide/astro'
+import { siGithub } from 'simple-icons'
 
 interface Props {
   project: Project
@@ -24,7 +26,10 @@ const hasRepoLink = project.repo && project.repo !== project.url
           aria-label={`${project.name} 源码`}
           class="relative z-1"
         >
-          <GitFork class="icon text-gray-6 dark:text-gray hover:text-primary" />
+          <BrandIcon
+            icon={siGithub}
+            class="icon text-gray-6 dark:text-gray hover:text-primary"
+          />
         </a>
       ) }
       <ArrowUpRight

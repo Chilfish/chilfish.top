@@ -1,0 +1,21 @@
+---
+import type { SimpleIcon } from 'simple-icons'
+
+interface Props {
+  icon: SimpleIcon
+  class?: string
+  [key: string]: any
+}
+
+const { icon, class: className, ...rest } = Astro.props
+---
+
+<svg
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  aria-hidden="true"
+  class={className}
+  {...rest}
+>
+  <path d={icon.path} />
+</svg>
