@@ -8,7 +8,6 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import { HostIconList } from './src/constant/hostIcons'
-import { TechIcons } from './src/constant/techs'
 
 export default defineConfig({
   shortcuts: [
@@ -60,7 +59,6 @@ export default defineConfig({
     transformerVariantGroup(),
   ],
   safelist: [
-    ...TechIcons,
     ...HostIconList,
   ],
 })
