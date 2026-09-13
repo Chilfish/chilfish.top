@@ -1,9 +1,7 @@
 import { ProjectList } from './projects'
 
 export * from './config'
-export * from './hostIcons'
 export * from './projects'
-export * from './techs'
 export * from './zodTypes'
 
 const weiboProject = ProjectList.find(p => p.name === 'Weibo-archiver')!

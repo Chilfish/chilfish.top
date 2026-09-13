@@ -1,5 +1,4 @@
 import type { RootContentMap } from 'hast'
-import { getHostIcon } from '../constant/hostIcons'
 
 export function isExternalLink(href: string) {
   return href.startsWith('http') || href.startsWith('//')
@@ -15,21 +14,6 @@ export function addPropsToLink(link: RootContentMap['element']) {
     },
   }
   link.properties = linkProps
-
-  if (!isExternalLink(href))
-    return link
-
-  const icon = getHostIcon(new URL(href).host)
-  const iconNode = {
-    type: 'element',
-    tagName: 'i',
-    properties: {
-      className: [icon],
-    },
-    children: [],
-  } as RootContentMap['element']
-
-  link.children.unshift(iconNode)
   return link
 }
 
