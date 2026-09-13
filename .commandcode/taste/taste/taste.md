@@ -3,9 +3,13 @@
 - Prefers cleaning up / fixing existing problems before taking on new feature work ("先修复已有的问题吧"). Confidence: 0.6
 - Prefers removing dead or abandoned code outright (commented-out features, zero-reference components, stub endpoints) rather than keeping or reviving it. Confidence: 0.5
 - Expects work to be committed to git following the project's commit convention ("按规范 commit"), not left sitting in the working tree. Confidence: 0.6
+- Prefers the agent to work autonomously and not pause for confirmation on routine/expected actions ("无需向我确认"). Confidence: 0.6
 - Prefers agent/tooling configuration (e.g. `.commandcode/` settings and taste files) tracked in the repo and shared with the team rather than gitignored. Confidence: 0.6
 - Expects documentation to be completed alongside code changes, not left stale. Confidence: 0.6
 - Prefers curated, quality-filtered public showcases over exhaustive listings — excludes outdated or private work from public pages ("有些过时或者 in private 的就不一定要展示了"). Confidence: 0.55
 - Delegates presentation/design choices to the agent and asks for recommendations with trade-offs laid out, but makes the final call himself rather than always accepting the recommended default. Confidence: 0.45
 - Prefers monochrome, theme-adaptive (currentColor) icons over brand-colored logos and hand-picked hex colors — chose an all-lucide single-color tech-icon set over simple-icons brand marks. Confidence: 0.5
 - Prefers lean, content-focused listings: drops secondary metadata (star counts, license text, tech tags) and favors showing a banner image whenever the data has one, leaning on the core name/description instead. Confidence: 0.5
+- Prefers icon *components* (lucide's `@lucide/astro` TSX approach) over UnoCSS/Iconify `i-*` icon-class (font/presetIcons) usage. Confidence: 0.6
+- Keeps dependencies minimal: wants unrelated/unused packages removed from package.json and the lockfile, not just dead code deleted. Confidence: 0.6
+- Prefers dropping a marginal feature (e.g. markdown external-link host icons) over adding a new dependency to keep it working. Confidence: 0.5
