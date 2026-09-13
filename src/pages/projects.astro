@@ -1,0 +1,48 @@
+---
+import LinkBar from '@cp/common/LinkBar.astro'
+import ProjectCard from '@cp/project/ProjectCard.astro'
+import ProjectMiniCard from '@cp/project/ProjectMiniCard.astro'
+import { BannerProjects, githubHost, OtherProjects } from '~/constant'
+import Layout from '~/layouts/Layout.astro'
+
+export const prerender = true
+---
+
+<Layout title="Projects">
+  <main class="mx-auto max-w-100ch flex flex-col px-4 pb-8">
+    <LinkBar
+      title="Projects"
+      href={githubHost}
+    />
+
+    <p class="text-sm text-gray-6 dark:text-gray">
+      一些自己折腾过的项目，大多都还在跑。能点进去的线上站点就直接点 😇
+    </p>
+
+    { BannerProjects.length > 0 && (
+      <div
+        uno-grid="~ cols-1 sm:cols-2"
+        class="mt-4 gap-4"
+      >
+        { BannerProjects.map(project => <ProjectCard project={project} />) }
+      </div>
+    ) }
+
+    { OtherProjects.length > 0 && (
+      <>
+        { BannerProjects.length > 0 && (
+          <h2 class="mt-9 text-sm text-gray-6 font-semibold dark:text-gray">
+            更多项目
+          </h2>
+        ) }
+
+        <div
+          uno-grid="~ cols-1 sm:cols-2 lg:cols-3"
+          class="mt-3 gap-3"
+        >
+          { OtherProjects.map(project => <ProjectMiniCard project={project} />) }
+        </div>
+      </>
+    ) }
+  </main>
+</Layout>

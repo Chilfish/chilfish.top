@@ -1,0 +1,59 @@
+---
+import type { Project } from '~/constant'
+
+interface Props {
+  project: Project
+}
+
+const { project } = Astro.props
+const hasRepoLink = project.repo && project.repo !== project.url
+---
+
+<div
+  class="group relative flex flex-col gap-1.5 rounded-md bg-hover bg-light p-4 trans-all dark:bg-dark-6"
+>
+  <div class="flex items-center gap-2">
+    <span class="truncate font-medium">{ project.name }</span>
+    <span class="ml-auto flex shrink-0 items-center gap-2">
+      { hasRepoLink && (
+        <a
+          href={project.repo}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.name} 源码`}
+          class="i-tabler:brand-github relative z-1 icon text-gray-6 dark:text-gray hover:text-primary"
+        />
+      ) }
+      <span
+        class="i-tabler:arrow-up-right icon text-gray-6 dark:text-gray group-hover:text-primary"
+      />
+    </span>
+  </div>
+
+  <p class="line-clamp-2 m-0 text-sm text-gray-6 dark:text-gray">
+    { project.description }
+  </p>
+
+  <a
+    href={project.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`打开 ${project.name}`}
+    class="card-overlay absolute inset-0 z-0"
+  />
+</div>
+
+<style>
+a:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 2px;
+  border-radius: 6px;
+  @apply: outline-primary;
+}
+
+.card-overlay:focus-visible {
+  outline-offset: -2px;
+  border-radius: 6px;
+}
+</style>

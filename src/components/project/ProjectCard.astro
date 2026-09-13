@@ -1,0 +1,67 @@
+---
+import type { BannerProject } from '~/constant'
+import Image from '@cp/common/Image.astro'
+
+interface Props {
+  project: BannerProject
+}
+
+const { project } = Astro.props
+const hasRepoLink = project.repo && project.repo !== project.url
+---
+
+<div
+  class="group relative flex flex-col overflow-hidden rounded-md bg-hover bg-light trans-all dark:bg-dark-6"
+>
+  <div class="h-42 w-full shrink-0 overflow-hidden sm:h-48">
+    <Image
+      src={project.banner}
+      alt={project.name}
+      width={450}
+      height={260}
+      lazy={false}
+      class="h-full w-full trans-all group-hover:scale-105"
+      uno-object="cover top-center"
+    />
+  </div>
+
+  <div class="min-w-0 flex flex-1 flex-col gap-1 p-4">
+    <div class="flex items-center gap-2">
+      <span class="truncate text-xl">{ project.name }</span>
+      { hasRepoLink && (
+        <a
+          href={project.repo}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.name} 源码`}
+          class="i-tabler:brand-github relative z-1 ml-auto icon shrink-0 text-3 hover:text-primary"
+        />
+      ) }
+    </div>
+
+    <p class="m-0 text-3 text-sm">{ project.description }</p>
+  </div>
+
+  <a
+    href={project.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`打开 ${project.name}`}
+    class="card-overlay absolute inset-0 z-0"
+  />
+</div>
+
+<style>
+a:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 2px;
+  border-radius: 4px;
+  @apply: outline-primary;
+}
+
+.card-overlay:focus-visible {
+  outline-offset: -2px;
+  border-radius: 6px;
+}
+</style>

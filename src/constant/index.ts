@@ -1,44 +1,16 @@
-import type { Project } from './zodTypes'
-import { imgHost } from './config'
+import { ProjectList } from './projects'
 
 export * from './config'
 export * from './hostIcons'
+export * from './projects'
 export * from './techs'
 export * from './zodTypes'
 
-export const ProjectList: Project[] = [
-  {
-    name: 'Weibo-archiver',
-    description: '将你的新浪微博存档备份的在线网站，为号被完全夹没前绸缪 😭',
-    banner: `${imgHost}/weibo/cover.webp`,
-    license: 'Apache-2.0 license',
-    techs: [],
-    url: `https://weibo-archiver.chilfish.top`,
-    isWeb: true,
-  },
-  // {
-  //   name: 'Chilfish.top',
-  //   description: '我的个人网站',
-  //   banner: `${imgHost}/chilfish.top.webp`,
-  //   license: 'MIT',
-  //   techs: ['astro', 'vue', 'ts'],
-  //   url: `${githubHost}/chilfish.top`,
-  //   isWeb: true,
-  // },
-  {
-    name: 'Tweets Archiver',
-    description: '一些推特的自动存档网站',
-    banner: `${imgHost}/tweets-viewer.webp`,
-    license: 'MIT',
-    techs: [],
-    url: `https://tweet.chilfish.top/`,
-    isWeb: true,
-  },
-]
+const weiboProject = ProjectList.find(p => p.name === 'Weibo-archiver')!
 
 const weibo = {
-  name: ProjectList[0].name,
-  url: ProjectList[0].url,
+  name: weiboProject.name,
+  url: weiboProject.url,
 }
 
 export interface Sponsor {
