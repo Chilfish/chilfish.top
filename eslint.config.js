@@ -4,6 +4,7 @@ export default antfu({
   unocss: true,
   astro: true,
   markdown: false,
+  ignores: ['.commandcode/**'],
   formatters: {
     css: false,
     markdown: true,
