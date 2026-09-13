@@ -14,3 +14,5 @@
 - Keeps dependencies minimal: wants unrelated/unused packages removed from package.json and the lockfile, not just dead code deleted. Confidence: 0.6
 - Prefers dropping a marginal feature (e.g. markdown external-link host icons) over adding a new dependency to keep it working. Confidence: 0.5
 - Readily sacrifices non-essential "nice-to-have" features to reduce maintenance and build complexity — not just dead code, but working features deemed surplus ("仅仅是锦上添花而已"). Confidence: 0.55
+- Flags third-party library limitations he notices (often by sharing the upstream doc/statement link) and expects the agent to research them before continuing, adopting the solution the upstream project officially recommends instead of working around it. Confidence: 0.55
+- Prefers genuine, recognizable brand marks for social/GitHub links over generic substitute icons from a general-purpose icon set (e.g. a git-fork glyph standing in for the GitHub logo); is willing to add a dedicated brand-icon dependency for those marks. Confidence: 0.5
