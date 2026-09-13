@@ -13,3 +13,4 @@
 - Prefers icon *components* (lucide's `@lucide/astro` TSX approach) over UnoCSS/Iconify `i-*` icon-class (font/presetIcons) usage. Confidence: 0.6
 - Keeps dependencies minimal: wants unrelated/unused packages removed from package.json and the lockfile, not just dead code deleted. Confidence: 0.6
 - Prefers dropping a marginal feature (e.g. markdown external-link host icons) over adding a new dependency to keep it working. Confidence: 0.5
+- Readily sacrifices non-essential "nice-to-have" features to reduce maintenance and build complexity — not just dead code, but working features deemed surplus ("仅仅是锦上添花而已"). Confidence: 0.55
